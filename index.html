@@ -1,4 +1,4 @@
-<!-- starting on page 6 -->
+<!-- starting on page 10 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,6 +112,109 @@
 
 <script>
 const allQuestions = [
+{
+  question: "You plan to populate records in a Microsoft Dataverse entity containing an option set field. The source system has the option label but not the integer value. You are using a non-.NET programming language. What should you do?",
+  options: [
+    "Use Web API and use a PicklistAttributeMetadata request.",
+    "Use the Organization service and execute a RetrieveOptionSetRequest request.",
+    "Use Web API and use an InsertOptionValue action.",
+    "Use the Organization service and execute a RetrieveAttributeRequest request."
+  ],
+  answer: "Use Web API and use a PicklistAttributeMetadata request.",
+  explanation: "When using a non-.NET language, retrieve option set metadata through the Web API using PicklistAttributeMetadata to obtain the integer values."
+},
+
+{
+  question: "A travel company must track which regions contacts have visited and store the visit date. Which THREE actions should you perform?",
+  options: [
+    "Create an N:N relationship from Contact to Region.",
+    "Create a 1:N relationship from ContactRegion to Region.",
+    "Create an intersect entity named ContactRegion and create 1:N relationships to Contact and Region.",
+    "On the ContactRegion form, add Contact lookup, Region lookup, and Visit Date fields.",
+    "Create a 1:N relationship from Contact to Region.",
+    "Create the Region entity.",
+    "Add a Region sub-grid to the ContactRegion form."
+  ],
+  answer: [
+    "Create an intersect entity named ContactRegion and create 1:N relationships to Contact and Region.",
+    "On the ContactRegion form, add Contact lookup, Region lookup, and Visit Date fields.",
+    "Create the Region entity."
+  ],
+  explanation: "Because additional data (Visit Date) must be stored, create an intersect entity instead of a native many-to-many relationship."
+},
+
+{
+  question: "Solution Checker reports errors for one solution but completes without errors for another solution. What is the cause?",
+  options: [
+    "A canvas app in the first solution has errors.",
+    "The Power Apps checker application user is disabled."
+  ],
+  answer: "A canvas app in the first solution has errors.",
+  explanation: "Solution Checker analyzes all solution components. If one solution contains a faulty canvas app, only that solution reports errors."
+},
+
+{
+  question: "Solution Checker flags the following JavaScript: if (accountnumber == 'abc'). Which rule is being violated?",
+  options: [
+    "web-avoid-eval",
+    "web-remove-debug-script",
+    "web-avoid-modals",
+    "web-use-strict-mode"
+  ],
+  answer: "web-use-strict-mode",
+  explanation: "Using == instead of === violates the strict mode recommendation because it performs type coercion."
+},
+
+{
+  question: "Users report that Dataverse Rollup Fields are not updated immediately after a policy is created. What should you do?",
+  options: [
+    "Create a workflow that calculates the rollup values.",
+    "Update the Mass Calculate Rollup Field job.",
+    "Increase the recurring rollup job frequency.",
+    "Create a plug-in that calls CalculateRollupFieldRequest when a policy is created."
+  ],
+  answer: "Create a plug-in that calls CalculateRollupFieldRequest when a policy is created.",
+  explanation: "CalculateRollupFieldRequest forces an immediate recalculation instead of waiting for the scheduled rollup jobs."
+},
+
+{
+  question: "A public website survey must write directly to Dataverse without requiring users to sign in. Which authentication mechanism should you implement?",
+  options: [
+    "ADFS",
+    "Azure AD Conditional Access",
+    "Azure guest account",
+    "Client Secret"
+  ],
+  answer: "Client Secret",
+  explanation: "Server-to-server authentication uses an application registration and client secret rather than user credentials."
+},
+
+{
+  question: "A managed solution containing JavaScript-enabled forms fails to import. What is the cause?",
+  options: [
+    "The web resources were not added to the form before adding the form to the solution.",
+    "The solution should have been exported as unmanaged.",
+    "The web resources were not added to the solution before exporting.",
+    "A copy of the form should have been created before adding it to the solution."
+  ],
+  answer: "The web resources were not added to the solution before exporting.",
+  explanation: "Every dependent web resource must be included in the solution before export."
+},
+
+{
+  question: "You need to configure column mappings between parent and child tables. Which TWO actions are valid?",
+  options: [
+    "Map the value of a Choices column on the child table to a Choices column on the parent table.",
+    "Map a parent column using values from the child table.",
+    "Map values for the same columns on both the child quick-create form and main form to the parent table.",
+    "Map a single line of text column to a currency column."
+  ],
+  answer: [
+    "Map the value of a Choices column on the child table to a Choices column on the parent table.",
+    "Map values for the same columns on both the child quick-create form and main form to the parent table."
+  ],
+  explanation: "Column mappings require compatible data types, and mappings apply to both quick create and main forms."
+},
 {
   question: "You need users to attach PDF files to Doctor records in Dataverse. What should you do?",
   options: [
@@ -604,6 +707,32 @@ const allQuestions = [
   explanation: "Field-level security requires enabling field security, creating a Field Security Profile, and granting permissions to members of that profile."
 },
 
+
+
+{
+  question: "You need an alternate key that references the Name and Email columns to uniquely identify Account records. What should you do?",
+  options: [
+    "Add a Power Apps command function.",
+    "Use Power Fx.",
+    "Add columns to the Account table.",
+    "Create a key in the Account table."
+  ],
+  answer: "Create a key in the Account table.",
+  explanation: "Alternate keys are created using Keys on the Dataverse table."
+},
+
+{
+  question: "A sensitive column should only be readable by Group1 users while Group2 must not see it. What should you do?",
+  options: [
+    "Create a security role for Group1.",
+    "Create separate forms.",
+    "Use JavaScript to hide the field.",
+    "Create a field-level security profile for Group1."
+  ],
+  answer: "Create a field-level security profile for Group1.",
+  explanation: "Field-level security controls access to individual columns regardless of the form."
+},
+
 {
   question: "You are designing a relationship in Dataverse. You need assignment actions to cascade only to active related records. Which settings should you choose?",
   options: [
@@ -615,12 +744,60 @@ const allQuestions = [
   answer: "Configurable Cascading + Cascade Active",
   explanation: "Configurable Cascading lets you specify the behavior for each action independently. Selecting Cascade Active applies the action only to active related records."
 },
+
+
+{
+  question: "You need an alternate key that references the Name and Email columns to uniquely identify Account records. What should you do?",
+  options: [
+    "Add a Power Apps command function.",
+    "Use Power Fx.",
+    "Add columns to the Account table.",
+    "Create a key in the Account table."
+  ],
+  answer: "Create a key in the Account table.",
+  explanation: "Alternate keys are created using Keys on the Dataverse table."
+},
+
+{
+  question: "A sensitive column should only be readable by Group1 users while Group2 must not see it. What should you do?",
+  options: [
+    "Create a security role for Group1.",
+    "Create separate forms.",
+    "Use JavaScript to hide the field.",
+    "Create a field-level security profile for Group1."
+  ],
+  answer: "Create a field-level security profile for Group1.",
+  explanation: "Field-level security controls access to individual columns regardless of the form."
+},
+
+
 ];
 
 const QUESTIONS_PER_RUN = allQuestions.length;
 const MEMORY_INTERVAL = 2;
 
 const memoryCards = [
+"Environment Variables: Existing app session = old value; New app session & newly saved flows = updated value",
+
+"Store in Dataverse → Standard table | Reference external data → Virtual table",
+
+"Need uniqueness across columns → Create Alternate Key",
+
+"Hide a column from specific users → Field-Level Security Profile",
+
+"Retrieve(Entity, Id, ColumnSet(true)) = inefficient (retrieve only needed columns)",
+
+"GetAttributeValue<int>() on missing attribute returns 0, not an exception",
+
+"Updating one column triggers plug-ins registered on that updated column, not unrelated columns",
+"Need Option Set integer value in non-.NET → Web API + PicklistAttributeMetadata",
+"Need extra data on many-to-many relationship (Visit Date) → Create intersect entity with two 1:N relationships",
+"Solution Checker errors only one solution → Canvas app in that solution has errors",
+"JavaScript == warning → web-use-strict-mode (use ===)",
+"Need Rollup Field recalculated immediately → Plug-in + CalculateRollupFieldRequest",
+"Anonymous app authentication to Dataverse → Client Secret",
+"Managed solution missing JavaScript → Add Web Resources to the Solution before exporting",
+"Column mapping supports compatible data types (Choices → Choices); applies to Quick Create and Main forms",
 "Package Deployment: Custom code → PackageTemplate.cs | Sample data → ImportConfig.xml | Copy to Output Directory → Copy Always",
 "Relationship behavior: Delete children → Parental | Assign only owned children → Cascade User Owned | Keep child when parent deleted → Referential",
   "Skill Bot sequence → Manifest → Register in Power Virtual Agents → Register in Azure AD",
