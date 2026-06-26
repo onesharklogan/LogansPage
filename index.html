@@ -1,4 +1,4 @@
-<!-- starting on page 6 -->
+<!-- starting on page 8 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,6 +111,92 @@
 
 <script>
 const allQuestions = [
+{
+  question: "You need users to attach PDF files to Doctor records in Dataverse. What should you do?",
+  options: [
+    "Create a Power Automate flow",
+    "Enable attachments in Table options",
+    "Enable attachments in Column options",
+    "Create a relationship with the Notes table"
+  ],
+  answer: "Enable attachments in Table options",
+  explanation: "Attachments are enabled at the Dataverse table level."
+},
+{
+  question: "A plug-in updates the Account Number during an Account Update. Which three Plug-in Registration Tool actions should you perform?",
+  options: [
+    "Register New Assembly",
+    "Register New Step (Update, Account, PreValidation)",
+    "Register New Step (Update, Account, PreOperation)",
+    "Register New Image as PreImage",
+    "Register New Image as PostImage"
+  ],
+  answer: [
+    "Register New Assembly",
+    "Register New Step (Update, Account, PreOperation)",
+    "Register New Image as PreImage"
+  ],
+  explanation: "Upload the assembly, register a PreOperation step, then register a PreImage so the plug-in can compare original values."
+},
+{
+  question: "A model-driven app contains parent and child tables. When creating a child record from the parent form, parent data should automatically populate the child record. What should you do?",
+  options: [
+    "Use a Power Automate flow to copy the data",
+    "Map table columns from the parent record to the child record",
+    "Create a business rule to populate the fields",
+    "Use a Quick View form"
+  ],
+  answer: "Map table columns from the parent record to the child record",
+  explanation: "Column mappings automatically populate child records created from a parent record."
+},
+ {
+  question: "You need to configure field security for an Approval field. Which three actions should you perform in sequence?",
+  options: [
+    "Create a new field security profile",
+    "Enable auditing in the Approval field",
+    "Create an access team template",
+    "Enable change tracking for the Opportunity entity",
+    "Set field permissions (Read, Update, Create) and add the sales manager to the field security profile",
+    "Enable field security in the Approval field",
+    "Grant write privileges through a security role"
+  ],
+  answer: [
+    "Enable field security in the Approval field",
+    "Create a new field security profile",
+    "Set field permissions (Read, Update, Create) and add the sales manager to the field security profile"
+  ],
+  explanation: "First enable field security on the field, then create a Field Security Profile, then grant permissions and add users."
+},
+ {
+  question: "When configuring relationship behavior, which feature should be used when deleting a primary record must also delete associated records?",
+  options: [
+    "Parental",
+    "Cascade User Owned",
+    "Referential"
+  ],
+  answer: "Parental",
+  explanation: "Parental relationships cascade deletes from the parent to related child records."
+},
+{
+  question: "When configuring relationship behavior, which feature assigns only user-owned child records when the parent record is reassigned?",
+  options: [
+    "Parental",
+    "Cascade User Owned",
+    "Referential"
+  ],
+  answer: "Cascade User Owned",
+  explanation: "Cascade User Owned affects only records owned by the same user during assignment."
+},
+{
+  question: "When configuring relationship behavior, which feature prevents related records from being deleted when the parent record is deleted?",
+  options: [
+    "Parental",
+    "Cascade User Owned",
+    "Referential"
+  ],
+  answer: "Referential",
+  explanation: "Referential relationships do not cascade deletes."
+},
   {
     question: "Managers need one screen with Power BI data and the ability to update maintenance history. What should you do?",
     options: [
@@ -534,6 +620,8 @@ const QUESTIONS_PER_RUN = allQuestions.length;
 const MEMORY_INTERVAL = 2;
 
 const memoryCards = [
+"Package Deployment: Custom code → PackageTemplate.cs | Sample data → ImportConfig.xml | Copy to Output Directory → Copy Always",
+"Relationship behavior: Delete children → Parental | Assign only owned children → Cascade User Owned | Keep child when parent deleted → Referential",
   "Skill Bot sequence → Manifest → Register in Power Virtual Agents → Register in Azure AD",
   "Cloud plug-ins → Sandbox",
   "External app writes Dataverse → Web API",
