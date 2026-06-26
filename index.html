@@ -1,4 +1,4 @@
-<!-- starting on page 8 -->
+<!-- starting on page 6 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,6 +105,7 @@
   <div id="options"></div>
   <div id="feedback"></div>
   <button id="actionButton" onclick="handleButtonClick()">Check Answer</button>
+  <button id="endButton" onclick="endQuiz()" style="background:#6b7280;margin-left:10px;">End Quiz</button>
 </div>
 
 <div id="result"></div>
@@ -645,6 +646,7 @@ let quizSlides = [];
 let quizQuestions = [];
 let currentQuestionIndex = 0;
 let score = 0;
+let attempted = 0;
 let selectedAnswers = [];
 let answerChecked = false;
 
@@ -682,12 +684,13 @@ function makeFlashcards() {
   }));
 }
 
-function buildSequentialSlides() {
+function buildRandomSlides() {
   const slides = [];
-  const cards = makeFlashcards();
+  const cards = shuffle(makeFlashcards());
+  const randomizedQuestions = shuffle(allQuestions);
   let cardIndex = 0;
 
-  allQuestions.forEach((question, index) => {
+  randomizedQuestions.forEach((question, index) => {
     slides.push({ ...question, type: "question" });
 
     const shouldInsertMemoryCard =
@@ -717,10 +720,11 @@ function getQuestionNumberForSlide(slideIndex) {
 
 function startQuiz() {
   quizQuestions = [...allQuestions];
-  quizSlides = buildSequentialSlides();
+  quizSlides = buildRandomSlides();
 
   currentQuestionIndex = 0;
   score = 0;
+  attempted = 0;
   selectedAnswers = [];
   answerChecked = false;
 
@@ -761,7 +765,7 @@ function showQuestion() {
   const questionNumber = getQuestionNumberForSlide(currentQuestionIndex);
 
   document.getElementById("progress").innerText =
-    `Question ${questionNumber} of ${quizQuestions.length}`;
+    `Question ${questionNumber} of ${quizQuestions.length} | Attempted: ${attempted} | Score: ${score}/${attempted}`;
 
   document.getElementById("question").innerText =
     current.question + (isMulti ? " (Select all that apply)" : "");
@@ -817,6 +821,8 @@ function checkAnswer() {
   const current = quizSlides[currentQuestionIndex];
   const feedback = document.getElementById("feedback");
 
+  attempted++;
+
   if (answersMatch(selectedAnswers, current.answer)) {
     score++;
     feedback.innerHTML = `<span class="correct">Correct ✅</span>${current.explanation ? `<br><br><b>Why:</b> ${current.explanation}` : ""}`;
@@ -846,14 +852,19 @@ function nextQuestion() {
 function showResult() {
   document.getElementById("quiz").style.display = "none";
 
-  const percent = Math.round((score / quizQuestions.length) * 100);
+  const percent = attempted === 0 ? 0 : Math.round((score / attempted) * 100);
 
   document.getElementById("result").innerHTML = `
-    Final Score: ${score} / ${quizQuestions.length}<br>
+    Final Score: ${score} / ${attempted} attempted<br>
     Percentage: ${percent}%<br>
-    Non-scored memory cards shown: ${MEMORY_CARDS_PER_RUN}<br><br>
-    <button onclick="startQuiz()">Restart Sequential Quiz</button>
+    Questions available: ${quizQuestions.length}<br>
+    Non-scored memory cards available: ${MEMORY_CARDS_PER_RUN}<br><br>
+    <button onclick="startQuiz()">Restart Random Quiz</button>
   `;
+}
+
+function endQuiz() {
+  showResult();
 }
 
 startQuiz();
