@@ -1306,6 +1306,7 @@ const allQuestions = [
 
 const QUESTIONS_PER_RUN = allQuestions.length;
 const MEMORY_INTERVAL = 2;
+const WRONG_REPLAY_DELAY = 5;
 <!-- pg 14-->
 const memoryCards = [
 "Monitor shared user session → Create Monitor Session → Invite User → User Reproduces Issue",
@@ -1490,9 +1491,10 @@ function showQuestion() {
 
   const isMulti = Array.isArray(current.answer);
   const questionNumber = getQuestionNumberForSlide(currentQuestionIndex);
+  const replayLabel = current.isReplay ? " | Retry Question" : "";
 
   document.getElementById("progress").innerText =
-    `Question ${questionNumber} of ${quizQuestions.length} | Attempted: ${attempted} | Score: ${score}/${attempted}`;
+    `Question ${questionNumber} of ${quizQuestions.length} | Attempted: ${attempted} | Score: ${score}/${attempted}${replayLabel}`;
 
   document.getElementById("question").innerText =
     current.question + (isMulti ? " (Select all that apply)" : "");
@@ -1522,6 +1524,25 @@ function showQuestion() {
     label.appendChild(document.createTextNode(option));
     optionsDiv.appendChild(label);
   });
+}
+
+
+function scheduleWrongQuestionReplay(question) {
+  // Prevent retry questions from adding themselves again forever.
+  if (question.isReplay) return;
+
+  const replayQuestion = {
+    ...question,
+    isReplay: true,
+    question: "RETRY: " + question.question
+  };
+
+  const insertIndex = Math.min(
+    currentQuestionIndex + WRONG_REPLAY_DELAY + 1,
+    quizSlides.length
+  );
+
+  quizSlides.splice(insertIndex, 0, replayQuestion);
 }
 
 function handleButtonClick() {
@@ -1559,7 +1580,10 @@ function checkAnswer() {
       Right answer: <span class="correct">${formatAnswer(current.answer)}</span>
       ${current.explanation ? `<br><br><b>Why:</b> ${current.explanation}` : ""}
       ${current.incorrectNotes ? `<br><br><b>Why your answer is incorrect:</b> ${current.incorrectNotes[selectedAnswers[0]] || ""}` : ""}
+      <br><br><b>Replay:</b> This question will come back in about ${WRONG_REPLAY_DELAY} slides.
     `;
+
+    scheduleWrongQuestionReplay(current);
   }
 
   answerChecked = true;
