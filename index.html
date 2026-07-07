@@ -1,10 +1,10 @@
-<!-- starting on page 21 next -->
 <!DOCTYPE html>
+<!-- start on 28-->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PL-400</title>
+  <title>PowerPlatform Concepts</title>
 
   <style>
     body {
@@ -97,7 +97,7 @@
 
 <body>
 
-<h1>PL-400 Quiz</h1>
+<h1>Power Platform Knowledge</h1>
 
 <div class="quiz-card" id="quiz">
   <div id="progress"></div>
@@ -112,6 +112,655 @@
 
 <script>
 const allQuestions = [
+
+{
+  question: "You are using a cloud flow.\n\nYou need to configure the When a row is added, modified, or deleted trigger to carry data from the Accounts table. The Accounts table contains more than 2,500 rows.\n\nWhich Change Type should you use?",
+  options: [
+    "Added",
+    "Modified",
+    "Added or Modified"
+  ],
+  answer: "Added or Modified",
+  explanation: "Use Added or Modified when the flow must respond to both newly created and updated rows."
+},
+{
+  question: "You are using a cloud flow.\n\nYou need to update a row connection type.\n\nWhich connection type should you use?",
+  options: [
+    "API key",
+    "User account",
+    "Service principal"
+  ],
+  answer: "Service principal",
+  explanation: "Service principals provide application-based authentication without relying on an individual user's account."
+},
+{
+  question: "You are testing the deployment of a model-driven app. Microsoft Entra ID groups are used exclusively to manage environment and tenant-level permissions.\n\nUsers are unable to access a single environment.\n\nWhat should you use to resolve the issue?",
+  options: [
+    "Microsoft Power Platform",
+    "Security role",
+    "Microsoft Entra ID group",
+    "Team"
+  ],
+  answer: "Microsoft Entra ID group",
+  explanation: "Environment access is controlled by Microsoft Entra ID groups."
+},
+{
+  question: "You are testing the deployment of a model-driven app. Microsoft Entra ID groups are used exclusively to manage environment and tenant-level permissions.\n\nUsers are unable to update Account rows.\n\nWhat should you use to resolve the issue?",
+  options: [
+    "Microsoft Power Platform",
+    "Security role",
+    "Microsoft Entra ID group",
+    "Team"
+  ],
+  answer: "Security role",
+  explanation: "Security roles determine Create, Read, Update, Delete, Append, and Append To privileges."
+},
+{
+  question: "You are testing the deployment of a model-driven app. Microsoft Entra ID groups are used exclusively to manage environment and tenant-level permissions.\n\nUsers are unable to access rows owned by the human resources team.\n\nWhat should you use to resolve the issue?",
+  options: [
+    "Microsoft Power Platform",
+    "Security role",
+    "Microsoft Entra ID group",
+    "Team"
+  ],
+  answer: "Team",
+  explanation: "Team-owned records require membership in the appropriate Dataverse team."
+},
+{
+  question: "You are testing the deployment of a model-driven app. Microsoft Entra ID groups are used exclusively to manage environment and tenant-level permissions.\n\nUsers are unable to create a sandbox environment.\n\nWhat should you use to resolve the issue?",
+  options: [
+    "Microsoft Power Platform",
+    "Security role",
+    "Microsoft Entra ID group",
+    "Team"
+  ],
+  answer: "Microsoft Power Platform",
+  explanation: "Environment creation permissions are managed through the Power Platform admin roles."
+},
+{
+  question: "You are using a Microsoft Power Automate cloud flow to sync all Account records every day from the Accounts table. The Accounts table contains more than 2,500 rows.\n\nWhich property should you configure to manage a large number of records?",
+  options: [
+    "Filter rows",
+    "Expand query",
+    "Skip token",
+    "Select columns"
+  ],
+  answer: "Skip token",
+  explanation: "Skip token enables paging through large Dataverse result sets."
+},
+{
+  question: "You are using a Microsoft Power Automate cloud flow to sync all Account records every day from the Accounts table.\n\nWhich property should you configure to return information from related contact records?",
+  options: [
+    "Filter rows",
+    "Expand query",
+    "Skip token",
+    "Select columns"
+  ],
+  answer: "Expand query",
+  explanation: "Expand query retrieves related table data in a single request."
+},
+{
+  question: "Which connector should you use to retrieve data?",
+  options: [
+    "Approvals",
+    "Dataverse",
+    "Excel Online for Business",
+    "Teams"
+  ],
+  answer: "Excel Online for Business",
+  explanation: "The data source is Excel Online for Business."
+},
+{
+  question: "Which connector should you use to approve the submission in Microsoft Teams?",
+  options: [
+    "Approvals",
+    "Dataverse",
+    "Excel Online for Business",
+    "Teams"
+  ],
+  answer: "Approvals",
+  explanation: "The Approvals connector manages approval workflows."
+},
+{
+  question: "Which connector should you use to record the result of the API upload?",
+  options: [
+    "Approvals",
+    "Dataverse",
+    "Excel Online for Business",
+    "Teams"
+  ],
+  answer: "Dataverse",
+  explanation: "Dataverse stores the result of the API upload."
+},
+{
+  question: "A client requires that the system send an email from a button on their customer contact form.\n\nYou need to call the action from JavaScript.\n\nWhich two functions achieve this result?",
+  options: [
+    "Xrm.WebApi.online.executeMultiple()",
+    "Xrm.WebApi.online.updateRecord()",
+    "Xrm.WebApi.online.createRecord()",
+    "Xrm.WebApi.online.execute()"
+  ],
+  answer: [
+    "Xrm.WebApi.online.executeMultiple()",
+    "Xrm.WebApi.online.execute()"
+  ],
+  explanation: "Both execute() and executeMultiple() can invoke Dataverse actions."
+},
+{
+  question: "A company has two development instances, two test instances, two staging instances, and one production instance.\n\nThe test team reports connection issues with the test and staging instances.\n\nYou need to identify which of the instances the testing team currently has access.\n\nWhich two URLs can you use?",
+  options: [
+    "https://globaldisco.crm.dynamics.com/api/discovery/v9.1/instances",
+    "https://myorg.api.crm.dynamics.com/api/data/v9.1/",
+    "https://dev.crm.dynamics.com/api/discovery/v9.1/instances",
+    "https://disco.crm.dynamics.com/api/discovery/v9.1/",
+    "https://dev.crm.dynamics.com/api/discovery/v9.1/instances(UniqueName='myorg')"
+  ],
+  answer: [
+    "https://dev.crm.dynamics.com/api/discovery/v9.1/instances",
+    "https://dev.crm.dynamics.com/api/discovery/v9.1/instances(UniqueName='myorg')"
+  ],
+  explanation: "The Discovery Service returns the environments available to the authenticated user."
+},
+{
+  question: "You are a Dynamics 365 developer working on a model-driven app.\n\nYou add a button to an entity form and to the view for the entity that calls a JavaScript function. When you click the button, it results in an error.\n\nYou determine that the JavaScript function is calling another JavaScript function in a different web resource.\n\nYou need to resolve the error.\n\nWhat should you do?",
+  options: [
+    "In the JavaScript web resource, add the missing web resource as a dependency.",
+    "Add &ribbondebug=true to the app URL and run the Command Checker tool.",
+    "From the Ribbon Workbench, add the missing JavaScript web resource as a CustomRule in EnableRules."
+  ],
+  answer: "In the JavaScript web resource, add the missing web resource as a dependency.",
+  explanation: "Dependent JavaScript web resources must be declared as dependencies."
+},
+{
+  question: "A multinational company requires that all phone numbers be standardized as country code + area code + phone number.\n\nThe application design team decides that a custom Power Apps component framework (PCF) control should be used to prompt users for an area code and to correctly format the phone number.\n\nYou need to get the list of valid area codes when a contact record is opened and before the user enters a new phone number.\n\nIn which function should you call webAPI.retrieveMultipleRecords()?",
+  options: [
+    "updateView",
+    "notifyOutputChanged",
+    "getOutputs"
+  ],
+  answer: "updateView",
+  explanation: "updateView is called when the control receives data and is the appropriate place to retrieve supporting information."
+},
+{
+  question: "Updating the primary contact record will only happen when the form is in update mode.",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "Yes",
+  explanation: "The code updates the related contact only when the form is in Update mode."
+},
+{
+  question: "If the primary contact field on the account does not have a value, the error dialog on line 18 is displayed.",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "No",
+  explanation: "The code path does not display the error dialog in that situation."
+},
+{
+  question: "The alert dialog on line 21 will always be shown after the update completes and the alert dialog on line 15 is shown.",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "No",
+  explanation: "The second dialog is not guaranteed to execute."
+},
+{
+  question: "The code raises the following exception: Interact with HTTP and HTTPS resources asynchronously (web-use-async).",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "Yes",
+  explanation: "The analyzer flags synchronous HTTP requests."
+},
+{
+  question: "The code raises the following exception: Use strict equality operators (web-use-strict-equality-operators).",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "Yes",
+  explanation: "The analyzer flags the use of == instead of ===."
+},
+{
+  question: "The code raises the following exception: Avoid including debug script in non-development environments (web-remove-debug-script).",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "No",
+  explanation: "No debug script issue is detected."
+},
+{
+  question: "A company is creating a Power Apps portal to collaborate with vendors.\n\nYou need to implement custom functionality in the portal by using JavaScript code.\n\nWhich two portal entities can you use?",
+  options: [
+    "Web pages",
+    "Web resources",
+    "Webforms",
+    "Entity lists"
+  ],
+  answer: [
+    "Web pages",
+    "Entity lists"
+  ],
+  explanation: "Custom JavaScript can be added to Web Pages and Entity Lists."
+},
+{
+  question: "You need to develop a set of Web APIs for a company.\n\nWhich operation should you implement for operations that do not have side effects and may support further composition?",
+  options: [
+    "Functions",
+    "Actions",
+    "Entities"
+  ],
+  answer: "Functions",
+  explanation: "Functions are side-effect free operations."
+},
+{
+  question: "You need to develop a set of Web APIs for a company.\n\nWhich operation should you implement for operations that allow side effects, such as data modification?",
+  options: [
+    "Functions",
+    "Actions",
+    "Entities"
+  ],
+  answer: "Actions",
+  explanation: "Actions perform operations that may modify data."
+},
+{
+  question: "You need to develop a set of Web APIs for a company.\n\nWhich type should you implement for keyless named structured types that consist of a set of properties?",
+  options: [
+    "Complex types",
+    "Entity types",
+    "Enumeration types"
+  ],
+  answer: "Complex types",
+  explanation: "Complex types are structured types that have no key."
+},
+{
+  question: "You are developing an app that uses Common Data Service.\n\nYou must integrate Common Data Service with a new web application. You must allow the new web application to display data from Common Data Service.\n\nYou build a single-page web application using the Web API.\n\nYou need to authenticate your app using OAuth.\n\nWhat should you use?",
+  options: [
+    "Windows Communication Foundation (WCF)",
+    "Cross-Origin Resource Sharing (CORS)",
+    "Microsoft Authentication Library (MSAL)",
+    "Kerberos authentication"
+  ],
+  answer: "Microsoft Authentication Library (MSAL)",
+  explanation: "MSAL provides OAuth authentication for single-page applications."
+},
+{
+  question: "You are creating a model-driven app.\n\nA JavaScript function must be manually initiated by the user from within an entity form.\n\nYou need to add a button to the form to run the JavaScript.\n\nWhat should you do?",
+  options: [
+    "Use the Ribbon Workbench.",
+    "Edit the SiteMap.",
+    "Edit the XML for the form.",
+    "Edit ISV.Config.",
+    "Export the ribbon definitions."
+  ],
+  answer: "Use the Ribbon Workbench.",
+  explanation: "Ribbon Workbench is used to add custom buttons that invoke JavaScript."
+},
+{
+  question: "You are creating a canvas app for a bank.\n\nConsumers will enter information into the app when they apply for a loan.\n\nThe input form of the app must display fields to prompt the consumer for their first name, last name, address, and the requested loan amount.\n\nImmediately after a consumer enters a value for the LoanAmount field, the background color for the column must change. The background color for the column must change to red if a consumer enters a value of more than $5,000 and must turn green for values less than or equal to $5,000.\n\nYou need to implement the required behavior.\n\nWhich option should you use?",
+  options: [
+    "Create a Power Automate flow.",
+    "Configure field properties.",
+    "Add a business rule to the form.",
+    "Add a formula to the LoanAmount field."
+  ],
+  answer: "Add a formula to the LoanAmount field.",
+  explanation: "Conditional formatting in canvas apps is implemented by using Power Fx formulas."
+},
+{
+  question: "You are developing a model-driven app for a company.\n\nWhen you create a new Account record, you must automatically display a form to collect data that is needed to create a Contact record. The form must switch to the appropriate form layout based on the contact type.\n\nYou open the Contact form by using JavaScript. You pass the contact type information to the form by using the Xrm.Navigation.openForm function. An OnLoad event handler in the Contact form processes the data and shows only the appropriate sections of the form for the given contact type.\n\nSolution: In the form editor, add an event handler for the data parameter.\n\nDoes the solution meet the goal?",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "Yes",
+  explanation: "A data parameter event handler can process data passed by Xrm.Navigation.openForm."
+},
+{
+  question: "You are developing a model-driven app for a company.\n\nWhen you create a new Account record, you must automatically display a form to collect data that is needed to create a Contact record. The form must switch to the appropriate form layout based on the contact type.\n\nYou open the Contact form by using JavaScript. You pass the contact type information to the form by using the Xrm.Navigation.openForm function. An OnLoad event handler in the Contact form processes the data and shows only the appropriate sections of the form for the given contact type.\n\nSolution: In the form editor, add a web resource that sets formContext.data.attributes.\n\nDoes the solution meet the goal?",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "No",
+  explanation: "formContext.data.attributes does not process parameters passed by openForm."
+},
+{
+  question: "You need to develop a set of Web APIs for a company.\n\nWhich value should you use for the JavaScriptFunction Library parameter to retrieve client context information?",
+  options: [
+    "CrmParameter",
+    "IntParameter",
+    "StringParameter"
+  ],
+  answer: "CrmParameter",
+  explanation: "CrmParameter retrieves client context information such as OrgName, OrgLcid, and UserLcid."
+},
+{
+  question: "You need to develop a set of Web APIs for a company.\n\nWhich value should you use with CrmParameter to retrieve the language code of the current user?",
+  options: [
+    "1033",
+    "1036",
+    "OrgLcid",
+    "UserLcid"
+  ],
+  answer: "UserLcid",
+  explanation: "UserLcid returns the current user's language locale identifier."
+},
+{
+  question: "An organization has a Dynamics 365 Sales environment.\n\nYou need to create a Power Apps component.\n\nWhich action should you perform first?",
+  options: [
+    "Create a project folder.",
+    "Run the pac pcf init command.",
+    "Run npm install.",
+    "Run npm run build."
+  ],
+  answer: "Create a project folder.",
+  explanation: "A project folder is created before initializing a new PCF project."
+},
+{
+  question: "After creating a project folder for a new Power Apps component, which action should you perform next?",
+  options: [
+    "Run the pac pcf init command.",
+    "Run npm install.",
+    "Run npm run build."
+  ],
+  answer: "Run the pac pcf init command.",
+  explanation: "pac pcf init creates the PCF project structure."
+},
+{
+  question: "After running the pac pcf init command for a new Power Apps component, which action should you perform next?",
+  options: [
+    "Run npm install.",
+    "Run npm run build."
+  ],
+  answer: "Run npm install.",
+  explanation: "npm install downloads the project dependencies."
+},
+{
+  question: "You are developing a Power Apps component framework (PCF) control.\n\nThe CSS resource must load before the HTML resource.\n\nWhat order value should be assigned to the CSS resource?",
+  options: [
+    "1",
+    "2",
+    "3"
+  ],
+  answer: "1",
+  explanation: "The CSS resource loads first."
+},
+{
+  question: "You are developing a Power Apps component framework (PCF) control.\n\nThe HTML resource must load before the JavaScript resources.\n\nWhat order value should be assigned to the HTML resource?",
+  options: [
+    "1",
+    "2",
+    "3"
+  ],
+  answer: "1",
+  explanation: "The HTML resource loads before the JavaScript resources."
+},
+{
+  question: "You are developing a business process flow.\n\nWhat is the result of running the following JavaScript code?\n\nformContext.getControl(\"test_number\").setVisible(false);",
+  options: [
+    "Hides only the control in the body of the form",
+    "Hides only the control in the business process flow",
+    "Hides controls in the body of the form and the business process flow"
+  ],
+  answer: "Hides only the control in the body of the form",
+  explanation: "setVisible(false) hides the control on the form body only."
+},
+{
+  question: "You are developing a business process flow.\n\nWhat is the result of running the following JavaScript code?\n\nformContext.data.process.addOnStageChange(testFunction);",
+  options: [
+    "Adds an event handler to enable a function named testFunction to run when the business process flow stage changes",
+    "Adds an event handler to enable a function named testFunction to run before the business process flow stage changes",
+    "Adds an event handler to enable a function named testFunction to run when the business process flow stage is selected"
+  ],
+  answer: "Adds an event handler to enable a function named testFunction to run when the business process flow stage changes",
+  explanation: "addOnStageChange registers a handler for the OnStageChange event."
+},
+{
+  question: "You are developing a Power Apps app to manage records in the Account table in Microsoft Dataverse.\n\nYou must configure a Web API request to retrieve changes from the table.\n\nYou need to configure the preference header for the API request.\n\nWhat should you include in the request header?",
+  options: [
+    "odata.context",
+    "odata.deltaLink",
+    "odata.track-changes",
+    "odata.nextLink"
+  ],
+  answer: "odata.track-changes",
+  explanation: "Use odata.track-changes to retrieve a delta link for change tracking."
+},
+{
+  question: "You are creating a Power Apps Component Framework (PCF) component.\n\nYou need to complete the component manifest.\n\nWhich XML markup segment should you insert at line 03?",
+  options: [
+    "<control DisplayNameKey='PowerContoso' ...>",
+    "<control namespace='PowerContoso' constructor='CtlProducts' version='0.0.10' display-name-key='CtlProducts' description-key='CtlProducts' control-type='standard'>",
+    "<control code='PowerContoso' ...>",
+    "<control name='PowerContoso' ...>",
+    "<control value='PowerContoso' ...>"
+  ],
+  answer: "<control namespace='PowerContoso' constructor='CtlProducts' version='0.0.10' display-name-key='CtlProducts' description-key='CtlProducts' control-type='standard'>",
+  explanation: "A PCF manifest begins with the control element using the namespace attribute."
+},
+{
+  question: "A company is creating a Power Apps portal to collaborate with vendors.\n\nYou need to implement custom functionality in the portal by using JavaScript code.\n\nWhich two portal entities can you use?",
+  options: [
+    "Web pages",
+    "Web resources",
+    "Web roles",
+    "Entity lists"
+  ],
+  answer: [
+    "Web pages",
+    "Entity lists"
+  ],
+  explanation: "JavaScript can be added to Web Pages and Entity Lists."
+},
+{
+  question: "Would the value of the telephone1 column on the contact form be null if the parentcustomerid column is null?",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "No"
+},
+{
+  question: "Would the code return a parentcustomerid record if it is an account or a contact?",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "No"
+},
+{
+  question: "Would the value of the telephone1 column be null if the value of the telephone1 column from the parentcustomerid record is null?",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "No"
+},
+{
+  question: "Which filter should you use?",
+  options: [
+    "not contains(new_dataid,'')",
+    "new_dataid eq null",
+    "DataId ne null",
+    "new_dataid ne null"
+  ],
+  answer: "new_dataid ne null",
+  explanation: "Use ne null to filter rows that contain a value."
+},
+{
+  question: "You need to ensure data returned from the Web API corresponds to the correct environment.\n\nWhat should you use?",
+  options: [
+    "system settings",
+    "plug-in secure configurations",
+    "records in a new configuration table",
+    "environment variables"
+  ],
+ answer: "environment variables",
+  explanation: "Environment variables provide environment-specific configuration."
+},
+{
+  question: "A company is testing a Microsoft Dataverse plug-in in an environment. The plug-in works in post-operation mode and performs an update.\n\nDuring testing, a user observes that the plug-in unintentionally triggers a synchronous third-party ISV plug-in.\n\nYou need to modify the system design to avoid unwanted triggering of the third-party plug-in.\n\nWhat should you do?",
+  options: [
+    "Disable the existing third-party plug-in by using the Plug-in Registration Tool.",
+    "Use UpdateRequest with the BypassCustomPluginExecution parameter and Execute method of the Organization service.",
+    "Update the code of the third-party ISV plug-in to ignore updates caused by the new plug-in.",
+    "Update the code of the new plug-in to use InputParameters of PlugIn Execution Context."
+  ],
+  answer: "Use UpdateRequest with the BypassCustomPluginExecution parameter and Execute method of the Organization service.",
+  explanation: "BypassCustomPluginExecution prevents eligible custom plug-ins from executing during the request."
+},
+{
+  question: "You are developing a model-driven app using JavaScript.\n\nYou need to configure the app to display a dialog box when a form is opened or when a grid on a form is sorted.\n\nWhat should you use?",
+  options: [
+    "Grid OnSave",
+    "Grid OnRecordSelect",
+    "Grid OnChange",
+    "Subgrid OnLoad"
+  ],
+  answer: "Subgrid OnLoad",
+  explanation: "Subgrid OnLoad runs when a grid loads or refreshes, including after sorting."
+},
+{
+  question: "A company performs an update to an existing column-bound Power Apps Component Framework (PCF) code component.\n\nYou test the changes to the code component in the development environment. You then import the component to the production environment as part of a managed solution. You observe that the changes to the component are not reflected in the production environment.\n\nYou need to ensure that the changes are effective in the production environment.\n\nWhat should you do?",
+  options: [
+    "Import the PCF code component to the production environment directly from Visual Studio Code by using the pac pcf push instruction.",
+    "Publish the form that uses the PCF code component in the production environment.",
+    "Increment the PCF control version property in the manifest.pcfproj file, and then reimport the solution from development to the production environment.",
+    "Publish the PCF code component in the production environment."
+  ],
+  answer: "Increment the PCF control version property in the manifest.pcfproj file, and then reimport the solution from development to the production environment.",
+  explanation: "Managed solutions require the component version to change before updates are applied."
+},
+{
+  question: "The code cancels the normal save operation of the form.",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "Yes",
+  explanation: "executionContext.getEventArgs().preventDefault() cancels the normal save operation."
+},
+{
+  question: "A confirmation dialog box is displayed if the credithold value is true.",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "No",
+  explanation: "The dialog is shown only when the retrieved credithold value is false."
+},
+{
+  question: "The record will save if the credithold value is false.",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "No",
+  explanation: "The save occurs only if the user confirms the dialog."
+},
+{
+  question: "You create a custom API. You define the API as a function.\n\nThe custom API does not appear in the response received from https://yourorg.api.crm.dynamics.com/api/data/v9.2/$metadata and returns an error when called.\n\nYou need to identify why the custom API is not working.\n\nWhat should you do?",
+  options: [
+    "Add a response property to the custom API.",
+    "Add a request property to the custom API.",
+    "Set the Enabled for Workflow option of the custom API to True.",
+    "Set the Is Private property of the custom API to False."
+  ],
+  answer: "Set the Is Private property of the custom API to False.",
+  explanation: "Private custom APIs are hidden from the Web API metadata and cannot be called externally."
+},
+{
+  question: "You need to implement visual hints in the custom connector.\n\nWhat should you do? Each correct answer presents a complete solution.",
+  options: [
+    "In the custom connector, update the name of the policy template.",
+    "Extend the Open API definition of the Web API for the EnvironmentName parameter.",
+    "Extend the Open API definition of the Web API for the DataId parameter.",
+    "In the custom connector, update the description for the DataId parameter."
+  ],
+  answer: [
+    "Extend the Open API definition of the Web API for the EnvironmentName parameter.",
+    "In the custom connector, update the description for the DataId parameter."
+  ],
+  explanation: "Visual hints are provided through OpenAPI metadata such as parameter descriptions."
+},
+{
+  question: "You are composing a request to the Microsoft Dataverse Web API that updates existing account records in Dataverse and returns resulting records in the response.\n\nYou need to complete the request.\n\nWhich HTTP method should you use?",
+  options: [
+    "GET",
+    "PATCH",
+    "POST"
+  ],
+  answer: "PATCH",
+  explanation: "PATCH updates an existing Dataverse record."
+},
+{
+  question: "You are composing a request to the Microsoft Dataverse Web API that updates existing account records in Dataverse and returns resulting records in the response.\n\nWhich header should you use?",
+  options: [
+    "If-None-Match: null",
+    "Prefer: return=representation",
+    "MSCRM.SuppressDuplicateDetection: false"
+  ],
+  answer: "Prefer: return=representation",
+  explanation: "Prefer:return=representation returns the updated entity in the response."
+},
+{
+  question: "You plan to create a Microsoft Power Apps Component Framework (PCF) code component for a record form in a model-driven app.\n\nThe code must be able to read the record's id column.\n\nYou need to configure the manifest.\n\nWhich solution should you use?",
+  options: [
+    "resources",
+    "property",
+    "feature-usage",
+    "type-group"
+  ],
+  answer: "property",
+  explanation: "Use a bound property to access the record's ID."
+},
+{
+  question: "You are developing custom pages for a model-driven app.\n\nThe app must display a timer control within a menu and include a mixture of buttons and icons. If a change is made to any of these elements, then the changes must cascade automatically to all custom pages.\n\nYou need to implement a solution.\n\nWhat should you implement?",
+  options: [
+    "PCF control",
+    "Canvas component",
+    "Timer control",
+    "Web resource"
+  ],
+  answer: "Canvas component",
+  explanation: "Canvas components provide reusable UI across custom pages."
+},
+{
+  question: "You develop a model-driven app in which client-side scripts are used extensively.\n\nUsers report that forms load quickly but become unresponsive.\n\nYou need to investigate the form issues before optimizing the forms.\n\nWhat should you do first?",
+  options: [
+    "Use a Quick View form.",
+    "Add the URL parameter &ribbondebug=true.",
+    "Remove unused forms from the app.",
+    "Enable Offline mode.",
+    "Disable form event handlers."
+  ],
+  answer: "Add the URL parameter &ribbondebug=true.",
+  explanation: "Ribbon debug mode helps diagnose client-side command and form issues."
+},
+{
+  question: "You are creating an integration that uses an Azure function to create records in the Common Data Service when leads are submitted from your company website.\n\nWhich three actions should you perform?",
+  options: [
+    "Create an application registration in Azure Active Directory.",
+    "Assign the system administrator security role to the application user.",
+    "Assign the Power Platform administrator role to the application user in Azure Active Directory.",
+    "Create a new security role with the minimum required permissions and assign to the application user.",
+    "Grant the application delegated permissions to the Dynamics CRM API in Azure Active Directory.",
+    "Deploy Azure B2B guest permissions to the application user."
+  ],
+  answer: [
+    "Create an application registration in Azure Active Directory.",
+    "Create a new security role with the minimum required permissions and assign to the application user.",
+    "Grant the application delegated permissions to the Dynamics CRM API in Azure Active Directory."
+  ],
+  explanation: "Register the app, grant Dynamics CRM permissions, and assign least-privilege security."
+},
 {
   question: "A Power Apps maker is creating a chatbot for a website. The chatbot must recognize geographic attributes to enable additional functionality. What should you recommend?",
   options: [
@@ -123,116 +772,116 @@ const allQuestions = [
   answer: "Slot filling",
   explanation: "Slot filling allows the bot to capture and process specific pieces of information, such as geographic attributes, from user input during a conversation. Slot filling ensures that required data is collected systematically before proceeding to the next step in the dialogue."
 },
-  {
+{
     question: "Visualize records as a hierarchy in a model-driven app. What relationship should you use?",
     options: ["Connection", "One-to-many relationship", "Many-to-many relationship", "Self-referential relationship"],
     answer: "Self-referential relationship"
   },
-  {
+{
     question: "Records in one table must reference only a single record in another table. What relationship should you use?",
     options: ["Connection", "One-to-many relationship", "Many-to-many relationship", "Self-referential relationship"],
     answer: "One-to-many relationship"
   },
-  {
+{
     question: "Any record in one table can be referenced by any record in another table. What relationship should you use?",
     options: ["Connection", "One-to-many relationship", "Many-to-many relationship", "Self-referential relationship"],
     answer: "Many-to-many relationship"
   },
-  {
+{
     question: "School scenario: class history must be available to administrators at the new school. What table ownership should class records use?",
     options: ["Organization", "User", "User or Team", "Team"],
     answer: "Team",
 	explanation:" - School = Team. If the records are team-owned, when responsibility changes (for example, a student transfers schools), you can assign the records to the new school's team. Everyone on that team with the appropriate security role immediately has access."
   },
-  {
+{
     question: "School scenario: class history table connects to the student table. What relationship type?",
     options: ["One-to-many", "Many-to-one", "Many-to-many", "Self-referential"],
     answer: "Many-to-one"
   },
-  {
+{
     question: "School scenario: class history should follow the student relationship behavior. What behavior?",
     options: ["Parental", "Referential", "Custom"],
     answer: "Parental",
 	  explanation: " - Class history is child of Sutdent table. A Parental relationship means the child records inherit the parent's behavior."
 
   },
-  {
+{
     question: "Offline canvas app: does the formula save data to Dataverse when reconnecting after losing network connection?",
     options: ["Yes", "No"],
     answer: "Yes"
   },
-  {
+{
     question: "Offline canvas app: does the Patch-created collection contain all contacts not saved to Dataverse?",
     options: ["Yes", "No"],
     answer: "No"
   },
-  {
+{
     question: "Offline canvas app: does Defaults(Contacts) with Patch update existing contacts?",
     options: ["Yes", "No"],
     answer: "No"
   },
-  {
+{
     question: "Offline canvas app: does the expression handle loss of connection to Dataverse?",
     options: ["Yes", "No"],
     answer: "Yes"
   },
-  {
+{
     question: "Power Apps portal page needs to display Dataverse data. What should you use?",
     options: ["Liquid", "CSS", "iFrame", "Bootstrap"],
     answer: "Liquid"
   },
-  {
+{
     question: "Sales managers need to view records of salespeople in their business unit. Which security option?",
     options: ["Role-based security", "Field-level security", "Record-level security"],
     answer: "Role-based security",
 	explanation: "Record-level security is about sharing individual records or changing the owner of specific records. Field-level security protects individual columns, not records. Role-based security = defines access to records based on roles and scope (User, Business Unit, Organization). Record-level security = exceptions, such as sharing or assigning individual records."
   },
-  {
+{
     question: "Only sales managers can view sales probability data in opportunity records. Which security option?",
     options: ["Role-based security", "Field-level security", "Record-level security"],
     answer: "Field-level security"
   },
-  {
+{
     question: "Sales reps and new hires in the same territory share access to sales records. Which security option?",
     options: ["Role-based security", "Field-level security", "Record-level security"],
     answer: "Record-level security"
   },
-  {
+{
     question: "UpsertRequest: Creating a new field to store the database record identifier resolves the key-not-defined error.",
     options: ["Yes", "No"],
     answer: "No"
   },
-  {
+{
     question: "UpsertRequest: Creating an alternate key using accountnumber resolves the key-not-defined error.",
     options: ["Yes", "No"],
     answer: "Yes"
   },
-  {
+{
     question: "UpsertRequest: If only an account named Contoso exists and other fields are empty, a new account record is created.",
     options: ["Yes", "No"],
     answer: "Yes"
   },
-  {
+{
     question: "UpsertRequest: If an account exists that uses account number CO-555, a new account record is created.",
     options: ["Yes", "No"],
     answer: "No"
   },
-  {
+{
     question: "Cascading behavior: primary record deleted and associated referential records must also be deleted. Which feature?",
     options: ["Cascade User Owned", "Referential, Restrict Delete", "Referential", "Parental"],
     answer: "Referential"
   },
-  {
+{
     question: "Cascading behavior: when a record is assigned to a user, all referencing active records must also be assigned to that user. Which feature?",
     options: ["Cascade User Owned", "Referential, Restrict Delete", "Referential", "Parental"],
     answer: "Cascade User Owned"
   },
-  {
+{
     question: "Cascading behavior: when a primary record is deleted, associated records must NOT be deleted. Which feature?",
     options: ["Cascade User Owned", "Referential, Restrict Delete", "Referential", "Parental"],
     answer: "Referential, Restrict Delete"
   },
-  {
+{
     question: "Managers need one screen with Power BI data and the ability to update maintenance history. What should you do?",
     options: [
       "Add the maintenance history app to the Field Service Mobile app",
@@ -242,7 +891,7 @@ const allQuestions = [
     ],
     answer: "Add the maintenance history app to the Power BI dashboard"
   },
-  {
+{
     question: "Staffing company: create the job listings portal. Which feature?",
     options: [
       "Custom self-service portal for employers and a custom page for job candidates",
@@ -252,7 +901,7 @@ const allQuestions = [
     ],
     answer: "Custom self-service portal for both employers and job candidates"
   },
-  {
+{
     question: "Staffing company: create an app that lists available positions. Which feature?",
     options: [
       "Canvas app with push notifications",
@@ -261,7 +910,7 @@ const allQuestions = [
     ],
     answer: "Model-driven app with push notifications"
   },
-  {
+{
     question: "Staffing company: employers seeking temporary employees need an app. Which feature?",
     options: [
       "Entity form defined on the job custom entity",
@@ -271,7 +920,7 @@ const allQuestions = [
     ],
     answer: "Webform with target set to the job custom entity"
   },
-  {
+{
     question: "Staffing company: create invitation parameters for job candidates. Which option?",
     options: [
       "Configure Assigned to Account only",
@@ -281,7 +930,7 @@ const allQuestions = [
     ],
     answer: "Configure Execute Workflow on Redeeming Contact only"
   },
-  {
+{
     question: "Staffing company: create invitation parameters for approved job candidates. Which option?",
     options: [
       "Configure Assigned to Account only",
@@ -291,17 +940,17 @@ const allQuestions = [
     ],
     answer: "Configure Assigned to Account only"
   },
-  {
+{
     question: "Bakery app: determine which store is closest to the order destination. What should you use?",
     options: ["Power Automate flow", "Plug-in", "Logic app"],
     answer: "Power Automate flow"
   },
-  {
+{
     question: "Bakery app: estimate pickup prep time and notify the customer while minimizing custom code. What should you use?",
     options: ["New screen in an existing order canvas app", "New canvas app", "New logic app"],
     answer: "New screen in an existing order canvas app"
   },
-  {
+{
     question: "Bakery app: send the newsletter by email to customers. What should you use?",
     options: [
       "Power Automate flow triggered from an email button",
@@ -310,32 +959,32 @@ const allQuestions = [
     ],
     answer: "Power Automate flow triggered from an email button"
   },
-  {
+{
     question: "Custom connector: which files can API developers provide to create the connector? Select two.",
     options: ["YAML", "WSDL", "OpenAPI definition", "Postman collection"],
     answer: ["OpenAPI definition", "Postman collection"]
   },
-  {
+{
     question: "Dynamics 365 Finance without third-party add-ons: warehouse employees scan barcodes with mobile devices. Which solution?",
     options: ["Out-of-the-box", "Logic apps", "Power Automate", "Common Data Service"],
     answer: "Out-of-the-box"
   },
-  {
+{
     question: "Dynamics 365 Field Service: technician location is communicated by text message. Which solution?",
     options: ["Common Data Service", "Workflow", "Power Automate"],
     answer: "Power Automate"
   },
-  {
+{
     question: "Model-driven app uses Exchange Online to send email. What configuration?",
     options: ["Server-side synchronization", "Server-based integration", "Dual-write", "System settings"],
     answer: "Server-side synchronization"
   },
-  {
+{
     question: "Model-driven app uses SharePoint Online for document storage. What configuration?",
     options: ["Server-side synchronization", "Server-based integration", "Dual-write", "System settings"],
     answer: "Server-based integration"
   },
-  {
+{
     question: "Order processing app: complex business logic, external systems, up to six minutes, must complete in one operation. What should you recommend?",
     options: [
       "Asynchronous workflow with custom workflow activity",
@@ -351,22 +1000,22 @@ const allQuestions = [
       "Asynchronous plug-in": "Asynchronous plug-in: Background processing; not immediate."
     }
   },
-  {
+{
     question: "Non-profit portal: create portal using a portal template. Which module?",
     options: ["Starter portal", "Community portal", "Customer self-service portal"],
     answer: "Customer self-service portal"
   },
-  {
+{
     question: "Non-profit portal: manage volunteer registration with multiple related entities. Which module?",
     options: ["Entity form metadata", "Webform", "Webform step"],
     answer: "Webform"
   },
-  {
+{
     question: "Power Apps portal Liquid code: which entities can include Liquid code? Select three.",
     options: ["Content snippet", "Web page", "Web template", "Page template", "Portal settings"],
     answer: ["Web page", "Web template", "Page template"]
   },
-  {
+{
     question: "Power Virtual Agents skill bot sequence: what is step 1?",
     options: [
       "Create a manifest for the skill bot",
@@ -376,7 +1025,7 @@ const allQuestions = [
     ],
     answer: "Create a manifest for the skill bot"
   },
-  {
+{
     question: "Power Virtual Agents skill bot sequence: what is step 2?",
     options: [
       "Create a manifest for the homework bot",
@@ -386,7 +1035,7 @@ const allQuestions = [
     ],
     answer: "Register the skill bot in Power Virtual Agents"
   },
-  {
+{
     question: "Power Virtual Agents skill bot sequence: what is step 3?",
     options: [
       "Register the skill bot in Azure Active Directory",
@@ -396,7 +1045,7 @@ const allQuestions = [
     ],
     answer: "Register the homework bot in Power Virtual Agents"
   },
-  {
+{
   question: "A company is migrating from on-premises Dynamics 365 to Power Platform. Which isolation mode should be used when registering plug-ins?",
   options: ["None", "Global Assembly Cache (GAC)", "Sandbox", "Disk"],
   answer: "Sandbox"
@@ -478,7 +1127,6 @@ const allQuestions = [
   ],
   answer: "Set host URL"
 },
-
 {
   question: "How do you start the Monitor tool?",
   options: [
@@ -500,7 +1148,6 @@ const allQuestions = [
   answer: "Enable the Debug published app setting, save and publish the app, and then launch Monitor and invite the user.",
   explanation: "For published apps, you must first enable the Debug published app setting, save and publish the app so the setting takes effect, then launch Monitor and invite the user to the monitoring session."
 },
-
 {
   question: "A financial institution must make the Account Balance field visible only to specific users. Which three actions should you perform?",
   options: [
@@ -521,8 +1168,6 @@ const allQuestions = [
     "Create a security role and add the users to the role": "Security roles control table access, not field-level visibility."
   }
 },
-
-  
 {
   question: "A company has multiple developers working in isolated development environments. Changes must later be merged into a shared development environment. What should developers export?",
   options: [
@@ -534,7 +1179,6 @@ const allQuestions = [
   answer: "Export each developer's solution as unmanaged",
   explanation: "Memory: Developers keep editing = Unmanaged. Customers receive = Managed."
 },
-
 {
   question: "A company wants to automate Power Platform deployments to downstream environments. Developers do not have access to Azure DevOps or third-party deployment tools. What should you recommend?",
   options: [
@@ -557,7 +1201,6 @@ const allQuestions = [
   answer: "Create a new sandbox environment and register the plug-in",
   explanation: "Memory: Need production-like troubleshooting without touching production → Sandbox."
 },
-
 {
   question: "An integration must create a Dataverse row if it doesn't exist or update it if it already exists. Which THREE features can implement this?",
   options: [
@@ -574,7 +1217,6 @@ const allQuestions = [
   ],
   explanation: "Memory: Anything that can code logic (JS, Flow, Plug-in) can perform an upsert. Business Rules and PCF cannot."
 },
-
 {
   question: "A solution uses Access Team Templates, but users cannot access rows. What should you do?",
   options: [
@@ -586,7 +1228,6 @@ const allQuestions = [
   answer: "Assign a security role to the users",
   explanation: "Memory: Access Teams share records, but users still need a Security Role."
 },
-
 {
   question: "You create a Custom API that will be distributed through AppSource. You need to prevent code generation tools from creating classes and messages for the API. What should you do?",
   options: [
@@ -598,7 +1239,6 @@ const allQuestions = [
   answer: "Set Is Private to Yes",
   explanation: "Memory: Private API = hidden from code generation."
 },
-
 {
   question: "Solution Checker reports: 'Solution Checker fails to export solutions with model-driven app components.' What should you do?",
   options: [
@@ -622,7 +1262,6 @@ const allQuestions = [
   answer: "updateView",
   explanation: "Memory: PCF data changes = updateView."
 },
-
 {
   question: "A production Power Platform plug-in throws errors. You are an Environment Maker and need to investigate without modifying production. What should you do?",
   options: [
@@ -634,7 +1273,6 @@ const allQuestions = [
   answer: "Send a GET request to retrieve the plugintracelogs records",
   explanation: "Memory: Production troubleshooting = read Plugin Trace Logs."
 },
-
 {
   question: "A managed solution version is currently 10.0.2.1. You need to publish an updated version. Which version should you use?",
   options: [
@@ -829,7 +1467,6 @@ const allQuestions = [
   answer: "Enable field security for the Balance field and grant the Customer Service team read permissions.",
   explanation: "Field Security Profiles control who can edit individual columns. Give Customer Service read-only access."
 },
-
 {
   question: "A Dataverse plug-in performs calculations that often run longer than five minutes and times out. What should you recommend instead?",
   options: [
@@ -841,7 +1478,6 @@ const allQuestions = [
   answer: "Azure Functions",
   explanation: "Long-running business logic should be offloaded to Azure Functions instead of synchronous plug-ins."
 },
-
 {
   question: "A model-driven app has an alternate key on Order ID and Order Date. EntityKeyIndexStatus returns Failed after creating the key. What should you do first?",
   options: [
@@ -853,7 +1489,6 @@ const allQuestions = [
   answer: "Delete duplicate combinations of Order ID and Order Date.",
   explanation: "Alternate keys require unique values. Duplicate data causes index creation to fail."
 },
-
 {
   question: "A canvas app loads several collections during OnStart and starts slowly. What should you do?",
   options: [
@@ -865,7 +1500,6 @@ const allQuestions = [
   answer: "Wrap the independent ClearCollect() calls inside Concurrent().",
   explanation: "Concurrent() loads independent data sources in parallel for faster startup."
 },
-
 {
   question: "A button creates a new Product record by copying values from the selected product. Which Power Fx function should begin the formula?",
   options: [
@@ -877,7 +1511,6 @@ const allQuestions = [
   answer: "Patch(",
   explanation: "Patch creates or updates Dataverse records."
 },
-
 {
   question: "A model-driven app must display an image that can be resized without losing quality. Which web resource type should you use?",
   options: [
@@ -889,7 +1522,6 @@ const allQuestions = [
   answer: "SVG",
   explanation: "SVG images scale without losing quality."
 },
-
 {
   question: "A model-driven app must return language-localized text by using a web resource. Which resource type should you use?",
   options: [
@@ -901,7 +1533,6 @@ const allQuestions = [
   answer: "RESX",
   explanation: "RESX files store localized strings."
 },
-
 {
   question: "Users report poor performance caused by synchronous plug-ins. Which TWO tools help identify whether plug-ins are responsible?",
   options: [
@@ -917,7 +1548,6 @@ const allQuestions = [
   ],
   explanation: "Tracing captures execution details and Dataverse Analytics measures plug-in performance."
 },
-
 {
   question: "An international solution must include components that move with the solution. Which THREE should you include?",
   options: [
@@ -934,7 +1564,6 @@ const allQuestions = [
   ],
   explanation: "Flows, custom entities, and modified security roles are solution-aware."
 },
-
 {
   question: "A new record displays an unexpected value immediately after the page finishes loading. Which browser event should you debug?",
   options: [
@@ -946,7 +1575,6 @@ const allQuestions = [
   answer: "OnReadyStateComplete",
   explanation: "Unexpected values after loading are typically investigated with OnReadyStateComplete."
 },
-
 {
   question: "A model-driven app throws an error when users save a record. Which browser event should you debug?",
   options: [
@@ -958,7 +1586,6 @@ const allQuestions = [
   answer: "OnSave",
   explanation: "Save-related errors occur during the OnSave event."
 },
-
 {
   question: "When using Xrm.WebApi.createRecord(), which TWO methods correctly set an existing Contact as the Account's Primary Contact?",
   options: [
@@ -982,7 +1609,6 @@ const allQuestions = [
   answer: "Yes",
   explanation: "Cloud flows trigger regardless of whether the Account was created through the UI or an external integration."
 },
-
 {
   question: "JavaScript on a model-driven app retrieves an Account during OnLoad by using Xrm.WebApi.retrieveRecord(). Users report the form loads slowly. What should you do?",
   options: [
@@ -994,7 +1620,6 @@ const allQuestions = [
   answer: "Enable the Async OnLoad app setting.",
   explanation: "Async OnLoad prevents record retrieval from blocking form loading."
 },
-
 {
   question: "A Dataverse model-driven app integrates with an external system. Business logic should execute when a record is created without slowing down users. What should you use?",
   options: [
@@ -1016,7 +1641,6 @@ const allQuestions = [
   answer: "Business rule",
   explanation: "Field recommendations and inline messages on forms are created with Business Rules."
 },
-
 {
   question: "The inline validation message shown by a Business Rule is outdated. What should you update?",
   options: [
@@ -1028,7 +1652,6 @@ const allQuestions = [
   answer: "Update the business rule",
   explanation: "Inline recommendations and validation messages come from the Business Rule itself."
 },
-
 {
   question: "A company has two business units (WH1 and WH2). Inventory updates should automatically process only orders within each business unit while minimizing administration. Which Power Automate solution should you recommend?",
   options: [
@@ -1040,7 +1663,6 @@ const allQuestions = [
   answer: "Two automated flows scoped to Business Unit with Create/Update/Delete triggers on Orders.",
   explanation: "Business Unit scope naturally separates processing with the least administration."
 },
-
 {
   question: "In Power Automate, what does the expression outputs('Get_Item').statusCode return?",
   options: [
@@ -1052,7 +1674,6 @@ const allQuestions = [
   answer: "The status code at runtime.",
   explanation: "outputs(Action).statusCode returns only the HTTP/status result."
 },
-
 {
   question: "In Power Automate, what does result('MyScope') return?",
   options: [
@@ -1064,7 +1685,6 @@ const allQuestions = [
   answer: "The results from all actions inside MyScope",
   explanation: "result() returns an array of execution results for every action inside a Scope."
 },
-
 {
   question: "A flow should trigger approval only when the TOTAL discount exceeds 30%. Which Dataverse column should be the filtering attribute?",
   options: [
@@ -1075,7 +1695,6 @@ const allQuestions = [
   answer: "store_totaldiscount",
   explanation: "Always trigger on the field whose change actually determines the business event."
 },
-
 {
   question: "Complex business logic must access both the previous and new values of a Dataverse record during an update. Which implementation should you use?",
   options: [
@@ -1087,7 +1706,6 @@ const allQuestions = [
   answer: "Plug-in",
   explanation: "Plug-ins can access Pre and Post Entity Images."
 },
-
 {
   question: "Business logic needs to run automatically on a schedule. Which implementation should you use?",
   options: [
@@ -1099,7 +1717,6 @@ const allQuestions = [
   answer: "Power Automate Flow",
   explanation: "Scheduled triggers are a native Power Automate capability."
 },
-
 {
   question: "A Power Automate flow uses a custom connector to retrieve data. Other users must run the flow. Which TWO actions are required?",
   options: [
@@ -1114,7 +1731,6 @@ const allQuestions = [
   ],
   explanation: "Users need access to both the Flow and its Custom Connector."
 },
-
 {
   question: "A business rule should run whenever the main form is saved. What scope should you choose?",
   options: [
@@ -1126,7 +1742,6 @@ const allQuestions = [
   answer: "Entity",
   explanation: "Entity scope executes on save regardless of the form used."
 },
-
 {
   question: "A notification email must be sent automatically when a business process completes. What should you create?",
   options: [
@@ -1137,7 +1752,6 @@ const allQuestions = [
   answer: "Workflow",
   explanation: "Classic workflows are designed to automate actions like sending email."
 },
-
 {
   question: "A Power Virtual Agents chatbot cannot see a Power Automate flow created in the default environment. Which TWO actions fix the problem?",
   options: [
@@ -1153,7 +1767,6 @@ const allQuestions = [
   ],
   explanation: "Only solution-aware flows can move between environments."
 },
-
 {
   question: "A Business Process Flow contains six custom entities with four stages each. One stage has 15 steps. What is wrong with the design?",
   options: [
@@ -1166,8 +1779,6 @@ const allQuestions = [
   answer: "The maximum number of custom entities has been exceeded.",
   explanation: "Business Process Flows support a maximum of five entities."
 },
-
-
 {
   question: "A Canvas app embedded in Microsoft Teams runs slowly. What should you change?",
   options: [
@@ -1177,7 +1788,6 @@ const allQuestions = [
   answer: "Change settings in app to preload app",
   explanation: "Preloading improves Teams startup performance."
 },
-
 {
   question: "Users cannot add your personal Teams app. What should an administrator change?",
   options: [
@@ -1189,9 +1799,6 @@ const allQuestions = [
   answer: "Change permission for the custom app in Teams",
   explanation: "Teams app permission policies determine whether users may install custom apps."
 },
-
-
-
 {
   question: "Claim applications must all follow the same approval process. Which feature should you use?",
   options: [
@@ -1203,7 +1810,6 @@ const allQuestions = [
   answer: "Business process flow",
   explanation: "Business Process Flows enforce a common guided business process."
 },
-
 {
   question: "Claim applications must be routed to approvers at each stage. Which feature should you use?",
   options: [
@@ -1214,7 +1820,6 @@ const allQuestions = [
   answer: "Power Automate flow",
   explanation: "Routing notifications and approvals are handled by Power Automate."
 },
-
 {
   question: "Fields should automatically show or hide based on values. Which feature should you use?",
   options: [
@@ -1224,7 +1829,6 @@ const allQuestions = [
   answer: "Business rules",
   explanation: "Business Rules provide no-code field visibility logic."
 },
-
 {
   question: "Complete the Power Automate expression: if( ______ (outputs('UserInput')?['body/Type'],'High'),'User1','User2')",
   options: [
@@ -1236,7 +1840,6 @@ const allQuestions = [
   answer: "equals",
   explanation: "equals() compares the value against 'High'."
 },
-
 {
   question: "A Business Rule on a Dataverse table is scoped to All Forms. A Power Apps Portal using the same table must enforce the same logic. Which TWO actions solve this?",
   options: [
@@ -1251,7 +1854,6 @@ const allQuestions = [
   ],
   explanation: "Portal validation requires client-side JavaScript, while Dataverse logic should be Entity/Table scoped."
 },
-
 {
   question: "You need a Secret environment variable to store an API key. What must exist first?",
   options: [
@@ -1263,7 +1865,6 @@ const allQuestions = [
   answer: "Azure Key Vault",
   explanation: "Secret environment variables reference Azure Key Vault."
 },
-
 {
   question: "A Microsoft Flow must run once every day. Which TWO schedules work?",
   options: [
@@ -1278,7 +1879,6 @@ const allQuestions = [
   ],
   explanation: "Both schedules execute once every 24 hours."
 },
-
 {
   question: "Users can view a Business Process Flow but it never appears when creating Contact records. What should you do?",
   options: [
@@ -1290,7 +1890,6 @@ const allQuestions = [
   answer: "Associate the Business Process Flow with user security roles",
   explanation: "A Business Process Flow must be enabled for the users' security roles."
 },
-
 {
   question: "Rollup fields must recalculate immediately whenever a policy record is created. What should you do?",
   options: [
@@ -1301,21 +1900,12 @@ const allQuestions = [
   ],
   answer: "Create a plug-in that updates the values immediately.",
   explanation: "Rollup jobs aren't immediate. A plug-in provides real-time updates."
-},
+}
+
 ];
 
 const QUESTIONS_PER_RUN = allQuestions.length;
-const MEMORY_INTERVAL = 2;
 const WRONG_REPLAY_DELAY = 5;
-<!-- pg 14-->
-const memoryCards = [
-"Monitor shared user session → Create Monitor Session → Invite User → User Reproduces Issue",
-
-
-];
-
-const MEMORY_CARDS_PER_RUN = memoryCards.length;
-
 let quizSlides = [];
 let quizQuestions = [];
 let currentQuestionIndex = 0;
@@ -1351,50 +1941,13 @@ function formatAnswer(answer) {
   return Array.isArray(answer) ? answer.join(", ") : answer;
 }
 
-function makeFlashcards() {
-  return memoryCards.map(sentence => ({
-    type: "flashcard",
-    sentence
-  }));
-}
-
-function buildRandomSlides() {
-  const slides = [];
-  const cards = shuffle(makeFlashcards());
-  const randomizedQuestions = shuffle(allQuestions);
-  let cardIndex = 0;
-
-  randomizedQuestions.forEach((question, index) => {
-    slides.push({ ...question, type: "question" });
-
-    const shouldInsertMemoryCard =
-      (index + 1) % MEMORY_INTERVAL === 0 &&
-      cardIndex < cards.length;
-
-    if (shouldInsertMemoryCard) {
-      slides.push(cards[cardIndex]);
-      cardIndex++;
-    }
-  });
-
-  while (cardIndex < cards.length) {
-    slides.push(cards[cardIndex]);
-    cardIndex++;
-  }
-
-  return slides;
-}
-
 function getQuestionNumberForSlide(slideIndex) {
-  return quizSlides
-    .slice(0, slideIndex + 1)
-    .filter(slide => slide.type !== "flashcard")
-    .length;
+  return slideIndex + 1;
 }
 
 function startQuiz() {
   quizQuestions = [...allQuestions];
-  quizSlides = buildRandomSlides();
+  quizSlides = shuffle(allQuestions).map(question => ({ ...question, type: "question" }));
 
   currentQuestionIndex = 0;
   score = 0;
@@ -1415,25 +1968,11 @@ function showQuestion() {
   const current = quizSlides[currentQuestionIndex];
 
   document.getElementById("feedback").innerHTML = "";
-  document.getElementById("actionButton").innerText = current.type === "flashcard" ? "OK" : "Check Answer";
+  document.getElementById("actionButton").innerText = "Check Answer";
 
   const optionsDiv = document.getElementById("options");
   optionsDiv.innerHTML = "";
 
-  if (current.type === "flashcard") {
-    document.getElementById("progress").innerText =
-      `Memory Card ${currentQuestionIndex + 1} of ${quizSlides.length}`;
-
-    document.getElementById("question").innerHTML = `
-      <div style="font-size:18px;color:#555;margin-bottom:12px;">Non-scored memory sentence</div>
-      <div style="font-size:26px;">${current.sentence}</div>
-    `;
-
-    document.getElementById("feedback").innerHTML =
-      `<span class="correct">Read it, say it once, then hit OK.</span>`;
-
-    return;
-  }
 
   const isMulti = Array.isArray(current.answer);
   const questionNumber = getQuestionNumberForSlide(currentQuestionIndex);
@@ -1494,10 +2033,6 @@ function scheduleWrongQuestionReplay(question) {
 function handleButtonClick() {
   const current = quizSlides[currentQuestionIndex];
 
-  if (current.type === "flashcard") {
-    nextQuestion();
-    return;
-  }
 
   if (!answerChecked) {
     checkAnswer();
@@ -1555,7 +2090,6 @@ function showResult() {
     Final Score: ${score} / ${attempted} attempted<br>
     Percentage: ${percent}%<br>
     Questions available: ${quizQuestions.length}<br>
-    Non-scored memory cards available: ${MEMORY_CARDS_PER_RUN}<br><br>
     <button onclick="startQuiz()">Restart Random Quiz</button>
   `;
 }
