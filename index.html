@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- start on 34-->
+<!-- start on 39-->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -2516,6 +2516,458 @@ const allQuestions = [
     "Configure environment variables."
   ],
   answer: "Configure entity change tracking."
+},
+
+{
+  question: "A company plans to replicate a Dynamics 365 Sales database into an Azure SQL Database instance for reporting purposes. The Data Export Service solution has been installed.\n\nYou need to configure the Data Export service.\n\nWhich three actions should you perform? Each correct answer presents part of the solution.",
+  answers: [
+    "Enable auditing for all entities that must be replicated to Azure SQL Database.",
+    "Create an export profile that specifies all the entities that must be replicated.",
+    "Set up server-based integration.",
+    "Enable change tracking for all entities that must be replicated to Azure SQL Database.",
+    "Create an Azure SQL Database service in the same tenant as the Dynamics 365 Sales environment."
+  ],
+  correct: [1,3,4],
+  explanation: "Data Export Service requires an export profile, change tracking on replicated entities, and an Azure SQL Database in the same tenant."
+},
+
+{
+  question: "You are creating a Power Automate flow.\n\nYou create an Azure Service Bus listener app that receives requests from a third-party application. When the flow calls the message queue, it must delete the message as soon as it is read.\n\nWhich receive mode should you use?",
+  answers: [
+    "ReceiveMode",
+    "BrokeredMessage",
+    "EventHubReceiver",
+    "EventHubSender"
+  ],
+  correct: [0],
+  explanation: "ReceiveAndDelete mode deletes the message immediately after it is received."
+},
+
+{
+  question: "As part of the month-end financial closing process, a company uses a batch job to copy all orders into a staging database.\n\nThe staging database is used to calculate outstanding amounts owed by clients, and must process all historical data.\n\nYou need to ensure that only the data affected during the month is included in the integration process.\n\nWhat are two possible ways to achieve this? Each correct answer presents a complete solution.",
+  answers: [
+    "Use change tracking on the orders and run the integration to retrieve new orders and the orders that have the total amount changed in the last month.",
+    "Create a system view with the orders that have the Modified On field in the last month and run the integration on this subset.",
+    "Use change tracking on the order lines and run the integration every week and retrieve only the order lines that have been created or deleted in the last month.",
+    "Create a system view with the order lines that have the Modified On field in the last month and run the integration on this subset."
+  ],
+  correct: [0,1],
+  explanation: "Change tracking or filtering by Modified On are both valid approaches for incremental processing."
+},
+
+{
+  question: "A company is creating a one-way integration from Microsoft Dataverse to an external system. Data will be sent from a webhook to an Azure Function.\n\nYou need to configure the Azure Function to handle data from the webhook.\n\nWhich class and data type must the Azure Function handle?",
+  answers: [
+    "RemoteExecutionContext in .NET binary format",
+    "RemoteExecutionContext in JSON format",
+    "RemoteExecutionContext in XML format",
+    "IPluginExecutionContext in JSON format",
+    "IPluginExecutionContext in XML format"
+  ],
+  correct: [1],
+  explanation: "Azure Functions used with Dataverse webhooks receive a RemoteExecutionContext serialized as JSON."
+},
+
+{
+  question: "HOTSPOT\n\nAn online store has a custom web page that allows customers to place their orders against a Microsoft Dataverse database that uses custom products. The custom web page uses Web API patterns to create and update records.\n\nCustomers report that orders can be placed for out-of-stock items.\n\nYou need to update the page code to ensure that inventory is available before confirming an order.\n\nWhich pattern should you use for each step?",
+  answers: [
+    "Check inventory before retrieving inventory record → IsOptimisticConcurrencyEnabled",
+    "Update inventory using PATCH → If-Match: ETag"
+  ],
+  correct: [0,1],
+  explanation: "Optimistic concurrency with ETags prevents overwriting changes made by another user."
+},
+
+{
+  question: "HOTSPOT\n\nYou need to package and deploy a Power Apps code component to an environment.\n\nWhich commands should you use?",
+  answers: [
+    "Package → pac solution init --publisher-name Contoso --publisher-prefix cto",
+    "Connect → pac auth create --url https://contoso.crm.dynamics.com",
+    "Deploy → pac pcf push --publisher-prefix"
+  ],
+  correct: [0,1,2],
+  explanation: "Initialize the solution, authenticate to Dataverse, then push the PCF component."
+},
+{
+  question: "You are creating an integration between Microsoft Dataverse and an external system.\n\nMessages from Dataverse must be sent to Microsoft Azure Service Bus, and an Azure Function will process the messages. Events must be published directly to the ServiceEndpoint.\n\nWhich class should you use?",
+  answers: [
+    "RemoteExecutionContext",
+    "IWorkflowContext",
+    "IPluginExecutionContext",
+    "IExecutionContext"
+  ],
+  correct: [0],
+  explanation: "Azure Service Bus endpoints receive a RemoteExecutionContext."
+},
+
+{
+  question: "You are developing a Power Platform solution that connects to a third-party accounting system by using the Dataverse Web API.\n\nYou need to ensure that only data that has not previously been synchronized is returned.\n\nWhich HTTP header should you add?",
+  answers: [
+    "Prefer: odata.track-changes",
+    "Prefer: odata.allow-entityreferences",
+    "Prefer: odata.include-annotations"
+  ],
+  correct: [0],
+  explanation: "odata.track-changes enables delta tracking so only changes since the previous synchronization are returned."
+},
+
+{
+  question: "A company uses a custom Power Platform app to manage programs. The company has a public website outside of the corporate domain that accepts POST requests.\n\nYou need to automate transferring data from Dataverse to the public website.\n\nHow should you implement the solution?",
+  answers: [
+    "Move data to the website by creating a plug-in that uses a secure connection.",
+    "Move data by creating an Azure Function app.",
+    "Package program details by registering a pre-image for the Create message in Plug-in Registration Tool.",
+    "Package program details by using the Power Automate HTTP trigger."
+  ],
+  correct: [0,2],
+  explanation: "A secure plug-in sends the data, while a pre-image packages the necessary values for the operation."
+},
+
+{
+  question: "The communication department plans to add a publicly accessible survey page to the company website.\n\nSurvey responses must be written to Microsoft Dataverse without requiring users to sign in.\n\nWhich authentication mechanism should you implement?",
+  answers: [
+    "Claims-based authentication",
+    "Microsoft 365 authentication",
+    "Azure guest account",
+    "Client secret"
+  ],
+  correct: [3],
+  explanation: "Use an application identity with a client secret so end users do not need credentials."
+},
+
+{
+  question: "A company has a model-driven app that uses Microsoft Dataverse.\n\nA web application must retrieve information by using the Dataverse Web API and authenticate by using OAuth.\n\nWhich two authentication libraries can you use?",
+  answers: [
+    "NTLM authentication",
+    "Kerberos authentication",
+    "Microsoft Azure Active Directory Authentication Library (ADAL)",
+    "Microsoft Authentication Library (MSAL)",
+    "Multifactor authentication"
+  ],
+  correct: [2,3],
+  explanation: "Both ADAL and MSAL support OAuth authentication with Dataverse."
+},
+
+{
+  question: "You need to configure a Power Automate flow that updates Dataverse records by using the response from a Web API.\n\nThe flow must stop if the Web API returns HTTP 404.\n\nWhich actions should you perform in order?",
+  answers: [
+    "Initialize a variable with the response status code.",
+    "Add a condition to check whether the status code equals 404.",
+    "Terminate the flow with Failed status.",
+    "Update the Dataverse record."
+  ],
+  correct: [0,1,2],
+  explanation: "Capture the response code, check for 404, then terminate instead of updating Dataverse."
+},
+
+{
+  question: "A plug-in validates Account records during the Create message.\n\nThe plug-in checks whether another active account already exists with the same account number.\n\nWhich statements are true?",
+  answers: [
+    "The validation checks any account number value.",
+    "The validation checks only active accounts.",
+    "The exception includes the number of duplicate records."
+  ],
+  correct: [1],
+  explanation: "The query filters on statecode = 0 (Active). The exception only includes the account number, not a duplicate count."
+},
+{
+  question: "An integration sends newly created Dataverse records to an exposed REST API.\n\nWhen the REST API is unavailable, the solution must retry requests when the response status code is 500.\n\nThe solution registers a service endpoint for an Azure Service Bus queue and uses an Azure Function to process messages from the queue and forward them to the REST API. Failed messages are redirected to the dead-letter queue.\n\nDoes the solution meet the goal?",
+  answers: [
+    "Yes",
+    "No"
+  ],
+  correct: [0],
+  explanation: "Azure Service Bus provides reliable messaging with retries and dead-letter queues for failed requests."
+},
+
+{
+  question: "A company creates a custom connector for its cloud-based ERP system.\n\nWhich authentication method should be configured?",
+  answers: [
+    "Basic authentication",
+    "Windows Active Directory authentication",
+    "Certificate-based authentication",
+    "Passwordless authentication"
+  ],
+  correct: [0],
+  explanation: "Basic authentication is a supported authentication type for custom connectors."
+},
+
+{
+  question: "You are creating a .NET application to load a large volume of data into Dataverse.\n\nA synchronous plug-in must be bypassed during the import without affecting other users.\n\nWhich two approaches can you use?",
+  answers: [
+    "Send the BypassCustomPluginExecution parameter with the Create request.",
+    "Send the SuppressCallbackRegistrationExpanderJob parameter.",
+    "Disable the plug-in before starting the import.",
+    "Set the BypassPluginExecution property on the CrmServiceClient."
+  ],
+  correct: [0,3],
+  explanation: "BypassCustomPluginExecution can be supplied on requests or configured on CrmServiceClient."
+},
+
+{
+  question: "A company creates a custom connector for its cloud-based ERP system.\n\nWhich authentication method should be configured?",
+  answers: [
+    "Basic authentication",
+    "Windows Active Directory authentication",
+    "Biometric authentication",
+    "Two-factor authentication"
+  ],
+  correct: [0],
+  explanation: "Basic authentication is supported directly by Power Platform custom connectors."
+},
+
+{
+  question: "A solution contains custom tables that reference Microsoft Field Service tables.\n\nAfter importing the solution into a new test environment, dependency errors occur.\n\nWhat should you recommend?",
+  answers: [
+    "Add the Field Service tables to the solution.",
+    "Export the solution as unmanaged.",
+    "Add the custom tables to the solution.",
+    "Install the Field Service application in the test environment."
+  ],
+  correct: [0],
+  explanation: "Include the dependent Field Service components in the solution."
+},
+
+{
+  question: "A company creates a custom connector for its cloud-based ERP system.\n\nWhich authentication method should be configured?",
+  answers: [
+    "Two-factor authentication",
+    "Windows Active Directory authentication",
+    "Biometric authentication",
+    "Generic OAuth authentication"
+  ],
+  correct: [3],
+  explanation: "OAuth is the recommended authentication mechanism for modern cloud-based APIs."
+},
+
+{
+  question: "A company plans to implement an integration between Microsoft Dataverse and Azure Service Bus.\n\nA plug-in package is created by using Microsoft Power Platform CLI.\n\nWhich interface should you implement?",
+  answers: [
+    "IServiceEndpointNotificationService",
+    "IPluginExecutionContext",
+    "IWebHttpServiceEndpointPlugin",
+    "IServiceEndpointPlugin"
+  ],
+  correct: [1],
+  explanation: "The plug-in receives execution details through IPluginExecutionContext."
+},
+
+{
+  question: "You are implementing Dataverse data integration.\n\nMatch each requirement to the appropriate feature.",
+  answers: [
+    "Create or update using the primary key → UpsertRequest",
+    "Create or update using custom columns → UpsertRequest",
+    "Enforce uniqueness using custom columns → Alternate key",
+    "Retrieve records using custom columns → Plug-in"
+  ],
+  correct: [0,1,2,3],
+  explanation: "UpsertRequest supports primary and alternate keys. Alternate keys enforce uniqueness. A plug-in can implement custom lookup behavior."
+},
+
+{
+  question: "Departments in a university use separate security models but occasionally collaborate on opportunities.\n\nThe proposed solution shares the individual opportunity with members of the collaborating department and grants the required permissions.\n\nDoes the solution meet the goal?",
+  answers: [
+    "Yes",
+    "No"
+  ],
+  correct: [0],
+  explanation: "Record sharing is the appropriate solution for temporary cross-department access."
+},
+
+{
+  question: "You need to develop a Power Apps Component Framework (PCF) component for a company.\n\nYou must follow Microsoft's application lifecycle management (ALM) process for code components.\n\nWhich action should you perform first?",
+  options: [
+    "Create a code component project",
+    "Implement code component logic",
+    "Create a solution project and add the code component project as a reference",
+    "Build the code component in release mode"
+  ],
+  answer: "Create a code component project",
+  explanation: "Start by creating the PCF code component project."
+},
+{
+  question: "After creating a Power Apps Component Framework (PCF) code component project, which action should you perform next?",
+  options: [
+    "Implement code component logic",
+    "Create a solution project and add the code component project as a reference",
+    "Build the code component in release mode",
+    "Deploy the component in a testing environment"
+  ],
+  answer: "Implement code component logic",
+  explanation: "After the project exists, implement the component logic."
+},
+{
+  question: "After implementing Power Apps Component Framework (PCF) code component logic, which action should you perform next?",
+  options: [
+    "Create a solution project and add the code component project as a reference",
+    "Build the code component in release mode",
+    "Deploy the component in a testing environment"
+  ],
+  answer: "Create a solution project and add the code component project as a reference",
+  explanation: "Add the completed component project to a solution project before building for deployment."
+},
+{
+  question: "After adding the Power Apps Component Framework (PCF) code component project to a solution project, which action should you perform next?",
+  options: [
+    "Build the code component in release mode",
+    "Deploy the component in a testing environment",
+    "Create a code component project"
+  ],
+  answer: "Build the code component in release mode",
+  explanation: "Build the solution in release mode before deploying."
+},
+{
+  question: "You create a new canvas app.\n\nYou update a test case and must test the app in a separate browser by using Test Studio.\n\nWhich action should you perform first?",
+  options: [
+    "Select a test suite",
+    "Select Copy play link",
+    "Publish the test",
+    "Open a browser and paste the URL for the app into the address bar"
+  ],
+  answer: "Select a test suite",
+  explanation: "Begin by selecting the test suite."
+},
+{
+  question: "After selecting a test suite in Test Studio, which action should you perform next to test the app in a separate browser?",
+  options: [
+    "Select Copy play link",
+    "Publish the test",
+    "Select the OnTestSuiteComplete action",
+    "Send the results from the test to a flow in Power Automate"
+  ],
+  answer: "Select Copy play link",
+  explanation: "Use Copy play link to test the app in a browser."
+},
+{
+  question: "After copying the play link in Test Studio, which action should you perform next?",
+  options: [
+    "Publish the test",
+    "Open a browser and paste the URL for the app into the address bar",
+    "Select the OnTestSuiteComplete action"
+  ],
+  answer: "Publish the test",
+  explanation: "Publish the test before running it through the browser link."
+},
+{
+  question: "After publishing the test, which action should you perform next?",
+  options: [
+    "Open a browser and paste the URL for the app into the address bar",
+    "Send the results from the test to a flow in Power Automate",
+    "Select the OnTestSuiteComplete action"
+  ],
+  answer: "Open a browser and paste the URL for the app into the address bar",
+  explanation: "Open the copied play link in a separate browser."
+},
+{
+  question: "You are working with a Power Apps Component Framework (PCF) code component.\n\nWhich option should you use to debug the component in Microsoft Edge?",
+  options: [
+    "F12 and select component",
+    "F7 and select Turn on",
+    "F1 and select topic",
+    "F11"
+  ],
+  answer: "F12 and select component",
+  explanation: "Use browser developer tools to inspect and debug the component."
+},
+{
+  question: "You are working with a Power Apps Component Framework (PCF) code component.\n\nWhich option displays all the properties and their types or type-groups as defined in the manifest file?",
+  options: [
+    "Data Inputs",
+    "Context Inputs",
+    "Outputs",
+    "npm start"
+  ],
+  answer: "Data Inputs",
+  explanation: "Data Inputs display the manifest-defined properties and type-groups."
+},
+{
+  question: "You are working with a Power Apps Component Framework (PCF) code component.\n\nWhich option should you use to test the code component by using multiple form factors?",
+  options: [
+    "Context Inputs",
+    "Outputs",
+    "Data Inputs",
+    "Code component"
+  ],
+  answer: "Context Inputs",
+  explanation: "Context Inputs include form factor values for testing different device contexts."
+},
+{
+  question: "You are creating a model-driven app. The business logic, number of JavaScript files, and columns used by business logic are expected to change frequently.\n\nSome form fields will not be visible. Occasionally, non-developers will make changes to the form.\n\nYou need to prevent columns referenced by JavaScript from accidentally being removed from the form.\n\nWhat should you do?",
+  options: [
+    "Hide columns that should not be displayed.",
+    "Set all columns as business required.",
+    "Add all columns as non-event dependencies to the form.",
+    "Add columns in each JavaScript file as a dependency."
+  ],
+  answer: "Add columns in each JavaScript file as a dependency.",
+  explanation: "JavaScript dependencies help prevent required columns from being removed accidentally."
+},
+{
+  question: "You are creating a model-driven app for Contoso, Ltd.\n\nYou add a button to the account page. The button must send a text message to the company's account team when a user selects the button.\n\nThe account team reports that they are not receiving messages when users select the button. You are troubleshooting the app by using a URL that includes ribbondebug=true.\n\nWhat is the purpose of the hyperlink?",
+  options: [
+    "Run Command Checker for all buttons on the page.",
+    "Add the Power Apps Checker button to the page.",
+    "Run Power Apps Checker for all buttons on the page.",
+    "Add the Command Checker button to the page."
+  ],
+  answer: "Add the Command Checker button to the page.",
+  explanation: "The ribbondebug=true parameter adds Command Checker for troubleshooting command bar buttons."
+},
+{
+  question: "A company uses Microsoft Dataverse rollup fields to calculate insurance exposure and risk profiles for customers.\n\nUsers report that the system does not update values for the rollup fields when new insurance policies are written.\n\nYou need to recalculate the value of the rollup fields immediately after a policy is created.\n\nWhat should you do?",
+  options: [
+    "Create new calculated fields on the customer entity for insurance exposure and risk. Create a formula to calculate the sum of values from policy records.",
+    "Change the frequency of the Calculate Rollup Field recurring job from every hour to every five minutes.",
+    "Create a plug-in that uses the update method for the rollup fields. Configure a step on the Create event for the policy entity for this plug-in.",
+    "Create a plug-in that uses the CalculateRollupFieldRequest method for the rollup field. Configure a step on the Create event for the policy entity for this plug-in."
+  ],
+  answer: "Create a plug-in that uses the CalculateRollupFieldRequest method for the rollup field. Configure a step on the Create event for the policy entity for this plug-in.",
+  explanation: "CalculateRollupFieldRequest recalculates a rollup field on demand."
+},
+{
+  question: "You are developing a Power Platform app.\n\nThe app must implement a two-way listener to an on-premises system by using Microsoft Azure Service Bus.\n\nWhich two permissions should you use?",
+  options: [
+    "System customizer",
+    "Listen",
+    "Read",
+    "Send",
+    "Manage"
+  ],
+  answer: [
+    "Listen",
+    "Send"
+  ],
+  explanation: "A two-way listener requires both Listen and Send permissions."
+},
+{
+  question: "You are creating a model-driven app. Sales team members will use the app to manage leads.\n\nIf the estimated value for a lead is greater than $10,000, the app must send an email to a manager.\n\nWhich option should you use?",
+  options: [
+    "Business rule",
+    "Power Automate flow",
+    "Onload script"
+  ],
+  answer: "Power Automate flow",
+  explanation: "Power Automate is appropriate for sending required emails."
+},
+{
+  question: "You are creating a model-driven app. Sales team members will use the app to manage leads.\n\nIf the estimated value for a lead is greater than $10,000, the app must display the Sponsor field.\n\nWhich option should you use?",
+  options: [
+    "Business rule",
+    "Power Automate flow",
+    "Onload script"
+  ],
+  answer: "Business rule",
+  explanation: "Business rules can show or hide fields based on conditions."
+},
+{
+  question: "You are creating a model-driven app. Sales team members will use the app to manage leads.\n\nIf the estimated value for a lead is greater than $10,000, the app must display a notification when the lead record is opened.\n\nWhich option should you use?",
+  options: [
+    "Business rule",
+    "Power Automate flow",
+    "Onload script"
+  ],
+  answer: "Onload script",
+  explanation: "An OnLoad script can display a form notification when the record opens."
 },
 
 ];
