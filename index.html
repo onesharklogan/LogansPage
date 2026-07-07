@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- start on 28-->
+<!-- start on 34-->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -1900,7 +1900,686 @@ const allQuestions = [
   ],
   answer: "Create a plug-in that updates the values immediately.",
   explanation: "Rollup jobs aren't immediate. A plug-in provides real-time updates."
-}
+},
+{
+  question: "A company is integrating Microsoft Dynamics 365 Sales and Slack.\n\nYou need to ensure Dynamics 365 security is in place.\n\nWhich component should you use?",
+  options: [
+    "OAuth",
+    "Security roles",
+    "API key",
+    "Basic authentication"
+  ],
+  answer: "Security roles",
+  explanation: "Security roles enforce Dynamics 365 security."
+},
+{
+  question: "A company is integrating Microsoft Dynamics 365 Sales and Slack.\n\nYou need to capture application usage from a public site.\n\nWhich component should you use?",
+  options: [
+    "OAuth",
+    "Security roles",
+    "API key",
+    "Basic authentication"
+  ],
+  answer: "API key",
+  explanation: "API keys are commonly used to identify public application usage."
+},
+{
+  question: "A company is integrating Microsoft Dynamics 365 Sales and Slack.\n\nYou need to configure a website login that does not need encryption.\n\nWhich component should you use?",
+  options: [
+    "OAuth",
+    "Security roles",
+    "API key",
+    "Basic authentication"
+  ],
+  answer: "Basic authentication",
+  explanation: "Basic authentication satisfies the stated requirement."
+},
+{
+  question: "A developer must register a step by using the Plug-in Registration Tool.\n\nWhich plug-in stage should you use to cancel the operation before the database transaction?",
+  options: [
+    "PreValidation",
+    "PreOperation",
+    "MainOperation",
+    "PostOperation"
+  ],
+  answer: "PreValidation",
+  explanation: "PreValidation occurs before the database transaction begins."
+},
+{
+  question: "A developer must register a step by using the Plug-in Registration Tool.\n\nWhich plug-in stage should you use to change values for an entity within the database transaction?",
+  options: [
+    "PreValidation",
+    "PreOperation",
+    "MainOperation",
+    "PostOperation"
+  ],
+  answer: "PreOperation",
+  explanation: "PreOperation executes inside the database transaction before the core operation."
+},
+{
+  question: "A developer must register a step by using the Plug-in Registration Tool.\n\nWhich plug-in stage should you use to modify properties of the message before it returns to the caller?",
+  options: [
+    "PreValidation",
+    "PreOperation",
+    "MainOperation",
+    "PostOperation"
+  ],
+  answer: "PostOperation",
+  explanation: "PostOperation runs after the core operation and before the response is returned."
+},
+{
+  question: "You can use the JSON segment to retrieve a list of changes to the assignment records referenced in the segment.",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "Yes"
+},
+{
+  question: "You can use the delta link to query the assignment changes from the last 30 days.",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "No"
+},
+{
+  question: "You can use the delta link with a $filter option to retrieve assignment changes from the last 30 days.",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "No"
+},
+{
+  question: "Is the delta link token valid?",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "Yes"
+},
+{
+  question: "A custom connector policy must retrieve the request body.\n\nWhich expression should you use?",
+  options: [
+    "body",
+    "headers",
+    "triggerBody",
+    "getFullBody"
+  ],
+  answer: "body"
+},
+{
+  question: "A custom connector policy must retrieve the request body as text.\n\nWhich expression should you use?",
+  options: [
+    "body",
+    "triggerBody",
+    "getBody",
+    "getFullBody"
+  ],
+  answer: "getBody"
+},
+{
+  question: "A custom connector policy must convert the current date to an ISO 8601 string.\n\nWhich expression should you use?",
+  options: [
+    "utcNow()",
+    "formatDateTime(utcNow(),'yyyy-MM-ddTHH:mm:ssZ')",
+    "ticks()",
+    "getFullBody()"
+  ],
+  answer: "formatDateTime(utcNow(),'yyyy-MM-ddTHH:mm:ssZ')"
+},
+{
+  question: "A developer must register a step by using the Plug-in Registration Tool.\n\nWhich plug-in stage should you use to cancel a delete operation for users younger than 15 years old?",
+  options: [
+    "PreValidation",
+    "PreOperation",
+    "PostOperation"
+  ],
+  answer: "PreValidation"
+},
+{
+  question: "A developer must register a step by using the Plug-in Registration Tool.\n\nWhich plug-in stage should you use to update the record and synchronize parent and child records?",
+  options: [
+    "PreValidation",
+    "PreOperation",
+    "PostOperation"
+  ],
+  answer: "PreOperation"
+},
+{
+  question: "A developer must register a step by using the Plug-in Registration Tool.\n\nWhich plug-in stage should you use to add a student to the appropriate class?",
+  options: [
+    "PreValidation",
+    "PreOperation",
+    "PostOperation"
+  ],
+  answer: "PostOperation"
+},
+
+{
+  question: "You are deploying a Power Apps app that uses the custom connector for ServiceNow.\n\nThe app loads very slowly for some users. You determine that all records from ServiceNow are being retrieved for every user.\n\nThe app must load only incidents that are assigned to each user.\n\nYou need to limit the number of records that the connector returns.\n\nWhat should you do?",
+  options: [
+    "Apply a Lifecycle Services asset scope.",
+    "Apply a business process flow.",
+    "Apply the Azure ADM parameter.",
+    "Apply a connector policy template."
+  ],
+  answer: "Apply a connector policy template."
+},
+{
+  question: "A company is developing multiple plug-ins.\n\nOne of the plug-ins keeps failing.\n\nYou need to debug the plug-in.\n\nWhich three actions should you perform?",
+  options: [
+    "Highlight the plug-in step and select Debug in the Plug-in Registration tool.",
+    "Copy the .pdb file into the server/bin/assembly folder.",
+    "Select Start Profiling in the Plug-in Registration tool.",
+    "Attach the debugger to the w3wp.exe process.",
+    "Install the plug-in profiler."
+  ],
+  answer: [
+    "Highlight the plug-in step and select Debug in the Plug-in Registration tool.",
+    "Select Start Profiling in the Plug-in Registration tool.",
+    "Install the plug-in profiler."
+  ]
+},
+{
+  question: "Which action should you perform first to configure the Plug-in Registration tool to send data to an Azure Function when an order is placed?",
+  options: [
+    "Select Register New Web Hook.",
+    "Select Register New Service Endpoint.",
+    "Set authentication to HttpHeader.",
+    "Register a New Step for Create of SalesOrder.",
+    "Enter a connection string.",
+    "Enter the endpoint URL."
+  ],
+  answer: "Select Register New Web Hook."
+},
+{
+  question: "After registering a new Web Hook, what should you do next?",
+  options: [
+    "Enter the endpoint URL.",
+    "Set authentication to HttpHeader.",
+    "Register a New Step for Create of SalesOrder."
+  ],
+  answer: "Enter the endpoint URL."
+},
+{
+  question: "After entering the endpoint URL, what should you do next?",
+  options: [
+    "Register a New Step for Create of SalesOrder.",
+    "Set authentication to HttpHeader.",
+    "Enter a connection string."
+  ],
+  answer: "Register a New Step for Create of SalesOrder."
+},
+{
+  question: "A company needs to illustrate the relationships of the entities in Dynamics 365 Sales.\n\nYou need to select the appropriate tool to show this graphic.\n\nWhich tool should you select?",
+  options: [
+    "Metadata diagram",
+    "Sales Insights",
+    "Power Automate",
+    "Security model"
+  ],
+  answer: "Metadata diagram"
+},
+{
+  question: "You need to register the plug-in to meet the requirements.\n\nWhich message should you apply?",
+  options: [
+    "create",
+    "associate",
+    "update"
+  ],
+  answer: "create"
+},
+{
+  question: "You need to register the plug-in to meet the requirements.\n\nWhich primary entity should you apply?",
+  options: [
+    "none",
+    "region",
+    "contact"
+  ],
+ answer: "contact"
+},
+{
+  question: "You need to register the plug-in to meet the requirements.\n\nWhich secondary entity should you apply?",
+  options: [
+    "none",
+    "region",
+    "contact"
+  ],
+  answer: "none"
+},
+{
+  question: "You need to register the plug-in to meet the requirements.\n\nWhich execution mode should you apply?",
+  options: [
+    "synchronous",
+    "asynchronous"
+  ],
+  answer: "synchronous"
+},
+{
+  question: "A company uses a third-party shipping company to deliver products to customers.\n\nYou need to design a custom connector that retrieves the shipping fees from the shipping company API.\n\nWhich three elements should you define for the custom connector?",
+  options: [
+    "Authentication model",
+    "Address parameter",
+    "OpenAPI definition",
+    "Fee parameter",
+    "Fee reference"
+  ],
+  answer: [
+    "Authentication model",
+    "Address parameter",
+    "OpenAPI definition"
+  ]
+},
+{
+  question: "You are creating a Power Apps app that retrieves customer information from Azure Active Directory when you use the app to look up a customer record.\n\nYou need to make the application work.\n\nWhich two actions should you perform?",
+  options: [
+    "Create a Power Automate flow to import data.",
+    "Create a custom connector that uses the Azure Function API.",
+    "Copy your JSON code to the app.",
+    "Create a custom connector that uses the JSON code.",
+    "Create an API definition for the Azure Function."
+  ],
+  answer: [
+    "Create a custom connector that uses the Azure Function API.",
+    "Create an API definition for the Azure Function."
+  ]
+},
+{
+  question: "You need to set up and deploy a plug-in that encapsulates the rules.\n\nWhich execution stage should you use?",
+  options: [
+    "PreValidation",
+    "PreOperation",
+    "PostOperation"
+  ],
+  answer: "PreValidation"
+},
+{
+  question: "You need to set up and deploy a plug-in that encapsulates the rules.\n\nWhich execution mode should you use?",
+  options: [
+    "Asynchronous",
+    "Synchronous"
+  ],
+  answer: "Synchronous"
+},
+{
+  question: "You need to set up and deploy a plug-in that encapsulates the rules.\n\nWhich image should you use?",
+  options: [
+    "Pre image",
+    "Post image"
+  ],
+  answer: "Pre image"
+},
+{
+  question: "You need to set up and deploy a plug-in that encapsulates the rules.\n\nWhich error handling approach should you use?",
+  options: [
+    "throw new InvalidPluginExecutionException(\"Your error message\", ex);",
+    "tracingService.Trace(\"Your error message: {0}\", ex.ToString());"
+  ],
+  answer: "throw new InvalidPluginExecutionException(\"Your error message\", ex);"
+},
+{
+  question: "A field must display multiple selections to the user, enabling the user to select a value.\n\nThe user should be able to remove a selection from being available without modifying existing records.\n\nWhich column type should you use?",
+  options: [
+    "Global choice",
+    "Lookup",
+    "Global choice and Lookup"
+  ],
+  answer: "Lookup"
+},
+{
+  question: "A field must display multiple selections to the user.\n\nThe solution must be completely deployed by using a solution.\n\nWhich column type should you use?",
+  options: [
+    "Global choice",
+    "Lookup",
+    "Global choice and Lookup"
+  ],
+  answer: "Global choice"
+},
+{
+  question: "A field must display multiple selections to the user.\n\nThe same set of selections must be usable on multiple tables.\n\nWhich column type should you use?",
+  options: [
+    "Global choice",
+    "Lookup",
+    "Global choice and Lookup"
+  ],
+  answer: "Global choice and Lookup"
+},
+{
+  question: "You create a plug-in to validate data.\n\nUsers report that validation is not working as expected.\n\nYou need to debug the plug-in.\n\nWhich tool should you use?",
+  options: [
+    "Plug-in profiler",
+    "Power Platform Tools for Visual Studio",
+    "Plug-in dashboard",
+    "Plug-in Registration Tool"
+  ],
+  answer: "Plug-in profiler"
+},
+{
+  question: "You are creating a Web API.\n\nThe API must create a column in a Microsoft Dataverse table.\n\nWhich HTTP method should you use?",
+  options: [
+    "GET",
+    "POST",
+    "PATCH",
+    "ACCEPT"
+  ],
+  answer: "POST"
+},
+{
+  question: "You are creating a Web API.\n\nThe API must update a column for an existing row.\n\nWhich HTTP method should you use?",
+  options: [
+    "GET",
+    "POST",
+    "PATCH",
+    "ACCEPT"
+  ],
+  answer: "PATCH"
+},
+{
+  question: "You can improve code performance by using the following code instead of retrieving individual fields:\n\nnew ColumnSet(true)",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "No"
+},
+{
+  question: "You can avoid retrieving the changed entity by using plug-in images.",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "Yes"
+},
+{
+  question: "You can avoid updating the changed entity by registering the plug-in in the pre-operation stage.",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "Yes"
+},
+{
+  question: "The GenerateAccountNumber method runs if the plug-in step registration is changed to the PostOperation stage.",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "No"
+},
+{
+  question: "Creating an account in a model-driven app while excluding a name generates the error message \"Account name is missing.\"",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "Yes"
+},
+{
+  question: "The Organization service's Update method must run to update the database after setting the accountnumber value.",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "No"
+},
+{
+  question: "You are creating a plug-in for an app that helps government employees get a proof of vaccination card.\n\nYou must add information to a vaccination record before a proof of vaccination card is created.\n\nIn which stage should you register the plug-in?",
+  options: [
+    "PreValidation",
+    "PostOperation",
+    "MainOperation",
+    "PreOperation"
+  ],
+  answer: "PreOperation"
+},
+{
+  question: "You are developing a new model-driven app.\n\nYou must create a custom connector to connect the app to the Microsoft Graph API.\n\nWhich action should you use to enable the connector to authenticate with Microsoft Azure Active Directory?",
+  options: [
+    "Register Application and specify permissions",
+    "Open Postman and create collections",
+    "Export collection",
+    "Export solution"
+  ],
+  answer: "Register Application and specify permissions"
+},
+{
+  question: "You are developing a new model-driven app.\n\nWhich action should you use to make Postman calls available for the custom connector?",
+  options: [
+    "Register Application and specify permissions",
+    "Open Postman and create collections",
+    "Export collection",
+    "Export solution"
+  ],
+  answer: "Open Postman and create collections"
+},
+{
+  question: "A tester receives an error when connecting to the production instance of the Web API.\n\nWhich security option should you configure for the Azure Function?",
+  options: [
+    "Anonymous",
+    "Function key",
+    "Azure Active Directory"
+  ],
+  answer: "Function key"
+},
+{
+  question: "A Power Automate flow in a solution uses a custom connector.\n\nWhich security option should you configure for the custom connector?",
+  options: [
+    "API Key",
+    "OAuth 2.0",
+    "Basic authentication"
+  ],
+  answer: "OAuth 2.0"
+},
+{
+  question: "A plug-in must display an error message if there is no account associated with a quote and prevent changes to the quote.\n\nWhich pipeline stage should you use?",
+  options: [
+    "MainOperation",
+    "PostOperation",
+    "PreOperation",
+    "PreValidation"
+  ],
+  answer: "PreValidation"
+},
+{
+  question: "A plug-in must synchronize quotes with an external ERP system.\n\nWhich pipeline stage should you use?",
+  options: [
+    "MainOperation",
+    "PostOperation",
+    "PreOperation",
+    "PreValidation"
+  ],
+  answer: "MainOperation"
+},
+
+{
+  question: "You have a Power Automate flow. The flow uses an HTTP action to connect to a web service and update a Microsoft Dataverse record with the result.\n\nYou must modify the flow to send an email if the web service connection fails.\n\nWhich two actions should you perform?",
+  options: [
+    "Configure the send email step to run when the previous step fails.",
+    "Add a send email step after the update Dataverse record step.",
+    "Add a send email step after the HTTP step.",
+    "Update the HTTP step settings and set the retry policy to None."
+  ],
+  answer: [
+    "Configure the send email step to run when the previous step fails.",
+    "Add a send email step after the HTTP step."
+  ]
+},
+{
+  question: "Note: This question is part of a series of questions that present the same scenario.\n\nYou are an integration that sends created records from a custom Dataverse table to an exposed REST API.\n\nWhen the REST API is unavailable, you must be able to retry if the response status code is 500.\n\nSolution: Register a webhook by using the REST API as the endpoint. Wait for the webhook to automatically retry when a failure occurs.\n\nDoes the solution meet the requirement?",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "No"
+},
+{
+  question: "You are implementing a Power Automate flow in a model-driven app. The flow will facilitate an approval process to increase customer credit limits.\n\nA user must be able to initiate the process from a customer record. The user must be prompted for the amount of the increase.\n\nOnce the increase is approved, the customer record must update to reflect the new amount.\n\nHow should you create the flow?\n\nWhich trigger type should you use?",
+  options: [
+    "When a Dataverse record is selected",
+    "Manually trigger a flow",
+    "When Power Apps calls a flow"
+  ],
+  answer: "Manually trigger a flow"
+},
+{
+  question: "You are implementing a Power Automate flow in a model-driven app. The flow will facilitate an approval process to increase customer credit limits.\n\nWhich Record ID should you use to update?",
+  options: [
+    "From the trigger",
+    "From a variable",
+    "From a List Dataverse rows step"
+  ],
+  answer: "From the trigger"
+},
+{
+  question: "You write a plug-in that creates a row in a custom table.\n\nOnly some users have permission to create rows in the custom table.\n\nYou need to allow the plug-in to run for all users by using the principle of least privilege.\n\nWhat should you do?",
+  options: [
+    "Initiate the IOrganizationService by passing the ID of a user with permissions to create rows in the custom table.",
+    "Ensure all users have been granted the Environment Maker role.",
+    "Set Run in the User's Context to Calling User in the plug-in step.",
+    "Ensure all users have the Act on Behalf of Another User permission assigned to one of their security roles."
+  ],
+  answer: "Initiate the IOrganizationService by passing the ID of a user with permissions to create rows in the custom table."
+},
+{
+  question: "Memorize",
+  options: [
+    "Create an environment variable for the endpoint URL.",
+    "Open the Plug-in Registration tool.",
+    "Select Register New Web Hook.",
+    "Configure WebhookKey authentication."
+  ],
+  answer: [
+    "Create an environment variable for the endpoint URL.",
+    "Open the Plug-in Registration tool.",
+    "Select Register New Web Hook.",
+    "Configure WebhookKey authentication."
+  ]
+},
+{
+  question: "You have a model-driven app form that uses Xrm.WebApi.updateRecord during the OnSave event to update a related record.\n\nYou observe during testing that the related record does not always update when it should.\n\nWhich two actions should you perform?",
+  options: [
+    "Add logic before the update to ensure that the request is made only when the value has changed.",
+    "Enable the Async OnSave app setting.",
+    "Wrap the update in a promise.",
+    "Add executionContext.getEventArgs().disableAsyncTimeout() before the update.",
+    "Add executionContext.getEventArgs().preventDefault() before the update."
+  ],
+  answer: [
+    "Enable the Async OnSave app setting.",
+    "Wrap the update in a promise."
+  ]
+},
+{
+  question: "Users are directed to a form in a model-driven app through a special URL that passes values for three lookup columns.\n\nYou need to shorten the time it takes to load and save the form without losing functionality.\n\nWhich event registration should you use for OnLoad?",
+  options: [
+    "TabStateChange events on tabs B and C",
+    "TabStateChange events on tabs A, B, and C",
+    "OnChange events for the lookup columns on tabs B and C",
+    "OnChange events for the lookup columns on tabs A, B, and C"
+  ],
+  answer: "OnChange events for the lookup columns on tabs A, B, and C"
+},
+{
+  question: "Users are directed to a form in a model-driven app through a special URL that passes values for three lookup columns.\n\nWhich event registration should you use for OnSave?",
+  options: [
+    "PostSave event for the form",
+    "OnChange events for the columns involved in the calculations",
+    "OnOutputChange events for the columns involved in the calculations"
+  ],
+  answer: "OnChange events for the columns involved in the calculations"
+},
+{
+  question: "Memorize",
+  options: [
+    "No, No, No, No"
+  ],
+  answer: "No, No, No, No"
+},
+{
+  question: "Memorize",
+  options: [
+    "Webhook",
+    "Azure Service Bus",
+    "Azure Event Hub"
+  ],
+  answer: [
+    "Outbound synchronous calls to a third-party Web API service → Webhook",
+    "Calls to and from a website hosted in Azure with high peak loads → Azure Service Bus",
+    "Outbound calls to multiple on-premises and cloud systems to notify of customer address changes → Azure Event Hub"
+  ]
+},
+{
+  question: "Note: This question is part of a series of questions that present the same scenario.\n\nSolution: Register a webhook in the Dataverse instance that connects to the Azure Function. Register a step on the webhook which runs synchronously on the record's Create message and in the post-operation stage.\n\nDoes the solution meet the goal?",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "No"
+},
+{
+  question: "Note: This question is part of a series of questions that present the same scenario.\n\nSolution: Register a service endpoint in the Dataverse instance that connects to an Azure Service Bus queue. Register a step at the endpoint which runs asynchronously on the record's Create message and in the post-operation stage. Configure the Azure Function to process records as they are added to the queue.\n\nDoes the solution meet the goal?",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "Yes"
+},
+{
+  question: "Note: This question is part of a series of questions that present the same scenario.\n\nSolution: Configure the Azure Function with a timer trigger that runs every five minutes. The function will query the Dataverse instance and process records created in the last five minutes.\n\nDoes the solution meet the goal?",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "No"
+},
+{
+  question: "Memorize",
+  options: [
+    "Create an Azure Function app.",
+    "Refactor the plug-in logic in the app.",
+    "Publish the app.",
+    "Register a webhook for the app in the Plug-in Registration tool.",
+    "Register a step in the webhook."
+  ],
+  answer: [
+    "Create an Azure Function app.",
+    "Refactor the plug-in logic in the app.",
+    "Publish the app.",
+    "Register a webhook for the app in the Plug-in Registration tool.",
+    "Register a step in the webhook."
+  ]
+},
+{
+  question: "Memorize",
+  options: [
+    "Notify the infrastructure team when a new virtual machine is created → Event handler",
+    "Route orders over $5,000 to the credit department → Event subscription"
+  ],
+  answer: [
+    "Notify the infrastructure team when a new virtual machine is created → Event handler",
+    "Route orders over $5,000 to the credit department → Event subscription"
+  ]
+},
+{
+  question: "You create a Power Platform solution to track purchasing requirements for bills of material (BOMs) and their subcomponents.\n\nHow should you configure the solution?\n\nEnsure the BOMs can include necessary subcomponents.",
+  options: [
+    "Configure entity relationships.",
+    "Configure Quick View.",
+    "Configure environment variables."
+  ],
+  answer: "Configure entity relationships."
+},
+{
+  question: "You create a Power Platform solution to track purchasing requirements for bills of material (BOMs) and their subcomponents.\n\nHow should you configure the solution?\n\nReport who changed the BOM records and when the changes were made.",
+  options: [
+    "Configure entity change tracking.",
+    "Configure entity auditing.",
+    "Configure environment variables."
+  ],
+  answer: "Configure entity change tracking."
+},
 
 ];
 
