@@ -299,24 +299,8 @@ const allQuestions = [
   answer: "No",
   explanation: "The code path does not display the error dialog in that situation."
 },
-{
-  question: "The alert dialog on line 21 will always be shown after the update completes and the alert dialog on line 15 is shown.",
-  options: [
-    "Yes",
-    "No"
-  ],
-  answer: "No",
-  explanation: "The second dialog is not guaranteed to execute."
-},
-{
-  question: "The code raises the following exception: Interact with HTTP and HTTPS resources asynchronously (web-use-async).",
-  options: [
-    "Yes",
-    "No"
-  ],
-  answer: "Yes",
-  explanation: "The analyzer flags synchronous HTTP requests."
-},
+
+
 {
   question: "The code raises the following exception: Use strict equality operators (web-use-strict-equality-operators).",
   options: [
@@ -1976,7 +1960,7 @@ const allQuestions = [
   answer: "Yes"
 },
 {
-  question: "You can use the delta link to query the assignment changes from the last 30 days.",
+  question: "A client application has completed an initial synchronization of Dataverse records and received an @odata.deltaLink. What should the application do next?",
   options: [
     "Yes",
     "No"
@@ -1984,12 +1968,13 @@ const allQuestions = [
   answer: "No"
 },
 {
-  question: "You can use the delta link with a $filter option to retrieve assignment changes from the last 30 days.",
+  question: "A Dataverse Web API client performs an initial synchronization and receives an @odata.deltaLink containing a $deltatoken.\n\nCan the application store and reuse this delta link to retrieve only the records that have changed since the last synchronization?",
   options: [
     "Yes",
     "No"
   ],
-  answer: "No"
+  answer: "Yes",
+  explanation: "A delta link is intended to be stored and reused. It contains a delta token that allows subsequent requests to return only records that have changed since the previous synchronization."
 },
 {
   question: "Is the delta link token valid?",
@@ -2649,7 +2634,7 @@ const allQuestions = [
 },
 
 {
-  question: "You need to configure a Power Automate flow that updates Dataverse records by using the response from a Web API.\n\nThe flow must stop if the Web API returns HTTP 404.\n\nWhich actions should you perform in order?",
+  question: "You need to configure a Power Automate flow that updates Dataverse records by using the response from a Web API. The flow must stop if the Web API returns HTTP 404. Which actions should you perform in order?",
   answers: [
     "Initialize a variable with the response status code.",
     "Add a condition to check whether the status code equals 404.",
@@ -2680,17 +2665,7 @@ const allQuestions = [
   explanation: "Azure Service Bus provides reliable messaging with retries and dead-letter queues for failed requests."
 },
 
-{
-  question: "A company creates a custom connector for its cloud-based ERP system.\n\nWhich authentication method should be configured?",
-  answers: [
-    "Basic authentication",
-    "Windows Active Directory authentication",
-    "Certificate-based authentication",
-    "Passwordless authentication"
-  ],
-  correct: [0],
-  explanation: "Basic authentication is a supported authentication type for custom connectors."
-},
+
 
 {
   question: "You are creating a .NET application to load a large volume of data into Dataverse.\n\nA synchronous plug-in must be bypassed during the import without affecting other users.\n\nWhich two approaches can you use?",
@@ -2705,17 +2680,71 @@ const allQuestions = [
 },
 
 {
-  question: "A company creates a custom connector for its cloud-based ERP system.\n\nWhich authentication method should be configured?",
+  question: "A company exposes a cloud-hosted ERP REST API. The API already uses Microsoft Entra ID (Azure AD) and issues access tokens after users sign in.\n\nYou are creating a Power Platform custom connector.\n\nWhich authentication method should you configure?",
   answers: [
     "Basic authentication",
-    "Windows Active Directory authentication",
-    "Biometric authentication",
-    "Two-factor authentication"
+    "Windows authentication",
+    "Generic OAuth 2.0 authentication",
+    "API key authentication"
+  ],
+  correct: [2],
+  explanation: "Cloud APIs that use Microsoft Entra ID or another OAuth provider should use Generic OAuth 2.0 in a custom connector."
+},
+{
+  question: "A legacy inventory system exposes an HTTPS API. Every request must include the same username and password in the Authorization header.\n\nYou are creating a custom connector.\n\nWhich authentication method should you configure?",
+  answers: [
+    "Basic authentication",
+    "OAuth 2.0 authentication",
+    "Windows authentication",
+    "No authentication"
   ],
   correct: [0],
-  explanation: "Basic authentication is supported directly by Power Platform custom connectors."
+  explanation: "Basic authentication is designed for APIs that require a username and password with every request."
 },
-
+{
+  question: "An internal HR web service is hosted on the company's Windows Server and uses Active Directory credentials for authentication.\n\nYou are creating a custom connector.\n\nWhich authentication method should you configure?",
+  answers: [
+    "API key",
+    "Windows authentication",
+    "OAuth 2.0",
+    "Basic authentication"
+  ],
+  correct: [1],
+  explanation: "Windows authentication is used for on-premises services that authenticate using Windows/Active Directory credentials."
+},
+{
+  question: "A weather service requires every request to include the same subscription key in the x-api-key HTTP header.\n\nYou are creating a custom connector.\n\nWhich authentication method should you configure?",
+  answers: [
+    "OAuth 2.0",
+    "API key",
+    "Basic authentication",
+    "Windows authentication"
+  ],
+  correct: [1],
+  explanation: "API key authentication is used when the API requires a shared key instead of user credentials."
+},
+{
+  question: "A SaaS application allows each employee to sign in using their own organization account. After signing in, the API returns an access token that expires after one hour.\n\nWhich authentication method should the custom connector use?",
+  answers: [
+    "OAuth 2.0",
+    "Basic authentication",
+    "Windows authentication",
+    "No authentication"
+  ],
+  correct: [0],
+  explanation: "OAuth 2.0 is designed for delegated user sign-in and temporary access tokens."
+},
+{
+  question: "A custom connector will connect to an internal API that does not require users to sign in. Instead, every request must include the same secret value provided by the vendor.\n\nWhich authentication method should you configure?",
+  answers: [
+    "API key",
+    "OAuth 2.0",
+    "Windows authentication",
+    "Basic authentication"
+  ],
+  correct: [0],
+  explanation: "When all requests use the same shared secret, API key authentication is the correct choice."
+}
 {
   question: "A solution contains custom tables that reference Microsoft Field Service tables.\n\nAfter importing the solution into a new test environment, dependency errors occur.\n\nWhat should you recommend?",
   answers: [
@@ -2728,17 +2757,7 @@ const allQuestions = [
   explanation: "Include the dependent Field Service components in the solution."
 },
 
-{
-  question: "A company creates a custom connector for its cloud-based ERP system.\n\nWhich authentication method should be configured?",
-  answers: [
-    "Two-factor authentication",
-    "Windows Active Directory authentication",
-    "Biometric authentication",
-    "Generic OAuth authentication"
-  ],
-  correct: [3],
-  explanation: "OAuth is the recommended authentication mechanism for modern cloud-based APIs."
-},
+
 
 {
   question: "A company plans to implement an integration between Microsoft Dataverse and Azure Service Bus.\n\nA plug-in package is created by using Microsoft Power Platform CLI.\n\nWhich interface should you implement?",
