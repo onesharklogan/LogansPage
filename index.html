@@ -299,7 +299,15 @@ const allQuestions = [
   answer: "No",
   explanation: "The code path does not display the error dialog in that situation."
 },
-
+{
+  question: "The alert dialog on line 21 will always be shown after the update completes and the alert dialog on line 15 is shown.",
+  options: [
+    "Yes",
+    "No"
+  ],
+  answer: "No",
+  explanation: "The second dialog is not guaranteed to execute."
+},
 
 {
   question: "The code raises the following exception: Use strict equality operators (web-use-strict-equality-operators).",
@@ -2634,7 +2642,7 @@ const allQuestions = [
 },
 
 {
-  question: "You need to configure a Power Automate flow that updates Dataverse records by using the response from a Web API. The flow must stop if the Web API returns HTTP 404. Which actions should you perform in order?",
+  question: "You need to configure a Power Automate flow that updates Dataverse records by using the response from a Web API. The flow must stop if the Web API returns HTTP 404.Which actions should you perform in order?",
   answers: [
     "Initialize a variable with the response status code.",
     "Add a condition to check whether the status code equals 404.",
