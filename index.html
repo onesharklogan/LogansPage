@@ -105,6 +105,7 @@
   <div id="options"></div>
   <div id="feedback"></div>
   <button id="actionButton" onclick="handleButtonClick()">Check Answer</button>
+  <button id="skipButton" onclick="skipQuestion()" style="background:#d97706;margin-left:10px;">Skip Question</button>
   <button id="endButton" onclick="endQuiz()" style="background:#6b7280;margin-left:10px;">End Quiz</button>
 </div>
 
@@ -3099,6 +3100,11 @@ function checkAnswer() {
 
   answerChecked = true;
   document.getElementById("actionButton").innerText = "Next";
+}
+
+function skipQuestion() {
+  // Skipped questions do not affect the attempted count or score.
+  nextQuestion();
 }
 
 function nextQuestion() {
