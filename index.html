@@ -171,6 +171,7 @@
 const allQuestions = [
 
 {
+  important: true,
   question: "You are using a cloud flow.\n\nYou need to configure the When a row is added, modified, or deleted trigger to carry data from the Accounts table. The Accounts table contains more than 2,500 rows.\n\nWhich Change Type should you use?",
   options: [
     "Added",
@@ -2982,6 +2983,10 @@ const allQuestions = [
 
 const QUESTIONS_PER_RUN = allQuestions.length;
 const WRONG_REPLAY_DELAY = 5;
+
+// Questions with `important: true` appear this many EXTRA times per quiz.
+// 2 means an important question appears 3 times total.
+const IMPORTANT_EXTRA_PLAYS = 2;
 let quizSlides = [];
 let quizQuestions = [];
 let currentQuestionIndex = 0;
@@ -3021,9 +3026,20 @@ function getQuestionNumberForSlide(slideIndex) {
   return slideIndex + 1;
 }
 
+function buildWeightedQuestionPool(questions) {
+  return questions.flatMap(question => {
+    const playCount = question.important ? 1 + IMPORTANT_EXTRA_PLAYS : 1;
+
+    return Array.from({ length: playCount }, () => ({
+      ...question,
+      type: "question"
+    }));
+  });
+}
+
 function startQuiz() {
   quizQuestions = [...allQuestions];
-  quizSlides = shuffle(allQuestions).map(question => ({ ...question, type: "question" }));
+  quizSlides = shuffle(buildWeightedQuestionPool(allQuestions));
 
   currentQuestionIndex = 0;
   score = 0;
@@ -3059,7 +3075,7 @@ function showQuestion() {
   const replayLabel = current.isReplay ? " | Retry Question" : "";
 
   document.getElementById("progress").innerText =
-    `Question ${questionNumber} of ${quizQuestions.length} | Attempted: ${attempted} | Score: ${score}/${attempted}${replayLabel}`;
+    `Question ${questionNumber} of ${quizSlides.length} | Attempted: ${attempted} | Score: ${score}/${attempted}${replayLabel}`;
 
   document.getElementById("question").innerText =
     current.question + (isMulti ? " (Select all that apply)" : "");
