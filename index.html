@@ -169,9 +169,24 @@
 
 <script>
 const allQuestions = [
-
 {
   important: true,
+  question: `You need to create the code to insert a Follow Up Task.
+
+Key points to notice:
+• InputParameters["Target"]
+• account.ToEntityReference()
+• service.Create(followuptask)
+
+If you recognize these three key pieces of code, select OK.`,
+  options: [
+    "OK"
+  ],
+  answer: "OK",
+  explanation: "Remember this pattern for creating a follow-up task in a Dataverse plug-in: retrieve the Target from InputParameters, use ToEntityReference() for the regarding object, and create the task with service.Create()."
+},
+{
+  important: false,
   question: "You are using a cloud flow.\n\nYou need to configure the When a row is added, modified, or deleted trigger to carry data from the Accounts table. The Accounts table contains more than 2,500 rows.\n\nWhich Change Type should you use?",
   options: [
     "Added",
