@@ -3024,6 +3024,131 @@ Key points to notice:
 
 ];
 
+/*
+  Question data repair:
+  - Adds options when they are missing.
+  - Makes answer text use the exact matching option text.
+  - Adds a missing answer to the options list when no reasonable match exists.
+  - Falls back to a one-button OK acknowledgement card when both are missing.
+*/
+function normalizeQuestionText(value) {
+  return String(value ?? "")
+    .trim()
+    .replace(/\s+/g, " ")
+    .toLowerCase();
+}
+
+function findMatchingOption(answer, options) {
+  const normalizedAnswer = normalizeQuestionText(answer);
+
+  // First try an exact match that ignores capitalization and extra spaces.
+  let match = options.find(option =>
+    normalizeQuestionText(option) === normalizedAnswer
+  );
+
+  if (match !== undefined) {
+    return match;
+  }
+
+  // Then handle answers that are shortened versions of a longer option,
+  // or longer versions of an existing option.
+  match = options.find(option => {
+    const normalizedOption = normalizeQuestionText(option);
+    return normalizedOption.startsWith(normalizedAnswer) ||
+           normalizedAnswer.startsWith(normalizedOption);
+  });
+
+  return match;
+}
+
+function repairQuestion(question, index) {
+  const repaired = { ...question };
+
+  if (!Array.isArray(repaired.options) || repaired.options.length === 0) {
+    if (Array.isArray(repaired.answer) && repaired.answer.length > 0) {
+      repaired.options = [...repaired.answer];
+    } else if (repaired.answer !== undefined && repaired.answer !== null && repaired.answer !== "") {
+      repaired.options = [String(repaired.answer)];
+    } else {
+      repaired.options = ["OK"];
+      repaired.answer = "OK";
+      repaired.explanation ||= "Acknowledgement question.";
+    }
+  }
+
+  // Remove invalid/blank options and convert every option to text.
+  repaired.options = repaired.options
+    .filter(option => option !== undefined && option !== null && String(option).trim() !== "")
+    .map(option => String(option));
+
+  if (repaired.options.length === 0) {
+    repaired.options = ["OK"];
+  }
+
+  if (repaired.answer === undefined || repaired.answer === null || repaired.answer === "") {
+    repaired.answer = repaired.options[0];
+  }
+
+  if (Array.isArray(repaired.answer)) {
+    repaired.answer = repaired.answer.map(answer => {
+      const match = findMatchingOption(answer, repaired.options);
+
+      if (match !== undefined) {
+        return match;
+      }
+
+      const answerText = String(answer);
+      repaired.options.push(answerText);
+      return answerText;
+    });
+  } else {
+    const match = findMatchingOption(repaired.answer, repaired.options);
+
+    if (match !== undefined) {
+      repaired.answer = match;
+    } else {
+      const answerText = String(repaired.answer);
+      repaired.options.push(answerText);
+      repaired.answer = answerText;
+    }
+  }
+
+  return repaired;
+}
+
+const repairedQuestions = allQuestions.map(repairQuestion);
+
+// Keep the existing quiz code working even if it reads from allQuestions.
+allQuestions.splice(0, allQuestions.length, ...repairedQuestions);
+
+// Development check: any remaining malformed question will be shown in the browser console.
+const questionValidationIssues = allQuestions.flatMap((question, index) => {
+  const issues = [];
+
+  if (!Array.isArray(question.options) || question.options.length === 0) {
+    issues.push(`Question ${index + 1}: missing options`);
+  }
+
+  const answers = Array.isArray(question.answer)
+    ? question.answer
+    : [question.answer];
+
+  answers.forEach(answer => {
+    if (!question.options.includes(answer)) {
+      issues.push(`Question ${index + 1}: answer does not exactly match an option: ${answer}`);
+    }
+  });
+
+  return issues;
+});
+
+if (questionValidationIssues.length > 0) {
+  console.warn("Quiz data issues:", questionValidationIssues);
+} else {
+  console.info(`Quiz validation passed: ${allQuestions.length} questions are usable.`);
+}
+
+
 const QUESTIONS_PER_RUN = allQuestions.length;
 const WRONG_REPLAY_DELAY = 5;
 
