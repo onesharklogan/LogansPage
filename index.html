@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="frosty-champs-version" content="2.0.0">
   <meta name="theme-color" content="#102d3e"><meta name="description" content="A little ice. A little ingenuity. Rescue a lovable Viking crew in Frosty Champs, an original 30-level ice-slicing physics puzzle adventure.">
   <title>Frosty Champs · A little ice. A little ingenuity.</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22%23173747%22%2F%3E%3Cpath%20d%3D%22M10%2043h46L44%2056H24z%22%20fill%3D%22%23eea16b%22%2F%3E%3Cpath%20d%3D%22M36%208v32H15z%22%20fill%3D%22%23c0eee4%22%2F%3E%3Cpath%20d%3D%22M40%2015v25h16z%22%20fill%3D%22%236fb6bd%22%2F%3E%3C%2Fsvg%3E%0A" type="image/svg+xml"><style>
@@ -24,7 +25,7 @@
 <section class="game-shell" aria-label="Frosty Champs puzzle game">
   <div class="game-topbar"><div class="level-identity"><span id="chapterLabel" class="eyebrow">01 / THE QUIET FJORD</span><h1 id="levelTitle">A clean beginning</h1></div><div class="quick-stats"><div><span id="rescueCount">0 / 1</span><small>CREW ABOARD</small></div><i></i><div><span id="cutCount">0</span><small>CUTS / TARGET</small></div></div></div>
   <div class="canvas-wrap" id="canvasWrap"><canvas id="game" width="960" height="640" aria-label="Ice-cutting game. Drag across ice to cut it. R restarts, Z undoes, M toggles sound." tabindex="0"></canvas><div id="toast" class="toast" role="status" aria-live="polite"></div>
-    <div id="splash" class="splash"><div class="splash-copy"><span class="eyebrow">AN ICE-SLICING ADVENTURE</span><h2>A little ice.<br>A little <em>ingenuity.</em></h2><p>The fjord is frozen. Your crew is not amused.<br>Carve a way home, one clever cut at a time.</p><button id="startBtn" class="primary-button">Begin the voyage <span>→</span></button><div class="splash-caption">30 handcrafted puzzles · No downloads · Just a little nerve</div></div><div class="splash-badge"><span>✦</span> MADE FOR<br>CURIOUS MINDS</div></div>
+    <div id="splash" class="splash"><div class="splash-copy"><span class="eyebrow">AN ICE-SLICING ADVENTURE</span><h2>A little ice.<br>A little <em>ingenuity.</em></h2><p>The fjord is frozen. Your crew is not amused.<br>Swing, slice, and shatter your way home.</p><button id="startBtn" class="primary-button">Begin the voyage <span>→</span></button><div class="splash-caption">30 handcrafted puzzles · Real rope physics · Happy little Vikings</div></div><div class="splash-badge"><span>✦</span> MADE FOR<br>CURIOUS MINDS</div></div>
   </div>
   <div class="game-bottom"><div class="tool-buttons"><button id="undoBtn" title="Undo last cut (Z)"><span>↶</span> Undo <kbd>Z</kbd></button><button id="restartBtn" title="Restart level (R)"><span>↻</span> Restart <kbd>R</kbd></button><button id="pauseBtn" title="Pause game (Space)"><span>Ⅱ</span> Pause</button></div><p id="gestureTip"><span>→</span> Drag a line through the ice. Let gravity do the rest.</p><button id="hintBtn" class="hint-button" aria-expanded="false">A little hint <span>✧</span></button></div>
 </section>
@@ -36,7 +37,7 @@
   <div class="field-note"><svg viewBox="0 0 72 72" aria-hidden="true"><path d="M36 6L12 24l7 36 29 5 15-30z" fill="#173c4c" stroke="#5a95a1"/><path d="M36 6l-3 31L12 24m21 13l30-2M33 37l15 28" fill="none" stroke="#5a95a1"/><path d="M33 15l-4 14m12 13l10 4" stroke="#a2cbd0" stroke-width="2"/></svg><p id="fieldNote">The ice remembers nothing.<br>That's what the undo button is for.</p></div>
 </aside>
 </main>
-<footer><span>Original puzzles. Cozy chaos.</span><span>Made for a good voyage <b>✦</b></span><span>Mouse & touch · Progress saved on this device</span></footer>
+<footer><span>Real ropes. Happy Vikings. Cozy chaos.</span><span>Made for a good voyage <b>✦</b></span><span>Mouse & touch · Progress saved on this device</span></footer>
 <div id="modalBackdrop" class="modal-backdrop" hidden><section id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1"></section></div>
 <!-- Matter.js MIT license:
 The MIT License (MIT)
@@ -89,28 +90,214 @@ function toLocal(body,p){const c=Math.cos(body.angle),s=Math.sin(body.angle),x=p
 
 
 // simulation.js
+
 class RescueSimulation {
- constructor(Matter, level, onEvent=()=>{}) {this.M=Matter;this.level=level;this.onEvent=onEvent;this.engine=Matter.Engine.create({enableSleeping:true});this.engine.gravity.y=1;this.engine.positionIterations=8;this.engine.velocityIterations=8;this.ice=[];this.rocks=[];this.runes=(level.runes||[]).map(r=>({...r,collected:false}));this.rescued=[];this.lost=[];this.cuts=0;this.time=0;this.state='playing';this.total=level.ice.reduce((n,p)=>n+p.vikings.length,0);this.nextViking=0;
- for(const slab of level.ice)this.addIce(slab.points,slab.anchors||[],slab.vikings.map(v=>({...v,id:this.nextViking++})));
- for(const rock of level.rocks||[]){let c=centroid(rock.points),body=Matter.Bodies.fromVertices(c.x,c.y,[rock.points],{isStatic:true,friction:.05,restitution:.05,label:'rock'});Matter.Composite.add(this.engine.world,body);this.rocks.push(body);}
- const boat=level.boat;this.deck=Matter.Bodies.rectangle(boat.x,boat.y+9,boat.width-22,18,{isStatic:true,friction:.12,label:'boat'});Matter.Composite.add(this.engine.world,this.deck);
- }
- addIce(points,anchors=[],vikings=[],velocity=null,angularVelocity=0){const {Bodies,Body,Composite}=this.M,c=centroid(points),body=Bodies.fromVertices(c.x,c.y,[points],{isStatic:anchors.length>0,friction:.025,frictionStatic:.035,frictionAir:.003,restitution:.04,density:.0015,label:'ice',sleepThreshold:90});if(!body)return null;const ice={body,anchors:anchors.map(p=>toLocal(body,p)),vikings:vikings.map(v=>({...v,local:toLocal(body,v)})),seed:Math.round(c.x*7+c.y*13),area:area(points)};if(!body.isStatic&&velocity){Body.setVelocity(body,velocity);Body.setAngularVelocity(body,angularVelocity);}this.ice.push(ice);Composite.add(this.engine.world,body);return ice;}
- getVikings(){return this.ice.flatMap(ice=>ice.vikings.map(v=>({...v,...toWorld(ice.body,v.local),body:ice.body})));}
- slice(a,b){if(this.state!=='playing'||Math.hypot(a.x-b.x,a.y-b.y)<18)return {ok:false,reason:'short'};const candidates=this.ice.map(ice=>({ice,parts:splitPolygon(ice.body.vertices,a,b)})).filter(c=>c.parts);if(!candidates.length)return {ok:false,reason:'miss'};
- for(const {ice} of candidates)for(const v of ice.vikings)if(distanceToSegment(toWorld(ice.body,v.local),a,b)<21){this.onEvent({type:'blocked',x:v.x,y:v.y});return{ok:false,reason:'viking'};}
- for(const {ice,parts} of candidates){const anchors=ice.anchors.map(p=>toWorld(ice.body,p)),vikings=ice.vikings.map(v=>({...v,...toWorld(ice.body,v.local)})),vel={...ice.body.velocity},av=ice.body.angularVelocity;this.M.Composite.remove(this.engine.world,ice.body);this.ice.splice(this.ice.indexOf(ice),1);parts.forEach(poly=>this.addIce(poly,anchors.filter(p=>inside(p,poly)),vikings.filter(v=>inside(v,poly)),vel,av));}
- this.cuts++;this.onEvent({type:'slice',a,b});return{ok:true,count:candidates.length};}
- step(delta=1000/60){if(this.state!=='playing')return;this.time+=delta;for(const ice of this.ice)if(!ice.body.isStatic&&this.level.wind)this.M.Body.applyForce(ice.body,ice.body.position,{x:ice.body.mass*this.level.wind,y:0});this.M.Engine.update(this.engine,delta);const boat=this.level.boat;
- for(const ice of [...this.ice]){for(const v of [...ice.vikings]){const p=toWorld(ice.body,v.local);for(const r of this.runes)if(!r.collected&&Math.hypot(r.x-p.x,r.y-p.y)<42){r.collected=true;this.onEvent({type:'rune',x:r.x,y:r.y});}
- const danger=(this.level.spikes||[]).some(s=>p.x>s.x-14&&p.x<s.x+s.width+14&&p.y>s.y-20&&p.y<s.y+s.height+20);
- if(danger||p.y>615||p.x<-100||p.x>1060){this.lost.push(v);ice.vikings.splice(ice.vikings.indexOf(v),1);this.state='failed';this.onEvent({type:'lost',...p});}
- else if(p.x>boat.x-boat.width/2+10&&p.x<boat.x+boat.width/2-10&&p.y>=boat.y-62&&p.y<boat.y+44){this.rescued.push(v);ice.vikings.splice(ice.vikings.indexOf(v),1);this.onEvent({type:'rescue',...p,look:v.look});}
- }if(ice.body.position.y>850||Math.abs(ice.body.position.x)>1600){this.M.Composite.remove(this.engine.world,ice.body);this.ice.splice(this.ice.indexOf(ice),1);}}
- if(this.rescued.length===this.total){this.state='won';this.stars=1+(this.cuts<=this.level.par?1:0)+(this.runes.every(r=>r.collected)?1:0);this.onEvent({type:'win',stars:this.stars,cuts:this.cuts});}}
- snapshot(){return{cuts:this.cuts,time:this.time,state:this.state,rescued:structuredClone(this.rescued),lost:structuredClone(this.lost),runes:structuredClone(this.runes),ice:this.ice.map(i=>({points:i.body.vertices.map(p=>({x:p.x,y:p.y})),anchors:i.anchors.map(p=>toWorld(i.body,p)),vikings:i.vikings.map(v=>({...v,...toWorld(i.body,v.local)})),velocity:{...i.body.velocity},angularVelocity:i.body.angularVelocity}))};}
- restore(data){for(const i of this.ice)this.M.Composite.remove(this.engine.world,i.body);this.ice=[];for(const i of data.ice)this.addIce(i.points,i.anchors,i.vikings,i.velocity,i.angularVelocity);this.cuts=data.cuts;this.time=data.time;this.state=data.state;this.rescued=structuredClone(data.rescued);this.lost=structuredClone(data.lost);this.runes=structuredClone(data.runes);}
- destroy(){this.M.Composite.clear(this.engine.world,false);this.M.Engine.clear(this.engine);}
+  constructor(Matter, level, onEvent=()=>{}) {
+    this.M=Matter; this.level=level; this.onEvent=onEvent;
+    this.engine=Matter.Engine.create({enableSleeping:false});
+    this.engine.gravity.y=.95;
+    this.engine.positionIterations=9; this.engine.velocityIterations=8; this.engine.constraintIterations=5;
+    this.ice=[]; this.walkers=[]; this.rocks=[]; this.rescued=[]; this.lost=[];
+    this.runes=(level.runes||[]).map(r=>({...r,collected:false}));
+    this.cuts=0; this.time=0; this.state='playing'; this.nextViking=0; this.nextRope=0; this.shatters=0;
+    this.total=level.ice.reduce((n,p)=>n+p.vikings.length,0);
+    for (const slab of level.ice) {
+      const ice=this.addIce(slab.points,slab.anchors||[],slab.vikings.map(v=>({...v,id:this.nextViking++})),slab.velocity||null,slab.angularVelocity||0);
+      if(slab.swing && ice) Matter.Body.setVelocity(ice.body,{x:slab.swing,y:0});
+    }
+    for (const rock of level.rocks||[]) {
+      const c=centroid(rock.points),body=Matter.Bodies.fromVertices(c.x,c.y,[rock.points],{isStatic:true,friction:.035,restitution:.04,label:'rock'});
+      Matter.Composite.add(this.engine.world,body); this.rocks.push(body);
+    }
+    const b=level.boat;
+    this.deck=Matter.Bodies.rectangle(b.x,b.y+9,b.width-22,18,{isStatic:true,friction:.12,label:'boat'});
+    Matter.Composite.add(this.engine.world,this.deck);
+  }
+
+  addIce(points,anchors=[],vikings=[],velocity=null,angularVelocity=0) {
+    const {Bodies,Body,Composite,Constraint}=this.M,c=centroid(points);
+    const body=Bodies.fromVertices(c.x,c.y,[points],{friction:.025,frictionStatic:.035,frictionAir:.005,restitution:.1,density:.0015,label:'ice'});
+    if(!body) return null;
+    const ice={body,anchors:[],vikings:vikings.map(v=>({...v,local:toLocal(body,v)})),seed:Math.round(c.x*7+c.y*13),area:area(points),born:this.time};
+    Composite.add(this.engine.world,body);
+    for (const anchor of anchors) {
+      const local=toLocal(body,anchor),pivot=anchor.pivot?{...anchor.pivot}:{x:anchor.x,y:Math.max(16,anchor.y-130)};
+      const length=anchor.length??Math.hypot(anchor.x-pivot.x,anchor.y-pivot.y);
+      const rope={...local,pivot,length,id:anchor.id??this.nextRope++};
+      rope.constraint=Constraint.create({pointA:{...pivot},bodyB:body,pointB:{...local},length,stiffness:.92,damping:.055,label:'rope'});
+      ice.anchors.push(rope); Composite.add(this.engine.world,rope.constraint);
+    }
+    if(velocity) Body.setVelocity(body,velocity);
+    if(angularVelocity) Body.setAngularVelocity(body,angularVelocity);
+    this.ice.push(ice); return ice;
+  }
+
+  removeIce(ice) {
+    for(const a of ice.anchors) this.M.Composite.remove(this.engine.world,a.constraint);
+    this.M.Composite.remove(this.engine.world,ice.body);
+    this.ice.splice(this.ice.indexOf(ice),1);
+  }
+
+  anchorWorld(ice,anchor) {
+    return {...toWorld(ice.body,anchor),pivot:{...anchor.pivot},length:anchor.length,id:anchor.id};
+  }
+
+  addWalker(v,velocity={x:0,y:0},state={}) {
+    const body=this.M.Bodies.rectangle(v.x,v.y,23,44,{chamfer:{radius:7},friction:.025,frictionStatic:.035,frictionAir:.005,restitution:.04,inertia:Infinity,label:'viking',collisionFilter:{category:2,mask:1}});
+    this.M.Body.setInertia(body,Infinity);
+    this.M.Body.setVelocity(body,{x:Math.max(-6,Math.min(6,velocity.x)),y:Math.max(-4,Math.min(8,velocity.y))});
+    const walker={id:v.id,look:v.look||0,body,direction:state.direction||((v.id||0)%2?1:-1),grounded:false,walking:false,freedAt:state.freedAt??this.time,...state};
+    this.walkers.push(walker);this.M.Composite.add(this.engine.world,body);return walker;
+  }
+
+  getVikings() {
+    return [...this.ice.flatMap(ice=>ice.vikings.map(v=>({...v,...toWorld(ice.body,v.local),body:ice.body,frozen:true}))),...this.walkers.map(v=>({...v,...v.body.position,frozen:false}))];
+  }
+
+  slice(a,b) {
+    if(this.state!=='playing'||Math.hypot(a.x-b.x,a.y-b.y)<18) return {ok:false,reason:'short'};
+    const candidates=this.ice.map(ice=>({ice,parts:splitPolygon(ice.body.vertices,a,b)})).filter(c=>c.parts);
+    const ropes=[];
+    for(const ice of this.ice) for(const anchor of ice.anchors) {
+      const end=toWorld(ice.body,anchor),hit=segmentIntersection(a,b,anchor.pivot,end);
+      // Cut exposed rope, not the portion hidden behind its own ice.
+      if(hit&&!inside(hit,ice.body.vertices)) ropes.push({ice,anchor,hit});
+    }
+    if(!candidates.length&&!ropes.length) return {ok:false,reason:'miss'};
+    for(const v of this.getVikings()) if(distanceToSegment(v,a,b)<21) {
+      this.onEvent({type:'blocked',x:v.x,y:v.y});return {ok:false,reason:'viking'};
+    }
+    for(const {ice,anchor,hit} of ropes) {
+      this.M.Composite.remove(this.engine.world,anchor.constraint);
+      ice.anchors.splice(ice.anchors.indexOf(anchor),1);
+      this.onEvent({type:'rope',...hit});
+    }
+    for(const {ice,parts} of candidates) {
+      const anchors=ice.anchors.map(p=>this.anchorWorld(ice,p)),vikings=ice.vikings.map(v=>({...v,...toWorld(ice.body,v.local)}));
+      const pos={...ice.body.position},vel={...ice.body.velocity},av=ice.body.angularVelocity;
+      this.removeIce(ice);
+      for(const poly of parts) {
+        const c=centroid(poly),v={x:vel.x-av*(c.y-pos.y),y:vel.y+av*(c.x-pos.x)};
+        this.addIce(poly,anchors.filter(p=>inside(p,poly)),vikings.filter(v=>inside(v,poly)),v,av);
+      }
+    }
+    this.cuts++;this.onEvent({type:'slice',a,b,ropes:ropes.length});
+    return {ok:true,count:candidates.length,ropes:ropes.length};
+  }
+
+  shatterIce(ice,impact=0) {
+    if(!this.ice.includes(ice)) return;
+    const points=ice.body.vertices.map(p=>({x:p.x,y:p.y})),pos={...ice.body.position},velocity={...ice.body.velocity};
+    const vikings=ice.vikings.map(v=>({...v,...toWorld(ice.body,v.local)}));
+    this.removeIce(ice); this.shatters++;
+    for(const v of vikings) this.addWalker(v,velocity);
+    this.onEvent({type:'shatter',x:pos.x,y:pos.y,points,velocity,impact,crew:vikings.length});
+  }
+
+  supportAt(x,foot,drop=12,rise=10) {
+    let best=null;
+    for(const body of [...this.rocks,this.deck]) {
+      const ys=[];
+      for(let i=0;i<body.vertices.length;i++) {
+        const a=body.vertices[i],b=body.vertices[(i+1)%body.vertices.length];
+        if(Math.abs(b.x-a.x)<.01||x<Math.min(a.x,b.x)||x>Math.max(a.x,b.x))continue;
+        const slope=(b.y-a.y)/(b.x-a.x),y=a.y+(x-a.x)*slope;
+        ys.push({body,y,slope});
+      }
+      if(!ys.length)continue;
+      const top=ys.reduce((a,b)=>a.y<b.y?a:b);
+      if(top.y>=foot-rise&&top.y<=foot+drop&&(!best||Math.abs(top.y-foot)<Math.abs(best.y-foot)))best=top;
+    }
+    return best;
+  }
+
+  isDanger(p,margin=14) {
+    return (this.level.spikes||[]).some(s=>p.x>s.x-margin&&p.x<s.x+s.width+margin&&p.y>s.y-20&&p.y<s.y+s.height+20);
+  }
+
+  updateWalkers() {
+    for(const v of this.walkers) {
+      const p=v.body.position,foot=p.y+22,support=this.supportAt(p.x,foot);
+      v.grounded=!!support&&Math.abs(v.body.velocity.y)<2;
+      v.walking=v.grounded&&Math.abs(support.slope)<.32;
+      if(!v.walking)continue;
+      let ahead=this.supportAt(p.x+v.direction*19,foot,10,10);
+      if(!ahead||Math.abs(ahead.slope)>.32||this.isDanger({x:p.x+v.direction*24,y:p.y},20))v.direction*=-1;
+      this.M.Body.setVelocity(v.body,{x:v.direction*.5,y:Math.min(v.body.velocity.y,.25)});
+    }
+  }
+
+  collectRunes(p) {
+    for(const r of this.runes)if(!r.collected&&Math.hypot(r.x-p.x,r.y-p.y)<42) {
+      r.collected=true;this.onEvent({type:'rune',x:r.x,y:r.y});
+    }
+  }
+
+  crewOutcome(v,p,remove,canRescue=true) {
+    this.collectRunes(p);const b=this.level.boat;
+    if(this.isDanger(p)||p.y>615||p.x<-100||p.x>1060) {
+      this.lost.push({id:v.id,look:v.look});remove();this.state='failed';this.onEvent({type:'lost',...p});return;
+    }
+    // Only reaching the actual longboat rescues a sailor. A safe rock is not a win.
+    if(canRescue&&p.x>b.x-b.width/2+10&&p.x<b.x+b.width/2-10&&p.y>=b.y-40&&p.y<b.y+44&&this.supportAt(p.x,p.y+22,8,8)?.body===this.deck) {
+      this.rescued.push({id:v.id,look:v.look});remove();this.onEvent({type:'rescue',...p,look:v.look});
+    }
+  }
+
+  step(delta=1000/60) {
+    if(this.state!=='playing')return;
+    this.time+=delta; const preVelocities=new Map();
+    this.updateWalkers();
+    for(const ice of this.ice) {
+      preVelocities.set(ice.body.id,{...ice.body.velocity});
+      if(this.level.wind)this.M.Body.applyForce(ice.body,ice.body.position,{x:ice.body.mass*this.level.wind,y:0});
+      for(const a of ice.anchors) {
+        const p=toWorld(ice.body,a),distance=Math.hypot(p.x-a.pivot.x,p.y-a.pivot.y);
+        a.constraint.stiffness=distance<a.length-.8?0:.92;
+      }
+    }
+    this.M.Engine.update(this.engine,delta);
+    const shattering=new Map();
+    for(const pair of this.engine.pairs.list) {
+      if(!pair.isActive)continue;
+      const [a,b]=[pair.bodyA,pair.bodyB],body=a.label==='ice'?a:b.label==='ice'?b:null,ground=body===a?b:a;
+      if(!body||!['rock','boat'].includes(ground.label))continue;
+      const ice=this.ice.find(i=>i.body===body);if(!ice)continue;
+      const vel=preVelocities.get(body.id)||{x:0,y:0},normal=pair.collision.normal;
+      const impact=Math.abs(vel.x*normal.x+vel.y*normal.y);
+      if(impact>=(this.level.impactThreshold??2.1)||(ground.label==='boat'&&ice.vikings.length))shattering.set(ice,impact);
+    }
+    for(const [ice,impact] of shattering)this.shatterIce(ice,impact);
+    for(const ice of [...this.ice]) {
+      for(const v of [...ice.vikings]) {
+        const p=toWorld(ice.body,v.local);
+        this.crewOutcome(v,p,()=>ice.vikings.splice(ice.vikings.indexOf(v),1),false);
+      }
+      if(ice.body.position.y>850||Math.abs(ice.body.position.x)>1600)this.removeIce(ice);
+    }
+    for(const v of [...this.walkers])this.crewOutcome(v,v.body.position,()=>{this.M.Composite.remove(this.engine.world,v.body);this.walkers.splice(this.walkers.indexOf(v),1);});
+    if(this.state!=='failed'&&this.rescued.length===this.total) {
+      this.state='won';this.stars=1+(this.cuts<=this.level.par?1:0)+(this.runes.every(r=>r.collected)?1:0);
+      this.onEvent({type:'win',stars:this.stars,cuts:this.cuts});
+    }
+  }
+
+  snapshot() {
+    return {cuts:this.cuts,time:this.time,state:this.state,stars:this.stars,shatters:this.shatters,nextRope:this.nextRope,rescued:structuredClone(this.rescued),lost:structuredClone(this.lost),runes:structuredClone(this.runes),
+      ice:this.ice.map(i=>({points:i.body.vertices.map(p=>({x:p.x,y:p.y})),anchors:i.anchors.map(p=>this.anchorWorld(i,p)),vikings:i.vikings.map(v=>({...v,...toWorld(i.body,v.local)})),velocity:{...i.body.velocity},angularVelocity:i.body.angularVelocity,born:i.born})),
+      walkers:this.walkers.map(v=>({id:v.id,look:v.look,x:v.body.position.x,y:v.body.position.y,velocity:{...v.body.velocity},direction:v.direction,grounded:v.grounded,walking:v.walking,freedAt:v.freedAt}))};
+  }
+
+  restore(data) {
+    for(const i of [...this.ice])this.removeIce(i);
+    for(const v of this.walkers)this.M.Composite.remove(this.engine.world,v.body);
+    this.walkers=[];this.time=data.time;this.nextRope=data.nextRope||0;
+    for(const i of data.ice){const ice=this.addIce(i.points,i.anchors,i.vikings,i.velocity,i.angularVelocity);ice.born=i.born??data.time;}
+    for(const v of data.walkers||[])this.addWalker(v,v.velocity,{direction:v.direction,grounded:v.grounded,walking:v.walking,freedAt:v.freedAt});
+    this.cuts=data.cuts;this.state=data.state;this.stars=data.stars;this.shatters=data.shatters||0;this.rescued=structuredClone(data.rescued);this.lost=structuredClone(data.lost);this.runes=structuredClone(data.runes);
+    this.M.Pairs.clear(this.engine.pairs);
+  }
+  destroy(){this.M.Composite.clear(this.engine.world,false);this.M.Engine.clear(this.engine);}
 }
 
 
@@ -120,12 +307,41 @@ class RescueSimulation {
 const rect = (x, y, w, h) => [{x,y},{x:x+w,y},{x:x+w,y:y+h},{x,y:y+h}];
 const poly = (...pairs) => pairs.map(([x,y]) => ({x,y}));
 const sailor = (x,y,look=0) => ({x,y,look});
-const block = (x,y,w,h,people,anchors) => ({
-  points: rect(x,y,w,h),
-  anchors: anchors || [{x:x+15,y:y+14},{x:x+w-15,y:y+14}],
-  vikings: people,
-});
-const shape = (points,people,anchors) => ({points,vikings:people,anchors});
+// Each silhouette is a deliberately uneven ice shard, not a reskinned square.
+// A convex hull around small protected areas guarantees clear attachment points
+// and keeps the frozen crew comfortably inside the hand-shaped outline.
+const shardProfiles = [
+  [[.12,0],[.86,.04],[1,.22],[.83,.91],[.39,1],[0,.72],[.025,.16]],
+  [[0,.14],[.61,0],[1,.13],[.94,.69],[.71,1],[.12,.91]],
+  [[0,.075],[.78,0],[1,.31],[.88,1],[.18,.95],[.04,.55]],
+  [[0,.25],[.21,0],[.9,.06],[1,.79],[.68,1],[.02,.9]],
+  [[0,0],[.76,.08],[1,.34],[.86,.86],[.32,1],[.06,.72]],
+  [[.08,.18],[.36,0],[.91,.06],[1,.6],[.72,.96],[.23,1],[0,.72]],
+  [[0,.08],[.69,0],[1,.24],[.95,.82],[.46,1],[.05,.84]],
+];
+const hull = points => {
+  const sorted = points.slice().sort((a,b)=>a.x-b.x || a.y-b.y);
+  const cross = (a,b,c)=>(b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x);
+  const lower=[], upper=[];
+  for (const p of sorted) { while(lower.length>1 && cross(lower.at(-2),lower.at(-1),p)<=0) lower.pop(); lower.push(p); }
+  for (const p of sorted.reverse()) { while(upper.length>1 && cross(upper.at(-2),upper.at(-1),p)<=0) upper.pop(); upper.push(p); }
+  return [...lower.slice(0,-1),...upper.slice(0,-1)];
+};
+const protectCrew = (points,people,anchors) => {
+  const outline=points.slice();
+  for(const point of anchors) for(const [dx,dy] of [[-10,-10],[10,-10],[10,10],[-10,10]]) outline.push({x:point.x+dx,y:point.y+dy});
+  // Protect the drawn helmet, body, beard and boots, not merely its center.
+  // Small extra margins keep the full silhouette visibly embedded in the ice.
+  for(const point of people) for(const [dx,dy] of [[-25,-36],[25,-36],[25,29],[-25,29]]) outline.push({x:point.x+dx,y:point.y+dy});
+  return hull(outline);
+};
+const block = (x,y,w,h,people,anchors) => {
+  anchors ||= [{x:x+w*.24,y:y+22},{x:x+w*.76,y:y+20}];
+  const profile=shardProfiles[Math.abs(x*3+y*7+w*11+h)%shardProfiles.length];
+  const outline=profile.map(([px,py])=>({x:x+px*w,y:y+py*h}));
+  return {points:protectCrew(outline,people,anchors), anchors, vikings:people};
+};
+const shape = (points,people,anchors) => ({points:protectCrew(points,people,anchors),vikings:people,anchors});
 const boat = (x=480,width=190) => ({x,width,y:548});
 const cut = (x1,y1,x2,y2) => [[x1,y1],[x2,y2]];
 const rock = points => ({points});
@@ -143,7 +359,7 @@ const CHAPTERS = [
 const LEVELS = [
   {
     id:1,name:'A Clean Break',chapter:0,par:1,
-    hint:'Slice across the ice above your sailor. The little gold pins stay put.',
+    hint:'Slice below the gold pins and above the sailor. The ropes hold the top while your little ice raft drops.',
     boat:boat(480,190),ice:[block(425,145,110,205,[sailor(480,325)])],
     rocks:[],spikes:[],runes:[rune(480,429)],
     solution:[cut(395,270,565,270)],
@@ -179,28 +395,28 @@ const LEVELS = [
     solution:[cut(370,280,590,280)],
   },
   {
-    id:6,name:'The Whole Crew',chapter:0,par:1,
-    hint:'Draw a line above all three helmets. Keep it below all six pins.',
-    boat:boat(480,280),
-    ice:[block(363,140,64,215,[sailor(395,331,0)]),block(448,180,64,175,[sailor(480,331,1)]),block(533,120,64,235,[sailor(565,331,2)])],
-    rocks:[],spikes:[spike(190,85),spike(685,85)],runes:[rune(395,440),rune(480,455),rune(565,440)],
-    solution:[cut(335,280,625,280)],
+    id:6,name:'First Swing',chapter:0,par:1,
+    hint:'Let the floe swing toward the boat, then swipe across its rope. There is no rush: it swings back.',
+    boat:boat(560,280),
+    ice:[shape(poly([295,205],[345,180],[395,215],[385,280],[340,315],[305,285]),[sailor(347,280,1)],[{x:350,y:210,pivot:{x:480,y:80}}])],
+    rocks:[],spikes:[spike(165,95),spike(780,80)],runes:[rune(510,395),rune(570,475)],
+    solutionInitialDelay:700,solution:[cut(200,140,800,140)],
   },
   {
     id:7,name:'Between the Pins',chapter:1,par:2,
-    hint:'The pins are on both sides. Cut a column around the sailor, angling the sides outward toward the bottom.',
+    hint:'Pause to plan two cuts around the sailor. Angle the sides outward toward the bottom, then resume and watch the ropes swing.',
     boat:boat(480,180),
     ice:[block(280,165,400,190,[sailor(480,330,0)],[{x:305,y:325},{x:655,y:325}])],
     rocks:[],spikes:[spike(220,110),spike(630,110)],runes:[rune(480,445)],
-    solution:[cut(450,140,420,380),cut(510,140,540,380)],
+    solutionDelay:300,solution:[cut(450,140,420,380),cut(510,140,540,380)],
   },
   {
     id:8,name:'A Window in Winter',chapter:1,par:3,
-    hint:'Make two sides and a roof. Your sailor needs a pin-free piece.',
+    hint:'Make two sides and a roof. Pause lets you plan all three before gravity takes over.',
     boat:boat(480,185),
     ice:[block(300,120,360,245,[sailor(480,340,1)],[{x:325,y:335},{x:635,y:335},{x:480,y:140}])],
     rocks:[],spikes:[spike(200,90),spike(670,90)],runes:[rune(480,450)],
-    solution:[cut(430,95,430,390),cut(530,95,530,390),cut(405,285,555,285)],
+    solutionDelay:300,solution:[cut(430,95,430,390),cut(530,95,530,390),cut(405,285,555,285)],
   },
   {
     id:9,name:'Room for Two',chapter:1,par:2,
@@ -208,7 +424,7 @@ const LEVELS = [
     boat:boat(480,250),
     ice:[block(245,175,470,180,[sailor(435,330,2),sailor(525,330,3)],[{x:270,y:325},{x:690,y:325}])],
     rocks:[],spikes:[spike(195,100),spike(665,100)],runes:[rune(435,445),rune(525,445)],
-    solution:[cut(410,150,380,380),cut(550,150,580,380)],
+    solutionDelay:300,solution:[cut(410,150,380,380),cut(550,150,580,380)],
   },
   {
     id:10,name:'The Crooked Crown',chapter:1,par:2,
@@ -216,7 +432,7 @@ const LEVELS = [
     boat:boat(480,205),
     ice:[shape(poly([300,145],[620,115],[670,315],[545,370],[415,370],[280,315]),[sailor(480,345,0)],[{x:310,y:300},{x:640,y:300}])],
     rocks:[],spikes:[spike(170,100),spike(700,100)],runes:[rune(480,455)],
-    solution:[cut(445,90,415,395),cut(515,90,545,395)],
+    solutionDelay:300,solution:[cut(445,90,415,395),cut(515,90,545,395)],
   },
   {
     id:11,name:'Twin Windows',chapter:1,par:3,
@@ -224,7 +440,7 @@ const LEVELS = [
     boat:boat(480,270),
     ice:[block(315,160,155,195,[sailor(435,330,1)],[{x:332,y:330},{x:435,y:178}]),block(490,160,155,195,[sailor(525,330,2)],[{x:628,y:330},{x:525,y:178}])],
     rocks:[],spikes:[],runes:[rune(435,440),rune(525,440)],
-    solution:[cut(395,135,395,380),cut(565,135,565,380),cut(365,280,595,280)],
+    solutionDelay:300,solution:[cut(395,135,395,380),cut(565,135,565,380),cut(365,280,595,280)],
   },
   {
     id:12,name:'Under One Roof',chapter:1,par:3,
@@ -232,7 +448,7 @@ const LEVELS = [
     boat:boat(480,310),
     ice:[block(220,115,520,250,[sailor(400,340,0),sailor(480,340,1),sailor(560,340,3)],[{x:245,y:335},{x:715,y:335},{x:480,y:135}])],
     rocks:[],spikes:[spike(150,95),spike(715,95)],runes:[rune(400,450),rune(480,450),rune(560,450)],
-    solution:[cut(370,90,340,390),cut(590,90,620,390),cut(330,285,630,285)],
+    solutionDelay:300,solution:[cut(370,90,340,390),cut(590,90,620,390),cut(330,285,630,285)],
   },
   {
     id:13,name:'Follow the Fjord',chapter:2,par:1,
@@ -241,7 +457,7 @@ const LEVELS = [
     ice:[block(310,110,70,185,[sailor(345,271,1)])],
     rocks:[rock(poly([245,355],[425,465],[425,492],[245,382]))],
     spikes:[spike(150,90),spike(730,90)],runes:[rune(365,370),rune(440,468)],
-    solution:[cut(280,235,410,235)],solutionDelay:5000,
+    solution:[cut(280,235,410,235)],solutionDelay:300,
   },
   {
     id:14,name:'The Other Shore',chapter:2,par:1,
@@ -250,7 +466,7 @@ const LEVELS = [
     ice:[block(580,115,70,190,[sailor(615,281,2)])],
     rocks:[rock(poly([535,465],[715,355],[715,382],[535,492]))],
     spikes:[spike(140,100),spike(725,95)],runes:[rune(595,375),rune(520,468)],
-    solution:[cut(550,245,680,245)],solutionDelay:5000,
+    solution:[cut(550,245,680,245)],solutionDelay:300,
   },
   {
     id:15,name:'Meeting in the Middle',chapter:2,par:1,
@@ -259,7 +475,7 @@ const LEVELS = [
     ice:[block(310,115,64,190,[sailor(342,281,0)]),block(586,115,64,190,[sailor(618,281,3)])],
     rocks:[rock(poly([245,355],[375,465],[375,492],[245,382])),rock(poly([585,465],[715,355],[715,382],[585,492]))],
     spikes:[spike(140,85),spike(735,85)],runes:[rune(365,385),rune(595,385)],
-    solution:[cut(280,245,680,245)],solutionDelay:6000,
+    solution:[cut(280,245,680,245)],solutionDelay:300,
   },
   {
     id:16,name:'The Narrow Pass',chapter:2,par:3,
@@ -268,7 +484,7 @@ const LEVELS = [
     ice:[block(240,110,220,195,[sailor(350,281,0)],[{x:260,y:280},{x:440,y:280},{x:350,y:130}])],
     rocks:[rock(poly([245,355],[425,465],[425,492],[245,382]))],
     spikes:[spike(130,95),spike(720,100)],runes:[rune(370,380),rune(440,470)],
-    solution:[cut(330,85,305,330),cut(370,85,395,330),cut(290,245,410,245)],solutionDelay:5000,
+    solution:[cut(330,85,305,330),cut(370,85,395,330),cut(290,245,410,245)],solutionDelay:300,
   },
   {
     id:17,name:'A Friend Downstream',chapter:2,par:2,
@@ -277,7 +493,7 @@ const LEVELS = [
     ice:[block(565,115,68,185,[sailor(599,276,2)]),block(415,285,68,155,[sailor(449,416,1)])],
     rocks:[rock(poly([570,460],[700,350],[700,378],[570,488]))],
     spikes:[spike(160,100),spike(725,95)],runes:[rune(449,475),rune(570,370)],
-    solution:[cut(390,380,510,380),cut(540,240,660,240)],solutionDelay:5000,
+    solution:[cut(390,380,510,380),cut(540,240,660,240)],solutionDelay:300,
   },
   {
     id:18,name:'Three Rivers',chapter:2,par:3,
@@ -286,15 +502,15 @@ const LEVELS = [
     ice:[block(302,105,60,195,[sailor(332,276,0)]),block(450,215,60,175,[sailor(480,366,1)]),block(598,105,60,195,[sailor(628,276,3)])],
     rocks:[rock(poly([240,350],[360,455],[360,482],[240,377])),rock(poly([600,455],[720,350],[720,377],[600,482]))],
     spikes:[spike(120,90),spike(750,90)],runes:[rune(350,370),rune(480,465),rune(610,370)],
-    solution:[cut(425,330,535,330),cut(275,240,390,240),cut(570,240,685,240)],solutionDelay:6000,
+    solution:[cut(425,330,535,330),cut(275,240,390,240),cut(570,240,685,240)],solutionDelay:300,
   },
   {
-    id:19,name:'Staggered Watch',chapter:3,par:2,
-    hint:'Different heights need different cuts. The gold pins must stay upstairs.',
-    boat:boat(480,260),
-    ice:[block(390,95,74,205,[sailor(427,276,0)]),block(496,275,74,160,[sailor(533,411,2)])],
-    rocks:[],spikes:[spike(225,90),spike(645,90)],runes:[rune(427,415),rune(533,480)],
-    solution:[cut(470,375,595,375),cut(365,240,490,240)],
+    id:19,name:'The Flying Longship',chapter:3,par:1,
+    hint:'Two friends, one swinging shard. Cut the rope while the floe is moving toward the right-hand boat.',
+    boat:boat(570,330),
+    ice:[shape(poly([215,205],[300,180],[385,225],[365,300],[290,340],[235,300]),[sailor(275,300,0),sailor(330,295,2)],[{x:300,y:210,pivot:{x:470,y:75}}])],
+    rocks:[],spikes:[spike(120,100),spike(800,85)],runes:[rune(485,400),rune(570,465)],
+    solutionInitialDelay:700,solution:[cut(170,135,800,135)],
   },
   {
     id:20,name:'The Longship Window',chapter:3,par:3,
@@ -302,7 +518,7 @@ const LEVELS = [
     boat:boat(530,180),
     ice:[shape(poly([275,100],[720,150],[690,370],[370,370]),[sailor(530,345,3)],[{x:390,y:342},{x:665,y:342},{x:535,y:160}])],
     rocks:[rock(rect(180,450,110,45))],spikes:[spike(180,110),spike(720,90)],runes:[rune(530,455)],
-    solution:[cut(500,75,475,395),cut(560,75,585,395),cut(460,285,600,285)],
+    solutionDelay:300,solution:[cut(500,75,475,395),cut(560,75,585,395),cut(460,285,600,285)],
   },
   {
     id:21,name:'Two Little Islands',chapter:3,par:4,
@@ -310,7 +526,7 @@ const LEVELS = [
     boat:boat(480,285),
     ice:[block(285,110,185,240,[sailor(432,326,1)],[{x:305,y:325},{x:432,y:130}]),block(490,205,185,235,[sailor(528,416,2)],[{x:655,y:415},{x:528,y:225}])],
     rocks:[],spikes:[spike(150,95),spike(715,95)],runes:[rune(432,435),rune(528,480)],
-    solution:[cut(568,180,568,465),cut(480,380,595,380),cut(392,85,392,375),cut(365,290,480,290)],
+    solutionDelay:300,solution:[cut(568,180,568,465),cut(480,380,595,380),cut(392,85,392,375),cut(365,290,480,290)],
   },
   {
     id:22,name:'The Glass Staircase',chapter:3,par:3,
@@ -318,7 +534,7 @@ const LEVELS = [
     boat:boat(480,300),
     ice:[block(360,80,70,180,[sailor(395,236,0)]),block(445,200,70,165,[sailor(480,341,1)]),block(530,315,70,140,[sailor(565,431,3)])],
     rocks:[],spikes:[spike(190,90),spike(680,90)],runes:[rune(395,420),rune(480,450),rune(565,490)],
-    solution:[cut(505,395,625,395),cut(420,305,540,305),cut(335,200,455,200)],
+    solutionDelay:300,solution:[cut(505,395,625,395),cut(420,305,540,305),cut(335,200,455,200)],
   },
   {
     id:23,name:'The Broad Shoulder',chapter:3,par:3,
@@ -327,7 +543,7 @@ const LEVELS = [
     ice:[block(240,120,500,240,[sailor(490,336,2)],[{x:260,y:335},{x:720,y:335},{x:490,y:140}])],
     rocks:[rock(poly([250,430],[400,430],[400,462],[250,462])),rock(poly([580,430],[730,430],[730,462],[580,462]))],
     spikes:[spike(225,110),spike(645,110)],runes:[rune(490,455)],
-    solution:[cut(445,95,445,385),cut(535,95,535,385),cut(420,300,560,300)],
+    solutionDelay:300,solution:[cut(445,95,445,385),cut(535,95,535,385),cut(420,300,560,300)],
   },
   {
     id:24,name:'Aurora Convoy',chapter:3,par:4,
@@ -335,15 +551,16 @@ const LEVELS = [
     boat:boat(480,320),
     ice:[block(340,220,66,175,[sailor(373,371,0)]),block(425,95,110,300,[sailor(480,371,1)],[{x:438,y:370},{x:522,y:370},{x:480,y:115}]),block(554,220,66,175,[sailor(587,371,3)])],
     rocks:[],spikes:[spike(160,105),spike(695,105)],runes:[rune(373,470),rune(480,470),rune(587,470)],
-    solution:[cut(462,70,447,420),cut(498,70,513,420),cut(430,335,530,335),cut(310,330,650,330)],
+    solutionDelay:300,solution:[cut(462,70,447,420),cut(498,70,513,420),cut(430,335,530,335),cut(310,330,650,330)],
   },
   {
-    id:25,name:'The Gatekeepers',chapter:4,par:5,
-    hint:'Two narrow windows, one shared roof. Angle their sides outward and keep clear of the helmets.',
-    boat:boat(480,275),
-    ice:[block(250,125,230,245,[sailor(420,346,0)],[{x:270,y:345},{x:465,y:345},{x:420,y:145}]),block(480,125,230,245,[sailor(540,346,2)],[{x:495,y:345},{x:690,y:345},{x:540,y:145}])],
-    rocks:[],spikes:[spike(150,100),spike(710,100)],runes:[rune(420,455),rune(540,455)],
-    solution:[cut(400,100,380,395),cut(440,100,460,395),cut(520,100,500,395),cut(560,100,580,395),cut(355,305,605,305)],
+    id:25,name:'Crossed Currents',chapter:4,par:2,
+    hint:'The two floes swing inward. Cut one rope, then the other; a little midair bump will not hurt the crew.',
+    boat:boat(480,330),
+    ice:[shape(poly([250,205],[295,175],[350,215],[337,290],[292,325],[258,280]),[sailor(300,285,0)],[{x:300,y:210,pivot:{x:450,y:80}}]),
+      shape(poly([610,215],[655,180],[705,205],[700,280],[668,325],[623,290]),[sailor(660,285,2)],[{x:660,y:210,pivot:{x:510,y:80}}])],
+    rocks:[],spikes:[spike(145,95),spike(720,95)],runes:[rune(420,410),rune(500,375)],
+    solutionInitialDelay:500,solutionDelays:[300,2000],solution:[cut(100,140,479,140),cut(481,140,850,140)],
   },
   {
     id:26,name:'Stone and Snow',chapter:4,par:4,
@@ -352,7 +569,7 @@ const LEVELS = [
     ice:[block(310,105,64,195,[sailor(342,276,1)]),block(415,105,240,245,[sailor(535,326,3)],[{x:435,y:325},{x:635,y:325},{x:535,y:125}])],
     rocks:[rock(poly([240,355],[410,465],[410,492],[240,382]))],
     spikes:[spike(130,90),spike(750,90)],runes:[rune(360,380),rune(535,480)],
-    solution:[cut(510,80,490,375),cut(560,80,580,375),cut(475,290,595,290),cut(285,240,400,240)],solutionDelay:5000,
+    solution:[cut(510,80,490,375),cut(560,80,580,375),cut(475,290,595,290),cut(285,240,400,240)],solutionDelay:300,
   },
   {
     id:27,name:'The Three-Sailor Problem',chapter:4,par:4,
@@ -360,7 +577,7 @@ const LEVELS = [
     boat:boat(480,320),
     ice:[block(250,115,290,235,[sailor(390,326,0),sailor(470,326,1)],[{x:270,y:325},{x:530,y:325},{x:430,y:135}]),block(545,285,66,155,[sailor(578,416,2)])],
     rocks:[],spikes:[spike(150,100),spike(710,100)],runes:[rune(390,450),rune(470,450),rune(578,480)],
-    solution:[cut(365,90,340,375),cut(495,90,520,375),cut(325,285,535,285),cut(520,380,635,380)],
+    solutionDelay:300,solution:[cut(365,90,340,375),cut(495,90,520,375),cut(325,285,535,285),cut(520,380,635,380)],
   },
   {
     id:28,name:'Between the Teeth',chapter:4,par:4,
@@ -369,7 +586,7 @@ const LEVELS = [
     ice:[block(220,105,250,245,[sailor(420,326,1)],[{x:240,y:325},{x:420,y:125}]),block(490,200,250,240,[sailor(540,416,3)],[{x:720,y:415},{x:540,y:220}])],
     rocks:[rock(poly([240,450],[360,450],[360,480],[240,480])),rock(poly([600,450],[720,450],[720,480],[600,480]))],
     spikes:[spike(205,100),spike(655,100)],runes:[rune(420,450),rune(540,480)],
-    solution:[cut(580,175,580,465),cut(475,380,605,380),cut(380,80,380,375),cut(355,290,485,290)],
+    solutionDelay:300,solution:[cut(580,175,580,465),cut(475,380,605,380),cut(380,80,380,375),cut(355,290,485,290)],
   },
   {
     id:29,name:'Homeward Bound',chapter:4,par:5,
@@ -378,7 +595,7 @@ const LEVELS = [
     ice:[block(300,95,60,205,[sailor(330,276,0)]),block(420,115,120,225,[sailor(480,316,1)],[{x:432,y:315},{x:528,y:315},{x:480,y:135}]),block(600,95,60,205,[sailor(630,276,2)])],
     rocks:[rock(poly([235,350],[355,455],[355,482],[235,377])),rock(poly([605,455],[725,350],[725,377],[605,482]))],
     spikes:[spike(120,85),spike(755,85)],runes:[rune(350,370),rune(480,470),rune(610,370)],
-    solution:[cut(462,90,445,365),cut(498,90,515,365),cut(425,280,535,280),cut(275,240,385,240),cut(575,240,685,240)],solutionDelay:6000,
+    solution:[cut(462,90,445,365),cut(498,90,515,365),cut(425,280,535,280),cut(275,240,385,240),cut(575,240,685,240)],solutionDelay:300,
   },
   {
     id:30,name:'Nobody Left Behind',chapter:4,par:5,
@@ -387,7 +604,7 @@ const LEVELS = [
     ice:[block(245,105,470,250,[sailor(480,331,3)],[{x:270,y:330},{x:690,y:330},{x:480,y:125}]),block(340,390,66,100,[sailor(373,466,0)]),block(554,390,66,100,[sailor(587,466,1)])],
     rocks:[rock(poly([210,475],[305,475],[305,505],[210,505])),rock(poly([655,475],[750,475],[750,505],[655,505]))],
     spikes:[spike(185,100),spike(675,100)],runes:[rune(373,515),rune(480,440),rune(587,515)],
-    solution:[cut(450,80,425,380),cut(510,80,535,380),cut(410,290,550,290),cut(315,430,435,430),cut(525,430,645,430)],
+    solutionDelay:300,solution:[cut(450,80,425,380),cut(510,80,535,380),cut(410,290,550,290),cut(315,430,435,430),cut(525,430,645,430)],
   },
 ];
 
@@ -399,11 +616,20 @@ let sim=null,index=0,started=false,paused=false,modalOpen=false,undo=[],drag=nul
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const copy=['Every great voyage begins with a small crack.','The clever way home is rarely a straight line.','Some mountains are obstacles. Some are helpful.','No sailor left behind. Not even the grumpy one.','A long way from shore. A little closer to home.'];
 function persist(){try{localStorage.setItem(STORAGE,JSON.stringify(saved));}catch{}}
-function sound(type){if(!saved.sound)return;try{audio ||= new (window.AudioContext||window.webkitAudioContext)();if(audio.state==='suspended')audio.resume();const notes={slice:[670,410],rune:[740,990,1320],rescue:[523,659,784],win:[523,659,784,1046],lost:[245,184],blocked:[150],click:[440]}[type]||[440];notes.forEach((f,i)=>{const osc=audio.createOscillator(),gain=audio.createGain(),t=audio.currentTime+i*.075;osc.type=type==='slice'?'triangle':'sine';osc.frequency.setValueAtTime(f,t);if(type==='slice')osc.frequency.exponentialRampToValueAtTime(f*.5,t+.12);gain.gain.setValueAtTime(0,t);gain.gain.linearRampToValueAtTime(.06,t+.008);gain.gain.exponentialRampToValueAtTime(.001,t+.22);osc.connect(gain);gain.connect(audio.destination);osc.start(t);osc.stop(t+.24);});}catch{}}
+function sound(type){if(!saved.sound)return;try{audio ||= new (window.AudioContext||window.webkitAudioContext)();if(audio.state==='suspended')audio.resume();const notes={slice:[670,410],rune:[740,990,1320],rescue:[523,659,784],win:[523,659,784,1046],lost:[245,184],blocked:[150],click:[440],rope:[240,360],shatter:[1320,880,1740]}[type]||[440];notes.forEach((f,i)=>{const osc=audio.createOscillator(),gain=audio.createGain(),t=audio.currentTime+i*.075;osc.type=type==='slice'?'triangle':'sine';osc.frequency.setValueAtTime(f,t);if(type==='slice')osc.frequency.exponentialRampToValueAtTime(f*.5,t+.12);gain.gain.setValueAtTime(0,t);gain.gain.linearRampToValueAtTime(.06,t+.008);gain.gain.exponentialRampToValueAtTime(.001,t+.22);osc.connect(gain);gain.connect(audio.destination);osc.start(t);osc.stop(t+.24);});}catch{}}
 function setSound(){ $('soundLabel').textContent=saved.sound?'Sound on':'Sound off';$('soundBtn').setAttribute('aria-label',saved.sound?'Turn sound off':'Turn sound on');$('soundIcon').style.opacity=saved.sound?'1':'.6';}
 function toast(text){$('toast').textContent=text;$('toast').classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('visible'),3100);}
 function burst(x,y,color,count=15){for(let i=0;i<count;i++){const a=Math.random()*Math.PI*2,s=1+Math.random()*4;particles.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-1,life:1,color,size:2+Math.random()*5});}}
-function onEvent(e){if(e.type==='slice'){sound('slice');for(let t=0;t<=1;t+=.08)burst(e.a.x+(e.b.x-e.a.x)*t,e.a.y+(e.b.y-e.a.y)*t,'#c5ffff',2);trails.push({...e,life:1});}if(e.type==='blocked'){sound('blocked');toast('Mind the helmets! Cut around your crew, not through them.');}if(e.type==='rune'){sound('rune');burst(e.x,e.y,'#f4d088',22);}if(e.type==='rescue'){sound('rescue');burst(e.x,e.y,'#d4f6d6',26);}if(e.type==='lost'){sound('lost');burst(e.x,Math.min(e.y,610),'#8dbed0',16);finishTimer=setTimeout(()=>showResult(false),650);}if(e.type==='win'){sound('win');const old=saved.levels[sim.level.id];saved.levels[sim.level.id]={stars:Math.max(e.stars,old?.stars||0),cuts:Math.min(e.cuts,old?.cuts??Infinity)};saved.last=Math.min(index+1,LEVELS.length-1);persist();finishTimer=setTimeout(()=>showResult(true),850);}updateUI();}
+function onEvent(e){
+if(e.type==='rope'){sound('rope');burst(e.x,e.y,'#ead0a1',10);}
+if(e.type==='shatter'){
+ sound('shatter');
+ const n=Math.min(38,14+Math.round(e.points.length*2));
+ for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,speed=1.5+Math.random()*4.5;particles.push({x:e.x+(Math.random()-.5)*40,y:e.y+(Math.random()-.5)*35,vx:Math.cos(a)*speed+e.velocity.x*.3,vy:Math.sin(a)*speed-1.2,life:1.3,color:['#bdf8f5','#81d3e4','#e1ffff'][i%3],size:6+Math.random()*14,shard:true,spin:(Math.random()-.5)*7});}
+ burst(e.x,e.y,'#e2ffff',15);
+ if(e.crew&&!saved.sawShatter){saved.sawShatter=true;persist();toast('Crack! Free Vikings pace on safe ground. The boat is still home.');}
+}
+if(e.type==='slice'){sound('slice');for(let t=0;t<=1;t+=.08)burst(e.a.x+(e.b.x-e.a.x)*t,e.a.y+(e.b.y-e.a.y)*t,'#c5ffff',2);trails.push({...e,life:1});}if(e.type==='blocked'){sound('blocked');toast('Mind the helmets! Cut around your crew, not through them.');}if(e.type==='rune'){sound('rune');burst(e.x,e.y,'#f4d088',22);}if(e.type==='rescue'){sound('rescue');burst(e.x,e.y,'#d4f6d6',26);}if(e.type==='lost'){sound('lost');burst(e.x,Math.min(e.y,610),'#8dbed0',16);finishTimer=setTimeout(()=>showResult(false),650);}if(e.type==='win'){sound('win');const old=saved.levels[sim.level.id];saved.levels[sim.level.id]={stars:Math.max(e.stars,old?.stars||0),cuts:Math.min(e.cuts,old?.cuts??Infinity)};saved.last=Math.min(index+1,LEVELS.length-1);persist();finishTimer=setTimeout(()=>showResult(true),850);}updateUI();}
 function loadLevel(n){clearTimeout(finishTimer);clearTimeout(toastTimer);$('toast').classList.remove('visible');sim?.destroy();index=Math.max(0,Math.min(n,LEVELS.length-1));sim=new RescueSimulation(window.Matter,LEVELS[index],onEvent);undo=[];particles=[];trails=[];guideUntil=0;drag=null;paused=false;accumulator=0;$('hintCard').hidden=true;$('hintBtn').setAttribute('aria-expanded','false');$('pauseBtn').innerHTML='<span>Ⅱ</span> Pause';closeModal();updateUI();}
 function updateUI(){if(!sim)return;const l=sim.level,c=CHAPTERS[l.chapter];$('chapterLabel').textContent=`${String(l.chapter+1).padStart(2,'0')} / ${c.name.toUpperCase()}`;$('levelTitle').textContent=l.name;$('missionName').textContent=l.name;$('levelNumber').textContent=String(l.id).padStart(2,'0');$('missionIntro').textContent=copy[l.chapter];$('rescueCount').textContent=`${sim.rescued.length} / ${sim.total}`;$('cutCount').textContent=`${sim.cuts} / ${l.par}`;$('crewGoal').textContent=`Rescue ${sim.total} stranded Viking${sim.total===1?'':'s'}.`;$('parGoal').textContent=`The clever cut${l.par===1?'':'s'}: ${l.par}`;$('runeGoal').textContent=sim.runes.length?`${sim.runes.filter(r=>r.collected).length} / ${sim.runes.length} runes caught. Guide the crew through.`:'A little gift: this star is yours.';$('hintText').textContent=l.hint;const records=Object.values(saved.levels),done=records.length,stars=records.reduce((n,v)=>n+v.stars,0);$('progressText').textContent=`${done} / ${LEVELS.length}`;$('startBtn').innerHTML=done?'Continue the voyage <span>→</span>':'Begin the voyage <span>→</span>'; $('progressBar').style.width=`${done/LEVELS.length*100}%`;$('starTotal').textContent=stars;$('undoBtn').disabled=!undo.length;$('pauseBtn').innerHTML=paused?'<span>▶</span> Resume':'<span>Ⅱ</span> Pause';$('gestureTip').innerHTML=index===0?'<span>→</span> Cut beneath the gold pins, above the helmet.':'<span>→</span> Drag a line through the ice. Let gravity do the rest.';}
 function start(){started=true;document.body.classList.remove('is-splash');$('splash').hidden=true;loadLevel(saved.last||0);canvas.focus({preventScroll:true});if(index===0){guideUntil=clock+6500;toast('Click and drag across the ice above your Viking.');}sound('click');}
@@ -412,15 +638,15 @@ function restart(){loadLevel(index);if(started)toast('Fresh ice. Fresh ideas.');
 function showModal(html,cls=''){modalOpen=true;$('modal').className=`modal ${cls}`;$('modal').innerHTML=html;$('modalBackdrop').hidden=false;$('modal').focus();$('modal').querySelector('.close')?.addEventListener('click',closeModal);}
 function closeModal(){modalOpen=false;$('modalBackdrop').hidden=true;if(started)canvas.focus({preventScroll:true});}
 function showResult(win){if(!sim||win&&sim.state!=='won'||!win&&sim.state!=='failed')return;const n=sim.runes.filter(r=>r.collected).length;showModal(`<span class="eyebrow">${win?'SAFE & SOUND':'A CHILLY DETOUR'}</span><h2 id="modalTitle">${win?(index===29?'The whole fjord is home.':'Everyone aboard!'):'Let’s try a different cut.'}</h2><p>${win?(index===29?'Thirty crossings, a very grateful crew, and a story worth telling. Revisit your favorite shores and chase every last star.':'Warm socks, a crackling fire, and one very grateful crew. A good captain always finds a way.'):'One of your crew missed the boat. Nothing is lost: undo your last cut, or start again with fresh ice.'}</p>${win?`<div class="result-art" aria-label="${sim.stars} out of 3 stars">${[1,2,3].map(s=>`<span class="${s>sim.stars?'empty':''}">✦</span>`).join('')}</div><div class="result-stats"><span><strong>${sim.rescued.length}</strong> rescued</span><span><strong>${sim.cuts}</strong> cuts / ${sim.level.par} target</span><span><strong>${n}</strong> runes</span></div>`:''}<div class="modal-actions"><button id="resultPrimary" class="primary-button">${win?(index===29?'Explore the voyage':'On to the next shore'):'Undo last cut'} <span>→</span></button><button id="resultRestart" class="secondary-button">${win?'Try for a cleaner cut':'Restart level'}</button><button id="resultMap" class="secondary-button">The voyage</button></div>`);$('resultPrimary').onclick=win?()=>{if(index===29)showMap();else loadLevel(index+1);}:doUndo;$('resultRestart').onclick=restart;$('resultMap').onclick=showMap;}
-function showHelp(){sound('click');showModal(`<button class="close" aria-label="Close instructions">×</button><span class="eyebrow">A CAPTAIN'S FIELD GUIDE</span><h2 id="modalTitle">Small cuts. Big adventures.</h2><ol class="help-steps"><li><b>1</b><div><strong>Slice the ice.</strong>Click and drag, or swipe with a finger. Start outside a block and cut all the way through. Time pauses while you aim.</div></li><li><b>2</b><div><strong>Leave the gold pins behind.</strong>Any piece still holding a pin stays anchored. Free the piece with your Viking and let gravity take over. Stone cannot be cut.</div></li><li><b>3</b><div><strong>Bring every Viking to the boat.</strong>Cut around their helmets. Use sloping rocks, avoid the red ice, and let the boat's warm lantern bring them aboard.</div></li><li><b>✦</b><div><strong>Find your perfect three-star route.</strong>Rescue the crew for one star, meet the cut target for another, and collect every golden rune for the third. Undo and retry as much as you like.</div></li></ol><p>R: restart · Z: undo · Space: pause · M: sound<br>All 30 shores are open to explore. Your stars stay on this device.</p><button id="helpDone" class="primary-button">I’ve got this <span>→</span></button>`);$('helpDone').onclick=closeModal;}
+function showHelp(){sound('click');showModal(`<button class="close" aria-label="Close instructions">×</button><span class="eyebrow">A CAPTAIN'S FIELD GUIDE</span><h2 id="modalTitle">Small cuts. Big adventures.</h2><ol class="help-steps"><li><b>1</b><div><strong>Slice the ice.</strong>Click and drag, or swipe with a finger. Start outside a block and cut all the way through. Time pauses while you aim. You can also pause to plan several cuts.</div></li><li><b>2</b><div><strong>Let the ropes do the swinging.</strong>Gold pins connect ice to real hanging ropes. Slice below a pin to free the ice, or cut an exposed rope. A single rope makes a great pendulum. Stone cannot be cut.</div></li><li><b>3</b><div><strong>Crack the ice. Bring the crew home.</strong>Ice shatters on a solid landing. Free Vikings slide down slopes and happily pace on safe stone, turning before an edge. Only reaching the boat counts as a rescue. Water and red ice are still trouble.</div></li><li><b>✦</b><div><strong>Find your perfect three-star route.</strong>Rescue the crew for one star, meet the cut target for another, and collect every golden rune for the third. Undo and retry as much as you like.</div></li></ol><p>R: restart · Z: undo · Space: pause · M: sound<br>All 30 shores are open to explore. Your stars stay on this device.</p><button id="helpDone" class="primary-button">I’ve got this <span>→</span></button>`);$('helpDone').onclick=closeModal;}
 function showMap(){sound('click');showModal(`<button class="close" aria-label="Close voyage map">×</button><span class="eyebrow">THIRTY SHORES. ONE LITTLE BOAT.</span><h2 id="modalTitle">The voyage</h2><p class="map-intro">Follow the journey or choose a shore. Every level is yours to explore.</p>${CHAPTERS.map(c=>`<section class="chapter-section"><h3>${String(c.id+1).padStart(2,'0')} · ${c.name}</h3><div class="level-grid">${LEVELS.filter(l=>l.chapter===c.id).map(l=>`<button class="level-tile ${l.id===index+1?'current':''} ${saved.levels[l.id]?'complete':''}" data-level="${l.id-1}" aria-label="Level ${l.id}, ${l.name}, ${saved.levels[l.id]?.stars||0} stars"><b>${String(l.id).padStart(2,'0')}</b><small>${l.name}</small><span>${'✦'.repeat(saved.levels[l.id]?.stars||0)}${'·'.repeat(3-(saved.levels[l.id]?.stars||0))}</span></button>`).join('')}</div></section>`).join('')}`,'map');$('modal').querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{if(!started){started=true;$('splash').hidden=true;document.body.classList.remove('is-splash');}loadLevel(+b.dataset.level);});}
-function togglePause(){if(!started||sim.state!=='playing')return;paused=!paused;$('pauseBtn').innerHTML=paused?'<span>▶</span> Resume':'<span>Ⅱ</span> Pause';if(paused)toast('Take your time. The fjord can wait.');}
+function togglePause(){if(!started||sim.state!=='playing')return;paused=!paused;$('pauseBtn').innerHTML=paused?'<span>▶</span> Resume':'<span>Ⅱ</span> Pause';if(paused)toast('Planning pause. You can still make cuts.');}
 $('startBtn').onclick=start;$('undoBtn').onclick=doUndo;$('restartBtn').onclick=restart;$('pauseBtn').onclick=togglePause;$('soundBtn').onclick=()=>{saved.sound=!saved.sound;persist();setSound();sound('rune');};$('helpBtn').onclick=showHelp;$('mapBtn').onclick=showMap;
 $('hintBtn').onclick=()=>{if(innerWidth<=850){toast(sim.level.hint);guideUntil=clock+6500;}else{$('hintCard').hidden=!$('hintCard').hidden;$('hintBtn').setAttribute('aria-expanded',String(!$('hintCard').hidden));}};$('guideBtn').onclick=()=>{guideUntil=clock+6500;toast('Try this cut. The rest of the voyage is yours.');};
 $('modalBackdrop').addEventListener('click',e=>{if(e.target===$('modalBackdrop')&&sim.state==='playing')closeModal();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(modalOpen)closeModal();else if(started)showMap();}if(e.key==='Tab'&&modalOpen){const nodes=[...$('modal').querySelectorAll('button,[href],[tabindex="0"]')];if(!nodes.length)return;const first=nodes[0],last=nodes.at(-1);if(e.shiftKey&&(document.activeElement===first||document.activeElement===$('modal'))){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}if(modalOpen||!started)return;if(e.code==='KeyR')restart();if(e.code==='KeyZ')doUndo();if(e.code==='KeyM')$('soundBtn').click();if(e.code==='Space'){e.preventDefault();togglePause();}});
 function point(e){const r=canvas.getBoundingClientRect();return{x:Math.max(-30,Math.min(W+30,(e.clientX-r.left)*W/r.width)),y:Math.max(-30,Math.min(H+30,(e.clientY-r.top)*H/r.height))};}
-canvas.addEventListener('pointerdown',e=>{if(!started||modalOpen||paused||sim.state!=='playing'||e.button>0)return;e.preventDefault();canvas.setPointerCapture(e.pointerId);drag={a:point(e),b:point(e),id:e.pointerId};});canvas.addEventListener('pointermove',e=>{if(drag&&e.pointerId===drag.id)drag.b=point(e);});canvas.addEventListener('pointerup',e=>{if(!drag||e.pointerId!==drag.id)return;const {a,b}=drag;drag=null;const snap=sim.snapshot(),result=sim.slice(a,b);guideUntil=0;if(result.ok){undo.push(snap);if(undo.length>25)undo.shift();updateUI();}else if(result.reason==='miss')toast('A clean cut goes from one side of the ice to the other.');});canvas.addEventListener('pointercancel',()=>{drag=null;});
+canvas.addEventListener('pointerdown',e=>{if(!started||modalOpen||sim.state!=='playing'||e.button>0)return;e.preventDefault();canvas.setPointerCapture(e.pointerId);drag={a:point(e),b:point(e),id:e.pointerId};});canvas.addEventListener('pointermove',e=>{if(drag&&e.pointerId===drag.id)drag.b=point(e);});canvas.addEventListener('pointerup',e=>{if(!drag||e.pointerId!==drag.id)return;const {a,b}=drag;drag=null;const snap=sim.snapshot(),result=sim.slice(a,b);guideUntil=0;if(result.ok){undo.push(snap);if(undo.length>25)undo.shift();updateUI();}else if(result.reason==='miss')toast('A clean cut goes from one side of the ice to the other.');});canvas.addEventListener('pointercancel',()=>{drag=null;});
 // Hand-painted vector world. Everything below is original canvas artwork.
 function path(points,fill,stroke=null,width=1){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p.x??p[0],p.y??p[1]):ctx.moveTo(p.x??p[0],p.y??p[1]));ctx.closePath();if(fill){ctx.fillStyle=fill;ctx.fill();}if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke();}}
 function line(points,color,width=1){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();}
@@ -444,29 +670,36 @@ function background(t){const chapter=sim?.level.chapter||0;const palettes=[['#17
  if(!reducedMotion){const flakes=rng(36);for(let i=0;i<30;i++){let x=(flakes()*1000+t*.004*(.5+flakes()))%1000-20,y=(flakes()*690+t*.009*(.4+flakes()))%690-25;ellipse(x,y,1.2,1.2,'#e8f7ed55');}}
 }
 function drawRock(body){const p=body.vertices;path(p,'#496576','#7292a0',2);ctx.save();ctx.clip();const c=body.position;path([[c.x-140,c.y-80],[c.x+15,c.y+55],[c.x+95,c.y-90]],'#627d8a');line([[c.x-32,c.y-60],[c.x+3,c.y+12],[c.x-20,c.y+60]],'#2f4f60',3);ctx.restore();let minY=Math.min(...p.map(v=>v.y));for(let i=0;i<p.length;i++){const a=p[i],b=p[(i+1)%p.length];if(b.x>a.x+5)line([[a.x,a.y-2],[b.x,b.y-2]],'#c6e0d9',7);}}
-function drawViking(x,y,look=0,angle=0,free=false,scale=1){ctx.save();ctx.translate(x,y);ctx.rotate(angle);ctx.scale(scale,scale);const hair=['#bb683c','#d5a24e','#6c493b','#cd744f'][look%4],shirt=['#c77353','#4f8c85','#ae7954','#776eaa'][look%4];
- ellipse(0,24,19,4,'#16354a2e');path([[-12,8],[-14,24],[-5,26],[-3,17],[3,17],[5,26],[14,24],[12,8]],'#273e4e');path([[-13,-5],[-20,14],[-10,18],[0,14],[10,18],[20,14],[13,-5]],shirt,'#344c57',1.4);line([[-12,10],[12,10]],'#d3b77a',3);ellipse(0,-8,16,18,'#efb98e');ellipse(-14,-4,4,5,'#e8ad83');ellipse(14,-4,4,5,'#e8ad83');
+function drawViking(x,y,look=0,angle=0,free=false,scale=1,gait=0,facing=1){ctx.save();ctx.translate(x,y+(gait?Math.abs(Math.sin(gait))*.8:0));ctx.rotate(angle);ctx.scale(scale*facing,scale);const hair=['#bb683c','#d5a24e','#6c493b','#cd744f'][look%4],shirt=['#c77353','#4f8c85','#ae7954','#776eaa'][look%4];
+ ellipse(0,24,19,4,'#16354a2e');const step=gait?Math.sin(gait)*3:0;path([[-11,8],[-13,23+step],[-4,25+step],[-1,9]],'#273e4e');path([[1,9],[4,25-step],[14,23-step],[11,8]],'#273e4e');line([[-13,24+step],[-5,24+step]],'#6c5144',3);line([[5,24-step],[14,22-step]],'#6c5144',3);path([[-13,-5],[-20,14],[-10,18],[0,14],[10,18],[20,14],[13,-5]],shirt,'#344c57',1.4);line([[-12,10],[12,10]],'#d3b77a',3);ellipse(0,-8,16,18,'#efb98e');ellipse(-14,-4,4,5,'#e8ad83');ellipse(14,-4,4,5,'#e8ad83');
  // braided beards, rosy noses, and very serious helmets
  path([[-14,-4],[-13,12],[-5,24],[0,20],[5,24],[14,11],[14,-4],[7,3],[0,5],[-7,3]],hair);path([[-11,6],[-8,17],[-3,12],[0,20],[4,12],[9,17],[12,5]],hair);ellipse(0,-1,5,4,'#f3bd93');ellipse(-6,-9,1.6,2,'#243747');ellipse(6,-9,1.6,2,'#243747');line([[-9,-13],[-3,-12]],hair,2);line([[3,-12],[9,-13]],hair,2);if(free){ctx.strokeStyle='#5e3f37';ctx.lineWidth=1.8;ctx.beginPath();ctx.arc(0,5,4,0,Math.PI);ctx.stroke();}
  path([[-16,-15],[-13,-28],[0,-32],[13,-28],[16,-15]],'#718c98','#344f61',1.5);path([[-14,-25],[-23,-29],[-27,-40],[-30,-39],[-28,-23],[-17,-17]],'#eee2c4','#aab6ab',1);path([[14,-25],[23,-29],[27,-40],[30,-39],[28,-23],[17,-17]],'#eee2c4','#aab6ab',1);path([[-17,-18],[17,-18],[17,-12],[-17,-12]],'#c5c9b9','#587383',1);line([[0,-31],[0,-14]],'#d6d9c8',3);for(const ax of[-12,12])ellipse(ax,-15,1.4,1.4,'#e8e7ce');ctx.restore();}
+function drawRopes(ice){
+ for(const a of ice.anchors){const end=toWorld(ice.body,a),p=a.pivot,d=Math.hypot(end.x-p.x,end.y-p.y),sag=Math.sqrt(Math.max(0,a.length*a.length-d*d))*.35;
+ ctx.save();ctx.lineCap='round';ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.quadraticCurveTo((p.x+end.x)/2,(p.y+end.y)/2+sag,end.x,end.y);ctx.strokeStyle='#17364570';ctx.lineWidth=6;ctx.stroke();ctx.strokeStyle='#c5ac7e';ctx.lineWidth=3;ctx.stroke();ctx.setLineDash([2,5]);ctx.strokeStyle='#f2dbac';ctx.lineWidth=1;ctx.stroke();ctx.setLineDash([]);
+ ellipse(p.x,p.y,8,8,'#405565');ellipse(p.x,p.y,5.5,5.5,'#b6a27b');ellipse(p.x,p.y,2.5,2.5,'#263f4d');line([[p.x-9,p.y-9],[p.x+9,p.y-9]],'#bed8d2',3);ctx.restore();
+ }
+}
+function drawWalkers(t){for(const v of sim.walkers){const p=v.body.position,gait=v.walking?t*.011+v.id:0;drawViking(p.x,p.y-3,v.look,0,true,1,gait,v.direction);if(v.walking){ctx.save();ctx.globalAlpha=.45;ellipse(p.x-v.direction*13,p.y+23,3,1,'#d8f2e8');ctx.restore();}}}
 function drawIce(ice,t){const body=ice.body,pts=body.vertices;ctx.save();const g=ctx.createLinearGradient(body.bounds.min.x,body.bounds.min.y,body.bounds.max.x,body.bounds.max.y);g.addColorStop(0,'#c3f7f3d9');g.addColorStop(.35,'#73d0e2c9');g.addColorStop(1,'#4b97bccc');path(pts,g,'#c8ffff',2.5);ctx.clip();const min=body.bounds.min,max=body.bounds.max,r=rng(ice.seed);ctx.globalAlpha=.22;for(let j=0;j<5;j++){path([[min.x+r()*(max.x-min.x),min.y-20],[max.x+20,min.y+r()*(max.y-min.y)],[min.x+r()*(max.x-min.x),max.y+20]],j%2?'#dcffff':'#2b83aa');}ctx.globalAlpha=.5;line([[min.x+8,min.y+20],[min.x+22,min.y+34],[min.x+17,min.y+52]],'#defbff',1.3);ctx.globalAlpha=1;ctx.restore();
  for(const v of ice.vikings){const p=toWorld(body,v.local);drawViking(p.x,p.y,v.look,body.angle);ellipse(p.x-19,p.y-12,3,8,'#efffff65');}
  ctx.save();path(pts,null,'#dcffffaa',1);ctx.clip();let p=pts[0],q=pts[1];line([[p.x+2,p.y+4],[q.x-2,q.y+4]],'#f5ffffaa',2);ctx.restore();
- for(const a of ice.anchors){const p=toWorld(body,a);line([[p.x,0],[p.x,p.y]],'#bdd7d145',1);ellipse(p.x,p.y,8,8,'#405b67');ellipse(p.x,p.y,5.5,5.5,'#d6b677');ellipse(p.x-1,p.y-1,2,2,'#ffe4a5');}
+ for(const a of ice.anchors){const p=toWorld(body,a);ellipse(p.x,p.y,8,8,'#405b67');ellipse(p.x,p.y,5.5,5.5,'#d6b677');ellipse(p.x-1,p.y-1,2,2,'#ffe4a5');}
 }
 function drawBoat(t){const {x,width:w,y}=sim.level.boat;ctx.save();ctx.translate(x,y);const glow=ctx.createRadialGradient(w*.28,-45,0,w*.28,-45,55);glow.addColorStop(0,'#ffe6a72b');glow.addColorStop(1,'#ffe6a700');ctx.fillStyle=glow;ctx.fillRect(w*.28-55,-100,110,110);ellipse(0,49,w*.64,7,'#a6d9d323');path([[-w/2-23,-8],[-w/2+6,33],[-w/2+29,44],[w/2-31,44],[w/2-5,31],[w/2+24,-8],[w/2-9,4],[-w/2+7,4]],'#885443','#d59661',2);path([[-w/2+2,5],[-w/2+23,29],[w/2-24,29],[w/2-3,5]],'#b8774e');line([[-w/2+17,18],[w/2-17,18]],'#744d40',2);line([[-w/2+26,31],[w/2-28,31]],'#533e38',2);line([[-w/2+6,2],[w/2-7,2]],'#e2ae75',6);for(let i=-w/2+30;i<w/2-20;i+=29){ellipse(i,20,10,10,'#465e67');ellipse(i,20,7,7,'#a6c5bd');path([[i,13],[i+7,20],[i,27],[i-7,20]],'#c48b59');ellipse(i,20,2,2,'#596a69');}
  // carved bird prow and warm lantern
  path([[w/2-5,7],[w/2+17,-14],[w/2+16,-29],[w/2+31,-33],[w/2+39,-23],[w/2+27,-20],[w/2+25,-7],[w/2+13,10]],'#bb7a50','#d99b66',2);ellipse(w/2+27,-27,2,2,'#263e48');line([[w*.28,0],[w*.28,-55]],'#d1a16b',4);line([[w*.28-9,-48],[w*.28+9,-48]],'#c9b388',3);path([[w*.28-7,-46],[w*.28+7,-46],[w*.28+6,-30],[w*.28-6,-30]],'#f6ce7d','#ba9366',2);ellipse(w*.28,-38,3,5,'#fff4ba');
- for(let i=0;i<sim.rescued.length;i++){let vx=(i-(sim.rescued.length-1)/2)*37;drawViking(vx,-23+Math.sin(t*.004+i)*1.5,sim.rescued[i].look,0,true,.65);}
+ for(let i=0;i<sim.rescued.length;i++){let phase=t*.0009+i*2,vx=(i-(sim.rescued.length-1)/2)*38+Math.sin(phase)*8;drawViking(vx,-23,sim.rescued[i].look,0,true,.65,t*.01+i,Math.cos(phase)>=0?1:-1);}
  if(!sim.rescued.length){ctx.font='10px Trebuchet MS';ctx.fillStyle='#fff2ccaa';ctx.textAlign='center';ctx.fillText('HOME',0,61);}ctx.restore();}
 function drawRune(r,t){if(r.collected)return;const pulse=1+Math.sin(t*.004+r.x)*.12;ctx.save();ctx.translate(r.x,r.y);const glow=ctx.createRadialGradient(0,0,2,0,0,28);glow.addColorStop(0,'#f7dc9940');glow.addColorStop(1,'#f7dc9900');ctx.fillStyle=glow;ctx.fillRect(-30,-30,60,60);ctx.scale(pulse,pulse);path([[0,-14],[5,-4],[12,0],[5,4],[0,14],[-5,4],[-12,0],[-5,-4]],'#f1cc81','#ffedb5',1);line([[0,-7],[0,7]],'#fff1bc',1);ctx.restore();}
 function drawSpikes(s){ctx.save();ctx.fillStyle='#694a65';ctx.fillRect(s.x,s.y+12,s.width,s.height);for(let x=s.x;x<s.x+s.width;x+=18){path([[x,s.y+18],[x+8,s.y-9],[x+19,s.y+18]],'#b26e85','#e7a1ab',1);path([[x+8,s.y-9],[x+11,s.y+14],[x+19,s.y+18]],'#794b72');}ctx.restore();}
 function drawGuide(t){if(!started||guideUntil<t||!sim.level.solution?.length||sim.cuts>0)return;const [a,b]=sim.level.solution[0];ctx.save();ctx.strokeStyle='#fff0b8';ctx.lineWidth=2;ctx.setLineDash([9,7]);ctx.globalAlpha=.45+Math.sin(t*.005)*.2;line([a,b],'#fff0b8',2);ctx.setLineDash([]);ellipse(a[0],a[1],5,5,'#fff0b8');const progress=(t%1800)/1800;ellipse(a[0]+(b[0]-a[0])*progress,a[1]+(b[1]-a[1])*progress,7,7,'#fff8d9');ctx.font='12px Trebuchet MS';ctx.textAlign='center';ctx.fillStyle='#fff0b8';ctx.fillText('CUT HERE',((a[0]+b[0])/2),a[1]-17);ctx.restore();}
-function render(t){ctx.clearRect(0,0,W,H);background(t);for(const rock of sim.rocks)drawRock(rock);for(const s of sim.level.spikes||[])drawSpikes(s);for(const r of sim.runes)drawRune(r,t);for(const ice of sim.ice)drawIce(ice,t);drawBoat(t);drawGuide(t);
+function render(t){ctx.clearRect(0,0,W,H);background(t);for(const rock of sim.rocks)drawRock(rock);for(const s of sim.level.spikes||[])drawSpikes(s);for(const r of sim.runes)drawRune(r,t);for(const ice of sim.ice)drawRopes(ice);for(const ice of sim.ice)drawIce(ice,t);drawWalkers(t);drawBoat(t);drawGuide(t);
  if(sim.level.wind){ctx.save();ctx.fillStyle='#e9eee0aa';ctx.font='12px Trebuchet MS';ctx.textAlign='left';ctx.fillText(sim.level.wind>0?'BREEZE  →':'←  BREEZE',29,34);ctx.restore();}
- for(const p of particles){ctx.globalAlpha=p.life;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.life*4);path([[-p.size,0],[0,-p.size],[p.size,0],[0,p.size]],p.color);ctx.restore();}ctx.globalAlpha=1;for(const s of trails){ctx.globalAlpha=s.life;line([[s.a.x,s.a.y],[s.b.x,s.b.y]],'#e5ffff',2+s.life*2);}ctx.globalAlpha=1;
+ for(const p of particles){ctx.globalAlpha=p.life;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.life*(p.spin||4));path(p.shard?[[-p.size,-p.size*.4],[p.size*.7,-p.size*.6],[p.size*.25,p.size]]:[[-p.size,0],[0,-p.size],[p.size,0],[0,p.size]],p.color);ctx.restore();}ctx.globalAlpha=1;for(const s of trails){ctx.globalAlpha=s.life;line([[s.a.x,s.a.y],[s.b.x,s.b.y]],'#e5ffff',2+s.life*2);}ctx.globalAlpha=1;
  if(drag){ctx.save();ctx.shadowColor='#dfffff';ctx.shadowBlur=15;line([[drag.a.x,drag.a.y],[drag.b.x,drag.b.y]],'#fff4cb',2.5);ellipse(drag.a.x,drag.a.y,4,4,'#fff4cb');ellipse(drag.b.x,drag.b.y,5,5,'#fff4cb');ctx.restore();}
- if(paused){ctx.fillStyle='#0c263d75';ctx.fillRect(0,0,W,H);ctx.fillStyle='#f5f1db';ctx.textAlign='center';ctx.font='34px Georgia';ctx.fillText('The fjord can wait.',W/2,H/2-5);ctx.font='13px Trebuchet MS';ctx.fillStyle='#bddbd9';ctx.fillText('Press Space or Resume when you’re ready.',W/2,H/2+27);}
+ if(paused){ctx.save();ctx.fillStyle='#102d3ee8';ctx.beginPath();ctx.roundRect(255,15,450,57,12);ctx.fill();ctx.strokeStyle='#b7e9df88';ctx.lineWidth=1;ctx.stroke();ctx.fillStyle='#f5f1db';ctx.textAlign='center';ctx.font='17px Georgia';ctx.fillText('Planning pause',W/2,39);ctx.font='11px Trebuchet MS';ctx.fillStyle='#bddbd9';ctx.fillText('Draw your cuts, then press Space or Resume to let things move.',W/2,57);ctx.restore();}
 }
 function frame(t){const dt=Math.min(t-lastFrame||16.67,50);lastFrame=t;clock=t;if(started&&!paused&&!modalOpen&&!drag){accumulator+=dt;while(accumulator>=1000/60){sim.step(1000/60);accumulator-=1000/60;}}else accumulator=0;for(const p of particles){p.x+=p.vx*dt/16.67;p.y+=p.vy*dt/16.67;p.vy+=.06*dt/16.67;p.life-=dt/800;}particles=particles.filter(p=>p.life>0);for(const s of trails)s.life-=dt/420;trails=trails.filter(s=>s.life>0);render(t);requestAnimationFrame(frame);}
 document.body.classList.add('is-splash');setSound();loadLevel(0);requestAnimationFrame(frame);
