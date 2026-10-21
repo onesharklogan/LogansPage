@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="frosty-champs-version" content="4.0.0">
-  <meta name="theme-color" content="#102d3e"><meta name="description" content="Slice the ice. Save your Vikings. A replayable randomized ice-rescue test map.">
+  <meta name="frosty-champs-version" content="5.0.0">
+  <meta name="theme-color" content="#102d3e"><meta name="description" content="Slice the ice. Save your Vikings. Procedural ice-rescue expeditions with ropes, gates and changing routes.">
   <title>Frosty Champs</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22%23173747%22%2F%3E%3Cpath%20d%3D%22M10%2043h46L44%2056H24z%22%20fill%3D%22%23eea16b%22%2F%3E%3Cpath%20d%3D%22M36%208v32H15z%22%20fill%3D%22%23c0eee4%22%2F%3E%3Cpath%20d%3D%22M40%2015v25h16z%22%20fill%3D%22%236fb6bd%22%2F%3E%3C%2Fsvg%3E%0A" type="image/svg+xml"><style>
 :root{--ink:#102d3e;--cream:#f3f0dc;--muted:#93b3b8;--mint:#b7e9df;--gold:#e7b775;--orange:#eea16b;--line:#345362}*{box-sizing:border-box}body{margin:0;background:#0c2332;color:var(--cream);font-family:"Trebuchet MS",Arial,sans-serif;min-height:100vh}.ambient{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 15% 0,#38687855,transparent 55%),radial-gradient(ellipse at 95% 100%,#123d4a,transparent 45%);z-index:-1}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer;color:inherit;border:0;transition:background .15s,transform .15s}button:focus-visible,a:focus-visible,canvas:focus-visible{outline:3px solid var(--orange);outline-offset:3px}button:hover{filter:brightness(1.15)}button:active{transform:translateY(1px)}button:disabled{opacity:.3;cursor:default;filter:none}[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.masthead{max-width:1120px;margin:auto;padding:20px 24px 16px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;color:var(--cream);text-decoration:none;font-size:20px;letter-spacing:2px;font-weight:900}.brand svg{width:35px;height:35px}nav{display:flex;align-items:center;gap:10px}.icon-button{width:44px;height:44px;background:#1e3c4b99;border:1px solid #45637088;border-radius:50%;font-size:22px;color:var(--mint);display:grid;place-items:center}.map-button{background:#254858;border:1px solid #4a6875;border-radius:8px;min-height:44px;padding:0 14px;display:flex;align-items:center;gap:9px;font-size:12px;font-weight:700}.map-button>span:first-child{font-size:21px;color:var(--mint)}main{max-width:1120px;padding:0 24px 24px;margin:auto}.game-shell{border:1px solid #53717c;border-radius:14px;overflow:hidden;background:#112c3b;box-shadow:0 25px 70px #04141e60}.game-topbar{height:65px;display:flex;justify-content:space-between;align-items:center;padding:11px 20px;background:linear-gradient(115deg,#234757,#1b3949);border-bottom:1px solid #436675;gap:15px}.level-identity{display:flex;align-items:center;gap:12px;min-width:0}.eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--mint)}.level-identity .eyebrow{border:1px solid #66868e;border-radius:7px;padding:9px 8px;background:#102d3e40;letter-spacing:1px}.level-identity h1{font-family:inherit;margin:0;font-size:21px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.quick-stats{display:flex;align-items:center;gap:23px;flex-shrink:0}.quick-stats>div{display:grid;grid-template-columns:18px auto;column-gap:7px;align-items:center}.quick-stats span{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums}.quick-stats .stat-icon{grid-row:1/3;font-size:21px;font-weight:400;color:#a6d6d0}.quick-stats small{font-size:8px;letter-spacing:.8px;color:#a4c2c7;text-transform:uppercase;margin-top:3px}.rune,.quick-stats .rune{color:var(--gold)}.canvas-wrap{position:relative;aspect-ratio:3/2;overflow:hidden;background:#142e46}canvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair;outline:none}.toast{position:absolute;bottom:15px;left:50%;transform:translate(-50%,7px);padding:9px 15px;border-radius:24px;background:#102b3ef2;border:1px solid #7395a0;color:#ecf7ef;font-size:12px;text-align:center;opacity:0;pointer-events:none;transition:.2s;max-width:90%;width:max-content;box-shadow:0 4px 15px #0003}.toast.visible{opacity:1;transform:translate(-50%,0)}.game-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 12px;background:#173644;min-height:64px;border-top:1px solid #395867}.tool-buttons{display:flex;gap:7px;flex-shrink:0}.tool-buttons button{background:#244756;border:1px solid #476776;border-radius:8px;min-width:44px;min-height:44px;padding:7px 12px;display:flex;gap:7px;align-items:center;justify-content:center}.tool-buttons span{font-size:24px;line-height:1}.tool-buttons small{font-size:11px}.game-bottom p{font-size:11px;color:#8eb1ba;margin:0}.splash{position:absolute;inset:0;background:linear-gradient(90deg,#102c40ed,#102c4060 50%,transparent 80%);display:flex;align-items:center;padding:7%;cursor:default}.primary-button{display:flex;justify-content:space-between;align-items:center;gap:25px;background:var(--orange);color:#173342;border-radius:9px;padding:14px 21px;font-size:14px;font-weight:800;min-width:165px;min-height:48px;border:1px solid #ffc596;box-shadow:0 4px 0 #b9764a40}.primary-button span{font-size:23px}.hint-card{position:absolute;left:50%;bottom:15px;transform:translateX(-50%);width:min(460px,92%);background:#183b4ef5;border:1px solid #79949d;padding:16px 46px 13px 17px;border-radius:10px;box-shadow:0 7px 25px #0005}.hint-card p{font-size:12px;line-height:1.6;color:#d0e4df;margin:0 0 8px}.hint-card button:not(.close-hint){font-size:12px;color:var(--gold);background:#294b5c;border-radius:6px;padding:10px 14px;min-height:40px}.close-hint{position:absolute;top:4px;right:3px;background:none;width:40px;height:40px;font-size:22px;color:#a7c7cc}.modal-backdrop{position:fixed;inset:0;z-index:10;background:#03141ec9;display:grid;place-items:center;padding:24px;backdrop-filter:blur(7px)}.modal{position:relative;max-width:550px;width:100%;max-height:90vh;overflow:auto;background:#173b4d;border:1px solid #567d88;border-radius:15px;box-shadow:0 24px 80px #0007;padding:32px;color:var(--cream)}.modal h2{font-family:inherit;font-weight:900;font-size:32px;line-height:1.2;margin:9px 0}.modal>p{font-size:12px;line-height:1.6;color:#aecbd0;margin:15px 0}.modal .close{position:absolute;top:8px;right:8px;width:44px;height:44px;background:none;font-size:26px;color:#a1c4ca}.modal-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:24px}.secondary-button{border:1px solid #64828d;background:#274d5c;border-radius:8px;padding:12px 17px;font-size:12px;min-height:45px}.result-art{font-size:52px;letter-spacing:10px;color:var(--gold);margin:20px 0}.result-art .empty{opacity:.2}.result-stats{display:flex;gap:20px;padding:16px 0;border-top:1px solid #446472;border-bottom:1px solid #446472;color:#a7c9ce;font-size:11px}.result-stats strong{font-size:19px;color:var(--cream);margin-right:5px}.help-steps{list-style:none;padding:0;margin:20px 0}.help-steps li{display:flex;gap:15px;align-items:center;margin:16px 0;font-size:12px;color:#adcbd0;line-height:1.6}.help-steps li>b{display:grid;place-items:center;width:40px;height:40px;border:1px solid #638692;color:var(--mint);border-radius:10px;flex-shrink:0;font-size:21px}.help-steps strong{display:block;color:var(--cream)}.modal.map{max-width:800px}.map-progress{display:flex;align-items:center;gap:16px;font-size:12px;color:#a7c8cb}.map-progress .gold-stars{color:var(--gold)}.chapter-section{margin-top:23px}.chapter-section h3{font-size:10px;letter-spacing:1.8px;color:var(--mint);text-transform:uppercase;font-weight:400}.level-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:9px}.level-tile{background:#244a5c;border:1px solid #446b7a;border-radius:8px;padding:9px 4px;min-height:78px;display:flex;flex-direction:column;align-items:center;gap:5px}.level-tile.current{border-color:var(--orange);box-shadow:0 0 0 1px var(--orange)}.level-tile.complete{background:#2a575c}.level-tile b{font-size:21px;font-weight:400}.level-tile small{font-size:8px;line-height:1.3;min-height:20px}.level-tile span{font-size:10px;color:var(--gold);letter-spacing:2px}body.is-splash .game-topbar,body.is-splash .game-bottom{display:none}body.is-splash main{padding-bottom:24px}.game-shell:fullscreen{background:#0b2332;border:0;border-radius:0;display:flex;flex-direction:column;align-items:center;justify-content:center}.game-shell:fullscreen .canvas-wrap{height:calc(100dvh - 129px);width:auto;max-width:100vw;aspect-ratio:3/2;flex-shrink:0}.game-shell:fullscreen .game-topbar,.game-shell:fullscreen .game-bottom{width:min(100vw,calc((100dvh - 129px)*1.5));flex-shrink:0}
@@ -373,49 +373,252 @@ class RescueSimulation {
 }
 
 
+// procedural-families.js
+// Five authored expedition puzzles. All coordinates are world-space, not viewport-space.
+const poly = (...pairs) => pairs.map(([x,y]) => ({x,y}));
+const rect = (x,y,w,h) => poly([x,y],[x+w,y],[x+w,y+h],[x,y+h]);
+const sailor = (x,y,look=0) => ({x,y,look});
+const cut = (x1,y1,x2,y2) => [[x1,y1],[x2,y2]];
+const rock = points => ({points});
+const spike = (x,y,width=90,height=34) => ({x,y,width,height});
+const rune = (x,y) => ({x,y});
+// A visible wall pin is a real zero-length Matter constraint, not a paused body.
+// Roof pins keep preparation deliberate; shoulder pins release when carved off.
+const pin = (x,y) => ({x,y,pivot:{x,y},length:0});
+const hull = points => {
+  const sorted=points.slice().sort((a,b)=>a.x-b.x||a.y-b.y),cross=(a,b,c)=>(b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x),lower=[],upper=[];
+  for(const p of sorted){while(lower.length>1&&cross(lower.at(-2),lower.at(-1),p)<=0)lower.pop();lower.push(p);}
+  for(const p of sorted.reverse()){while(upper.length>1&&cross(upper.at(-2),upper.at(-1),p)<=0)upper.pop();upper.push(p);}
+  return [...lower.slice(0,-1),...upper.slice(0,-1)];
+};
+const ice = (points,vikings=[],anchors=[],kind='brittle') => {
+  const protectedPoints=[...points];
+  for(const p of anchors)for(const [dx,dy]of[[-12,-12],[12,-12],[12,12],[-12,12]])protectedPoints.push({x:p.x+dx,y:p.y+dy});
+  for(const p of vikings)for(const [dx,dy]of[[-27,-38],[27,-38],[27,31],[-27,31]])protectedPoints.push({x:p.x+dx,y:p.y+dy});
+  return {points:hull(protectedPoints),vikings,anchors,kind};
+};
+const slab = (x,y,w,h,vikings=[],anchors=[],kind='brittle') => ice(poly([x+18,y],[x+w-28,y+7],[x+w,y+38],[x+w-10,y+h-13],[x+w*.64,y+h],[x+11,y+h-6],[x,y+42]),vikings,anchors,kind);
+const world = (width=1280,height=960) => ({width,height,waterY:height-42});
+const boat = (x,y,width=250) => ({x,y,width});
+
+const OLD_CHAPTERS=[
+  {id:0,name:'The Expedition',subtitle:'Five physics puzzles',color:'#8edfe5'},
+];
+
+const BASE_LEVELS=[
+  {
+    id:1,name:'Narrow Channel',chapter:0,par:3,
+    hint:'Carve a narrow column between the side pins, then cut its roof. The sloping channel leads to the ship.',
+    objective:'Extract the center without bringing the pinned shoulders into the channel.',
+    world:world(1280,960),boat:boat(785,860,280),
+    ice:[ice(poly([350,320],[410,210],[535,150],[690,190],[800,280],[822,390],[810,447],[647,460],[351,454],[325,390]),[sailor(580,420,0)],[{x:365,y:425},{x:795,y:425},pin(580,183)])],
+    rocks:[rock(poly([420,530],[715,775],[715,812],[420,567])),rock(poly([770,560],[1030,560],[1030,602],[820,602]))],
+    spikes:[spike(270,890,110),spike(1070,890,110)],
+    runes:[rune(610,655),rune(755,810)],
+    solutionInitialDelay:900,solutionDelay:600,solution:[cut(550,130,525,490),cut(610,130,635,490),cut(510,365,650,365)],
+  },
+  {
+    id:2,name:'Counterweight',chapter:0,par:4,
+    hint:'Trim the crew’s side pins first. Drop the left ballast to lift the hinged gate, then cut the compact piece’s roof.',
+    objective:'Use the heavy empty ice to rotate the gate before releasing the crew.',
+    world:world(1360,1000),boat:boat(850,895,250),hammerArea:10500,
+    ice:[
+      slab(390,250,170,200,[],[{x:425,y:270},{x:525,y:270}],'pack'),
+      slab(690,155,330,290,[sailor(855,405,1)],[{x:715,y:410},{x:995,y:410},pin(855,177)],'pack'),
+    ],
+    timbers:[{x:680,y:680,width:500,height:30,angle:0,pivot:{x:680,y:680}}],
+    rocks:[rock(rect(360,920,225,55)),rock(rect(660,800,40,150)),rock(rect(1020,735,200,50)),rock(rect(900,698,75,65))],
+    spikes:[spike(365,896,180,25),spike(1080,925,150)],
+    runes:[rune(855,585),rune(855,810)],
+    solutionInitialDelay:900,solutionDelays:[600,600,1800,600],
+    solution:[cut(825,125,800,470),cut(885,125,910,470),cut(365,315,585,315),cut(785,355,925,355)],
+  },
+  {
+    id:3,name:'Across the Divide',chapter:0,par:4,
+    hint:'Free the lower rider. Trim the floe’s right side, then carve off its left wall pin to start the swing. Cut the rope as it moves right.',
+    objective:'Time a compact swinging floe past the central cliff and join the crew below.',
+    world:world(1480,1000),boat:boat(930,890,430),hammerArea:24000,
+    ice:[
+      ice(poly([340,225],[425,185],[560,230],[550,365],[415,390],[350,355]),[sailor(445,340,2)],[{x:435,y:235,pivot:{x:660,y:75}},pin(365,280)],'pack'),
+      slab(850,575,100,170,[sailor(900,705,0)],[{x:873,y:595},{x:927,y:595}]),
+    ],
+    rocks:[rock(poly([440,640],[620,640],[620,930],[440,930])),rock(poly([1110,660],[1280,660],[1280,705],[1150,705]))],
+    spikes:[spike(450,615,160,25),spike(1175,930,130)],
+    runes:[rune(900,805),rune(580,470)],
+    solutionInitialDelay:900,solutionDelays:[600,600,650,600],
+    solution:[cut(825,660,975,660),cut(500,200,520,420),cut(390,170,390,420),cut(300,130,1050,130)],
+  },
+  {
+    id:4,name:'Thick Ice',chapter:0,par:4,
+    hint:'Blue pack ice survives the rocks. Clear the side pins, lower the slab onto the ship, then divide it between the crew so the hammer can break it.',
+    objective:'Land the heavy slab intact, then reduce each occupied piece below the hammer limit.',
+    world:world(1360,980),boat:boat(710,870,330),hammerArea:13000,
+    ice:[slab(400,160,620,305,[sailor(655,420,0),sailor(765,420,3)],[{x:425,y:425},{x:995,y:425},pin(710,182)],'pack')],
+    rocks:[rock(rect(320,605,235,55)),rock(rect(865,605,240,55))],
+    spikes:[spike(360,580,160,25),spike(900,580,160,25),spike(1150,910,100)],
+    runes:[rune(655,735),rune(765,735)],
+    solutionInitialDelay:900,solutionDelays:[600,600,2200,600],
+    solution:[cut(625,130,600,490),cut(795,130,820,490),cut(580,365,840,365),cut(710,715,710,900)],
+  },
+  {
+    id:5,name:'Last Passage',chapter:0,par:7,
+    hint:'Open the tall crew window. Trim the floe’s right side, then its left wall pin to start the swing. Release its rope over the cliff, then split the pack ice on deck.',
+    objective:'Combine the pinned window, a timed swing, and a final on-deck split.',
+    world:world(1600,1100),boat:boat(1150,995,760),hammerArea:25000,
+    ice:[
+      slab(1165,140,360,450,[sailor(1290,425,0),sailor(1400,425,3)],[{x:1190,y:550},{x:1500,y:550},pin(1345,162)],'pack'),
+      ice(poly([440,225],[525,185],[660,230],[650,365],[515,390],[450,355]),[sailor(545,340,1)],[{x:535,y:235,pivot:{x:760,y:75}},pin(465,280)],'pack'),
+    ],
+    rocks:[rock(poly([440,640],[720,640],[720,1030],[440,1030])),rock(poly([1530,690],[1600,690],[1600,740],[1570,740]))],
+    spikes:[spike(450,615,260,25),spike(1550,1030,45)],
+    runes:[rune(680,470),rune(1290,720),rune(1400,720)],
+    solutionInitialDelay:900,solutionDelays:[600,600,600,600,650,2200,600],
+    solution:[cut(1260,110,1235,620),cut(1430,110,1455,620),cut(1215,370,1475,370),cut(600,200,620,420),cut(490,170,490,420),cut(400,130,825,130),cut(1345,650,1345,1030)],
+  },
+];
+
+// Side attachments are wall pins, not cuttable hanging ropes. Keeping them
+// fixed makes carving a narrow corridor necessary instead of bypassable with
+// two broad horizontal swipes.
+for(const [levelIndex,slabIndex] of [[0,0],[1,1],[4,0]]){
+ const slab=BASE_LEVELS[levelIndex].ice[slabIndex];
+ slab.anchors=slab.anchors.map(a=>a.pivot?a:pin(a.x,a.y));
+}
+// Each archetype is a different physical dependency graph. Parameters move
+// whole mechanisms coherently; verification rejects geometries that do not solve.
+const FAMILY_INFO=[
+ {id:'avalanche-chute',name:'Avalanche Chute',mechanic:'Carve → slope → narrow landing',difficulty:'Hard'},
+ {id:'ballast-lock',name:'Ballast Lock',mechanic:'Prepare crew → counterweight → hinged gate',difficulty:'Expert'},
+ {id:'cliff-swing',name:'Cliff Swing',mechanic:'Separate rescue → wall-pin release → pendulum',difficulty:'Hard'},
+ {id:'twin-tributaries',name:'Twin Tributaries',mechanic:'Two opposing carved routes → shared harbor',difficulty:'Hard'},
+ {id:'fjord-crossing',name:'Fjord Crossing',mechanic:'Multi-crew window → cliff-crossing swing',difficulty:'Expert'},
+ {id:'ice-stair-locks',name:'Ice Stair Locks',mechanic:'Wall-pin extraction → staggered rope releases',difficulty:'Moderate'},
+];
+const familyRng=seed=>{let s=Number(seed)>>>0;return()=>{s=(Math.imul(s,1664525)+1013904223)>>>0;return s/4294967296;};};
+function moveModule(level,dx=0,dy=0,mirror=false,width=1280){
+ const point=p=>({...p,x:mirror?width-(p.x+dx):p.x+dx,y:p.y+dy});
+ const out=structuredClone(level);
+ out.ice=out.ice.map(s=>({...s,points:s.points.map(point).reverse().reverse(),vikings:s.vikings.map(point),anchors:s.anchors.map(a=>({...point(a),pivot:a.pivot?point(a.pivot):undefined}))}));
+ out.rocks=(out.rocks||[]).map(r=>({...r,points:r.points.map(point)}));
+ out.timbers=(out.timbers||[]).map(t=>({...point(t),angle:mirror?-(t.angle||0):(t.angle||0),pivot:t.pivot?point(t.pivot):undefined}));
+ out.spikes=(out.spikes||[]).map(s=>({...point(s),x:mirror?width-(s.x+dx)-s.width:s.x+dx}));
+ out.runes=(out.runes||[]).map(point);
+ out.solution=out.solution.map(c=>c.map(([x,y])=>{const p=point({x,y});return[p.x,p.y]}));
+ out.boat=point(out.boat);return out;
+}
+function twinTributaries(random){
+ const base=BASE_LEVELS[0],left=moveModule(base,-250,-30+Math.floor(random()*45)),right=moveModule(base,-250,30+Math.floor(random()*45),true,1280);
+ return {...left,name:'Twin Tributaries',world:world(1280,1080),boat:boat(640,960,510),ice:[...left.ice,...right.ice],rocks:[...left.rocks.slice(0,1),...right.rocks.slice(0,1)],spikes:[spike(60,1010,150),spike(1070,1010,150)],runes:[...left.runes,...right.runes],solution:[...left.solution,...right.solution],solutionDelay:650,par:6,hint:'Two mountain routes meet at one ship. Carve a compact rider on each side; their slopes carry them inward. Free one route at a time.',objective:'Solve both sloping routes without dropping a wide slab into the rock channels.'};
+}
+function stairLocks(random){
+ const n=3,iceBlocks=[],solution=[],runes=[];
+ const spread=140+Math.floor(random()*31),xs=[555-spread,555,555+spread],ys=[260+Math.floor(random()*40),440+Math.floor(random()*35),620+Math.floor(random()*25)];
+ for(let i=0;i<n;i++){
+  const x=xs[i],y=ys[i],side=i%2===0?1:-1;
+  iceBlocks.push(slab(x-80,y-160,160,205,[sailor(x,y,0)],[{x:x-26,y:y-137,pivot:{x:x-26,y:y-240}},{x:x+26,y:y-137,pivot:{x:x+26,y:y-240}},pin(x+side*62,y+15)],'pack'));
+  runes.push(rune(x,y+100));
+ }
+ for(let i=n-1;i>=0;i--){const x=xs[i],y=ys[i],side=i%2===0?1:-1;solution.push(cut(x+side*43,y-190,x+side*43,y+70),cut(x-70,y-200,x+70,y-200));}
+ return {id:1,chapter:0,name:'Ice Stair Locks',world:world(1140,1040),boat:boat(555,930,440),ice:iceBlocks,rocks:[rock(rect(220,720,85,45)),rock(rect(820,750,100,50))],spikes:[spike(220,695,85,25),spike(820,725,100,25)],runes,par:6,solution,solutionInitialDelay:900,solutionDelay:1500,hint:'Each lock has a wall pin and two ropes. Cut off its side pin first, then sever both ropes above the ice. The staggered heights demand separate cuts.',objective:'Release all three staggered locks without cutting near a waiting crew member.'};
+}
+function generateFamily(seed,index=0){
+ const random=familyRng(seed),pick=n=>Math.floor(random()*n),fi=((index%6)+6)%6;
+ let level;
+ if(fi===0)level=structuredClone(BASE_LEVELS[0]);
+ if(fi===1)level=structuredClone(BASE_LEVELS[1]);
+ if(fi===2)level=structuredClone(BASE_LEVELS[2]);
+ if(fi===3)level=twinTributaries(random);
+ if(fi===4){level=structuredClone(BASE_LEVELS[4]);level.solution.pop();level.solutionDelays.pop();level.par=6;level.hint='Open the multi-crew window, then trim the other floe. Remove its wall pin to start the swing and cut the rope as it moves past the cliff.';}
+ if(fi===5)level=stairLocks(random);
+ // Keep the wider swing route forgiving: compacting the floe is an
+ // optional strategy, not an artificially mandatory stroke.
+ if(fi===2){level.solution.splice(1,1);level.solutionDelays.splice(1,1);level.par=3;level.objective='Release a swinging floe past the cliff and reunite the separated crew.';level.hint='Free the lower rider first. Carve away the swinging floe’s wall pin, then cut its rope as it passes the cliff toward the ship.';}
+ if(fi===4){level.solution.splice(3,1);level.solutionDelays.splice(3,1);level.par=5;level.objective='Combine a multi-crew carved window with a separate cliff-crossing swing.';level.hint='Open the convoy window, then carve away the swinging floe’s wall pin and release its rope as it moves beyond the cliff.';}
+ // Structural variation within archetypes: extra independent rider, gate,
+ // variable tributary heights, lever geometry, and staged lock spacing.
+ if(fi===0){
+  const slope=level.rocks[0].points,delta=(pick(5)-2)*9;
+  slope[1].y+=delta;slope[2].y+=delta;
+  level.boat.x+=(pick(5)-2)*8;
+ }
+ if(fi===1){
+  const extra=pick(4)*10;level.ice[0].points=level.ice[0].points.map(p=>({...p,y:p.y>340?p.y+extra:p.y}));
+  level.timbers[0].width+=pick(4)*4;
+ }
+ if(fi===2){
+  const shift=(pick(5)-2)*18,one={...level,ice:[level.ice[1]],rocks:[],spikes:[],runes:[level.runes[0]],solution:[level.solution[0]],timbers:[]};
+  const moved=moveModule(one,0,shift);level.ice[1]=moved.ice[0];level.solution[0]=moved.solution[0];level.runes[0]=moved.runes[0];
+ }
+ if(fi===0 && random()<.5){
+  const x=level.boat.x+70,y=level.boat.y-115;
+  level.ice.push(slab(x-45,y-140,90,170,[sailor(x,y,0)],[pin(x-25,y-118),pin(x+25,y-118)],'pack'));
+  level.solution.unshift(cut(x-70,y-52,x+70,y-52));level.par++;level.solutionDelays=[1400,...level.solution.map(()=>600).slice(1)];
+  level.hint='Free the lower rider first, then carve the mountain rider into a compact piece so the slope carries them toward the ship.';
+ }
+ if(fi===3 && random()<.5){
+  // A central rescue chamber adds a third route between the two mountains.
+  const x=640,y=600;
+  level.ice.push(slab(x-55,y-160,110,200,[sailor(x,y,0)],[pin(x-30,y-138),pin(x+30,y-138)],'pack'));
+  level.solution.unshift(cut(x-85,y-55,x+85,y-55));level.par++;level.solutionDelays=[1600,...level.solution.map(()=>650).slice(1)];
+  level.runes.push(rune(x,y+110));
+ }
+ if(fi===4 && random()<.5){
+  // A suspended ice portcullis blocks the window route. Open it first,
+  // allowing the empty gate to melt on deck before the convoy follows.
+  const x=1345,y=700,w=250+pick(3)*15;
+  level.ice.push(slab(x-w/2,y-70,w,110,[],[{x:x-w/2+25,y:y-48,pivot:{x:x-w/2+25,y:y-125}},{x:x+w/2-25,y:y-48,pivot:{x:x+w/2-25,y:y-125}}],'pack'));
+  level.solution.unshift(cut(x-w/2-20,y-95,x+w/2+20,y-95));
+  level.solutionDelays.unshift(2000);level.par++;level.hint='Open the suspended lower gate first. Then carve the convoy window and release the swinging rider past the cliff.';
+ }
+ // Small coherent translations and reflection preserve physical relationships,
+ // while independent geometry parameters below alter playable routes.
+ const dx=(pick(7)-3)*8,dy=(pick(5)-2)*5;
+ level=moveModule(level,dx,dy,random()<.5,level.world.width);
+ const boatSlack=pick(4)*14;
+ level.boat.width+=boatSlack;
+ // Crew appearance is independent of geometry, with no impact on collisions.
+ for(const slab of level.ice)for(const v of slab.vikings)v.look=pick(16);
+ const meta=FAMILY_INFO[fi];
+ return {...level,id:1,seed:Number(seed)>>>0,family:meta.id,familyIndex:fi,name:meta.name,difficulty:meta.difficulty,mechanic:meta.mechanic,generatorVersion:2,topologySignature:meta.id+'-'+level.ice.length+'-'+level.solution.length,biome:pick(5),solutionInitialDelay:900};
+}
+
+
 // levels.js
-// A seeded construction, not unconstrained random placement. Every crew lane is
-// vertically clear, surrounded by pinned shoulders and aligned over a wide deck.
-const CHAPTERS=[{id:0,name:'Random Fjord',subtitle:'One replayable test map',color:'#8edfe5'}];
+const CHAPTERS=[{id:0,name:'Wild Expeditions',subtitle:'Procedural physics adventures',color:'#8edfe5'}];
 const DEFAULT_SEED=271828;
 function normalizeSeed(value){const n=Number(value);return Number.isFinite(n)?(Math.floor(n)>>>0):DEFAULT_SEED;}
 function seedRandom(seed){let s=normalizeSeed(seed);return()=>{s=(Math.imul(s,1664525)+1013904223)>>>0;return s/4294967296;};}
-const randomRect=(x,y,w,h)=>[{x,y},{x:x+w,y},{x:x+w,y:y+h},{x,y:y+h}];
-function generateRandomLevel(input=DEFAULT_SEED){
- const seed=normalizeSeed(input),random=seedRandom(seed),pick=n=>Math.floor(random()*n);
- const count=1+pick(3),cx=520+pick(7)*40,cy=330+pick(5)*20,span=(count-1)*74+112,left=cx-span/2,right=cx+span/2,top=130+pick(3)*15,bottom=cy+44;
- const roof=cy-58,shoulder=90+pick(3)*12,boatY=790+pick(4)*20,boatWidth=span+320;
- const members=Array.from({length:count},(_,i)=>({x:cx+(i-(count-1)/2)*74,y:cy,look:pick(16)}));
- const points=[{x:left-shoulder+20,y:top},{x:right+shoulder-20,y:top},{x:right+shoulder,y:top+45},{x:right+shoulder,y:bottom},{x:left-shoulder,y:bottom},{x:left-shoulder,y:top+45}];
- const pins=[{x:left-shoulder+25,y:cy},{x:right+shoulder-25,y:cy},{x:cx-span/4,y:top+22},{x:cx+span/4,y:top+22}].map(p=>({...p,pivot:{...p},length:0}));
- const shelfY=bottom+130+pick(4)*22,wall=left-100;
- return {id:1,seed,name:'Random Fjord',chapter:0,par:3,generatorVersion:1,
-  hint:'Carve down both sides of the crew, inside the brass pins. Then cut across above their helmets. The ice melts automatically on the ship.',
-  objective:'Free the crew into the open channel. Replay keeps this seed; New Map rolls another.',
-  world:{width:1280,height:960,waterY:925},boat:{x:cx,y:boatY,width:boatWidth},
-  ice:[{points,vikings:members,anchors:pins,kind:random()<.5?'pack':'brittle'}],
-  rocks:[{points:randomRect(140,shelfY,Math.max(80,wall-140),46)},{points:randomRect(right+100,shelfY+40,Math.max(80,1130-right-100),46)}],
-  spikes:[{x:170,y:shelfY-20,width:70,height:22},{x:1040,y:shelfY+20,width:65,height:22}],
-  runes:members.map(v=>({x:v.x,y:cy+110})),
-  solutionInitialDelay:900,solutionDelay:650,
-  solution:[[[left+12,top-35],[left-18,bottom+35]],[[right-12,top-35],[right+18,bottom+35]],[[left-25,roof],[right+25,roof]]],
- };
-}
-function verifyLevelSolution(Matter,level,{initial=900,delay=650,jitter=0,trial=1}={}){
+function familyForSeed(seed){return normalizeSeed(seed)%FAMILY_INFO.length;}
+function nextMapSeed(seed,previousFamily){let value=normalizeSeed(seed);for(let i=0;i<FAMILY_INFO.length;i++){if(FAMILY_INFO[familyForSeed(value)].id!==previousFamily)return value;value=(value+1)>>>0;}return value;}
+function generateRandomLevel(input=DEFAULT_SEED){const seed=normalizeSeed(input),family=familyForSeed(seed);return {...generateFamily(seed,family),id:1,seed,chapter:0,generatorVersion:2};}
+function verifyLevelSolution(Matter,level,{initial=level.solutionInitialDelay??900,delay=null,delayScale=1,jitter=0,trial=1,skip=-1,reverse=false}={}){
  const sim=new RescueSimulation(Matter,level),random=seedRandom(trial),dt=1000/60;
  const advance=ms=>{for(let n=0;n<Math.ceil(ms/dt)&&sim.state==='playing';n++)sim.step(dt);};
  let valid=true;advance(initial);
- for(const stroke of level.solution){const points=stroke.map(([x,y])=>({x:x+(random()-.5)*jitter*2,y:y+(random()-.5)*jitter*2}));valid=sim.slice(...points).ok&&valid;advance(delay);}
- advance(15000);
+ const strokes=reverse?[...level.solution].reverse():level.solution;
+ for(const [i,stroke] of strokes.entries()){
+  if(i!==skip){const points=stroke.map(([x,y])=>({x:x+(random()-.5)*jitter*2,y:y+(random()-.5)*jitter*2}));valid=sim.slice(...points).ok&&valid;}
+  advance(delay??((level.solutionDelays?.[i]??level.solutionDelay??650)*delayScale));
+ }
+ advance(18000);
  const result={ok:valid&&sim.state==='won'&&sim.stars===3,state:sim.state,stars:sim.stars,rescued:sim.rescued.length,total:sim.total,cuts:sim.cuts};sim.destroy();return result;
 }
-function verifiedRandomLevel(Matter,seed){
- const level=generateRandomLevel(seed),check=verifyLevelSolution(Matter,level);
- if(check.ok)return {...level,verified:true};
- // Bounded deterministic fallback, still verified by the same runtime engine.
- const fallback=generateRandomLevel(DEFAULT_SEED);
- if(!verifyLevelSolution(Matter,fallback).ok)throw new Error('Map validation failed. Please reload.');
- return {...fallback,seed:normalizeSeed(seed),fallbackSeed:DEFAULT_SEED,verified:true};
+function verifiedRandomLevel(Matter,input){
+ const seed=normalizeSeed(input),family=familyForSeed(seed);let attempts=0;
+ const admissible=candidate=>verifyLevelSolution(Matter,candidate).ok&&verifyLevelSolution(Matter,candidate,{initial:2500,jitter:2,trial:seed,delayScale:1.03}).ok&&verifyLevelSolution(Matter,candidate,{initial:1500,jitter:2,trial:seed,delayScale:1.03}).ok;
+ // Keep the selected mechanism even if a particular geometric mutation fails.
+ // A deterministic bounded admission pass tests the actual engine, not geometry alone.
+ for(let n=0;n<18;n++){
+  const constructionSeed=n===0?seed:(seed+Math.imul(n,2654435761))>>>0;
+  const candidate={...generateFamily(constructionSeed,family),id:1,seed,chapter:0,generatorVersion:2,constructionSeed};attempts++;
+  if(admissible(candidate))return {...candidate,verified:true,validationAttempts:attempts};
+ }
+ // Canonical family variants are independently exercised in release testing.
+ for(const canonical of [0,1,2,3,4,5,271828]){
+  const candidate={...generateFamily(canonical,family),id:1,seed,chapter:0,generatorVersion:2,constructionSeed:canonical};attempts++;
+  if(admissible(candidate))return {...candidate,verified:true,validationAttempts:attempts,fallback:true};
+ }
+ throw new Error('This expedition could not be verified. Try New Map.');
 }
 const LEVELS=[generateRandomLevel(DEFAULT_SEED)];
 
@@ -1571,7 +1774,7 @@ function menuTitleMarkup() {
 // game.js
 const $=id=>document.getElementById(id),canvas=$('game'),ctx=canvas.getContext('2d');let W=960,H=640;
 $('menuTitle').innerHTML=menuTitleMarkup();
-const STORAGE='frosty-champs-random-v4';let saved={levels:{},sound:false,last:0};try{const data=JSON.parse(localStorage.getItem(STORAGE));if(data&&typeof data==='object')saved={...saved,...data,levels:data.levels||{}};}catch{}
+const STORAGE='frosty-champs-procedural-v5';let saved={levels:{},sound:false,last:0};try{const data=JSON.parse(localStorage.getItem(STORAGE));if(data&&typeof data==='object')saved={...saved,...data,levels:data.levels||{}};}catch{}
 let currentSeed=normalizeSeed(new URLSearchParams(location.search).get('seed')??saved.seed??(crypto.getRandomValues(new Uint32Array(1))[0])), currentLevel=null;
 let sim=null,index=0,started=false,paused=false,modalOpen=false,drag=null,particles=[],trails=[],guideUntil=0,toastTimer,finishTimer,lastFrame=0,accumulator=0,clock=0,audio=null,successAt=-Infinity;
 let camera={x:0,y:0,zoom:1,minZoom:.5},panMode=false,panDrag=null,cameraTween=null;const arrivals=new Map();let waterLoss=null;
@@ -1594,16 +1797,16 @@ if(e.type==='shatter'){
 }
 if(e.type==='slice'){sound('slice');for(let t=0;t<=1;t+=.08)burst(e.a.x+(e.b.x-e.a.x)*t,e.a.y+(e.b.y-e.a.y)*t,'#c5ffff',2);trails.push({...e,life:1});}if(e.type==='blocked'){sound('blocked');toast('Cut blocked by crew');}if(e.type==='rune'){sound('rune');burst(e.x,e.y,'#f4d088',22);}if(e.type==='rescue'){arrivals.set(e.id,clock);successAt=clock;sound('rescue');burst(e.x,e.y,'#d4f6d6',26);}if(e.type==='lost'){clearTimeout(toastTimer);$('toast').classList.remove('visible');sound('lost');const sea=sim.world.waterY-18;burst(e.x,Math.min(e.y,sea),'#b6edf1',24);waterLoss=e.cause==='water'?{...e,startedAt:clock,y:sea}:null;if(waterLoss)cinematicFocus(e.x,sea-90,W<800?1.35:1.2);finishTimer=setTimeout(()=>showResult(false),waterLoss?2100:950);}if(e.type==='win'){clearTimeout(toastTimer);$('toast').classList.remove('visible');cinematicFocus(sim.level.boat.x,sim.level.boat.y-90,W<800?1.2:1.3);sound('win');const old=saved.levels[sim.level.id];saved.levels[sim.level.id]={stars:Math.max(e.stars,old?.stars||0),cuts:Math.min(e.cuts,old?.cuts??Infinity)};saved.last=Math.min(index+1,LEVELS.length-1);persist();finishTimer=setTimeout(()=>showResult(true),2350);}updateUI();}
 function loadLevel(n){clearTimeout(finishTimer);clearTimeout(toastTimer);$('toast').classList.remove('visible');sim?.destroy();index=Math.max(0,Math.min(n,LEVELS.length-1));currentLevel ||= verifiedRandomLevel(window.Matter,currentSeed);sim=new RescueSimulation(window.Matter,currentLevel,onEvent);saved.seed=currentSeed;persist();arrivals.clear();waterLoss=null;particles=[];trails=[];guideUntil=0;drag=null;successAt=-Infinity;paused=false;accumulator=0;$('hintCard').hidden=true;$('hintBtn').setAttribute('aria-expanded','false');$('pauseBtn').innerHTML='<span aria-hidden="true">Ⅱ</span><small>Pause</small>'; resetCamera();closeModal();updateUI();}
-function updateUI(){if(!sim)return;const l=sim.level;$('chapterLabel').textContent='TEST';$('chapterLabel').title=CHAPTERS[l.chapter].name;$('levelTitle').textContent=l.name;$('levelTitle').title=`Seed ${currentSeed}`;$('rescueCount').textContent=`${sim.rescued.length}/${sim.total}`;$('cutCount').textContent=`${sim.cuts}/${l.par}`;$('runeCount').textContent=`${sim.runes.filter(r=>r.collected).length}/${sim.runes.length}`;$('hintText').textContent=l.hint;const done=Object.keys(saved.levels).length;$('startBtn').innerHTML=`${done?'Continue':'Play'} <span aria-hidden="true" class="menu-play-icon"></span>`;$('pauseBtn').innerHTML=paused?'<span aria-hidden="true">►</span><small>Resume</small>':'<span aria-hidden="true">Ⅱ</span><small>Pause</small>';$('pauseBtn').setAttribute('aria-label',paused?'Resume game':'Pause game');$('gestureTip').textContent=panMode?'Drag to pan':'Drag to cut · Scroll to explore';}
+function updateUI(){if(!sim)return;const l=sim.level;$('chapterLabel').textContent=l.difficulty||'HARD';$('chapterLabel').title=CHAPTERS[l.chapter].name;$('levelTitle').textContent=l.name;$('levelTitle').title=`Seed ${currentSeed}`;$('rescueCount').textContent=`${sim.rescued.length}/${sim.total}`;$('cutCount').textContent=`${sim.cuts}/${l.par}`;$('runeCount').textContent=`${sim.runes.filter(r=>r.collected).length}/${sim.runes.length}`;$('hintText').textContent=l.hint;const done=Object.keys(saved.levels).length;$('startBtn').innerHTML=`${done?'Continue':'Play'} <span aria-hidden="true" class="menu-play-icon"></span>`;$('pauseBtn').innerHTML=paused?'<span aria-hidden="true">►</span><small>Resume</small>':'<span aria-hidden="true">Ⅱ</span><small>Pause</small>';$('pauseBtn').setAttribute('aria-label',paused?'Resume game':'Pause game');$('gestureTip').textContent=panMode?'Drag to pan':'Drag to cut · Scroll to explore';}
 
-function start(){try{const url=new URL(location.href);url.searchParams.set('seed',String(currentSeed));history.replaceState(null,'',url);}catch{}started=true;document.body.classList.remove('is-splash');$('splash').hidden=true;loadLevel(saved.last||0);canvas.focus({preventScroll:true});if(index===0){guideUntil=clock+6500;toast('Drag to cut · + zoom · ✥ pan');}sound('click');}
+function start(){try{const url=new URL(location.href);url.searchParams.set('seed',String(currentSeed));history.replaceState(null,'',url);}catch{}started=true;document.body.classList.remove('is-splash');$('splash').hidden=true;loadLevel(saved.last||0);canvas.focus({preventScroll:true});if(index===0){toast('Study the route · Drag to cut · Hint if needed');}sound('click');}
 function restart(){loadLevel(0);}
-function newMap(seed){const previous=currentSeed;currentSeed=seed==null?crypto.getRandomValues(new Uint32Array(1))[0]:normalizeSeed(seed);if(seed==null&&currentSeed===previous)currentSeed=(currentSeed+1)>>>0;currentLevel=null;started=true;$('splash').hidden=true;document.body.classList.remove('is-splash');loadLevel(0);try{const url=new URL(location.href);url.searchParams.set('seed',String(currentSeed));history.replaceState(null,'',url);}catch{}}
+function newMap(seed){const previous=currentSeed;currentSeed=seed==null?nextMapSeed(crypto.getRandomValues(new Uint32Array(1))[0],currentLevel?.family):normalizeSeed(seed);if(seed==null&&currentSeed===previous)currentSeed=(currentSeed+1)>>>0;currentLevel=null;started=true;$('splash').hidden=true;document.body.classList.remove('is-splash');loadLevel(0);try{const url=new URL(location.href);url.searchParams.set('seed',String(currentSeed));history.replaceState(null,'',url);}catch{}}
 function showModal(html,cls=''){modalOpen=true;$('modal').className=`modal ${cls}`;$('modal').innerHTML=html;$('modalBackdrop').hidden=false;$('modal').focus();$('modal').querySelector('.close')?.addEventListener('click',closeModal);}
 function closeModal(){modalOpen=false;$('modalBackdrop').hidden=true;if(started)canvas.focus({preventScroll:true});}
 function showResult(win){if(!sim||win&&sim.state!=='won'||!win&&sim.state!=='failed')return;const n=sim.runes.filter(r=>r.collected).length;showModal(`<h2 id="modalTitle">${win?'Crew rescued!':'Try that fjord again'}</h2><p class="seed-caption">Seed ${currentSeed} · Same map on Replay</p>${win?`<div class="result-art" aria-label="${sim.stars} out of 3 stars">${[1,2,3].map(s=>`<span class="${s>sim.stars?'empty':''}">✦</span>`).join('')}</div><div class="result-stats"><span><strong>${sim.rescued.length}</strong> crew</span><span><strong>${sim.cuts}/${sim.level.par}</strong> cuts</span><span><strong>${n}/${sim.runes.length}</strong> runes</span></div>`:''}<div class="modal-actions"><button id="resultRestart" class="primary-button">Replay ↻</button><button id="resultPrimary" class="secondary-button">New Map →</button></div>`);$('resultPrimary').onclick=()=>newMap();$('resultRestart').onclick=restart;}
 function showHelp(){sound('click');showModal(`<button class="close" aria-label="Close instructions">×</button><h2 id="modalTitle">Controls & materials</h2><ol class="help-steps"><li><b aria-hidden="true">╱</b><div><strong>Drag through ice or rope.</strong>Helmet in the way? The cut is blocked. Each cut takes effect immediately.</div></li><li><b class="pale-ice" aria-hidden="true">◇</b><div><strong>Pale ice breaks on impact.</strong>Blue pack ice stays solid. Rock and timber cannot be cut.</div></li><li><b aria-hidden="true">≈</b><div><strong>A warm welcome.</strong>Ice melts on the ship and the crew steps out. No extra tap or cut needed.</div></li><li><b aria-hidden="true">✥</b><div><strong>Keep moving.</strong>Pan or scroll to explore; + / − to zoom. Pause stops play. Resume before cutting.</div></li><li><b aria-hidden="true">✦</b><div><strong>Three stars.</strong>Rescue everyone · Meet the cut target · Catch all runes.</div></li></ol><p>R restart · P pan · Space pause · M sound<br>Replay keeps your seed. New Map changes it.</p><button id="helpDone" class="primary-button">Play <span aria-hidden="true">→</span></button>`);$('helpDone').onclick=closeModal;}
-function showMap(){sound('click');showModal(`<button class="close" aria-label="Close map options">×</button><h2 id="modalTitle">One fjord. Fresh adventures.</h2><p>Carve out the crew, land on the ship, and watch the ice melt.</p><p class="seed-caption">Seed ${currentSeed}</p><div class="modal-actions"><button id="mapReplay" class="primary-button">Replay this map ↻</button><button id="mapNew" class="secondary-button">New Map →</button></div><p class="seed-caption">Each generated map is checked with a complete solution before play. A wrong cut can still lose the crew.</p>`,'map');$('mapReplay').onclick=()=>{started=true;$('splash').hidden=true;document.body.classList.remove('is-splash');restart();};$('mapNew').onclick=()=>newMap();}
+function showMap(){sound('click');showModal(`<button class="close" aria-label="Close map options">×</button><h2 id="modalTitle">Choose your next expedition.</h2><p>Ropes, ramps, gates and split rescues. Study what each piece will do before you cut.</p><p class="seed-caption">${sim?.level.name||'New expedition'} · ${sim?.level.difficulty||'HARD'}<br>Seed ${currentSeed}</p><div class="modal-actions"><button id="mapReplay" class="primary-button">Replay this map ↻</button><button id="mapNew" class="secondary-button">New Map →</button></div><p class="seed-caption">New Map changes the puzzle mechanism, not just its position. Each map passes a physics-solution check. Wrong cuts can still lose the crew.</p>`,'map');$('mapReplay').onclick=()=>{started=true;$('splash').hidden=true;document.body.classList.remove('is-splash');restart();};$('mapNew').onclick=()=>newMap();}
 function togglePause(){if(!started||sim.state!=='playing')return;paused=!paused;drag=null;panDrag=null;canvas.style.cursor=panMode?'grab':'crosshair';updateUI();if(paused)toast('Paused · Resume to cut');else{clearTimeout(toastTimer);$('toast').classList.remove('visible');}}
 $('startBtn').onclick=start;$('restartBtn').onclick=restart;$('pauseBtn').onclick=togglePause;$('soundBtn').onclick=()=>{saved.sound=!saved.sound;persist();setSound();sound('rune');};$('helpBtn').onclick=showHelp;$('mapBtn').onclick=showMap;
 $('hintBtn').onclick=()=>{$('hintCard').hidden=!$('hintCard').hidden;$('hintBtn').setAttribute('aria-expanded',String(!$('hintCard').hidden));};$('closeHintBtn').onclick=()=>{$('hintCard').hidden=true;$('hintBtn').setAttribute('aria-expanded','false');};$('guideBtn').onclick=()=>{guideUntil=clock+6500;$('closeHintBtn').click();};
@@ -1630,7 +1833,7 @@ function path(points,fill,stroke=null,width=1){ctx.beginPath();points.forEach((p
 function line(points,color,width=1){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();}
 function ellipse(x,y,rx,ry,color){ctx.beginPath();ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();}
 function rng(seed){let s=seed|0;return()=>{s=(s*1664525+1013904223)|0;return(s>>>0)/4294967296;};}
-function background(t){const chapter=sim?.level.chapter||0;const palettes=[['#172e4b','#426f82','#a1c6bd'],['#242e51','#536a8e','#b2bed7'],['#183d4b','#51818b','#b1cabb'],['#202f4c','#5b667d','#d9c7a3'],['#282b4c','#6d6582','#dbb9b8']][chapter];let g=ctx.createLinearGradient(0,0,0,590);g.addColorStop(0,palettes[0]);g.addColorStop(.7,palettes[1]);g.addColorStop(1,palettes[2]);ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+function background(t){const chapter=sim?.level.biome??0;const palettes=[['#172e4b','#426f82','#a1c6bd'],['#242e51','#536a8e','#b2bed7'],['#183d4b','#51818b','#b1cabb'],['#202f4c','#5b667d','#d9c7a3'],['#282b4c','#6d6582','#dbb9b8']][chapter];let g=ctx.createLinearGradient(0,0,0,590);g.addColorStop(0,palettes[0]);g.addColorStop(.7,palettes[1]);g.addColorStop(1,palettes[2]);ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
  // quiet aurora ribbons
  ctx.save();ctx.globalAlpha=.13;for(let j=0;j<3;j++){ctx.beginPath();ctx.moveTo(-70,40+j*28);ctx.bezierCurveTo(240,180+Math.sin(t*.0002)*22,310,-70,620,70+j*30);ctx.bezierCurveTo(800,150,860,50,1030,110+j*15);ctx.strokeStyle=j===1?'#d8ffdf':'#8be9d5';ctx.lineWidth=23-j*5;ctx.stroke();}ctx.restore();
  const rand=rng(72);for(let i=0;i<40;i++){let x=rand()*960,y=rand()*235,r=rand()*1.1+.3;ctx.globalAlpha=.25+rand()*.45;ellipse(x,y,r,r,'#e8eee0');}ctx.globalAlpha=1;
@@ -1677,7 +1880,7 @@ function drawWorldWater(t){const y=sim.world.waterY-18,w=sim.world.width,h=sim.w
 function drawTimber(timber){const body=timber.body;ctx.save();ctx.translate(body.position.x,body.position.y);ctx.rotate(body.angle);const w=timber.width,h=timber.height;path([[-w/2,-h/2],[w/2,-h/2],[w/2,h/2],[-w/2,h/2]],'#967048','#d9b379',2);line([[-w/2+4,0],[w/2-4,0]],'#5d503e',2);for(let x=-w/2+12;x<w/2;x+=40){line([[x,-h/2+3],[x+8,h/2-3]],'#b8925a',1);ellipse(x,0,2,2,'#354e55');}ctx.restore();if(timber.pivot){ellipse(timber.pivot.x,timber.pivot.y,12,12,'#2a4653');ellipse(timber.pivot.x,timber.pivot.y,8,8,'#b8b99a');ellipse(timber.pivot.x,timber.pivot.y,3,3,'#4f6368');}}
 function drawWaterLoss(t){if(!waterLoss)return;const age=t-waterLoss.startedAt,phase=Math.max(0,Math.min(1,(age-850)/1000));drawViking(waterLoss.x,waterLoss.y-7,waterLoss.look,0,true,1,0,1,{pose:age<850?'swim':'sink',phase:age<850?age/850:phase});ctx.save();for(let i=0;i<7;i++){const life=((age+i*160)%1100)/1100;if(age>450){ctx.globalAlpha=(1-life)*.65;ctx.strokeStyle='#bfeefa';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(waterLoss.x+Math.sin(i*3)*17,waterLoss.y+24-life*44,2+i%3,0,Math.PI*2);ctx.stroke();}}ctx.globalAlpha=.5;for(let i=0;i<2;i++){ctx.beginPath();ctx.ellipse(waterLoss.x,waterLoss.y+2,17+(age*.025+i*12)%39,3+(age*.002)%4,0,0,Math.PI*2);ctx.strokeStyle='#c5f2f5';ctx.stroke();}ctx.restore();}
 function drawMinimap(){if(!started)return;const m=miniBounds(),sx=m.w/sim.world.width,sy=m.h/sim.world.height;ctx.save();ctx.fillStyle='#0d2a3dea';ctx.strokeStyle='#94bab888';ctx.lineWidth=1;ctx.beginPath();ctx.roundRect(m.x,m.y,m.w,m.h,5);ctx.fill();ctx.stroke();ctx.beginPath();ctx.rect(m.x,m.y,m.w,m.h);ctx.clip();ctx.translate(m.x,m.y);ctx.scale(sx,sy);for(const r of sim.rocks)path(r.vertices,'#71929c');for(const i of sim.ice)path(i.body.vertices,i.kind==='pack'?'#71c2ef':'#b6f2ee');for(const v of sim.getVikings())ellipse(v.x,v.y,12,12,'#f1d399');ctx.fillStyle='#eab778';ctx.fillRect(sim.level.boat.x-sim.level.boat.width/2,sim.level.boat.y,sim.level.boat.width,22);ctx.strokeStyle='#ffedb6';ctx.lineWidth=2/sx;ctx.strokeRect(camera.x,camera.y,W/camera.zoom,H/camera.zoom);ctx.restore();}
-function render(t){ctx.clearRect(0,0,W,H);ctx.save();ctx.scale(W/960,H/640);background(t);drawVillage(ctx,{time:t,reducedMotion,cameraX:camera.x,cameraY:camera.y,chapter:sim?.level.chapter||0});if(!started){ctx.restore();ctx.save();const heroScale=W/960;ctx.translate(0,(H-640*heroScale)*(W<800?.78:.58));ctx.scale(heroScale,heroScale);drawTitleScene(t);ctx.restore();return;}ctx.restore();ctx.save();ctx.scale(camera.zoom,camera.zoom);ctx.translate(-camera.x,-camera.y);drawWorldWater(t);const ship=boatArt(t);drawLongshipBack(ctx,ship);for(const rock of sim.rocks)drawRock(rock);for(const timber of sim.timbers)drawTimber(timber);for(const s of sim.level.spikes||[])drawSpikes(s);for(const r of sim.runes)drawRune(r,t);for(const ice of sim.ice)drawRopes(ice);for(const ice of sim.ice){ctx.save();if(waterLoss?.sourceBody===ice.body.id){ctx.beginPath();ctx.rect(-1000,-1000,sim.world.width+2000,waterLoss.y+1000);ctx.clip();ctx.translate(0,Math.max(0,t-waterLoss.startedAt)*.2);}drawIce(ice,t);ctx.restore();}drawWalkers(t);drawLongshipCrew(ctx,ship);drawLongshipFront(ctx,ship);drawWaterLoss(t);drawGuide(t);
+function render(t){ctx.clearRect(0,0,W,H);ctx.save();ctx.scale(W/960,H/640);background(t);drawVillage(ctx,{time:t,reducedMotion,cameraX:camera.x,cameraY:camera.y,chapter:sim?.level.biome??0});if(!started){ctx.restore();ctx.save();const heroScale=W/960;ctx.translate(0,(H-640*heroScale)*(W<800?.78:.58));ctx.scale(heroScale,heroScale);drawTitleScene(t);ctx.restore();return;}ctx.restore();ctx.save();ctx.scale(camera.zoom,camera.zoom);ctx.translate(-camera.x,-camera.y);drawWorldWater(t);const ship=boatArt(t);drawLongshipBack(ctx,ship);for(const rock of sim.rocks)drawRock(rock);for(const timber of sim.timbers)drawTimber(timber);for(const s of sim.level.spikes||[])drawSpikes(s);for(const r of sim.runes)drawRune(r,t);for(const ice of sim.ice)drawRopes(ice);for(const ice of sim.ice){ctx.save();if(waterLoss?.sourceBody===ice.body.id){ctx.beginPath();ctx.rect(-1000,-1000,sim.world.width+2000,waterLoss.y+1000);ctx.clip();ctx.translate(0,Math.max(0,t-waterLoss.startedAt)*.2);}drawIce(ice,t);ctx.restore();}drawWalkers(t);drawLongshipCrew(ctx,ship);drawLongshipFront(ctx,ship);drawWaterLoss(t);drawGuide(t);
  if(sim.level.wind){ctx.save();ctx.fillStyle='#e9eee0aa';ctx.font='12px Trebuchet MS';ctx.textAlign='left';ctx.fillText(sim.level.wind>0?'〰 →':'← 〰',29,34);ctx.restore();}
  for(const p of particles){ctx.globalAlpha=p.life;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.life*(p.spin||4));path(p.shard?[[-p.size,-p.size*.4],[p.size*.7,-p.size*.6],[p.size*.25,p.size]]:[[-p.size,0],[0,-p.size],[p.size,0],[0,p.size]],p.color);ctx.restore();}ctx.globalAlpha=1;for(const s of trails){ctx.globalAlpha=s.life;line([[s.a.x,s.a.y],[s.b.x,s.b.y]],'#e5ffff',2+s.life*2);}ctx.globalAlpha=1;
  if(drag){const preview=sim.inspectSlice(drag.a,drag.b),color=preview.ok?'#a9ffe0':preview.reason==='viking'?'#ff969b':'#fff2c9';canvas.dataset.cutPreview=preview.ok?'valid':preview.reason;ctx.save();ctx.lineJoin='round';for(const candidate of preview.candidates){ctx.globalAlpha=.12;path(candidate.ice.body.vertices,color);ctx.globalAlpha=.75;path(candidate.ice.body.vertices,null,color,1.5);}ctx.globalAlpha=1;if(preview.blocked){ctx.beginPath();ctx.arc(preview.blocked.x,preview.blocked.y,27,0,Math.PI*2);ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();}for(const rope of preview.ropes){ellipse(rope.hit.x,rope.hit.y,8,8,'#a9ffe033');ellipse(rope.hit.x,rope.hit.y,3,3,color);}ctx.shadowColor=color;ctx.shadowBlur=12;if(!preview.ok)ctx.setLineDash([7,5]);line([[drag.a.x,drag.a.y],[drag.b.x,drag.b.y]],color,2.8);ctx.setLineDash([]);ellipse(drag.a.x,drag.a.y,4,4,color);ellipse(drag.b.x,drag.b.y,7,7,'#123644');ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();ctx.font='bold 11px Trebuchet MS';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle=color;ctx.fillText(preview.ok?'✓':preview.reason==='viking'?'×':'·',drag.b.x,drag.b.y);ctx.restore();}else delete canvas.dataset.cutPreview;
