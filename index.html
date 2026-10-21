@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="frosty-champs-version" content="3.0.0">
+  <meta name="frosty-champs-version" content="3.1.0">
   <meta name="theme-color" content="#102d3e"><meta name="description" content="Slice the ice. Save your Vikings. An original five-puzzle physics expedition.">
-  <title>Frosty Champs · Slice. Save. Sail.</title>
+  <title>Frosty Champs</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22%23173747%22%2F%3E%3Cpath%20d%3D%22M10%2043h46L44%2056H24z%22%20fill%3D%22%23eea16b%22%2F%3E%3Cpath%20d%3D%22M36%208v32H15z%22%20fill%3D%22%23c0eee4%22%2F%3E%3Cpath%20d%3D%22M40%2015v25h16z%22%20fill%3D%22%236fb6bd%22%2F%3E%3C%2Fsvg%3E%0A" type="image/svg+xml"><style>
-:root{--ink:#102d3e;--cream:#f3f0dc;--muted:#93b3b8;--mint:#b7e9df;--gold:#e7b775;--orange:#eea16b;--line:#345362}*{box-sizing:border-box}body{margin:0;background:#0c2332;color:var(--cream);font-family:"Trebuchet MS",Arial,sans-serif;min-height:100vh}.ambient{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 15% 0,#38687855,transparent 55%),radial-gradient(ellipse at 95% 100%,#123d4a,transparent 45%);z-index:-1}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer;color:inherit;border:0;transition:background .15s,transform .15s}button:focus-visible,a:focus-visible,canvas:focus-visible{outline:3px solid var(--orange);outline-offset:3px}button:hover{filter:brightness(1.15)}button:active{transform:translateY(1px)}button:disabled{opacity:.3;cursor:default;filter:none}[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.masthead{max-width:1120px;margin:auto;padding:20px 24px 16px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;color:var(--cream);text-decoration:none;font-size:20px;letter-spacing:2px;font-weight:900}.brand svg{width:35px;height:35px}nav{display:flex;align-items:center;gap:10px}.icon-button{width:44px;height:44px;background:#1e3c4b99;border:1px solid #45637088;border-radius:50%;font-size:22px;color:var(--mint);display:grid;place-items:center}.map-button{background:#254858;border:1px solid #4a6875;border-radius:8px;min-height:44px;padding:0 14px;display:flex;align-items:center;gap:9px;font-size:12px;font-weight:700}.map-button>span:first-child{font-size:21px;color:var(--mint)}main{max-width:1120px;padding:0 24px 24px;margin:auto}.game-shell{border:1px solid #53717c;border-radius:14px;overflow:hidden;background:#112c3b;box-shadow:0 25px 70px #04141e60}.game-topbar{height:65px;display:flex;justify-content:space-between;align-items:center;padding:11px 20px;background:linear-gradient(115deg,#234757,#1b3949);border-bottom:1px solid #436675;gap:15px}.level-identity{display:flex;align-items:center;gap:12px;min-width:0}.eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--mint)}.level-identity .eyebrow{border:1px solid #66868e;border-radius:7px;padding:9px 8px;background:#102d3e40;letter-spacing:1px}.level-identity h1{font-family:Georgia,serif;margin:0;font-size:22px;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.quick-stats{display:flex;align-items:center;gap:23px;flex-shrink:0}.quick-stats>div{display:grid;grid-template-columns:18px auto;column-gap:7px;align-items:center}.quick-stats span{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums}.quick-stats .stat-icon{grid-row:1/3;font-size:21px;font-weight:400;color:#a6d6d0}.quick-stats small{font-size:8px;letter-spacing:.8px;color:#a4c2c7;text-transform:uppercase;margin-top:3px}.rune,.quick-stats .rune{color:var(--gold)}.canvas-wrap{position:relative;aspect-ratio:3/2;overflow:hidden;background:#142e46}canvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair;outline:none}.toast{position:absolute;bottom:15px;left:50%;transform:translate(-50%,7px);padding:9px 15px;border-radius:24px;background:#102b3ef2;border:1px solid #7395a0;color:#ecf7ef;font-size:12px;text-align:center;opacity:0;pointer-events:none;transition:.2s;max-width:90%;width:max-content;box-shadow:0 4px 15px #0003}.toast.visible{opacity:1;transform:translate(-50%,0)}.game-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 12px;background:#173644;min-height:64px;border-top:1px solid #395867}.tool-buttons{display:flex;gap:7px;flex-shrink:0}.tool-buttons button{background:#244756;border:1px solid #476776;border-radius:8px;min-width:44px;min-height:44px;padding:7px 12px;display:flex;gap:7px;align-items:center;justify-content:center}.tool-buttons span{font-size:24px;line-height:1}.tool-buttons small{font-size:11px}.game-bottom p{font-size:11px;color:#8eb1ba;margin:0}.splash{position:absolute;inset:0;background:linear-gradient(90deg,#102c40ed,#102c4060 50%,transparent 80%);display:flex;align-items:center;padding:7%;cursor:default}.splash-copy{margin-top:-2%}.splash .eyebrow{font-size:10px;letter-spacing:3px;color:#a6ccc7}.splash h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(50px,7.3vw,96px);line-height:.99;margin:25px 0 30px;color:#f6f0df;letter-spacing:-2px}.splash h2 em{font-weight:400;color:var(--mint)}.primary-button{display:flex;justify-content:space-between;align-items:center;gap:25px;background:var(--orange);color:#173342;border-radius:9px;padding:14px 21px;font-size:14px;font-weight:800;min-width:165px;min-height:48px;border:1px solid #ffc596;box-shadow:0 4px 0 #b9764a40}.primary-button span{font-size:23px}.hint-card{position:absolute;left:50%;bottom:15px;transform:translateX(-50%);width:min(460px,92%);background:#183b4ef5;border:1px solid #79949d;padding:16px 46px 13px 17px;border-radius:10px;box-shadow:0 7px 25px #0005}.hint-card p{font-size:12px;line-height:1.6;color:#d0e4df;margin:0 0 8px}.hint-card button:not(.close-hint){font-size:12px;color:var(--gold);background:#294b5c;border-radius:6px;padding:10px 14px;min-height:40px}.close-hint{position:absolute;top:4px;right:3px;background:none;width:40px;height:40px;font-size:22px;color:#a7c7cc}.modal-backdrop{position:fixed;inset:0;z-index:10;background:#03141ec9;display:grid;place-items:center;padding:24px;backdrop-filter:blur(7px)}.modal{position:relative;max-width:550px;width:100%;max-height:90vh;overflow:auto;background:#173b4d;border:1px solid #567d88;border-radius:15px;box-shadow:0 24px 80px #0007;padding:32px;color:var(--cream)}.modal h2{font-family:Georgia,serif;font-weight:400;font-size:34px;line-height:1.2;margin:9px 0}.modal>p{font-size:12px;line-height:1.6;color:#aecbd0;margin:15px 0}.modal .close{position:absolute;top:8px;right:8px;width:44px;height:44px;background:none;font-size:26px;color:#a1c4ca}.modal-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:24px}.secondary-button{border:1px solid #64828d;background:#274d5c;border-radius:8px;padding:12px 17px;font-size:12px;min-height:45px}.result-art{font-size:52px;letter-spacing:10px;color:var(--gold);margin:20px 0}.result-art .empty{opacity:.2}.result-stats{display:flex;gap:20px;padding:16px 0;border-top:1px solid #446472;border-bottom:1px solid #446472;color:#a7c9ce;font-size:11px}.result-stats strong{font-size:19px;color:var(--cream);margin-right:5px}.help-steps{list-style:none;padding:0;margin:20px 0}.help-steps li{display:flex;gap:15px;align-items:center;margin:16px 0;font-size:12px;color:#adcbd0;line-height:1.6}.help-steps li>b{display:grid;place-items:center;width:40px;height:40px;border:1px solid #638692;color:var(--mint);border-radius:10px;flex-shrink:0;font-size:21px}.help-steps strong{display:block;color:var(--cream)}.modal.map{max-width:800px}.map-progress{display:flex;align-items:center;gap:16px;font-size:12px;color:#a7c8cb}.map-progress .gold-stars{color:var(--gold)}.chapter-section{margin-top:23px}.chapter-section h3{font-size:10px;letter-spacing:1.8px;color:var(--mint);text-transform:uppercase;font-weight:400}.level-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:9px}.level-tile{background:#244a5c;border:1px solid #446b7a;border-radius:8px;padding:9px 4px;min-height:78px;display:flex;flex-direction:column;align-items:center;gap:5px}.level-tile.current{border-color:var(--orange);box-shadow:0 0 0 1px var(--orange)}.level-tile.complete{background:#2a575c}.level-tile b{font-size:21px;font-weight:400}.level-tile small{font-size:8px;line-height:1.3;min-height:20px}.level-tile span{font-size:10px;color:var(--gold);letter-spacing:2px}body.is-splash .game-topbar,body.is-splash .game-bottom{display:none}body.is-splash main{padding-bottom:24px}.game-shell:fullscreen{background:#0b2332;border:0;border-radius:0;display:flex;flex-direction:column;align-items:center;justify-content:center}.game-shell:fullscreen .canvas-wrap{height:calc(100dvh - 129px);width:auto;max-width:100vw;aspect-ratio:3/2;flex-shrink:0}.game-shell:fullscreen .game-topbar,.game-shell:fullscreen .game-bottom{width:min(100vw,calc((100dvh - 129px)*1.5));flex-shrink:0}
-@media(max-width:700px){.masthead{padding:14px 14px 12px}.brand{font-size:17px;letter-spacing:1.3px;gap:7px}.brand svg{width:29px;height:29px}nav{gap:6px}main{padding:0 12px 16px}.game-topbar{height:62px;padding:10px 13px}.level-identity h1{font-size:19px}.quick-stats{gap:13px}.quick-stats>div{column-gap:4px}.quick-stats span{font-size:15px}.quick-stats .stat-icon{font-size:18px}.quick-stats small{font-size:7px}.splash h2{font-size:70px}.splash .eyebrow{font-size:8px}.splash .primary-button{min-width:145px}.game-bottom p{display:none}.modal{padding:28px 22px}.modal-backdrop{padding:12px}}
-@media(max-width:480px){.brand{font-size:14px;letter-spacing:.9px}.brand svg{width:25px;height:25px}.icon-button{width:40px;height:40px;font-size:20px}.map-button{min-height:40px;padding:0 9px}.map-button>span:last-child{display:none}.map-button>span:first-child{font-size:22px}main{padding:0 7px 12px}.masthead{padding:12px 9px 10px}.game-shell{border-radius:10px}.game-topbar{height:63px;padding:10px;gap:8px}.level-identity{gap:7px;max-width:46%}.level-identity .eyebrow{padding:7px 5px;font-size:9px;letter-spacing:0}.level-identity h1{font-size:16px;white-space:normal;line-height:1.1;max-height:38px}.quick-stats{gap:11px}.quick-stats>div{display:flex;flex-direction:column;gap:3px}.quick-stats .stat-icon{display:none}.quick-stats span{font-size:14px}.quick-stats small{font-size:7px;margin-top:0}.splash{padding:7%}.splash h2{font-size:clamp(38px,11vw,53px);letter-spacing:-1px;margin:12px 0 17px}.splash .eyebrow{font-size:6px;letter-spacing:1.5px}.splash .primary-button{min-width:120px;min-height:42px;padding:8px 13px;font-size:12px}.splash .primary-button span{font-size:19px}.game-bottom{padding:8px;gap:5px;min-height:62px}.tool-buttons{gap:5px}.tool-buttons button{padding:7px 9px;min-width:42px;min-height:44px;gap:4px}.tool-buttons span{font-size:23px}.tool-buttons small{font-size:9px}#fullscreenBtn{padding:7px 5px;min-width:40px}.toast{font-size:10px;padding:8px 12px;bottom:10px}.hint-card{bottom:10px;padding-top:12px;padding-bottom:10px}.hint-card p{font-size:10px;line-height:1.45}.hint-card button:not(.close-hint){font-size:10px;min-height:40px}.modal h2{font-size:29px}.level-grid{gap:7px;grid-template-columns:repeat(3,1fr)}.level-tile{min-height:68px}.level-tile small{min-height:auto}.result-art{font-size:42px}.result-stats{gap:15px}.help-steps li{font-size:11px}.help-steps li>b{width:36px;height:36px}.modal-actions{gap:8px}}
-@media(max-height:550px) and (orientation:landscape){.masthead{padding:6px 12px}.brand svg{height:26px}.icon-button,.map-button{min-height:40px;height:40px}.game-topbar{height:49px}.game-bottom{min-height:51px;padding:4px 10px}.game-shell:not(:fullscreen) .canvas-wrap{max-height:calc(100dvh - 160px);width:auto;margin:auto;aspect-ratio:3/2}.splash h2{font-size:clamp(26px,8vh,42px);margin:10px 0}.splash .primary-button{min-height:36px;padding:6px 12px}.game-shell:fullscreen .canvas-wrap{height:calc(100dvh - 100px)}.game-shell:fullscreen .game-topbar,.game-shell:fullscreen .game-bottom{width:min(100vw,calc((100dvh - 100px)*1.5))}}
+:root{--ink:#102d3e;--cream:#f3f0dc;--muted:#93b3b8;--mint:#b7e9df;--gold:#e7b775;--orange:#eea16b;--line:#345362}*{box-sizing:border-box}body{margin:0;background:#0c2332;color:var(--cream);font-family:"Trebuchet MS",Arial,sans-serif;min-height:100vh}.ambient{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 15% 0,#38687855,transparent 55%),radial-gradient(ellipse at 95% 100%,#123d4a,transparent 45%);z-index:-1}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer;color:inherit;border:0;transition:background .15s,transform .15s}button:focus-visible,a:focus-visible,canvas:focus-visible{outline:3px solid var(--orange);outline-offset:3px}button:hover{filter:brightness(1.15)}button:active{transform:translateY(1px)}button:disabled{opacity:.3;cursor:default;filter:none}[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.masthead{max-width:1120px;margin:auto;padding:20px 24px 16px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;color:var(--cream);text-decoration:none;font-size:20px;letter-spacing:2px;font-weight:900}.brand svg{width:35px;height:35px}nav{display:flex;align-items:center;gap:10px}.icon-button{width:44px;height:44px;background:#1e3c4b99;border:1px solid #45637088;border-radius:50%;font-size:22px;color:var(--mint);display:grid;place-items:center}.map-button{background:#254858;border:1px solid #4a6875;border-radius:8px;min-height:44px;padding:0 14px;display:flex;align-items:center;gap:9px;font-size:12px;font-weight:700}.map-button>span:first-child{font-size:21px;color:var(--mint)}main{max-width:1120px;padding:0 24px 24px;margin:auto}.game-shell{border:1px solid #53717c;border-radius:14px;overflow:hidden;background:#112c3b;box-shadow:0 25px 70px #04141e60}.game-topbar{height:65px;display:flex;justify-content:space-between;align-items:center;padding:11px 20px;background:linear-gradient(115deg,#234757,#1b3949);border-bottom:1px solid #436675;gap:15px}.level-identity{display:flex;align-items:center;gap:12px;min-width:0}.eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--mint)}.level-identity .eyebrow{border:1px solid #66868e;border-radius:7px;padding:9px 8px;background:#102d3e40;letter-spacing:1px}.level-identity h1{font-family:inherit;margin:0;font-size:21px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.quick-stats{display:flex;align-items:center;gap:23px;flex-shrink:0}.quick-stats>div{display:grid;grid-template-columns:18px auto;column-gap:7px;align-items:center}.quick-stats span{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums}.quick-stats .stat-icon{grid-row:1/3;font-size:21px;font-weight:400;color:#a6d6d0}.quick-stats small{font-size:8px;letter-spacing:.8px;color:#a4c2c7;text-transform:uppercase;margin-top:3px}.rune,.quick-stats .rune{color:var(--gold)}.canvas-wrap{position:relative;aspect-ratio:3/2;overflow:hidden;background:#142e46}canvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair;outline:none}.toast{position:absolute;bottom:15px;left:50%;transform:translate(-50%,7px);padding:9px 15px;border-radius:24px;background:#102b3ef2;border:1px solid #7395a0;color:#ecf7ef;font-size:12px;text-align:center;opacity:0;pointer-events:none;transition:.2s;max-width:90%;width:max-content;box-shadow:0 4px 15px #0003}.toast.visible{opacity:1;transform:translate(-50%,0)}.game-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 12px;background:#173644;min-height:64px;border-top:1px solid #395867}.tool-buttons{display:flex;gap:7px;flex-shrink:0}.tool-buttons button{background:#244756;border:1px solid #476776;border-radius:8px;min-width:44px;min-height:44px;padding:7px 12px;display:flex;gap:7px;align-items:center;justify-content:center}.tool-buttons span{font-size:24px;line-height:1}.tool-buttons small{font-size:11px}.game-bottom p{font-size:11px;color:#8eb1ba;margin:0}.splash{position:absolute;inset:0;background:linear-gradient(90deg,#102c40ed,#102c4060 50%,transparent 80%);display:flex;align-items:center;padding:7%;cursor:default}.primary-button{display:flex;justify-content:space-between;align-items:center;gap:25px;background:var(--orange);color:#173342;border-radius:9px;padding:14px 21px;font-size:14px;font-weight:800;min-width:165px;min-height:48px;border:1px solid #ffc596;box-shadow:0 4px 0 #b9764a40}.primary-button span{font-size:23px}.hint-card{position:absolute;left:50%;bottom:15px;transform:translateX(-50%);width:min(460px,92%);background:#183b4ef5;border:1px solid #79949d;padding:16px 46px 13px 17px;border-radius:10px;box-shadow:0 7px 25px #0005}.hint-card p{font-size:12px;line-height:1.6;color:#d0e4df;margin:0 0 8px}.hint-card button:not(.close-hint){font-size:12px;color:var(--gold);background:#294b5c;border-radius:6px;padding:10px 14px;min-height:40px}.close-hint{position:absolute;top:4px;right:3px;background:none;width:40px;height:40px;font-size:22px;color:#a7c7cc}.modal-backdrop{position:fixed;inset:0;z-index:10;background:#03141ec9;display:grid;place-items:center;padding:24px;backdrop-filter:blur(7px)}.modal{position:relative;max-width:550px;width:100%;max-height:90vh;overflow:auto;background:#173b4d;border:1px solid #567d88;border-radius:15px;box-shadow:0 24px 80px #0007;padding:32px;color:var(--cream)}.modal h2{font-family:inherit;font-weight:900;font-size:32px;line-height:1.2;margin:9px 0}.modal>p{font-size:12px;line-height:1.6;color:#aecbd0;margin:15px 0}.modal .close{position:absolute;top:8px;right:8px;width:44px;height:44px;background:none;font-size:26px;color:#a1c4ca}.modal-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:24px}.secondary-button{border:1px solid #64828d;background:#274d5c;border-radius:8px;padding:12px 17px;font-size:12px;min-height:45px}.result-art{font-size:52px;letter-spacing:10px;color:var(--gold);margin:20px 0}.result-art .empty{opacity:.2}.result-stats{display:flex;gap:20px;padding:16px 0;border-top:1px solid #446472;border-bottom:1px solid #446472;color:#a7c9ce;font-size:11px}.result-stats strong{font-size:19px;color:var(--cream);margin-right:5px}.help-steps{list-style:none;padding:0;margin:20px 0}.help-steps li{display:flex;gap:15px;align-items:center;margin:16px 0;font-size:12px;color:#adcbd0;line-height:1.6}.help-steps li>b{display:grid;place-items:center;width:40px;height:40px;border:1px solid #638692;color:var(--mint);border-radius:10px;flex-shrink:0;font-size:21px}.help-steps strong{display:block;color:var(--cream)}.modal.map{max-width:800px}.map-progress{display:flex;align-items:center;gap:16px;font-size:12px;color:#a7c8cb}.map-progress .gold-stars{color:var(--gold)}.chapter-section{margin-top:23px}.chapter-section h3{font-size:10px;letter-spacing:1.8px;color:var(--mint);text-transform:uppercase;font-weight:400}.level-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:9px}.level-tile{background:#244a5c;border:1px solid #446b7a;border-radius:8px;padding:9px 4px;min-height:78px;display:flex;flex-direction:column;align-items:center;gap:5px}.level-tile.current{border-color:var(--orange);box-shadow:0 0 0 1px var(--orange)}.level-tile.complete{background:#2a575c}.level-tile b{font-size:21px;font-weight:400}.level-tile small{font-size:8px;line-height:1.3;min-height:20px}.level-tile span{font-size:10px;color:var(--gold);letter-spacing:2px}body.is-splash .game-topbar,body.is-splash .game-bottom{display:none}body.is-splash main{padding-bottom:24px}.game-shell:fullscreen{background:#0b2332;border:0;border-radius:0;display:flex;flex-direction:column;align-items:center;justify-content:center}.game-shell:fullscreen .canvas-wrap{height:calc(100dvh - 129px);width:auto;max-width:100vw;aspect-ratio:3/2;flex-shrink:0}.game-shell:fullscreen .game-topbar,.game-shell:fullscreen .game-bottom{width:min(100vw,calc((100dvh - 129px)*1.5));flex-shrink:0}
+@media(max-width:700px){.masthead{padding:14px 14px 12px}.brand{font-size:17px;letter-spacing:1.3px;gap:7px}.brand svg{width:29px;height:29px}nav{gap:6px}main{padding:0 12px 16px}.game-topbar{height:62px;padding:10px 13px}.level-identity h1{font-size:19px}.quick-stats{gap:13px}.quick-stats>div{column-gap:4px}.quick-stats span{font-size:15px}.quick-stats .stat-icon{font-size:18px}.quick-stats small{font-size:7px}.splash .primary-button{min-width:145px}.game-bottom p{display:none}.modal{padding:28px 22px}.modal-backdrop{padding:12px}}
+@media(max-width:480px){.brand{font-size:14px;letter-spacing:.9px}.brand svg{width:25px;height:25px}.icon-button{width:40px;height:40px;font-size:20px}.map-button{min-height:40px;padding:0 9px}.map-button>span:last-child{display:none}.map-button>span:first-child{font-size:22px}main{padding:0 7px 12px}.masthead{padding:12px 9px 10px}.game-shell{border-radius:10px}.game-topbar{height:63px;padding:10px;gap:8px}.level-identity{gap:7px;max-width:46%}.level-identity .eyebrow{padding:7px 5px;font-size:9px;letter-spacing:0}.level-identity h1{font-size:16px;white-space:normal;line-height:1.1;max-height:38px}.quick-stats{gap:11px}.quick-stats>div{display:flex;flex-direction:column;gap:3px}.quick-stats .stat-icon{display:none}.quick-stats span{font-size:14px}.quick-stats small{font-size:7px;margin-top:0}.splash{padding:7%}.splash .primary-button{min-width:120px;min-height:42px;padding:8px 13px;font-size:12px}.splash .primary-button span{font-size:19px}.game-bottom{padding:8px;gap:5px;min-height:62px}.tool-buttons{gap:5px}.tool-buttons button{padding:7px 9px;min-width:42px;min-height:44px;gap:4px}.tool-buttons span{font-size:23px}.tool-buttons small{font-size:9px}#fullscreenBtn{padding:7px 5px;min-width:40px}.toast{font-size:10px;padding:8px 12px;bottom:10px}.hint-card{bottom:10px;padding-top:12px;padding-bottom:10px}.hint-card p{font-size:10px;line-height:1.45}.hint-card button:not(.close-hint){font-size:10px;min-height:40px}.modal h2{font-size:29px}.level-grid{gap:7px;grid-template-columns:repeat(3,1fr)}.level-tile{min-height:68px}.level-tile small{min-height:auto}.result-art{font-size:42px}.result-stats{gap:15px}.help-steps li{font-size:11px}.help-steps li>b{width:36px;height:36px}.modal-actions{gap:8px}}
+@media(max-height:550px) and (orientation:landscape){.masthead{padding:6px 12px}.brand svg{height:26px}.icon-button,.map-button{min-height:40px;height:40px}.game-topbar{height:49px}.game-bottom{min-height:51px;padding:4px 10px}.game-shell:not(:fullscreen) .canvas-wrap{max-height:calc(100dvh - 160px);width:auto;margin:auto;aspect-ratio:3/2}.splash .primary-button{min-height:36px;padding:6px 12px}.game-shell:fullscreen .canvas-wrap{height:calc(100dvh - 100px)}.game-shell:fullscreen .game-topbar,.game-shell:fullscreen .game-bottom{width:min(100vw,calc((100dvh - 100px)*1.5))}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 /* Keep the entire board and toolbar in view on desktop-sized windows. */
 @media(min-width:851px) and (min-height:551px){main,.masthead{max-width:min(1120px,calc((100dvh - 238px)*1.5 + 48px))}}
@@ -18,6 +18,21 @@
 .game-shell:fullscreen .canvas-wrap{height:auto;width:min(100vw,calc((100dvh - 129px)*var(--board-ratio,1.5)));max-height:calc(100dvh - 129px)}
 .game-shell:fullscreen .game-topbar,.game-shell:fullscreen .game-bottom{width:min(100vw,calc((100dvh - 129px)*var(--board-ratio,1.5)))}
 @media(max-height:550px) and (orientation:landscape){.game-shell:fullscreen .canvas-wrap{height:auto;width:min(100vw,calc((100dvh - 100px)*var(--board-ratio,1.5)));max-height:calc(100dvh - 100px)}.game-shell:fullscreen .game-topbar,.game-shell:fullscreen .game-bottom{width:min(100vw,calc((100dvh - 100px)*var(--board-ratio,1.5)))}}
+/* Hand-carved menu: path lettering, an oversized axe and a single clear action. */
+.splash{padding:0;display:block;background:radial-gradient(ellipse at 29% 35%,#082b3b29,transparent 65%),linear-gradient(90deg,#041b2b50,transparent 72%)}
+.splash::before{content:"";position:absolute;inset:13px;border:1px solid #a4e6e42e;pointer-events:none;clip-path:polygon(0 0,18% 0,18% 1%,1% 1%,1% 25%,0 25%,0 0,100% 0,100% 25%,99% 25%,99% 1%,82% 1%,82% 0,100% 0,100% 100%,82% 100%,82% 99%,99% 99%,99% 75%,100% 75%,100% 100%,0 100%,0 75%,1% 75%,1% 99%,18% 99%,18% 100%,0 100%)}
+.menu-title{position:absolute;left:2%;top:0;width:79%;margin:0!important;line-height:0!important;font-size:0!important;pointer-events:none;filter:drop-shadow(0 10px 12px #04121c70)}
+.menu-title svg{display:block;width:100%;height:auto;overflow:visible}
+.menu-actions{position:absolute;left:9%;top:72%;display:flex;align-items:center;gap:12px}
+.splash .menu-play{position:relative;min-width:220px;min-height:64px;padding:15px 24px;border:3px solid #f9d39a;border-radius:3px;background:linear-gradient(#ffc784 0%,#eaa45e 48%,#cb793e 49%,#e5a264 100%);box-shadow:0 6px 0 #75452c,0 9px 0 #09222a,0 12px 22px #041b2b66;color:#17313a;text-transform:uppercase;font-size:23px;font-weight:1000;letter-spacing:2px;text-shadow:0 1px #ffe8b9}
+.splash .menu-play::before,.splash .menu-play::after{content:"";position:absolute;width:5px;height:5px;background:#83512c;border:1px solid #ffe0a5;transform:rotate(45deg);top:calc(50% - 3px)}
+.splash .menu-play::before{left:7px}.splash .menu-play::after{right:7px}
+.splash .menu-play span{font-size:22px;margin-left:20px}.splash .menu-play:hover{filter:brightness(1.08);transform:translateY(-1px)}.splash .menu-play:active{transform:translateY(4px);box-shadow:0 2px 0 #75452c,0 5px 0 #09222a}
+@media(max-width:580px){.menu-title{width:108%;left:-4%;top:7%}.menu-actions{left:50%;top:58%;transform:translateX(-50%)}.splash .menu-play{min-width:204px;min-height:56px;padding:12px 24px;font-size:22px}.splash .menu-play span{font-size:20px}}
+@media(max-height:550px) and (orientation:landscape){.menu-title{width:79%;left:2%;top:0}.menu-actions{left:8%;top:76%;transform:none}.splash .menu-play{min-width:145px;min-height:40px;padding:7px 18px;font-size:16px;letter-spacing:1px}.splash .menu-play span{font-size:16px;margin-left:10px}.splash::before{inset:7px}}
+
+.splash .menu-play-icon{display:block;width:17px;height:21px;background:currentColor;clip-path:polygon(0 0,100% 50%,0 100%);flex-shrink:0}
+@media(max-height:550px) and (orientation:landscape){.splash .menu-play-icon{width:12px;height:15px}}
 
 </style>
 </head>
@@ -29,10 +44,10 @@
 </header>
 <main>
 <section class="game-shell" id="gameShell" aria-label="Frosty Champs puzzle game">
-  <div class="game-topbar"><div class="level-identity"><span id="chapterLabel" class="eyebrow">01</span><h1 id="levelTitle">A clean beginning</h1></div><div class="quick-stats"><div title="Crew rescued" aria-label="Crew rescued"><span class="stat-icon" aria-hidden="true">⚑</span><span id="rescueCount">0/1</span><small>Crew</small></div><div title="Cuts / star target"><span class="stat-icon" aria-hidden="true">╱</span><span id="cutCount">0/1</span><small>Cuts</small></div><div title="Runes collected"><span class="stat-icon rune" aria-hidden="true">✦</span><span id="runeCount">0/1</span><small>Runes</small></div></div></div>
+  <div class="game-topbar"><div class="level-identity"><span id="chapterLabel" class="eyebrow">01</span><h1 id="levelTitle">Narrow Channel</h1></div><div class="quick-stats"><div title="Crew rescued" aria-label="Crew rescued"><span class="stat-icon" aria-hidden="true">⚑</span><span id="rescueCount">0/1</span><small>Crew</small></div><div title="Cuts / star target"><span class="stat-icon" aria-hidden="true">╱</span><span id="cutCount">0/1</span><small>Cuts</small></div><div title="Runes collected"><span class="stat-icon rune" aria-hidden="true">✦</span><span id="runeCount">0/1</span><small>Runes</small></div></div></div>
   <div class="canvas-wrap" id="canvasWrap"><canvas id="game" width="960" height="640" aria-label="Ice-cutting game. Drag across ice or rope. R restarts, Space pauses, M toggles sound. Select Pan to explore." tabindex="0"></canvas><div id="toast" class="toast" role="status" aria-live="polite"></div>
     <div class="camera-controls" id="cameraControls" aria-label="Camera controls"><button id="zoomOutBtn" aria-label="Zoom out" title="Zoom out">−</button><button id="fitBtn" aria-label="Show whole level" title="Show whole level">⌖</button><button id="zoomInBtn" aria-label="Zoom in" title="Zoom in">+</button></div>
-    <div id="splash" class="splash"><div class="splash-copy"><span class="eyebrow">FIVE EXPEDITIONS</span><h2>Slice.<br>Save.<br><em>Sail.</em></h2><button id="startBtn" class="primary-button">Play <span aria-hidden="true">→</span></button></div></div>
+    <div id="splash" class="splash"><h2 id="menuTitle" class="menu-title" aria-label="Frosty Champs"></h2><div class="menu-actions"><button id="startBtn" class="primary-button menu-play">Play <span aria-hidden="true" class="menu-play-icon"></span></button></div></div>
     <div id="hintCard" class="hint-card" hidden><button id="closeHintBtn" class="close-hint" aria-label="Close hint">×</button><p id="hintText"></p><button id="guideBtn">Show cut <span aria-hidden="true">↗</span></button></div>
   </div>
   <div class="game-bottom"><div class="tool-buttons"><button id="panBtn" title="Pan mode (P)" aria-label="Pan mode" aria-pressed="false"><span aria-hidden="true">✥</span><small>Pan</small></button><button id="restartBtn" title="Restart level (R)" aria-label="Restart level"><span aria-hidden="true">↻</span><small>Retry</small></button><button id="pauseBtn" title="Pause game (Space)" aria-label="Pause game"><span aria-hidden="true">Ⅱ</span><small>Pause</small></button></div><p id="gestureTip">Drag to slice</p><div class="tool-buttons"><button id="hintBtn" aria-label="Show hint" aria-expanded="false" title="Hint"><span class="rune" aria-hidden="true">✧</span><small>Hint</small></button><button id="fullscreenBtn" aria-label="Enter fullscreen" title="Fullscreen"><span aria-hidden="true">⛶</span></button></div></div>
@@ -343,6 +358,9 @@ const cut = (x1,y1,x2,y2) => [[x1,y1],[x2,y2]];
 const rock = points => ({points});
 const spike = (x,y,width=90,height=34) => ({x,y,width,height});
 const rune = (x,y) => ({x,y});
+// A visible wall pin is a real zero-length Matter constraint, not a paused body.
+// Roof pins keep preparation deliberate; shoulder pins release when carved off.
+const pin = (x,y) => ({x,y,pivot:{x,y},length:0});
 const hull = points => {
   const sorted=points.slice().sort((a,b)=>a.x-b.x||a.y-b.y),cross=(a,b,c)=>(b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x),lower=[],upper=[];
   for(const p of sorted){while(lower.length>1&&cross(lower.at(-2),lower.at(-1),p)<=0)lower.pop();lower.push(p);}
@@ -369,69 +387,69 @@ const LEVELS=[
     hint:'Carve a narrow column between the side pins, then cut its roof. The sloping channel leads to the ship.',
     objective:'Extract the center without bringing the pinned shoulders into the channel.',
     world:world(1280,960),boat:boat(785,860,280),
-    ice:[ice(poly([350,320],[410,210],[535,150],[690,190],[800,280],[822,390],[810,447],[647,460],[351,454],[325,390]),[sailor(580,420,0)],[{x:365,y:425},{x:795,y:425},{x:580,y:183}])],
+    ice:[ice(poly([350,320],[410,210],[535,150],[690,190],[800,280],[822,390],[810,447],[647,460],[351,454],[325,390]),[sailor(580,420,0)],[{x:365,y:425},{x:795,y:425},pin(580,183)])],
     rocks:[rock(poly([420,530],[715,775],[715,812],[420,567])),rock(poly([770,560],[1030,560],[1030,602],[820,602]))],
     spikes:[spike(270,890,110),spike(1070,890,110)],
     runes:[rune(610,655),rune(755,810)],
-    solutionDelay:0,solution:[cut(550,130,525,490),cut(610,130,635,490),cut(510,365,650,365)],
+    solutionInitialDelay:900,solutionDelay:600,solution:[cut(550,130,525,490),cut(610,130,635,490),cut(510,365,650,365)],
   },
   {
     id:2,name:'Counterweight',chapter:0,par:4,
-    hint:'The timber is hinged. Drop the left ballast to lift its right end, then release a compact piece through the opened gate.',
+    hint:'Trim the crew’s side pins first. Drop the left ballast to lift the hinged gate, then cut the compact piece’s roof.',
     objective:'Use the heavy empty ice to rotate the gate before releasing the crew.',
     world:world(1360,1000),boat:boat(850,895,250),hammerArea:10500,
     ice:[
       slab(390,250,170,200,[],[{x:425,y:270},{x:525,y:270}],'pack'),
-      slab(690,155,330,290,[sailor(855,405,1)],[{x:715,y:410},{x:995,y:410},{x:855,y:177}],'pack'),
+      slab(690,155,330,290,[sailor(855,405,1)],[{x:715,y:410},{x:995,y:410},pin(855,177)],'pack'),
     ],
     timbers:[{x:680,y:680,width:500,height:30,angle:0,pivot:{x:680,y:680}}],
     rocks:[rock(rect(360,920,225,55)),rock(rect(660,800,40,150)),rock(rect(1020,735,200,50)),rock(rect(900,698,75,65))],
     spikes:[spike(365,896,180,25),spike(1080,925,150)],
     runes:[rune(855,585),rune(855,810)],
-    solutionDelays:[1800,0,0,0],
-    solution:[cut(365,315,585,315),cut(825,125,800,470),cut(885,125,910,470),cut(785,355,925,355)],
+    solutionInitialDelay:900,solutionDelays:[600,600,1800,600],
+    solution:[cut(825,125,800,470),cut(885,125,910,470),cut(365,315,585,315),cut(785,355,925,355)],
   },
   {
     id:3,name:'Across the Divide',chapter:0,par:4,
-    hint:'Free the lower rider first. Trim the two sides of the swinging floe, then cut its rope as it moves right over the divide.',
+    hint:'Free the lower rider. Trim the floe’s right side, then carve off its left wall pin to start the swing. Cut the rope as it moves right.',
     objective:'Time a compact swinging floe past the central cliff and join the crew below.',
     world:world(1480,1000),boat:boat(930,890,430),hammerArea:24000,
     ice:[
-      ice(poly([340,225],[425,185],[560,230],[550,365],[415,390],[350,355]),[sailor(445,340,2)],[{x:435,y:235,pivot:{x:660,y:75}}],'pack'),
+      ice(poly([340,225],[425,185],[560,230],[550,365],[415,390],[350,355]),[sailor(445,340,2)],[{x:435,y:235,pivot:{x:660,y:75}},pin(365,280)],'pack'),
       slab(850,575,100,170,[sailor(900,705,0)],[{x:873,y:595},{x:927,y:595}]),
     ],
     rocks:[rock(poly([440,640],[620,640],[620,930],[440,930])),rock(poly([1110,660],[1280,660],[1280,705],[1150,705]))],
     spikes:[spike(450,615,160,25),spike(1175,930,130)],
     runes:[rune(900,805),rune(580,470)],
-    solutionDelays:[0,0,700,0],
-    solution:[cut(825,660,975,660),cut(390,170,390,420),cut(500,200,500,420),cut(300,130,1050,130)],
+    solutionInitialDelay:900,solutionDelays:[600,600,650,600],
+    solution:[cut(825,660,975,660),cut(500,200,520,420),cut(390,170,390,420),cut(300,130,1050,130)],
   },
   {
     id:4,name:'Thick Ice',chapter:0,par:4,
     hint:'Blue pack ice survives the rocks. Clear the side pins, lower the slab onto the ship, then divide it between the crew so the hammer can break it.',
     objective:'Land the heavy slab intact, then reduce each occupied piece below the hammer limit.',
-    world:world(1360,980),boat:boat(710,870,330),hammerArea:12500,
-    ice:[slab(400,160,620,305,[sailor(655,420,0),sailor(765,420,3)],[{x:425,y:425},{x:995,y:425},{x:710,y:182}],'pack')],
+    world:world(1360,980),boat:boat(710,870,330),hammerArea:13000,
+    ice:[slab(400,160,620,305,[sailor(655,420,0),sailor(765,420,3)],[{x:425,y:425},{x:995,y:425},pin(710,182)],'pack')],
     rocks:[rock(rect(320,605,235,55)),rock(rect(865,605,240,55))],
     spikes:[spike(360,580,160,25),spike(900,580,160,25),spike(1150,910,100)],
     runes:[rune(655,735),rune(765,735)],
-    solutionDelays:[0,0,2200,0],
+    solutionInitialDelay:900,solutionDelays:[600,600,2200,600],
     solution:[cut(625,130,600,490),cut(795,130,820,490),cut(580,365,840,365),cut(710,715,710,900)],
   },
   {
     id:5,name:'Last Passage',chapter:0,par:7,
-    hint:'Open a tall window for the two trapped crew. Trim and release the swinging floe over the cliff, then divide the heavy pack ice once it reaches the ship.',
+    hint:'Open the tall crew window. Trim the floe’s right side, then its left wall pin to start the swing. Release its rope over the cliff, then split the pack ice on deck.',
     objective:'Combine the pinned window, a timed swing, and a final on-deck split.',
     world:world(1600,1100),boat:boat(1150,995,760),hammerArea:25000,
     ice:[
-      slab(1165,140,360,450,[sailor(1290,425,0),sailor(1400,425,3)],[{x:1190,y:550},{x:1500,y:550},{x:1345,y:162}],'pack'),
-      ice(poly([440,225],[525,185],[660,230],[650,365],[515,390],[450,355]),[sailor(545,340,1)],[{x:535,y:235,pivot:{x:760,y:75}}],'pack'),
+      slab(1165,140,360,450,[sailor(1290,425,0),sailor(1400,425,3)],[{x:1190,y:550},{x:1500,y:550},pin(1345,162)],'pack'),
+      ice(poly([440,225],[525,185],[660,230],[650,365],[515,390],[450,355]),[sailor(545,340,1)],[{x:535,y:235,pivot:{x:760,y:75}},pin(465,280)],'pack'),
     ],
     rocks:[rock(poly([440,640],[720,640],[720,1030],[440,1030])),rock(poly([1530,690],[1600,690],[1600,740],[1570,740]))],
     spikes:[spike(450,615,260,25),spike(1550,1030,45)],
     runes:[rune(680,470),rune(1290,720),rune(1400,720)],
-    solutionDelays:[0,0,0,0,700,2200,0],
-    solution:[cut(1260,110,1235,620),cut(1430,110,1455,620),cut(1215,370,1475,370),cut(490,170,490,420),cut(600,200,600,420),cut(400,130,825,130),cut(1345,650,1345,1030)],
+    solutionInitialDelay:900,solutionDelays:[600,600,600,600,650,2200,600],
+    solution:[cut(1260,110,1235,620),cut(1430,110,1455,620),cut(1215,370,1475,370),cut(600,200,620,420),cut(490,170,490,420),cut(400,130,825,130),cut(1345,650,1345,1030)],
   },
 ];
 
@@ -1357,8 +1375,167 @@ function drawVillage(ctx, {
 }
 
 
+// menu-art.js
+/**
+ * Original Frosty Champs menu illustration.
+ * The letters below are individually drawn polygons, not font outlines or text.
+ * Everything is local SVG: no fonts, images, animation, filters, or dependencies.
+ */
+let menuArtId = 0;
+
+const LETTERS = {
+  F: {
+    w: 83,
+    d: 'M9 0 80 0 83 27 34 27 31 46 72 46 68 72 28 72 23 114 0 114Z',
+    rim: 'M14 7 73 7 75 15M16 8 8 106M36 53 64 53',
+    cut: 'M51 0 45 14 54 20 48 30M5 85 15 80 20 84',
+  },
+  R: {
+    w: 91,
+    d: 'M9 0 67 0 86 16 85 49 65 65 91 111 58 116 38 75 28 75 24 114 0 114ZM34 25 31 49 55 49 61 42 61 30 55 25Z',
+    rim: 'M15 7 61 7 76 20M16 8 8 106M44 82 61 107',
+    cut: 'M73 4 63 18 68 26M78 88 67 86 64 95',
+  },
+  O: {
+    w: 95,
+    d: 'M25 0 76 0 95 22 89 93 68 114 19 114 0 93 6 22ZM33 27 29 34 25 80 31 87 58 87 64 80 68 34 62 27Z',
+    rim: 'M29 7 71 7 82 19M14 26 8 88 22 105M37 34 33 73',
+    cut: 'M88 53 75 59 81 67 72 73M35 114 41 102 35 94',
+  },
+  S: {
+    w: 88,
+    d: 'M22 0 80 0 88 27 34 27 30 32 31 41 68 49 85 65 81 96 62 114 4 114 0 86 55 86 60 81 58 73 20 65 5 50 8 17Z',
+    rim: 'M26 7 74 7 77 15M16 21 13 45 24 56 63 65M10 94 54 94',
+    cut: 'M51 0 45 12 54 20M75 102 62 95 55 104',
+  },
+  T: {
+    w: 98,
+    d: 'M4 0 94 0 98 29 65 29 57 114 27 114 35 29 0 29Z',
+    rim: 'M10 7 87 7 90 17M43 35 36 106',
+    cut: 'M78 0 68 13 76 21M62 71 47 78 52 86',
+  },
+  Y: {
+    w: 98,
+    d: 'M0 0 31 0 47 39 70 0 98 0 60 68 56 114 27 114 32 67Z',
+    rim: 'M10 7 24 7 43 51M77 7 85 7 53 65 48 105',
+    cut: 'M18 39 29 35 35 43M59 93 47 90 40 100',
+  },
+  C: {
+    w: 96,
+    d: 'M25 0 77 0 96 20 88 44 65 41 64 29 36 29 30 36 26 79 32 86 61 86 66 73 90 77 84 100 67 114 19 114 0 93 6 22Z',
+    rim: 'M30 7 72 7 84 21M14 27 8 89 23 105M38 36 34 73',
+    cut: 'M51 0 45 14 52 22M5 69 18 66 21 73',
+  },
+  H: {
+    w: 94,
+    d: 'M9 0 37 0 33 43 62 43 66 0 94 0 84 114 56 114 60 72 30 72 26 114 0 114Z',
+    rim: 'M15 7 29 7M16 10 7 105M73 7 85 7 77 105M37 51 57 51',
+    cut: 'M34 17 23 24 29 33M87 86 74 81 67 89',
+  },
+  A: {
+    w: 101,
+    d: 'M36 0 73 0 101 114 70 114 65 91 30 91 21 114 0 114ZM49 30 38 66 59 66Z',
+    rim: 'M41 7 66 7M39 13 10 105M77 98 80 106M43 74 59 74',
+    cut: 'M82 37 69 42 76 49M25 91 35 98 29 106',
+  },
+  M: {
+    w: 120,
+    d: 'M10 0 39 0 59 39 84 0 114 0 120 114 91 114 86 51 62 88 51 88 32 53 27 114 0 114Z',
+    rim: 'M16 7 33 7 57 54M16 12 8 106M89 7 107 7 112 105M39 67 54 95',
+    cut: 'M106 24 94 30 102 40M3 86 16 81 22 89',
+  },
+  P: {
+    w: 91,
+    d: 'M10 0 69 0 91 20 86 58 65 77 31 77 27 114 0 114ZM37 27 34 50 58 50 63 44 64 34 57 27Z',
+    rim: 'M16 7 64 7 80 22M17 11 8 106M40 58 59 58',
+    cut: 'M80 5 70 18 76 25M2 89 15 85 22 92',
+  },
+};
+
+function letter(character, x, y, uid, index, scale = 1) {
+  const a = LETTERS[character];
+  const id = `${uid}-letter-${index}`;
+  return `<g transform="translate(${x} ${y}) scale(${scale})" data-carved-letter="${character}">
+    <defs><clipPath id="${id}"><path d="${a.d}" fill-rule="evenodd"/></clipPath></defs>
+    <path d="${a.d}" fill="#092431" fill-rule="evenodd" stroke="#092431" stroke-width="15" stroke-linejoin="round" transform="translate(8 12)"/>
+    <path d="${a.d}" fill="url(#${uid}-edge)" fill-rule="evenodd" stroke="#163e50" stroke-width="8" stroke-linejoin="round" transform="translate(5 7)"/>
+    <path d="${a.d}" fill="url(#${uid}-ice)" fill-rule="evenodd" stroke="#123747" stroke-width="6" stroke-linejoin="round"/>
+    <g clip-path="url(#${id})">
+      <path d="M-10 73 130 34 130 126-10 126Z" fill="#68bbcf" opacity=".35"/>
+      <path d="M-5 103 122 74 128 128-10 128Z" fill="#3298b7" opacity=".35"/>
+      <path d="M-4 118 110 118 110 102 12 108Z" fill="#236d91" opacity=".5"/>
+      <path d="${a.rim}" fill="none" stroke="#f8ffff" stroke-width="5" stroke-linecap="square" stroke-linejoin="bevel"/>
+      <path d="${a.cut}" fill="none" stroke="#418ca4" stroke-width="3" stroke-linejoin="bevel"/>
+      <path d="${a.cut}" fill="none" stroke="#d9faff" stroke-width="1" transform="translate(2 1)"/>
+    </g>
+  </g>`;
+}
+
+/** Accessible, responsive SVG artwork. The caller supplies the menu actions. */
+function menuTitleMarkup() {
+  const uid = `fc-menu-art-${++menuArtId}`;
+  let index = 0;
+  const makeWord = (word, startX, startY, gap, scale = 1) => {
+    let x = startX;
+    return [...word].map((c, i) => {
+      const markup = letter(c, x, startY + [0, -3, 1, -2, 1, -1][i], uid, index++, scale);
+      x += LETTERS[c].w * scale + gap;
+      return markup;
+    }).join('');
+  };
+  return `<svg id="menuTitleArt" class="menu-title-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 470" role="img" aria-labelledby="${uid}-title ${uid}-desc" focusable="false">
+  <title id="${uid}-title">Frosty Champs</title>
+  <desc id="${uid}-desc">Chunky, hand-carved ice letters in front of a mighty engraved Viking axe.</desc>
+  <defs>
+    <linearGradient id="${uid}-ice" x1="0" y1="0" x2="0.2" y2="1">
+      <stop stop-color="#ffffff"/><stop offset=".28" stop-color="#e3fbff"/><stop offset=".62" stop-color="#b4e7ee"/><stop offset="1" stop-color="#70c0d5"/>
+    </linearGradient>
+    <linearGradient id="${uid}-edge" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5e9dae"/><stop offset="1" stop-color="#206181"/></linearGradient>
+    <linearGradient id="${uid}-steel" x1="0" y1="0" x2="1" y2=".8"><stop stop-color="#f1f5dc"/><stop offset=".28" stop-color="#a3c1bc"/><stop offset=".55" stop-color="#597d81"/><stop offset=".78" stop-color="#a8d4d1"/><stop offset="1" stop-color="#e6ffed"/></linearGradient>
+    <linearGradient id="${uid}-wood" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#442c27"/><stop offset=".42" stop-color="#aa7246"/><stop offset=".65" stop-color="#c18a53"/><stop offset="1" stop-color="#4d332c"/></linearGradient>
+    <linearGradient id="${uid}-gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e7c47c"/><stop offset=".5" stop-color="#a46a36"/><stop offset="1" stop-color="#69422d"/></linearGradient>
+  </defs>
+  <g aria-hidden="true">
+    <!-- A compact burst of broken ice, rather than a logo plaque. -->
+    <path d="m74 191-25-23 4 36 23 14Zm37-94-16-15-2 25 17 12Zm604 172 32-13-9 30-21 8ZM57 327l-28 11 18 19 27-14ZM680 411l23 13 14-24-24-8Z" fill="#82c7d4" stroke="#174757" stroke-width="5" stroke-linejoin="round"/>
+    <path d="m51 174 7 27 15 10M99 88l1 17 8 7m629 152-16 11m-682 66 9 8 16-8m637 68-5-9" fill="none" stroke="#d6f8ef" stroke-width="3"/>
+    <!-- The axe is drawn in full behind the lettering. -->
+    <g id="menuAxe" transform="rotate(22 620 90)">
+      <path d="M604 72 637 70 628 419 618 438 599 431 594 414Z" fill="#0b2a33" stroke="#0b2a33" stroke-width="10" stroke-linejoin="round"/>
+      <path d="M608 75 631 75 622 416 613 428 602 420Z" fill="url(#${uid}-wood)" stroke="#382d28" stroke-width="3"/>
+      <path d="M615 107q-9 66-3 110t-4 134m13-221q-8 36-4 73m-5 50q6 49-2 96" fill="none" stroke="#4d352c" stroke-width="2"/>
+      <path d="m603 350 24 1-1 63-12 15-14-10Z" fill="#493c36" stroke="#222e30" stroke-width="4"/>
+      <path d="m603 351 23 14m-23-2 23 14m-24-2 23 14m-23-2 23 14m-24-2 22 15" fill="none" stroke="#a17a58" stroke-width="4"/>
+      <path d="m599 348 30 1-1 11-29-1Zm-1 65 27 3-10 15-15-7Z" fill="url(#${uid}-gold)" stroke="#3a3931" stroke-width="3"/>
+      <!-- Broad bearded blade, squared poll, and bright forged edge. -->
+      <path d="M600 49 572 39 558 45 557 78 582 87 602 82 633 88Q646 122 634 160Q714 167 759 106Q736 103 723 78Q707 45 715 17Q672 47 637 47Z" fill="url(#${uid}-steel)" stroke="#102f38" stroke-width="9" stroke-linejoin="round"/>
+      <path d="M715 17Q707 45 723 78Q736 103 759 106Q714 167 634 160L640 143Q698 145 736 108Q700 75 703 36Z" fill="#d7ece4" stroke="#365d64" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M713 25Q712 78 748 106Q710 151 642 153" fill="none" stroke="#f4fff0" stroke-width="4"/>
+      <path d="M641 60Q673 61 690 49Q687 88 713 111Q686 129 655 129Q665 99 650 82Z" fill="#365e68" stroke="#bdcfc0" stroke-width="3"/>
+      <!-- Original carved knot and rune pattern. -->
+      <path d="m663 74 16 11-18 15 22 16 16-9-20-17 10-13m-27 37 22-24m-30-23 13 9-11 9m26 27 11-2" fill="none" stroke="#9dc6c2" stroke-width="3" stroke-linejoin="bevel"/>
+      <path d="m568 49 14 3-1 23-14-4Z" fill="#668b8d" stroke="#d0dfcc" stroke-width="2"/>
+      <path d="M603 43 632 44 636 91 601 89Z" fill="url(#${uid}-gold)" stroke="#2e4140" stroke-width="4"/>
+      <path d="m610 51 15 1 2 30-18-1Z" fill="#73553b" stroke="#e1be79" stroke-width="2"/>
+      <path d="m613 57 9 6-9 8 9 7" fill="none" stroke="#dfbf7c" stroke-width="3"/>
+      <path d="m607 39 26 1-1-12-21-3Z" fill="#b5c9bd" stroke="#173c44" stroke-width="4"/>
+    </g>
+    <!-- Slight rise and imperfect rhythm keep the lettering carved, not typeset. -->
+    <g transform="rotate(-4 400 260)">
+      ${makeWord('FROSTY', 94, 129, 11)}
+      ${makeWord('CHAMPS', 64, 263, 9, 1.015)}
+      <path d="m119 126 7-14 6 13 15 5-15 5-6 14-6-14-15-5Zm419 140 4-10 5 10 11 4-11 4-5 12-4-12-11-4Z" fill="#fffef2"/>
+      <path d="m676 329 3-8 4 8 8 3-8 4-4 9-3-9-8-4Z" fill="#f4ffff"/>
+    </g>
+    <path d="m64 245 4-7 3 7 7 3-7 3-3 7-4-7-7-3Zm646-189 3-7 3 7 7 3-7 3-3 7-3-7-7-3Z" fill="#e9fff2"/>
+  </g>
+</svg>`;
+}
+
+
 // game.js
 const $=id=>document.getElementById(id),canvas=$('game'),ctx=canvas.getContext('2d');let W=960,H=640;
+$('menuTitle').innerHTML=menuTitleMarkup();
 const STORAGE='frosty-champs-expedition-v3';let saved={levels:{},sound:false,last:0};try{const data=JSON.parse(localStorage.getItem(STORAGE));if(data&&typeof data==='object')saved={...saved,...data,levels:data.levels||{}};}catch{}
 let sim=null,index=0,started=false,paused=false,modalOpen=false,drag=null,particles=[],trails=[],guideUntil=0,toastTimer,finishTimer,lastFrame=0,accumulator=0,clock=0,audio=null,hammerAt=-Infinity,successAt=-Infinity;
 let camera={x:0,y:0,zoom:1,minZoom:.5},panMode=false,panDrag=null,cameraTween=null;const arrivals=new Map();let waterLoss=null;
@@ -1380,17 +1557,17 @@ if(e.type==='shatter'){
  if(e.crew&&e.surface!=='boat'&&!saved.sawShatter){saved.sawShatter=true;persist();toast('Reach the ship');}
 }
 if(e.type==='slice'){sound('slice');for(let t=0;t<=1;t+=.08)burst(e.a.x+(e.b.x-e.a.x)*t,e.a.y+(e.b.y-e.a.y)*t,'#c5ffff',2);trails.push({...e,life:1});}if(e.type==='blocked'){sound('blocked');toast('Cut blocked by crew');}if(e.type==='rune'){sound('rune');burst(e.x,e.y,'#f4d088',22);}if(e.type==='rescue'){arrivals.set(e.id,clock);successAt=clock;sound('rescue');burst(e.x,e.y,'#d4f6d6',26);}if(e.type==='lost'){clearTimeout(toastTimer);$('toast').classList.remove('visible');sound('lost');const sea=sim.world.waterY-18;burst(e.x,Math.min(e.y,sea),'#b6edf1',24);waterLoss=e.cause==='water'?{...e,startedAt:clock,y:sea}:null;if(waterLoss)cinematicFocus(e.x,sea-90,W<800?1.35:1.2);finishTimer=setTimeout(()=>showResult(false),waterLoss?2100:950);}if(e.type==='win'){clearTimeout(toastTimer);$('toast').classList.remove('visible');cinematicFocus(sim.level.boat.x,sim.level.boat.y-90,W<800?1.2:1.3);sound('win');const old=saved.levels[sim.level.id];saved.levels[sim.level.id]={stars:Math.max(e.stars,old?.stars||0),cuts:Math.min(e.cuts,old?.cuts??Infinity)};saved.last=Math.min(index+1,LEVELS.length-1);persist();finishTimer=setTimeout(()=>showResult(true),2350);}updateUI();}
-function loadLevel(n){clearTimeout(finishTimer);clearTimeout(toastTimer);$('toast').classList.remove('visible');sim?.destroy();index=Math.max(0,Math.min(n,LEVELS.length-1));sim=new RescueSimulation(window.Matter,LEVELS[index],onEvent);arrivals.clear();waterLoss=null;particles=[];trails=[];guideUntil=0;drag=null;hammerAt=-Infinity;successAt=-Infinity;paused=true;accumulator=0;$('hintCard').hidden=true;$('hintBtn').setAttribute('aria-expanded','false');$('pauseBtn').innerHTML='<span aria-hidden="true">Ⅱ</span><small>Pause</small>'; resetCamera();closeModal();updateUI();}
-function updateUI(){if(!sim)return;const l=sim.level;$('chapterLabel').textContent=String(l.id).padStart(2,'0');$('chapterLabel').title=CHAPTERS[l.chapter].name;$('levelTitle').textContent=l.name;$('rescueCount').textContent=`${sim.rescued.length}/${sim.total}`;$('cutCount').textContent=`${sim.cuts}/${l.par}`;$('runeCount').textContent=`${sim.runes.filter(r=>r.collected).length}/${sim.runes.length}`;$('hintText').textContent=l.hint;const done=Object.keys(saved.levels).length;$('startBtn').innerHTML=`${done?'Continue':'Play'} <span aria-hidden="true">→</span>`;$('pauseBtn').innerHTML=paused?'<span aria-hidden="true">►</span><small>Go</small>':'<span aria-hidden="true">Ⅱ</span><small>Pause</small>';$('pauseBtn').setAttribute('aria-label',paused?'Resume game':'Pause game');$('gestureTip').textContent=panMode?'Drag to pan':'Drag to cut · Scroll to explore';}
+function loadLevel(n){clearTimeout(finishTimer);clearTimeout(toastTimer);$('toast').classList.remove('visible');sim?.destroy();index=Math.max(0,Math.min(n,LEVELS.length-1));sim=new RescueSimulation(window.Matter,LEVELS[index],onEvent);arrivals.clear();waterLoss=null;particles=[];trails=[];guideUntil=0;drag=null;hammerAt=-Infinity;successAt=-Infinity;paused=false;accumulator=0;$('hintCard').hidden=true;$('hintBtn').setAttribute('aria-expanded','false');$('pauseBtn').innerHTML='<span aria-hidden="true">Ⅱ</span><small>Pause</small>'; resetCamera();closeModal();updateUI();}
+function updateUI(){if(!sim)return;const l=sim.level;$('chapterLabel').textContent=String(l.id).padStart(2,'0');$('chapterLabel').title=CHAPTERS[l.chapter].name;$('levelTitle').textContent=l.name;$('rescueCount').textContent=`${sim.rescued.length}/${sim.total}`;$('cutCount').textContent=`${sim.cuts}/${l.par}`;$('runeCount').textContent=`${sim.runes.filter(r=>r.collected).length}/${sim.runes.length}`;$('hintText').textContent=l.hint;const done=Object.keys(saved.levels).length;$('startBtn').innerHTML=`${done?'Continue':'Play'} <span aria-hidden="true" class="menu-play-icon"></span>`;$('pauseBtn').innerHTML=paused?'<span aria-hidden="true">►</span><small>Resume</small>':'<span aria-hidden="true">Ⅱ</span><small>Pause</small>';$('pauseBtn').setAttribute('aria-label',paused?'Resume game':'Pause game');$('gestureTip').textContent=panMode?'Drag to pan':'Drag to cut · Scroll to explore';}
 
 function start(){started=true;document.body.classList.remove('is-splash');$('splash').hidden=true;loadLevel(saved.last||0);canvas.focus({preventScroll:true});if(index===0){guideUntil=clock+6500;toast('Drag to cut · + zoom · ✥ pan');}sound('click');}
 function restart(){loadLevel(index);}
 function showModal(html,cls=''){modalOpen=true;$('modal').className=`modal ${cls}`;$('modal').innerHTML=html;$('modalBackdrop').hidden=false;$('modal').focus();$('modal').querySelector('.close')?.addEventListener('click',closeModal);}
 function closeModal(){modalOpen=false;$('modalBackdrop').hidden=true;if(started)canvas.focus({preventScroll:true});}
 function showResult(win){if(!sim||win&&sim.state!=='won'||!win&&sim.state!=='failed')return;const n=sim.runes.filter(r=>r.collected).length;showModal(`<h2 id="modalTitle">${win?(index===LEVELS.length-1?'Expedition complete':'Crew rescued'):'Crew lost'}</h2>${win?`<div class="result-art" aria-label="${sim.stars} out of 3 stars">${[1,2,3].map(s=>`<span class="${s>sim.stars?'empty':''}">✦</span>`).join('')}</div><div class="result-stats"><span><strong>${sim.rescued.length}</strong> crew</span><span><strong>${sim.cuts}/${sim.level.par}</strong> cuts</span><span><strong>${n}/${sim.runes.length}</strong> runes</span></div>`:''}<div class="modal-actions"><button id="resultPrimary" class="primary-button">${win?(index===LEVELS.length-1?'Levels':'Next'):'Restart'} <span aria-hidden="true">→</span></button>${win?'<button id="resultRestart" class="secondary-button">Replay</button>':''}<button id="resultMap" class="secondary-button">Levels</button></div>`);$('resultPrimary').onclick=win?()=>{if(index===LEVELS.length-1)showMap();else loadLevel(index+1);}:restart;if($('resultRestart'))$('resultRestart').onclick=restart;$('resultMap').onclick=showMap;}
-function showHelp(){sound('click');showModal(`<button class="close" aria-label="Close instructions">×</button><h2 id="modalTitle">Controls & materials</h2><ol class="help-steps"><li><b aria-hidden="true">╱</b><div><strong>Drag through ice or rope.</strong>Helmet in the way? The cut is blocked. Time stops while aiming.</div></li><li><b class="pale-ice" aria-hidden="true">◇</b><div><strong>Pale ice breaks on impact.</strong>Blue pack ice stays solid. Rock and timber cannot be cut.</div></li><li><b aria-hidden="true">⚒</b><div><strong>The hammer needs small pieces.</strong>Trim oversized ice after it lands on the ship.</div></li><li><b aria-hidden="true">✥</b><div><strong>Plan, then Go.</strong>Pause for cuts. Pan or scroll to explore; + / − to zoom. Restart to try again.</div></li><li><b aria-hidden="true">✦</b><div><strong>Three stars.</strong>Rescue everyone · Meet the cut target · Catch all runes.</div></li></ol><p>R restart · P pan · Space pause · M sound<br>Progress saves on this device.</p><button id="helpDone" class="primary-button">Play <span aria-hidden="true">→</span></button>`);$('helpDone').onclick=closeModal;}
+function showHelp(){sound('click');showModal(`<button class="close" aria-label="Close instructions">×</button><h2 id="modalTitle">Controls & materials</h2><ol class="help-steps"><li><b aria-hidden="true">╱</b><div><strong>Drag through ice or rope.</strong>Helmet in the way? The cut is blocked. Each cut takes effect immediately.</div></li><li><b class="pale-ice" aria-hidden="true">◇</b><div><strong>Pale ice breaks on impact.</strong>Blue pack ice stays solid. Rock and timber cannot be cut.</div></li><li><b aria-hidden="true">⚒</b><div><strong>The hammer needs small pieces.</strong>Trim oversized ice after it lands on the ship.</div></li><li><b aria-hidden="true">✥</b><div><strong>Keep moving.</strong>Pan or scroll to explore; + / − to zoom. Pause stops play. Resume before cutting.</div></li><li><b aria-hidden="true">✦</b><div><strong>Three stars.</strong>Rescue everyone · Meet the cut target · Catch all runes.</div></li></ol><p>R restart · P pan · Space pause · M sound<br>Progress saves on this device.</p><button id="helpDone" class="primary-button">Play <span aria-hidden="true">→</span></button>`);$('helpDone').onclick=closeModal;}
 function showMap(){sound('click');const records=Object.values(saved.levels);showModal(`<button class="close" aria-label="Close voyage map">×</button><h2 id="modalTitle">The voyage</h2><div class="map-progress"><span>${records.length}/${LEVELS.length} solved</span><span class="gold-stars">✦ ${records.reduce((n,v)=>n+v.stars,0)}/${LEVELS.length*3}</span></div>${CHAPTERS.map(c=>`<section class="chapter-section"><h3>${String(c.id+1).padStart(2,'0')} · ${c.name}</h3><div class="level-grid">${LEVELS.filter(l=>l.chapter===c.id).map(l=>`<button class="level-tile ${l.id===index+1?'current':''} ${saved.levels[l.id]?'complete':''}" data-level="${l.id-1}" aria-label="Level ${l.id}, ${l.name}, ${saved.levels[l.id]?.stars||0} stars"><b>${String(l.id).padStart(2,'0')}</b><small>${l.name}</small><span>${'✦'.repeat(saved.levels[l.id]?.stars||0)}${'·'.repeat(3-(saved.levels[l.id]?.stars||0))}</span></button>`).join('')}</div></section>`).join('')}`,'map');$('modal').querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{if(!started){started=true;$('splash').hidden=true;document.body.classList.remove('is-splash');}loadLevel(+b.dataset.level);});}
-function togglePause(){if(!started||sim.state!=='playing')return;paused=!paused;updateUI();if(paused)toast('Plan your cuts. Press ► to go.');}
+function togglePause(){if(!started||sim.state!=='playing')return;paused=!paused;drag=null;panDrag=null;canvas.style.cursor=panMode?'grab':'crosshair';updateUI();if(paused)toast('Paused · Resume to cut');else{clearTimeout(toastTimer);$('toast').classList.remove('visible');}}
 $('startBtn').onclick=start;$('restartBtn').onclick=restart;$('pauseBtn').onclick=togglePause;$('soundBtn').onclick=()=>{saved.sound=!saved.sound;persist();setSound();sound('rune');};$('helpBtn').onclick=showHelp;$('mapBtn').onclick=showMap;
 $('hintBtn').onclick=()=>{$('hintCard').hidden=!$('hintCard').hidden;$('hintBtn').setAttribute('aria-expanded',String(!$('hintCard').hidden));};$('closeHintBtn').onclick=()=>{$('hintCard').hidden=true;$('hintBtn').setAttribute('aria-expanded','false');};$('guideBtn').onclick=()=>{guideUntil=clock+6500;$('closeHintBtn').click();};
 $('fullscreenBtn').hidden=!document.fullscreenEnabled;$('fullscreenBtn').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await $('gameShell').requestFullscreen();}catch{toast('Fullscreen is unavailable here');}};document.addEventListener('fullscreenchange',()=>{$('fullscreenBtn').setAttribute('aria-label',document.fullscreenElement?'Exit fullscreen':'Enter fullscreen');});
@@ -1407,9 +1584,9 @@ $('panBtn').onclick=togglePan;$('zoomInBtn').onclick=()=>zoomCamera(1.25);$('zoo
 function screenPoint(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*W/r.width,y:(e.clientY-r.top)*H/r.height};}
 function point(e){const p=screenPoint(e);return{x:camera.x+p.x/camera.zoom,y:camera.y+p.y/camera.zoom};}
 function miniBounds(){const w=W<800?126:146,h=w*sim.world.height/sim.world.width;return{x:W-w-12,y:H-h-12,w,h};}
-canvas.addEventListener('pointerdown',e=>{if(!started||modalOpen||sim.state!=='playing')return;e.preventDefault();canvas.setPointerCapture(e.pointerId);const p=screenPoint(e),m=miniBounds();if(p.x>=m.x&&p.y>=m.y&&p.x<=m.x+m.w&&p.y<=m.y+m.h){focusWorld((p.x-m.x)/m.w*sim.world.width,(p.y-m.y)/m.h*sim.world.height);return;}if(panMode||e.button===1||e.button===2||e.altKey){cameraTween=null;panDrag={start:p,x:camera.x,y:camera.y,id:e.pointerId};canvas.style.cursor='grabbing';return;}if(e.button>0)return;drag={a:point(e),b:point(e),id:e.pointerId};});
+canvas.addEventListener('pointerdown',e=>{if(!started||modalOpen||sim.state!=='playing')return;e.preventDefault();canvas.setPointerCapture(e.pointerId);const p=screenPoint(e),m=miniBounds();if(p.x>=m.x&&p.y>=m.y&&p.x<=m.x+m.w&&p.y<=m.y+m.h){focusWorld((p.x-m.x)/m.w*sim.world.width,(p.y-m.y)/m.h*sim.world.height);return;}if(panMode||e.button===1||e.button===2||e.altKey){cameraTween=null;panDrag={start:p,x:camera.x,y:camera.y,id:e.pointerId};canvas.style.cursor='grabbing';return;}if(e.button>0)return;if(paused){toast('Resume to cut');return;}drag={a:point(e),b:point(e),id:e.pointerId};});
 canvas.addEventListener('pointermove',e=>{if(panDrag&&e.pointerId===panDrag.id){const p=screenPoint(e);camera.x=panDrag.x-(p.x-panDrag.start.x)/camera.zoom;camera.y=panDrag.y-(p.y-panDrag.start.y)/camera.zoom;clampCamera();}else if(drag&&e.pointerId===drag.id)drag.b=point(e);});
-canvas.addEventListener('pointerup',e=>{if(panDrag&&e.pointerId===panDrag.id){panDrag=null;canvas.style.cursor=panMode?'grab':'crosshair';return;}if(!drag||e.pointerId!==drag.id)return;const {a,b}=drag;drag=null;const result=sim.slice(a,b);guideUntil=0;if(result.ok)updateUI();else if(result.reason==='miss')toast('Cut all the way through');});
+canvas.addEventListener('pointerup',e=>{if(panDrag&&e.pointerId===panDrag.id){panDrag=null;canvas.style.cursor=panMode?'grab':'crosshair';return;}if(!drag||e.pointerId!==drag.id)return;const {a,b}=drag;drag=null;if(paused||modalOpen||sim.state!=='playing')return;const result=sim.slice(a,b);guideUntil=0;if(result.ok)updateUI();else if(result.reason==='miss')toast('Cut all the way through');});
 canvas.addEventListener('pointercancel',()=>{drag=null;panDrag=null;});canvas.addEventListener('contextmenu',e=>e.preventDefault());canvas.addEventListener('wheel',e=>{if(!started||modalOpen)return;e.preventDefault();cameraTween=null;if(e.ctrlKey||e.metaKey)zoomCamera(e.deltaY<0?1.1:1/1.1);else{camera.x+=(e.shiftKey?e.deltaY:e.deltaX)/camera.zoom;camera.y+=(e.shiftKey?0:e.deltaY)/camera.zoom;clampCamera();}},{passive:false});
 // Hand-painted vector world. Everything below is original canvas artwork.
 function path(points,fill,stroke=null,width=1){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p.x??p[0],p.y??p[1]):ctx.moveTo(p.x??p[0],p.y??p[1]));ctx.closePath();if(fill){ctx.fillStyle=fill;ctx.fill();}if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke();}}
@@ -1451,10 +1628,10 @@ function drawIce(ice,t){const body=ice.body,pts=body.vertices;ctx.save();const g
 function arrivalPresentation(v,t,bob=0){const age=Math.max(0,t-(arrivals.get(v.id)??(t-3000)));const pose=age<260?'impact':age<750?'rise':age<2150?'celebrate':'idle';return {...v,y:v.y+bob,pose,phase:pose==='impact'?age/260:pose==='rise'?(age-260)/490:pose==='celebrate'?(age-750)/1400:0,scale:1};}
 function boatArt(t){const bob=reducedMotion?0:Math.sin(t*.0016)*3.2+Math.sin(t*.0027)*.7;return {...sim.level.boat,y:sim.level.boat.y+bob,rescued:sim.rescued.map(v=>arrivalPresentation(v,t,bob)),time:t,reducedMotion,drawViking,hammer:t-hammerAt<580?(t-hammerAt)/580:0,success:Math.max(0,1-(t-successAt)/900)};}
 function drawTitleScene(t){
- // The launch screen celebrates the ship, not a wall of instructions.
- ctx.save();ctx.translate(650,510+(reducedMotion?0:Math.sin(t*.0016)*3.5));ctx.scale(1.45,1.45);drawLongship(ctx,{x:0,y:0,width:270,rescued:[{look:0},{look:1}],time:t,reducedMotion,drawViking});ctx.restore();
- ctx.save();ctx.translate(690,230);ctx.rotate(-.12);const floe=[[-58,-62],[30,-79],[72,-23],[52,62],[-35,76],[-67,20]];path(floe,'#7cd8e4b8','#c7ffff',2.5);path([[-58,-62],[15,-20],[30,-79]],'#d1fff45a');path([[15,-20],[52,62],[72,-23]],'#3185aa5a');drawViking(0,11,3,0,false,.82);line([[-46,-48],[-30,-35],[-34,-14]],'#e6ffffaa',1.5);ctx.restore();
- const sparkle=(x,y,r)=>{path([[x,y-r],[x+r*.3,y-r*.3],[x+r,y],[x+r*.3,y+r*.3],[x,y+r],[x-r*.3,y+r*.3],[x-r,y],[x-r*.3,y-r*.3]],'#e5d6a0');};sparkle(555,290,10);sparkle(801,335,7);
+ // The carved title and axe are SVG overlay art; the crew remain alive behind it.
+ ctx.save();ctx.translate(690,530+(reducedMotion?0:Math.sin(t*.0016)*3.5));ctx.scale(1.45,1.45);drawLongship(ctx,{x:0,y:0,width:270,rescued:[{look:0},{look:1}],time:t,reducedMotion,drawViking});ctx.restore();
+ ctx.save();ctx.translate(825,343);ctx.scale(.76,.76);ctx.rotate(-.12);const floe=[[-58,-62],[30,-79],[72,-23],[52,62],[-35,76],[-67,20]];path(floe,'#7cd8e4b8','#c7ffff',2.5);path([[-58,-62],[15,-20],[30,-79]],'#d1fff45a');path([[15,-20],[52,62],[72,-23]],'#3185aa5a');drawViking(0,11,3,0,false,.82);line([[-46,-48],[-30,-35],[-34,-14]],'#e6ffffaa',1.5);ctx.restore();
+ const sparkle=(x,y,r)=>{path([[x,y-r],[x+r*.3,y-r*.3],[x+r,y],[x+r*.3,y+r*.3],[x,y+r],[x-r*.3,y+r*.3],[x-r,y],[x-r*.3,y-r*.3]],'#e5d6a0');};sparkle(886,407,8);sparkle(760,370,5);
 }
 function drawRune(r,t){if(r.collected)return;const pulse=1+Math.sin(t*.004+r.x)*.12;ctx.save();ctx.translate(r.x,r.y);const glow=ctx.createRadialGradient(0,0,2,0,0,28);glow.addColorStop(0,'#f7dc9940');glow.addColorStop(1,'#f7dc9900');ctx.fillStyle=glow;ctx.fillRect(-30,-30,60,60);ctx.scale(pulse,pulse);path([[0,-14],[5,-4],[12,0],[5,4],[0,14],[-5,4],[-12,0],[-5,-4]],'#f1cc81','#ffedb5',1);line([[0,-7],[0,7]],'#fff1bc',1);ctx.restore();}
 function drawSpikes(s){ctx.save();ctx.fillStyle='#694a65';ctx.fillRect(s.x,s.y+12,s.width,s.height);for(let x=s.x;x<s.x+s.width;x+=18){path([[x,s.y+18],[x+8,s.y-9],[x+19,s.y+18]],'#b26e85','#e7a1ab',1);path([[x+8,s.y-9],[x+11,s.y+14],[x+19,s.y+18]],'#794b72');}ctx.restore();}
@@ -1463,15 +1640,15 @@ function drawWorldWater(t){const y=sim.world.waterY-18,w=sim.world.width,h=sim.w
 function drawTimber(timber){const body=timber.body;ctx.save();ctx.translate(body.position.x,body.position.y);ctx.rotate(body.angle);const w=timber.width,h=timber.height;path([[-w/2,-h/2],[w/2,-h/2],[w/2,h/2],[-w/2,h/2]],'#967048','#d9b379',2);line([[-w/2+4,0],[w/2-4,0]],'#5d503e',2);for(let x=-w/2+12;x<w/2;x+=40){line([[x,-h/2+3],[x+8,h/2-3]],'#b8925a',1);ellipse(x,0,2,2,'#354e55');}ctx.restore();if(timber.pivot){ellipse(timber.pivot.x,timber.pivot.y,12,12,'#2a4653');ellipse(timber.pivot.x,timber.pivot.y,8,8,'#b8b99a');ellipse(timber.pivot.x,timber.pivot.y,3,3,'#4f6368');}}
 function drawWaterLoss(t){if(!waterLoss)return;const age=t-waterLoss.startedAt,phase=Math.max(0,Math.min(1,(age-850)/1000));drawViking(waterLoss.x,waterLoss.y-7,waterLoss.look,0,true,1,0,1,{pose:age<850?'swim':'sink',phase:age<850?age/850:phase});ctx.save();for(let i=0;i<7;i++){const life=((age+i*160)%1100)/1100;if(age>450){ctx.globalAlpha=(1-life)*.65;ctx.strokeStyle='#bfeefa';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(waterLoss.x+Math.sin(i*3)*17,waterLoss.y+24-life*44,2+i%3,0,Math.PI*2);ctx.stroke();}}ctx.globalAlpha=.5;for(let i=0;i<2;i++){ctx.beginPath();ctx.ellipse(waterLoss.x,waterLoss.y+2,17+(age*.025+i*12)%39,3+(age*.002)%4,0,0,Math.PI*2);ctx.strokeStyle='#c5f2f5';ctx.stroke();}ctx.restore();}
 function drawMinimap(){if(!started)return;const m=miniBounds(),sx=m.w/sim.world.width,sy=m.h/sim.world.height;ctx.save();ctx.fillStyle='#0d2a3dea';ctx.strokeStyle='#94bab888';ctx.lineWidth=1;ctx.beginPath();ctx.roundRect(m.x,m.y,m.w,m.h,5);ctx.fill();ctx.stroke();ctx.beginPath();ctx.rect(m.x,m.y,m.w,m.h);ctx.clip();ctx.translate(m.x,m.y);ctx.scale(sx,sy);for(const r of sim.rocks)path(r.vertices,'#71929c');for(const i of sim.ice)path(i.body.vertices,i.kind==='pack'?'#71c2ef':'#b6f2ee');for(const v of sim.getVikings())ellipse(v.x,v.y,12,12,'#f1d399');ctx.fillStyle='#eab778';ctx.fillRect(sim.level.boat.x-sim.level.boat.width/2,sim.level.boat.y,sim.level.boat.width,22);ctx.strokeStyle='#ffedb6';ctx.lineWidth=2/sx;ctx.strokeRect(camera.x,camera.y,W/camera.zoom,H/camera.zoom);ctx.restore();}
-function render(t){ctx.clearRect(0,0,W,H);ctx.save();ctx.scale(W/960,H/640);background(t);drawVillage(ctx,{time:t,reducedMotion,cameraX:camera.x,cameraY:camera.y,chapter:sim?.level.chapter||0});if(!started){ctx.restore();ctx.save();const heroScale=W/960;ctx.translate(0,(H-640*heroScale)*.58);ctx.scale(heroScale,heroScale);drawTitleScene(t);ctx.restore();return;}ctx.restore();ctx.save();ctx.scale(camera.zoom,camera.zoom);ctx.translate(-camera.x,-camera.y);drawWorldWater(t);const ship=boatArt(t);drawLongshipBack(ctx,ship);for(const rock of sim.rocks)drawRock(rock);for(const timber of sim.timbers)drawTimber(timber);for(const s of sim.level.spikes||[])drawSpikes(s);for(const r of sim.runes)drawRune(r,t);for(const ice of sim.ice)drawRopes(ice);for(const ice of sim.ice){ctx.save();if(waterLoss?.sourceBody===ice.body.id){ctx.beginPath();ctx.rect(-1000,-1000,sim.world.width+2000,waterLoss.y+1000);ctx.clip();ctx.translate(0,Math.max(0,t-waterLoss.startedAt)*.2);}drawIce(ice,t);ctx.restore();}drawWalkers(t);drawLongshipCrew(ctx,ship);drawLongshipFront(ctx,ship);drawWaterLoss(t);drawGuide(t);
+function render(t){ctx.clearRect(0,0,W,H);ctx.save();ctx.scale(W/960,H/640);background(t);drawVillage(ctx,{time:t,reducedMotion,cameraX:camera.x,cameraY:camera.y,chapter:sim?.level.chapter||0});if(!started){ctx.restore();ctx.save();const heroScale=W/960;ctx.translate(0,(H-640*heroScale)*(W<800?.78:.58));ctx.scale(heroScale,heroScale);drawTitleScene(t);ctx.restore();return;}ctx.restore();ctx.save();ctx.scale(camera.zoom,camera.zoom);ctx.translate(-camera.x,-camera.y);drawWorldWater(t);const ship=boatArt(t);drawLongshipBack(ctx,ship);for(const rock of sim.rocks)drawRock(rock);for(const timber of sim.timbers)drawTimber(timber);for(const s of sim.level.spikes||[])drawSpikes(s);for(const r of sim.runes)drawRune(r,t);for(const ice of sim.ice)drawRopes(ice);for(const ice of sim.ice){ctx.save();if(waterLoss?.sourceBody===ice.body.id){ctx.beginPath();ctx.rect(-1000,-1000,sim.world.width+2000,waterLoss.y+1000);ctx.clip();ctx.translate(0,Math.max(0,t-waterLoss.startedAt)*.2);}drawIce(ice,t);ctx.restore();}drawWalkers(t);drawLongshipCrew(ctx,ship);drawLongshipFront(ctx,ship);drawWaterLoss(t);drawGuide(t);
  if(sim.level.wind){ctx.save();ctx.fillStyle='#e9eee0aa';ctx.font='12px Trebuchet MS';ctx.textAlign='left';ctx.fillText(sim.level.wind>0?'〰 →':'← 〰',29,34);ctx.restore();}
  for(const p of particles){ctx.globalAlpha=p.life;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.life*(p.spin||4));path(p.shard?[[-p.size,-p.size*.4],[p.size*.7,-p.size*.6],[p.size*.25,p.size]]:[[-p.size,0],[0,-p.size],[p.size,0],[0,p.size]],p.color);ctx.restore();}ctx.globalAlpha=1;for(const s of trails){ctx.globalAlpha=s.life;line([[s.a.x,s.a.y],[s.b.x,s.b.y]],'#e5ffff',2+s.life*2);}ctx.globalAlpha=1;
  if(drag){const preview=sim.inspectSlice(drag.a,drag.b),color=preview.ok?'#a9ffe0':preview.reason==='viking'?'#ff969b':'#fff2c9';canvas.dataset.cutPreview=preview.ok?'valid':preview.reason;ctx.save();ctx.lineJoin='round';for(const candidate of preview.candidates){ctx.globalAlpha=.12;path(candidate.ice.body.vertices,color);ctx.globalAlpha=.75;path(candidate.ice.body.vertices,null,color,1.5);}ctx.globalAlpha=1;if(preview.blocked){ctx.beginPath();ctx.arc(preview.blocked.x,preview.blocked.y,27,0,Math.PI*2);ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();}for(const rope of preview.ropes){ellipse(rope.hit.x,rope.hit.y,8,8,'#a9ffe033');ellipse(rope.hit.x,rope.hit.y,3,3,color);}ctx.shadowColor=color;ctx.shadowBlur=12;if(!preview.ok)ctx.setLineDash([7,5]);line([[drag.a.x,drag.a.y],[drag.b.x,drag.b.y]],color,2.8);ctx.setLineDash([]);ellipse(drag.a.x,drag.a.y,4,4,color);ellipse(drag.b.x,drag.b.y,7,7,'#123644');ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();ctx.font='bold 11px Trebuchet MS';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle=color;ctx.fillText(preview.ok?'✓':preview.reason==='viking'?'×':'·',drag.b.x,drag.b.y);ctx.restore();}else delete canvas.dataset.cutPreview;
- ctx.restore();drawMinimap();if(paused){ctx.save();ctx.fillStyle='#102d3ee8';ctx.beginPath();ctx.roundRect(15,15,145,39,9);ctx.fill();ctx.strokeStyle='#b7e9df88';ctx.lineWidth=1;ctx.stroke();ctx.fillStyle='#f5f1db';ctx.textAlign='center';ctx.font='15px Trebuchet MS';ctx.fillText('Ⅱ  Planning',87.5,40);ctx.restore();}
+ ctx.restore();drawMinimap();if(paused){ctx.save();ctx.fillStyle='#102d3ee8';ctx.beginPath();ctx.roundRect(15,15,145,39,9);ctx.fill();ctx.strokeStyle='#b7e9df88';ctx.lineWidth=1;ctx.stroke();ctx.fillStyle='#f5f1db';ctx.textAlign='center';ctx.font='15px Trebuchet MS';ctx.fillText('Ⅱ  Paused',87.5,40);ctx.restore();}
 }
-function frame(t){const dt=Math.min(t-lastFrame||16.67,50);lastFrame=t;clock=t;if(cameraTween){const p=Math.min(1,(t-cameraTween.startedAt)/(reducedMotion?1:420)),ease=p*p*(3-2*p);for(const k of ['x','y','zoom'])camera[k]=cameraTween.initial[k]+(cameraTween.target[k]-cameraTween.initial[k])*ease;if(p>=1)cameraTween=null;}if(started&&!paused&&!modalOpen&&!drag&&!panDrag){accumulator+=dt;while(accumulator>=1000/60){sim.step(1000/60);accumulator-=1000/60;}}else accumulator=0;for(const p of particles){p.x+=p.vx*dt/16.67;p.y+=p.vy*dt/16.67;p.vy+=.06*dt/16.67;p.life-=dt/800;}particles=particles.filter(p=>p.life>0);for(const s of trails)s.life-=dt/420;trails=trails.filter(s=>s.life>0);render(t);requestAnimationFrame(frame);}
+function frame(t){const dt=Math.min(t-lastFrame||16.67,50);lastFrame=t;clock=t;if(cameraTween){const p=Math.min(1,(t-cameraTween.startedAt)/(reducedMotion?1:420)),ease=p*p*(3-2*p);for(const k of ['x','y','zoom'])camera[k]=cameraTween.initial[k]+(cameraTween.target[k]-cameraTween.initial[k])*ease;if(p>=1)cameraTween=null;}if(started&&!paused&&!modalOpen){accumulator+=dt;while(accumulator>=1000/60){sim.step(1000/60);accumulator-=1000/60;}}else accumulator=0;for(const p of particles){p.x+=p.vx*dt/16.67;p.y+=p.vy*dt/16.67;p.vy+=.06*dt/16.67;p.life-=dt/800;}particles=particles.filter(p=>p.life>0);for(const s of trails)s.life-=dt/420;trails=trails.filter(s=>s.life>0);render(t);requestAnimationFrame(frame);}
 document.body.classList.add('is-splash');resizeCanvas();setSound();loadLevel(0);requestAnimationFrame(frame);
-if(new URLSearchParams(location.search).has('test'))window.__frostyChamps={get sim(){return sim;},get started(){return started;},get index(){return index;},get camera(){return {...camera,width:W,height:H};},get panMode(){return panMode;},get arrivals(){return sim.rescued.map(v=>arrivalPresentation(v,clock));},get waterLoss(){return waterLoss?{...waterLoss,age:clock-waterLoss.startedAt}:null;},get paused(){return paused;},loadLevel:n=>{if(!started)start();loadLevel(n);},slice:(a,b)=>{const r=sim.slice(a,b);updateUI();return r;},step:n=>{for(let i=0;i<n;i++)sim.step(1000/60);updateUI();},showMap,closeModal,LEVELS};
+if(new URLSearchParams(location.search).has('test'))window.__frostyChamps={get sim(){return sim;},get started(){return started;},get index(){return index;},get camera(){return {...camera,width:W,height:H};},get panMode(){return panMode;},get arrivals(){return sim.rescued.map(v=>arrivalPresentation(v,clock));},get waterLoss(){return waterLoss?{...waterLoss,age:clock-waterLoss.startedAt}:null;},get paused(){return paused;},loadLevel:n=>{if(!started)start();loadLevel(n);},slice:(a,b)=>{const r=paused?{ok:false,reason:'paused'}:sim.slice(a,b);updateUI();return r;},step:n=>{for(let i=0;i<n;i++)sim.step(1000/60);updateUI();},showMap,closeModal,LEVELS};
 
 </script>
 </body></html>
