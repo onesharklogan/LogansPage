@@ -2,43 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="frosty-champs-version" content="2.0.0">
-  <meta name="theme-color" content="#102d3e"><meta name="description" content="A little ice. A little ingenuity. Rescue a lovable Viking crew in Frosty Champs, an original 30-level ice-slicing physics puzzle adventure.">
-  <title>Frosty Champs · A little ice. A little ingenuity.</title>
+  <meta name="frosty-champs-version" content="3.0.0">
+  <meta name="theme-color" content="#102d3e"><meta name="description" content="Slice the ice. Save your Vikings. An original five-puzzle physics expedition.">
+  <title>Frosty Champs · Slice. Save. Sail.</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22%23173747%22%2F%3E%3Cpath%20d%3D%22M10%2043h46L44%2056H24z%22%20fill%3D%22%23eea16b%22%2F%3E%3Cpath%20d%3D%22M36%208v32H15z%22%20fill%3D%22%23c0eee4%22%2F%3E%3Cpath%20d%3D%22M40%2015v25h16z%22%20fill%3D%22%236fb6bd%22%2F%3E%3C%2Fsvg%3E%0A" type="image/svg+xml"><style>
-:root{--ink:#102d3e;--navy:#091e2b;--cream:#f0f0db;--muted:#93b3b8;--mint:#b7e9df;--gold:#e7b775;--orange:#eea16b;--line:#345362;--panel:#173747}*{box-sizing:border-box}body{margin:0;background:var(--ink);color:var(--cream);font-family:"Trebuchet MS",Arial,sans-serif;min-height:100vh}.ambient{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 15% 0,#2c556455,transparent 55%),radial-gradient(ellipse at 95% 100%,#123d4a,transparent 45%);z-index:-1}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer;color:inherit;border:0}button:focus-visible,a:focus-visible,canvas:focus-visible{outline:3px solid var(--orange);outline-offset:4px}button{transition:background .15s,transform .15s}button:hover{filter:brightness(1.13)}button:active{transform:translateY(1px)}button:disabled{opacity:.35;cursor:default;filter:none}button[hidden],[hidden]{display:none!important}.masthead{max-width:1480px;margin:0 auto;padding:28px 36px 24px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;gap:12px;color:var(--cream);text-decoration:none;font-size:23px;letter-spacing:3px;font-weight:900;line-height:1.1}.brand svg{width:41px;height:41px}.brand small{display:block;font-size:8px;font-weight:600;letter-spacing:3.4px;color:var(--muted);margin-top:7px}nav{display:flex;align-items:center;gap:25px}nav button{font-size:12px;font-weight:700}.icon-button,.quiet-button{background:none;color:#c5dbdc;display:flex;gap:9px;align-items:center}.icon-button span:first-child{font-size:23px;color:var(--mint)}.quiet-button span{border:1px solid #55727d;border-radius:50%;width:17px;height:17px;font-size:11px;display:grid;place-items:center}.map-button{background:#244757;border:1px solid #43606b;border-radius:7px;padding:12px 17px;display:flex;align-items:center;gap:10px}.map-button span{font-size:18px;color:var(--mint)}main{max-width:1480px;padding:0 36px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 252px;gap:28px;align-items:stretch}.game-shell{border:1px solid #4a6975;border-radius:12px;overflow:hidden;background:#112c3b;box-shadow:0 25px 70px #04141e50}.game-topbar{height:82px;display:flex;justify-content:space-between;align-items:center;padding:17px 25px;background:linear-gradient(115deg,#234757,#1d3d4c);border-bottom:1px solid #436675}.eyebrow{font-size:9px;font-weight:800;letter-spacing:2.4px;color:var(--mint)}.level-identity h1{font-family:Georgia,serif;margin:7px 0 0;font-size:24px;letter-spacing:.2px;font-weight:400}.quick-stats{display:flex;align-items:center;gap:23px}.quick-stats>div{text-align:center;min-width:60px}.quick-stats span{font-size:21px;font-weight:700;letter-spacing:1px}.quick-stats small{display:block;font-size:8px;letter-spacing:1.5px;color:#9fbfc5;margin-top:5px}.quick-stats i{height:27px;border-left:1px solid #426271}.canvas-wrap{position:relative;aspect-ratio:3/2;overflow:hidden;background:#142e46}canvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair;outline:none}.toast{position:absolute;bottom:22px;left:50%;transform:translate(-50%,10px);padding:11px 18px;border-radius:30px;background:#102b3eec;border:1px solid #7395a0;color:#ecf7ef;font-size:12px;text-align:center;opacity:0;pointer-events:none;transition:.2s;max-width:88%;width:max-content;box-shadow:0 4px 15px #0003}.toast.visible{opacity:1;transform:translate(-50%,0)}.game-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 19px;background:#153342;min-height:64px;border-top:1px solid #395867}.tool-buttons{display:flex;gap:7px;flex-shrink:0}.tool-buttons button{background:#254858;border:1px solid #406171;border-radius:6px;padding:8px 10px;font-size:11px;display:flex;gap:6px;align-items:center}.tool-buttons span{font-size:17px;line-height:1}.tool-buttons kbd{font-size:8px;color:#96b6c1;border:1px solid #56717b;border-radius:2px;padding:1px 3px;margin-left:2px}.game-bottom p{font-size:10px;color:#a6c5ca;margin:0;max-width:185px;line-height:1.5}.game-bottom p span{color:var(--mint);margin-right:4px}.hint-button{background:none;color:var(--gold);font-size:11px;white-space:nowrap;padding:8px 0}.hint-button span{font-size:18px;margin-left:8px}.voyage-panel{padding:8px 0 0;display:flex;flex-direction:column}.journal-heading{display:flex;justify-content:space-between;align-items:center;padding:9px 0 19px;border-bottom:1px solid var(--line)}.journal-heading .eyebrow{color:#92b3be;font-size:8px;letter-spacing:2.2px}.journal-mark{color:var(--gold);font-size:19px}.mission-card{padding:23px 0 16px}.mission-number{display:block;color:#7298a4;font-family:Georgia,serif;font-size:46px;line-height:1}.mission-card h2{font-family:Georgia,serif;font-size:27px;font-weight:400;line-height:1.2;margin:12px 0 9px}.mission-card>p{font-size:11px;color:#9dbec4;line-height:1.7;margin:0 0 24px}.goal{display:flex;gap:12px;align-items:center;margin:20px 0}.goal-icon{color:var(--mint);border:1px solid #3e6573;width:34px;height:34px;border-radius:7px;display:grid;place-items:center;font-size:18px;flex-shrink:0}.goal-icon.rune{color:var(--gold)}.goal strong{font-size:10px;display:block;line-height:1.5}.goal small{font-size:9px;display:block;margin-top:4px;color:#91b4be;line-height:1.5}.hint-card{background:#254957;border:1px solid #50717b;padding:15px;border-radius:7px;margin:0 0 20px}.hint-card .eyebrow{font-size:7px}.hint-card p{font-size:12px;line-height:1.6;color:#d0e4df;margin:10px 0}.hint-card button{font-size:10px;color:var(--gold);background:none;padding:3px 0}.voyage-progress{border-top:1px solid var(--line);padding-top:23px;margin-top:auto}.voyage-progress>div:first-child{display:flex;justify-content:space-between;font-size:11px}.voyage-progress strong{font-weight:400;color:#9ec6cb}.progress-track{height:4px;background:#30505e;margin-top:12px;border-radius:3px;overflow:hidden}.progress-track i{display:block;background:var(--mint);width:0;height:100%;transition:width .4s}.voyage-progress p{font-size:10px;color:#8dafb7;margin-top:13px}.gold-stars{color:var(--gold)}.field-note{display:flex;align-items:center;gap:13px;margin-top:21px;border:1px dashed #365864;border-radius:8px;padding:12px 9px}.field-note svg{width:44px;flex-shrink:0}.field-note p{font-family:Georgia,serif;font-style:italic;color:#87a9b2;font-size:11px;line-height:1.6;margin:0}footer{max-width:1480px;margin:0 auto;padding:23px 36px;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.5px;color:#698f9e}footer b{color:var(--gold);font-weight:400;margin-left:7px}.splash{position:absolute;inset:0;background:linear-gradient(90deg,#102c40de,#12304450 80%);display:flex;align-items:center;padding:6%;cursor:default}.splash-copy{margin-top:-25px}.splash .eyebrow{font-size:8px;letter-spacing:3px}.splash h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(30px,3.6vw,57px);line-height:1.12;margin:22px 0;color:#f6f0df;letter-spacing:-1.3px}.splash h2 em{font-weight:400;color:var(--mint)}.splash p{font-size:12px;color:#b8d0d3;line-height:1.9;max-width:380px}.primary-button{display:flex;justify-content:space-between;align-items:center;gap:25px;background:var(--orange);color:#173342;border-radius:7px;padding:14px 20px;font-size:12px;font-weight:800;min-width:198px;border:1px solid #ffc596;box-shadow:0 4px 0 #b9764a40}.primary-button span{font-size:19px}.splash .primary-button{margin:29px 0 17px}.splash-caption{font-size:8px;letter-spacing:.3px;color:#89adb6}.splash-badge{position:absolute;right:5%;bottom:8%;font-size:7px;letter-spacing:1.9px;text-align:center;line-height:1.8;transform:rotate(-9deg);color:#d6e6d9;border:1px solid #b6d8d06b;border-radius:50%;width:89px;height:89px;display:flex;flex-direction:column;justify-content:center;background:#12344350}.splash-badge span{font-size:23px;line-height:1.1;color:var(--gold)}.modal-backdrop{position:fixed;inset:0;z-index:10;background:#03141ec9;display:grid;place-items:center;padding:24px;backdrop-filter:blur(7px)}.modal{position:relative;max-width:600px;width:100%;max-height:90vh;overflow:auto;background:#173b4d;border:1px solid #567d88;border-radius:15px;box-shadow:0 24px 80px #0007;padding:34px;color:var(--cream)}.modal h2{font-family:Georgia,serif;font-weight:400;font-size:35px;line-height:1.2;margin:13px 0}.modal>p{font-size:13px;line-height:1.8;color:#aecbd0;margin:15px 0 23px}.modal .close{position:absolute;top:13px;right:15px;background:none;font-size:25px;color:#a1c4ca}.modal-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:24px}.secondary-button{border:1px solid #64828d;background:#274d5c;border-radius:6px;padding:13px 18px;font-size:12px}.result-art{font-size:50px;letter-spacing:10px;color:var(--gold);margin:24px 0}.result-art .empty{opacity:.2}.result-stats{display:flex;gap:20px;padding:17px 0;border-top:1px solid #446472;border-bottom:1px solid #446472;color:#a7c9ce;font-size:12px}.result-stats strong{font-size:21px;color:var(--cream);margin-right:5px}.help-steps{list-style:none;padding:0;margin:20px 0}.help-steps li{display:flex;gap:15px;align-items:flex-start;margin:23px 0;font-size:12px;color:#adcbd0;line-height:1.7}.help-steps li>b{display:grid;place-items:center;width:30px;height:30px;border:1px solid #638692;color:var(--mint);border-radius:50%;flex-shrink:0}.help-steps strong{display:block;color:var(--cream)}.modal.map{max-width:820px}.chapter-section{margin-top:22px}.chapter-section h3{font-size:10px;letter-spacing:1.8px;color:var(--mint);text-transform:uppercase;font-weight:400}.level-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:9px}.level-tile{background:#244a5c;border:1px solid #446b7a;border-radius:7px;padding:10px 4px;min-height:82px;display:flex;flex-direction:column;align-items:center;gap:5px}.level-tile.current{border-color:var(--orange);box-shadow:0 0 0 1px var(--orange)}.level-tile.complete{background:#2a575c}.level-tile b{font-size:19px;font-weight:400}.level-tile small{font-size:8px;line-height:1.3;min-height:20px}.level-tile span{font-size:9px;color:var(--gold);letter-spacing:2px}.modal .map-intro{font-size:11px;margin:5px 0 12px}body.is-splash .tool-buttons,body.is-splash .hint-button{opacity:.35;pointer-events:none}
-@media(min-width:1550px){main,.masthead,footer{max-width:1540px}}@media(max-width:1100px){main{grid-template-columns:minmax(0,1fr) 215px;gap:21px;padding:0 24px}.masthead{padding:23px 24px}footer{padding:20px 24px}.game-bottom{padding:12px}.game-bottom p{display:none}.splash h2{font-size:41px}.splash p{font-size:11px}.splash-caption{max-width:200px;line-height:1.6}.mission-card h2{font-size:25px}.goal{gap:9px}.goal strong{font-size:9px}.goal small{font-size:8px}.mission-card>p{margin-bottom:17px}.mission-card{padding:20px 0 6px}.field-note{display:none}}@media(max-width:850px){main{display:block;max-width:800px}.voyage-panel{display:none}.masthead{max-width:800px}.splash h2{font-size:48px}.splash p{font-size:12px}.game-bottom p{display:block;font-size:9px}.splash-caption{max-width:300px}footer{max-width:800px}.brand{font-size:20px}nav{gap:18px}footer span:nth-child(2){display:none}}@media(max-width:580px){.masthead{padding:17px 13px 18px}.brand{font-size:17px;gap:7px;letter-spacing:2px}.brand svg{width:30px;height:32px}.brand small{font-size:6px;letter-spacing:2px}.icon-button span:last-child,.quiet-button,.map-button span{display:none}.map-button{padding:9px 11px;font-size:10px}nav{gap:13px}main{padding:0 9px}.game-shell{border-radius:8px}.game-topbar{height:67px;padding:12px 13px}.eyebrow{font-size:7px;letter-spacing:1.7px}.level-identity h1{font-size:19px;margin-top:6px}.quick-stats{gap:11px}.quick-stats>div{min-width:42px}.quick-stats span{font-size:17px}.quick-stats small{font-size:6px;letter-spacing:.8px}.canvas-wrap{aspect-ratio:3/2}.splash{padding:6%}.splash h2{font-size:30px;margin:13px 0;letter-spacing:-.5px}.splash .eyebrow{font-size:6px;letter-spacing:1.8px}.splash-copy{margin-top:0}.splash p{font-size:9px;line-height:1.6;margin:7px 0}.splash .primary-button{margin:14px 0 10px;padding:9px 12px;min-width:170px;font-size:10px}.splash-caption{font-size:6px;max-width:200px}.splash-badge{width:62px;height:62px;font-size:5px;right:5%;bottom:5%}.splash-badge span{font-size:18px}.game-bottom{padding:11px 9px;gap:5px;min-height:57px}.game-bottom p,.tool-buttons kbd{display:none}.tool-buttons{gap:5px}.tool-buttons button{padding:8px;font-size:9px;gap:4px}.hint-button{font-size:9px}.hint-button span{margin-left:4px}footer{padding:17px 13px;font-size:7px;gap:25px;line-height:1.5}footer span:last-child{text-align:right;max-width:160px}.modal-backdrop{padding:12px}.modal{padding:27px 21px}.modal h2{font-size:28px}.modal>p{font-size:12px}.level-grid{gap:6px;grid-template-columns:repeat(3,1fr)}.level-tile{min-height:70px;padding:8px}.level-tile small{min-height:auto}.result-art{font-size:35px;letter-spacing:6px}.modal-actions{gap:10px}.modal-actions .primary-button{min-width:175px}}@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-/* Compact field guide keeps the goals visible on phones and tablets. */
-@media(max-width:850px){.voyage-panel{display:block;padding:14px 5px 0}.voyage-panel .journal-heading,.voyage-panel .mission-number,.voyage-panel .mission-card>h2,.voyage-panel .mission-card>p,.voyage-panel .field-note{display:none}.voyage-panel .mission-card{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0}.voyage-panel .goal{margin:0;align-items:flex-start;gap:10px}.voyage-panel .goal strong{font-size:10px}.voyage-panel .goal small{font-size:9px}.voyage-panel .voyage-progress{margin-top:17px;padding-top:14px}.voyage-panel .voyage-progress p{margin-bottom:0}.voyage-panel .goal-icon{width:29px;height:29px;font-size:15px}}
-@media(max-width:580px){nav{gap:10px}.quiet-button{display:flex;font-size:0;gap:0}.quiet-button span{display:grid;font-size:11px}.voyage-panel{padding:16px 4px 0}.voyage-panel .mission-card{gap:10px}.voyage-panel .goal{display:block}.voyage-panel .goal-icon{margin-bottom:8px;width:26px;height:26px}.voyage-panel .goal strong{font-size:8px}.voyage-panel .goal small{font-size:8px;line-height:1.5}.voyage-panel .voyage-progress>div:first-child{font-size:10px}.voyage-panel .voyage-progress p{font-size:9px}}
-@media(max-width:580px){.brand{font-size:15px;letter-spacing:1.4px}.brand small{font-size:5.7px;letter-spacing:1.6px}}
+:root{--ink:#102d3e;--cream:#f3f0dc;--muted:#93b3b8;--mint:#b7e9df;--gold:#e7b775;--orange:#eea16b;--line:#345362}*{box-sizing:border-box}body{margin:0;background:#0c2332;color:var(--cream);font-family:"Trebuchet MS",Arial,sans-serif;min-height:100vh}.ambient{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 15% 0,#38687855,transparent 55%),radial-gradient(ellipse at 95% 100%,#123d4a,transparent 45%);z-index:-1}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer;color:inherit;border:0;transition:background .15s,transform .15s}button:focus-visible,a:focus-visible,canvas:focus-visible{outline:3px solid var(--orange);outline-offset:3px}button:hover{filter:brightness(1.15)}button:active{transform:translateY(1px)}button:disabled{opacity:.3;cursor:default;filter:none}[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.masthead{max-width:1120px;margin:auto;padding:20px 24px 16px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;color:var(--cream);text-decoration:none;font-size:20px;letter-spacing:2px;font-weight:900}.brand svg{width:35px;height:35px}nav{display:flex;align-items:center;gap:10px}.icon-button{width:44px;height:44px;background:#1e3c4b99;border:1px solid #45637088;border-radius:50%;font-size:22px;color:var(--mint);display:grid;place-items:center}.map-button{background:#254858;border:1px solid #4a6875;border-radius:8px;min-height:44px;padding:0 14px;display:flex;align-items:center;gap:9px;font-size:12px;font-weight:700}.map-button>span:first-child{font-size:21px;color:var(--mint)}main{max-width:1120px;padding:0 24px 24px;margin:auto}.game-shell{border:1px solid #53717c;border-radius:14px;overflow:hidden;background:#112c3b;box-shadow:0 25px 70px #04141e60}.game-topbar{height:65px;display:flex;justify-content:space-between;align-items:center;padding:11px 20px;background:linear-gradient(115deg,#234757,#1b3949);border-bottom:1px solid #436675;gap:15px}.level-identity{display:flex;align-items:center;gap:12px;min-width:0}.eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--mint)}.level-identity .eyebrow{border:1px solid #66868e;border-radius:7px;padding:9px 8px;background:#102d3e40;letter-spacing:1px}.level-identity h1{font-family:Georgia,serif;margin:0;font-size:22px;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.quick-stats{display:flex;align-items:center;gap:23px;flex-shrink:0}.quick-stats>div{display:grid;grid-template-columns:18px auto;column-gap:7px;align-items:center}.quick-stats span{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums}.quick-stats .stat-icon{grid-row:1/3;font-size:21px;font-weight:400;color:#a6d6d0}.quick-stats small{font-size:8px;letter-spacing:.8px;color:#a4c2c7;text-transform:uppercase;margin-top:3px}.rune,.quick-stats .rune{color:var(--gold)}.canvas-wrap{position:relative;aspect-ratio:3/2;overflow:hidden;background:#142e46}canvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair;outline:none}.toast{position:absolute;bottom:15px;left:50%;transform:translate(-50%,7px);padding:9px 15px;border-radius:24px;background:#102b3ef2;border:1px solid #7395a0;color:#ecf7ef;font-size:12px;text-align:center;opacity:0;pointer-events:none;transition:.2s;max-width:90%;width:max-content;box-shadow:0 4px 15px #0003}.toast.visible{opacity:1;transform:translate(-50%,0)}.game-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 12px;background:#173644;min-height:64px;border-top:1px solid #395867}.tool-buttons{display:flex;gap:7px;flex-shrink:0}.tool-buttons button{background:#244756;border:1px solid #476776;border-radius:8px;min-width:44px;min-height:44px;padding:7px 12px;display:flex;gap:7px;align-items:center;justify-content:center}.tool-buttons span{font-size:24px;line-height:1}.tool-buttons small{font-size:11px}.game-bottom p{font-size:11px;color:#8eb1ba;margin:0}.splash{position:absolute;inset:0;background:linear-gradient(90deg,#102c40ed,#102c4060 50%,transparent 80%);display:flex;align-items:center;padding:7%;cursor:default}.splash-copy{margin-top:-2%}.splash .eyebrow{font-size:10px;letter-spacing:3px;color:#a6ccc7}.splash h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(50px,7.3vw,96px);line-height:.99;margin:25px 0 30px;color:#f6f0df;letter-spacing:-2px}.splash h2 em{font-weight:400;color:var(--mint)}.primary-button{display:flex;justify-content:space-between;align-items:center;gap:25px;background:var(--orange);color:#173342;border-radius:9px;padding:14px 21px;font-size:14px;font-weight:800;min-width:165px;min-height:48px;border:1px solid #ffc596;box-shadow:0 4px 0 #b9764a40}.primary-button span{font-size:23px}.hint-card{position:absolute;left:50%;bottom:15px;transform:translateX(-50%);width:min(460px,92%);background:#183b4ef5;border:1px solid #79949d;padding:16px 46px 13px 17px;border-radius:10px;box-shadow:0 7px 25px #0005}.hint-card p{font-size:12px;line-height:1.6;color:#d0e4df;margin:0 0 8px}.hint-card button:not(.close-hint){font-size:12px;color:var(--gold);background:#294b5c;border-radius:6px;padding:10px 14px;min-height:40px}.close-hint{position:absolute;top:4px;right:3px;background:none;width:40px;height:40px;font-size:22px;color:#a7c7cc}.modal-backdrop{position:fixed;inset:0;z-index:10;background:#03141ec9;display:grid;place-items:center;padding:24px;backdrop-filter:blur(7px)}.modal{position:relative;max-width:550px;width:100%;max-height:90vh;overflow:auto;background:#173b4d;border:1px solid #567d88;border-radius:15px;box-shadow:0 24px 80px #0007;padding:32px;color:var(--cream)}.modal h2{font-family:Georgia,serif;font-weight:400;font-size:34px;line-height:1.2;margin:9px 0}.modal>p{font-size:12px;line-height:1.6;color:#aecbd0;margin:15px 0}.modal .close{position:absolute;top:8px;right:8px;width:44px;height:44px;background:none;font-size:26px;color:#a1c4ca}.modal-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:24px}.secondary-button{border:1px solid #64828d;background:#274d5c;border-radius:8px;padding:12px 17px;font-size:12px;min-height:45px}.result-art{font-size:52px;letter-spacing:10px;color:var(--gold);margin:20px 0}.result-art .empty{opacity:.2}.result-stats{display:flex;gap:20px;padding:16px 0;border-top:1px solid #446472;border-bottom:1px solid #446472;color:#a7c9ce;font-size:11px}.result-stats strong{font-size:19px;color:var(--cream);margin-right:5px}.help-steps{list-style:none;padding:0;margin:20px 0}.help-steps li{display:flex;gap:15px;align-items:center;margin:16px 0;font-size:12px;color:#adcbd0;line-height:1.6}.help-steps li>b{display:grid;place-items:center;width:40px;height:40px;border:1px solid #638692;color:var(--mint);border-radius:10px;flex-shrink:0;font-size:21px}.help-steps strong{display:block;color:var(--cream)}.modal.map{max-width:800px}.map-progress{display:flex;align-items:center;gap:16px;font-size:12px;color:#a7c8cb}.map-progress .gold-stars{color:var(--gold)}.chapter-section{margin-top:23px}.chapter-section h3{font-size:10px;letter-spacing:1.8px;color:var(--mint);text-transform:uppercase;font-weight:400}.level-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:9px}.level-tile{background:#244a5c;border:1px solid #446b7a;border-radius:8px;padding:9px 4px;min-height:78px;display:flex;flex-direction:column;align-items:center;gap:5px}.level-tile.current{border-color:var(--orange);box-shadow:0 0 0 1px var(--orange)}.level-tile.complete{background:#2a575c}.level-tile b{font-size:21px;font-weight:400}.level-tile small{font-size:8px;line-height:1.3;min-height:20px}.level-tile span{font-size:10px;color:var(--gold);letter-spacing:2px}body.is-splash .game-topbar,body.is-splash .game-bottom{display:none}body.is-splash main{padding-bottom:24px}.game-shell:fullscreen{background:#0b2332;border:0;border-radius:0;display:flex;flex-direction:column;align-items:center;justify-content:center}.game-shell:fullscreen .canvas-wrap{height:calc(100dvh - 129px);width:auto;max-width:100vw;aspect-ratio:3/2;flex-shrink:0}.game-shell:fullscreen .game-topbar,.game-shell:fullscreen .game-bottom{width:min(100vw,calc((100dvh - 129px)*1.5));flex-shrink:0}
+@media(max-width:700px){.masthead{padding:14px 14px 12px}.brand{font-size:17px;letter-spacing:1.3px;gap:7px}.brand svg{width:29px;height:29px}nav{gap:6px}main{padding:0 12px 16px}.game-topbar{height:62px;padding:10px 13px}.level-identity h1{font-size:19px}.quick-stats{gap:13px}.quick-stats>div{column-gap:4px}.quick-stats span{font-size:15px}.quick-stats .stat-icon{font-size:18px}.quick-stats small{font-size:7px}.splash h2{font-size:70px}.splash .eyebrow{font-size:8px}.splash .primary-button{min-width:145px}.game-bottom p{display:none}.modal{padding:28px 22px}.modal-backdrop{padding:12px}}
+@media(max-width:480px){.brand{font-size:14px;letter-spacing:.9px}.brand svg{width:25px;height:25px}.icon-button{width:40px;height:40px;font-size:20px}.map-button{min-height:40px;padding:0 9px}.map-button>span:last-child{display:none}.map-button>span:first-child{font-size:22px}main{padding:0 7px 12px}.masthead{padding:12px 9px 10px}.game-shell{border-radius:10px}.game-topbar{height:63px;padding:10px;gap:8px}.level-identity{gap:7px;max-width:46%}.level-identity .eyebrow{padding:7px 5px;font-size:9px;letter-spacing:0}.level-identity h1{font-size:16px;white-space:normal;line-height:1.1;max-height:38px}.quick-stats{gap:11px}.quick-stats>div{display:flex;flex-direction:column;gap:3px}.quick-stats .stat-icon{display:none}.quick-stats span{font-size:14px}.quick-stats small{font-size:7px;margin-top:0}.splash{padding:7%}.splash h2{font-size:clamp(38px,11vw,53px);letter-spacing:-1px;margin:12px 0 17px}.splash .eyebrow{font-size:6px;letter-spacing:1.5px}.splash .primary-button{min-width:120px;min-height:42px;padding:8px 13px;font-size:12px}.splash .primary-button span{font-size:19px}.game-bottom{padding:8px;gap:5px;min-height:62px}.tool-buttons{gap:5px}.tool-buttons button{padding:7px 9px;min-width:42px;min-height:44px;gap:4px}.tool-buttons span{font-size:23px}.tool-buttons small{font-size:9px}#fullscreenBtn{padding:7px 5px;min-width:40px}.toast{font-size:10px;padding:8px 12px;bottom:10px}.hint-card{bottom:10px;padding-top:12px;padding-bottom:10px}.hint-card p{font-size:10px;line-height:1.45}.hint-card button:not(.close-hint){font-size:10px;min-height:40px}.modal h2{font-size:29px}.level-grid{gap:7px;grid-template-columns:repeat(3,1fr)}.level-tile{min-height:68px}.level-tile small{min-height:auto}.result-art{font-size:42px}.result-stats{gap:15px}.help-steps li{font-size:11px}.help-steps li>b{width:36px;height:36px}.modal-actions{gap:8px}}
+@media(max-height:550px) and (orientation:landscape){.masthead{padding:6px 12px}.brand svg{height:26px}.icon-button,.map-button{min-height:40px;height:40px}.game-topbar{height:49px}.game-bottom{min-height:51px;padding:4px 10px}.game-shell:not(:fullscreen) .canvas-wrap{max-height:calc(100dvh - 160px);width:auto;margin:auto;aspect-ratio:3/2}.splash h2{font-size:clamp(26px,8vh,42px);margin:10px 0}.splash .primary-button{min-height:36px;padding:6px 12px}.game-shell:fullscreen .canvas-wrap{height:calc(100dvh - 100px)}.game-shell:fullscreen .game-topbar,.game-shell:fullscreen .game-bottom{width:min(100vw,calc((100dvh - 100px)*1.5))}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* Keep the entire board and toolbar in view on desktop-sized windows. */
+@media(min-width:851px) and (min-height:551px){main,.masthead{max-width:min(1120px,calc((100dvh - 238px)*1.5 + 48px))}}
+.camera-controls{position:absolute;top:12px;right:12px;display:flex;gap:5px}.camera-controls button{width:40px;height:40px;background:#16394bdb;border:1px solid #7da3ad88;border-radius:7px;color:#d8eee4;font-size:24px}body.is-splash .camera-controls{display:none}#panBtn[aria-pressed=true]{background:#5c807b;color:#fff6d8;border-color:#b9d5aa}.level-grid{grid-template-columns:repeat(5,1fr)}@media(max-width:480px){.level-grid{grid-template-columns:repeat(3,1fr)}.camera-controls{top:8px;right:8px}.camera-controls button{width:40px;height:40px}}
+/* Preserve the camera's true aspect ratio in fullscreen, including portrait. */
+.game-shell:fullscreen .canvas-wrap{height:auto;width:min(100vw,calc((100dvh - 129px)*var(--board-ratio,1.5)));max-height:calc(100dvh - 129px)}
+.game-shell:fullscreen .game-topbar,.game-shell:fullscreen .game-bottom{width:min(100vw,calc((100dvh - 129px)*var(--board-ratio,1.5)))}
+@media(max-height:550px) and (orientation:landscape){.game-shell:fullscreen .canvas-wrap{height:auto;width:min(100vw,calc((100dvh - 100px)*var(--board-ratio,1.5)));max-height:calc(100dvh - 100px)}.game-shell:fullscreen .game-topbar,.game-shell:fullscreen .game-bottom{width:min(100vw,calc((100dvh - 100px)*var(--board-ratio,1.5)))}}
 
 </style>
 </head>
 <body>
 <div class="ambient" aria-hidden="true"></div>
 <header class="masthead">
-  <a class="brand" href="./" aria-label="Frosty Champs home"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M8 29h28l-7 8H16z" fill="#efaa73"/><path d="M23 5v23H10z" fill="#d8f9f3"/><path d="M26 9v17h11z" fill="#71c5c9"/><path d="M6 37q7-4 14 0t17 0" fill="none" stroke="#71c5c9" stroke-width="2"/></svg><span>FROSTY CHAMPS<small>THE ICEBOUND VOYAGE</small></span></a>
-  <nav aria-label="Game controls"><button id="soundBtn" class="icon-button" aria-label="Turn sound on" title="Sound (M)"><span id="soundIcon">♪</span><span id="soundLabel">Sound off</span></button><button id="helpBtn" class="quiet-button">How to play <span>?</span></button><button id="mapBtn" class="map-button"><span aria-hidden="true">▦</span> The voyage</button></nav>
+  <a class="brand" href="./" aria-label="Frosty Champs home"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M8 29h28l-7 8H16z" fill="#efaa73"/><path d="M23 5v23H10z" fill="#d8f9f3"/><path d="M26 9v17h11z" fill="#71c5c9"/><path d="M6 37q7-4 14 0t17 0" fill="none" stroke="#71c5c9" stroke-width="2"/></svg><span>FROSTY CHAMPS</span></a>
+  <nav aria-label="Game controls"><button id="soundBtn" class="icon-button" aria-label="Turn sound on" title="Sound (M)"><span id="soundIcon" aria-hidden="true">♪</span><span id="soundLabel" class="sr-only">Sound off</span></button><button id="helpBtn" class="icon-button" aria-label="How to play" title="How to play"><span aria-hidden="true">?</span></button><button id="mapBtn" class="map-button" aria-label="Choose level"><span aria-hidden="true">▦</span><span>Levels</span></button></nav>
 </header>
 <main>
-<section class="game-shell" aria-label="Frosty Champs puzzle game">
-  <div class="game-topbar"><div class="level-identity"><span id="chapterLabel" class="eyebrow">01 / THE QUIET FJORD</span><h1 id="levelTitle">A clean beginning</h1></div><div class="quick-stats"><div><span id="rescueCount">0 / 1</span><small>CREW ABOARD</small></div><i></i><div><span id="cutCount">0</span><small>CUTS / TARGET</small></div></div></div>
-  <div class="canvas-wrap" id="canvasWrap"><canvas id="game" width="960" height="640" aria-label="Ice-cutting game. Drag across ice to cut it. R restarts, Z undoes, M toggles sound." tabindex="0"></canvas><div id="toast" class="toast" role="status" aria-live="polite"></div>
-    <div id="splash" class="splash"><div class="splash-copy"><span class="eyebrow">AN ICE-SLICING ADVENTURE</span><h2>A little ice.<br>A little <em>ingenuity.</em></h2><p>The fjord is frozen. Your crew is not amused.<br>Swing, slice, and shatter your way home.</p><button id="startBtn" class="primary-button">Begin the voyage <span>→</span></button><div class="splash-caption">30 handcrafted puzzles · Real rope physics · Happy little Vikings</div></div><div class="splash-badge"><span>✦</span> MADE FOR<br>CURIOUS MINDS</div></div>
+<section class="game-shell" id="gameShell" aria-label="Frosty Champs puzzle game">
+  <div class="game-topbar"><div class="level-identity"><span id="chapterLabel" class="eyebrow">01</span><h1 id="levelTitle">A clean beginning</h1></div><div class="quick-stats"><div title="Crew rescued" aria-label="Crew rescued"><span class="stat-icon" aria-hidden="true">⚑</span><span id="rescueCount">0/1</span><small>Crew</small></div><div title="Cuts / star target"><span class="stat-icon" aria-hidden="true">╱</span><span id="cutCount">0/1</span><small>Cuts</small></div><div title="Runes collected"><span class="stat-icon rune" aria-hidden="true">✦</span><span id="runeCount">0/1</span><small>Runes</small></div></div></div>
+  <div class="canvas-wrap" id="canvasWrap"><canvas id="game" width="960" height="640" aria-label="Ice-cutting game. Drag across ice or rope. R restarts, Space pauses, M toggles sound. Select Pan to explore." tabindex="0"></canvas><div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div class="camera-controls" id="cameraControls" aria-label="Camera controls"><button id="zoomOutBtn" aria-label="Zoom out" title="Zoom out">−</button><button id="fitBtn" aria-label="Show whole level" title="Show whole level">⌖</button><button id="zoomInBtn" aria-label="Zoom in" title="Zoom in">+</button></div>
+    <div id="splash" class="splash"><div class="splash-copy"><span class="eyebrow">FIVE EXPEDITIONS</span><h2>Slice.<br>Save.<br><em>Sail.</em></h2><button id="startBtn" class="primary-button">Play <span aria-hidden="true">→</span></button></div></div>
+    <div id="hintCard" class="hint-card" hidden><button id="closeHintBtn" class="close-hint" aria-label="Close hint">×</button><p id="hintText"></p><button id="guideBtn">Show cut <span aria-hidden="true">↗</span></button></div>
   </div>
-  <div class="game-bottom"><div class="tool-buttons"><button id="undoBtn" title="Undo last cut (Z)"><span>↶</span> Undo <kbd>Z</kbd></button><button id="restartBtn" title="Restart level (R)"><span>↻</span> Restart <kbd>R</kbd></button><button id="pauseBtn" title="Pause game (Space)"><span>Ⅱ</span> Pause</button></div><p id="gestureTip"><span>→</span> Drag a line through the ice. Let gravity do the rest.</p><button id="hintBtn" class="hint-button" aria-expanded="false">A little hint <span>✧</span></button></div>
-</section>
-<aside class="voyage-panel">
-  <div class="journal-heading"><span class="eyebrow">CAPTAIN'S JOURNAL</span><span class="journal-mark">✦</span></div>
-  <div class="mission-card"><span id="levelNumber" class="mission-number">01</span><h2 id="missionName">A clean beginning</h2><p id="missionIntro">Every great voyage begins with a small crack.</p><div class="goal"><span class="goal-icon">⚑</span><div><strong>Bring the crew home</strong><small id="crewGoal">Rescue 1 stranded Viking.</small></div></div><div class="goal"><span class="goal-icon">╱</span><div><strong id="parGoal">The clever cut: 1</strong><small>Meet the cut target for a star.</small></div></div><div class="goal"><span class="goal-icon rune">✦</span><div><strong>Catch the northern rune</strong><small id="runeGoal">Guide a Viking through its glow.</small></div></div></div>
-  <div id="hintCard" class="hint-card" hidden><span class="eyebrow">A NUDGE, NOT A SPOILER</span><p id="hintText"></p><button id="guideBtn">Show the first cut <span>→</span></button></div>
-  <div class="voyage-progress"><div><span>Your voyage</span><strong id="progressText">0 / 30</strong></div><div class="progress-track"><i id="progressBar"></i></div><p><span id="starTotal">0</span> <span class="gold-stars">✦</span> of 90 stars collected</p></div>
-  <div class="field-note"><svg viewBox="0 0 72 72" aria-hidden="true"><path d="M36 6L12 24l7 36 29 5 15-30z" fill="#173c4c" stroke="#5a95a1"/><path d="M36 6l-3 31L12 24m21 13l30-2M33 37l15 28" fill="none" stroke="#5a95a1"/><path d="M33 15l-4 14m12 13l10 4" stroke="#a2cbd0" stroke-width="2"/></svg><p id="fieldNote">The ice remembers nothing.<br>That's what the undo button is for.</p></div>
-</aside>
-</main>
-<footer><span>Real ropes. Happy Vikings. Cozy chaos.</span><span>Made for a good voyage <b>✦</b></span><span>Mouse & touch · Progress saved on this device</span></footer>
+  <div class="game-bottom"><div class="tool-buttons"><button id="panBtn" title="Pan mode (P)" aria-label="Pan mode" aria-pressed="false"><span aria-hidden="true">✥</span><small>Pan</small></button><button id="restartBtn" title="Restart level (R)" aria-label="Restart level"><span aria-hidden="true">↻</span><small>Retry</small></button><button id="pauseBtn" title="Pause game (Space)" aria-label="Pause game"><span aria-hidden="true">Ⅱ</span><small>Pause</small></button></div><p id="gestureTip">Drag to slice</p><div class="tool-buttons"><button id="hintBtn" aria-label="Show hint" aria-expanded="false" title="Hint"><span class="rune" aria-hidden="true">✧</span><small>Hint</small></button><button id="fullscreenBtn" aria-label="Enter fullscreen" title="Fullscreen"><span aria-hidden="true">⛶</span></button></div></div>
 <div id="modalBackdrop" class="modal-backdrop" hidden><section id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1"></section></div>
+</section>
+</main>
 <!-- Matter.js MIT license:
 The MIT License (MIT)
 
@@ -97,28 +97,30 @@ class RescueSimulation {
     this.engine=Matter.Engine.create({enableSleeping:false});
     this.engine.gravity.y=.95;
     this.engine.positionIterations=9; this.engine.velocityIterations=8; this.engine.constraintIterations=5;
-    this.ice=[]; this.walkers=[]; this.rocks=[]; this.rescued=[]; this.lost=[];
+    this.ice=[]; this.walkers=[]; this.rocks=[]; this.timbers=[]; this.rescued=[]; this.lost=[];
     this.runes=(level.runes||[]).map(r=>({...r,collected:false}));
     this.cuts=0; this.time=0; this.state='playing'; this.nextViking=0; this.nextRope=0; this.shatters=0;
+    this.world={width:960,height:640,waterY:615,...level.world};
     this.total=level.ice.reduce((n,p)=>n+p.vikings.length,0);
     for (const slab of level.ice) {
-      const ice=this.addIce(slab.points,slab.anchors||[],slab.vikings.map(v=>({...v,id:this.nextViking++})),slab.velocity||null,slab.angularVelocity||0);
+      const ice=this.addIce(slab.points,slab.anchors||[],slab.vikings.map(v=>({...v,id:this.nextViking++})),slab.velocity||null,slab.angularVelocity||0,slab.kind||'brittle');
       if(slab.swing && ice) Matter.Body.setVelocity(ice.body,{x:slab.swing,y:0});
     }
     for (const rock of level.rocks||[]) {
       const c=centroid(rock.points),body=Matter.Bodies.fromVertices(c.x,c.y,[rock.points],{isStatic:true,friction:.035,restitution:.04,label:'rock'});
       Matter.Composite.add(this.engine.world,body); this.rocks.push(body);
     }
+    for(const timber of level.timbers||[])this.addTimber(timber);
     const b=level.boat;
     this.deck=Matter.Bodies.rectangle(b.x,b.y+9,b.width-22,18,{isStatic:true,friction:.12,label:'boat'});
     Matter.Composite.add(this.engine.world,this.deck);
   }
 
-  addIce(points,anchors=[],vikings=[],velocity=null,angularVelocity=0) {
+  addIce(points,anchors=[],vikings=[],velocity=null,angularVelocity=0,kind='brittle') {
     const {Bodies,Body,Composite,Constraint}=this.M,c=centroid(points);
     const body=Bodies.fromVertices(c.x,c.y,[points],{friction:.025,frictionStatic:.035,frictionAir:.005,restitution:.1,density:.0015,label:'ice'});
     if(!body) return null;
-    const ice={body,anchors:[],vikings:vikings.map(v=>({...v,local:toLocal(body,v)})),seed:Math.round(c.x*7+c.y*13),area:area(points),born:this.time};
+    const ice={body,kind,anchors:[],vikings:vikings.map(v=>({...v,local:toLocal(body,v)})),seed:Math.round(c.x*7+c.y*13),area:area(points),born:this.time};
     Composite.add(this.engine.world,body);
     for (const anchor of anchors) {
       const local=toLocal(body,anchor),pivot=anchor.pivot?{...anchor.pivot}:{x:anchor.x,y:Math.max(16,anchor.y-130)};
@@ -130,6 +132,18 @@ class RescueSimulation {
     if(velocity) Body.setVelocity(body,velocity);
     if(angularVelocity) Body.setAngularVelocity(body,angularVelocity);
     this.ice.push(ice); return ice;
+  }
+
+  addTimber(definition) {
+    const d={height:24,angle:0,...definition};
+    const body=this.M.Bodies.rectangle(d.x,d.y,d.width,d.height,{isStatic:!!d.fixed,friction:.04,restitution:.04,density:.0025,label:'timber'});
+    this.M.Body.setAngle(body,d.angle);
+    if(d.velocity)this.M.Body.setVelocity(body,d.velocity);
+    if(d.angularVelocity)this.M.Body.setAngularVelocity(body,d.angularVelocity);
+    const timber={body,width:d.width,height:d.height,pivot:d.pivot?{...d.pivot}:null,fixed:!!d.fixed};
+    this.M.Composite.add(this.engine.world,body);
+    if(timber.pivot){timber.constraint=this.M.Constraint.create({pointA:{...timber.pivot},bodyB:body,pointB:{x:timber.pivot.x-body.position.x,y:timber.pivot.y-body.position.y},length:0,stiffness:1,damping:.025,label:'hinge'});this.M.Composite.add(this.engine.world,timber.constraint);}
+    this.timbers.push(timber);return timber;
   }
 
   removeIce(ice) {
@@ -154,19 +168,27 @@ class RescueSimulation {
     return [...this.ice.flatMap(ice=>ice.vikings.map(v=>({...v,...toWorld(ice.body,v.local),body:ice.body,frozen:true}))),...this.walkers.map(v=>({...v,...v.body.position,frozen:false}))];
   }
 
-  slice(a,b) {
-    if(this.state!=='playing'||Math.hypot(a.x-b.x,a.y-b.y)<18) return {ok:false,reason:'short'};
+  inspectSlice(a,b) {
+    if(this.state!=='playing'||Math.hypot(a.x-b.x,a.y-b.y)<18) return {ok:false,reason:'short',candidates:[],ropes:[]};
     const candidates=this.ice.map(ice=>({ice,parts:splitPolygon(ice.body.vertices,a,b)})).filter(c=>c.parts);
     const ropes=[];
     for(const ice of this.ice) for(const anchor of ice.anchors) {
       const end=toWorld(ice.body,anchor),hit=segmentIntersection(a,b,anchor.pivot,end);
-      // Cut exposed rope, not the portion hidden behind its own ice.
       if(hit&&!inside(hit,ice.body.vertices)) ropes.push({ice,anchor,hit});
     }
-    if(!candidates.length&&!ropes.length) return {ok:false,reason:'miss'};
-    for(const v of this.getVikings()) if(distanceToSegment(v,a,b)<21) {
-      this.onEvent({type:'blocked',x:v.x,y:v.y});return {ok:false,reason:'viking'};
+    if(!candidates.length&&!ropes.length) return {ok:false,reason:'miss',candidates,ropes};
+    const blocked=this.getVikings().find(v=>distanceToSegment(v,a,b)<21);
+    if(blocked) return {ok:false,reason:'viking',blocked,candidates,ropes};
+    return {ok:true,candidates,ropes};
+  }
+
+  slice(a,b) {
+    const preview=this.inspectSlice(a,b);
+    if(!preview.ok) {
+      if(preview.blocked)this.onEvent({type:'blocked',x:preview.blocked.x,y:preview.blocked.y});
+      return {ok:false,reason:preview.reason};
     }
+    const {candidates,ropes}=preview;
     for(const {ice,anchor,hit} of ropes) {
       this.M.Composite.remove(this.engine.world,anchor.constraint);
       ice.anchors.splice(ice.anchors.indexOf(anchor),1);
@@ -178,25 +200,25 @@ class RescueSimulation {
       this.removeIce(ice);
       for(const poly of parts) {
         const c=centroid(poly),v={x:vel.x-av*(c.y-pos.y),y:vel.y+av*(c.x-pos.x)};
-        this.addIce(poly,anchors.filter(p=>inside(p,poly)),vikings.filter(v=>inside(v,poly)),v,av);
+        this.addIce(poly,anchors.filter(p=>inside(p,poly)),vikings.filter(v=>inside(v,poly)),v,av,ice.kind);
       }
     }
     this.cuts++;this.onEvent({type:'slice',a,b,ropes:ropes.length});
     return {ok:true,count:candidates.length,ropes:ropes.length};
   }
 
-  shatterIce(ice,impact=0) {
+  shatterIce(ice,impact=0,surface=null) {
     if(!this.ice.includes(ice)) return;
     const points=ice.body.vertices.map(p=>({x:p.x,y:p.y})),pos={...ice.body.position},velocity={...ice.body.velocity};
     const vikings=ice.vikings.map(v=>({...v,...toWorld(ice.body,v.local)}));
     this.removeIce(ice); this.shatters++;
     for(const v of vikings) this.addWalker(v,velocity);
-    this.onEvent({type:'shatter',x:pos.x,y:pos.y,points,velocity,impact,crew:vikings.length});
+    this.onEvent({type:'shatter',x:pos.x,y:pos.y,points,velocity,impact,surface,crew:vikings.length});
   }
 
   supportAt(x,foot,drop=12,rise=10) {
     let best=null;
-    for(const body of [...this.rocks,this.deck]) {
+    for(const body of [...this.rocks,this.deck,...this.timbers.map(t=>t.body),...this.ice.map(i=>i.body)]) {
       const ys=[];
       for(let i=0;i<body.vertices.length;i++) {
         const a=body.vertices[i],b=body.vertices[(i+1)%body.vertices.length];
@@ -219,7 +241,10 @@ class RescueSimulation {
     for(const v of this.walkers) {
       const p=v.body.position,foot=p.y+22,support=this.supportAt(p.x,foot);
       v.grounded=!!support&&Math.abs(v.body.velocity.y)<2;
-      v.walking=v.grounded&&Math.abs(support.slope)<.32;
+      if(v.grounded&&v.landedAt==null)v.landedAt=this.time;
+      const recovering=v.landedAt!=null&&this.time-v.landedAt<650;
+      v.walking=v.grounded&&!recovering&&Math.abs(support.slope)<.32;
+      if(v.grounded&&recovering&&Math.abs(support.slope)<.32)this.M.Body.setVelocity(v.body,{x:v.body.velocity.x*.8,y:Math.min(v.body.velocity.y,.25)});
       if(!v.walking)continue;
       let ahead=this.supportAt(p.x+v.direction*19,foot,10,10);
       if(!ahead||Math.abs(ahead.slope)>.32||this.isDanger({x:p.x+v.direction*24,y:p.y},20))v.direction*=-1;
@@ -233,14 +258,15 @@ class RescueSimulation {
     }
   }
 
-  crewOutcome(v,p,remove,canRescue=true) {
+  crewOutcome(v,p,remove,canRescue=true,sourceBody=null) {
     this.collectRunes(p);const b=this.level.boat;
-    if(this.isDanger(p)||p.y>615||p.x<-100||p.x>1060) {
-      this.lost.push({id:v.id,look:v.look});remove();this.state='failed';this.onEvent({type:'lost',...p});return;
+    if(this.isDanger(p)||p.y>this.world.waterY||p.x<-100||p.x>this.world.width+100) {
+      const cause=this.isDanger(p)?'spikes':p.y>this.world.waterY?'water':'void';
+      this.lost.push({id:v.id,look:v.look,x:p.x,y:p.y,cause});remove();this.state='failed';this.onEvent({type:'lost',...p,id:v.id,look:v.look,cause,sourceBody});return;
     }
     // Only reaching the actual longboat rescues a sailor. A safe rock is not a win.
     if(canRescue&&p.x>b.x-b.width/2+10&&p.x<b.x+b.width/2-10&&p.y>=b.y-40&&p.y<b.y+44&&this.supportAt(p.x,p.y+22,8,8)?.body===this.deck) {
-      this.rescued.push({id:v.id,look:v.look});remove();this.onEvent({type:'rescue',...p,look:v.look});
+      this.rescued.push({id:v.id,look:v.look,x:p.x,y:p.y,landedAt:this.time});remove();this.onEvent({type:'rescue',...p,id:v.id,look:v.look});
     }
   }
 
@@ -249,6 +275,7 @@ class RescueSimulation {
     this.time+=delta; const preVelocities=new Map();
     this.updateWalkers();
     for(const ice of this.ice) {
+      ice.waitingForHammer=false;
       preVelocities.set(ice.body.id,{...ice.body.velocity});
       if(this.level.wind)this.M.Body.applyForce(ice.body,ice.body.position,{x:ice.body.mass*this.level.wind,y:0});
       for(const a of ice.anchors) {
@@ -261,19 +288,22 @@ class RescueSimulation {
     for(const pair of this.engine.pairs.list) {
       if(!pair.isActive)continue;
       const [a,b]=[pair.bodyA,pair.bodyB],body=a.label==='ice'?a:b.label==='ice'?b:null,ground=body===a?b:a;
-      if(!body||!['rock','boat'].includes(ground.label))continue;
+      if(!body||!['rock','boat','timber'].includes(ground.label))continue;
       const ice=this.ice.find(i=>i.body===body);if(!ice)continue;
       const vel=preVelocities.get(body.id)||{x:0,y:0},normal=pair.collision.normal;
       const impact=Math.abs(vel.x*normal.x+vel.y*normal.y);
-      if(impact>=(this.level.impactThreshold??2.1)||(ground.label==='boat'&&ice.vikings.length))shattering.set(ice,impact);
+      const fitsHammer=ice.area<=(this.level.hammerArea??Infinity);
+      const boatHit=ground.label==='boat';
+      if(boatHit&&!fitsHammer&&ice.vikings.length){ice.waitingForHammer=true;if(!ice.oversizeNotified){ice.oversizeNotified=true;this.onEvent({type:'oversize',x:body.position.x,y:body.position.y});}}
+      if(boatHit?fitsHammer&&(ice.vikings.length||impact>=(this.level.impactThreshold??2.1)):ice.kind!=='pack'&&impact>=(this.level.impactThreshold??2.1))shattering.set(ice,{impact,surface:ground.label});
     }
-    for(const [ice,impact] of shattering)this.shatterIce(ice,impact);
+    for(const [ice,{impact,surface}] of shattering)this.shatterIce(ice,impact,surface);
     for(const ice of [...this.ice]) {
       for(const v of [...ice.vikings]) {
         const p=toWorld(ice.body,v.local);
-        this.crewOutcome(v,p,()=>ice.vikings.splice(ice.vikings.indexOf(v),1),false);
+        this.crewOutcome(v,p,()=>ice.vikings.splice(ice.vikings.indexOf(v),1),false,ice.body.id);
       }
-      if(ice.body.position.y>850||Math.abs(ice.body.position.x)>1600)this.removeIce(ice);
+      if(ice.body.position.y>this.world.height+250||ice.body.position.x<-500||ice.body.position.x>this.world.width+500)this.removeIce(ice);
     }
     for(const v of [...this.walkers])this.crewOutcome(v,v.body.position,()=>{this.M.Composite.remove(this.engine.world,v.body);this.walkers.splice(this.walkers.indexOf(v),1);});
     if(this.state!=='failed'&&this.rescued.length===this.total) {
@@ -284,16 +314,19 @@ class RescueSimulation {
 
   snapshot() {
     return {cuts:this.cuts,time:this.time,state:this.state,stars:this.stars,shatters:this.shatters,nextRope:this.nextRope,rescued:structuredClone(this.rescued),lost:structuredClone(this.lost),runes:structuredClone(this.runes),
-      ice:this.ice.map(i=>({points:i.body.vertices.map(p=>({x:p.x,y:p.y})),anchors:i.anchors.map(p=>this.anchorWorld(i,p)),vikings:i.vikings.map(v=>({...v,...toWorld(i.body,v.local)})),velocity:{...i.body.velocity},angularVelocity:i.body.angularVelocity,born:i.born})),
-      walkers:this.walkers.map(v=>({id:v.id,look:v.look,x:v.body.position.x,y:v.body.position.y,velocity:{...v.body.velocity},direction:v.direction,grounded:v.grounded,walking:v.walking,freedAt:v.freedAt}))};
+      ice:this.ice.map(i=>({kind:i.kind,points:i.body.vertices.map(p=>({x:p.x,y:p.y})),anchors:i.anchors.map(p=>this.anchorWorld(i,p)),vikings:i.vikings.map(v=>({...v,...toWorld(i.body,v.local)})),velocity:{...i.body.velocity},angularVelocity:i.body.angularVelocity,born:i.born})),
+      walkers:this.walkers.map(v=>({id:v.id,look:v.look,x:v.body.position.x,y:v.body.position.y,velocity:{...v.body.velocity},direction:v.direction,grounded:v.grounded,walking:v.walking,freedAt:v.freedAt,landedAt:v.landedAt})),
+      timbers:this.timbers.map(t=>({x:t.body.position.x,y:t.body.position.y,width:t.width,height:t.height,angle:t.body.angle,velocity:{...t.body.velocity},angularVelocity:t.body.angularVelocity,pivot:t.pivot,fixed:t.fixed}))};
   }
 
   restore(data) {
     for(const i of [...this.ice])this.removeIce(i);
     for(const v of this.walkers)this.M.Composite.remove(this.engine.world,v.body);
+    for(const t of this.timbers){this.M.Composite.remove(this.engine.world,t.body);if(t.constraint)this.M.Composite.remove(this.engine.world,t.constraint);}
+    this.timbers=[];for(const t of data.timbers||[])this.addTimber(t);
     this.walkers=[];this.time=data.time;this.nextRope=data.nextRope||0;
-    for(const i of data.ice){const ice=this.addIce(i.points,i.anchors,i.vikings,i.velocity,i.angularVelocity);ice.born=i.born??data.time;}
-    for(const v of data.walkers||[])this.addWalker(v,v.velocity,{direction:v.direction,grounded:v.grounded,walking:v.walking,freedAt:v.freedAt});
+    for(const i of data.ice){const ice=this.addIce(i.points,i.anchors,i.vikings,i.velocity,i.angularVelocity,i.kind||'brittle');ice.born=i.born??data.time;}
+    for(const v of data.walkers||[])this.addWalker(v,v.velocity,{direction:v.direction,grounded:v.grounded,walking:v.walking,freedAt:v.freedAt,landedAt:v.landedAt});
     this.cuts=data.cuts;this.state=data.state;this.stars=data.stars;this.shatters=data.shatters||0;this.rescued=structuredClone(data.rescued);this.lost=structuredClone(data.lost);this.runes=structuredClone(data.runes);
     this.M.Pairs.clear(this.engine.pairs);
   }
@@ -302,351 +335,1082 @@ class RescueSimulation {
 
 
 // levels.js
-// Original level pack for Frosty Champs. Coordinates use the 960 x 640 game world.
-// All supplied solution strokes avoid a 22px radius around every frozen sailor.
-const rect = (x, y, w, h) => [{x,y},{x:x+w,y},{x:x+w,y:y+h},{x,y:y+h}];
+// Five authored expedition puzzles. All coordinates are world-space, not viewport-space.
 const poly = (...pairs) => pairs.map(([x,y]) => ({x,y}));
+const rect = (x,y,w,h) => poly([x,y],[x+w,y],[x+w,y+h],[x,y+h]);
 const sailor = (x,y,look=0) => ({x,y,look});
-// Each silhouette is a deliberately uneven ice shard, not a reskinned square.
-// A convex hull around small protected areas guarantees clear attachment points
-// and keeps the frozen crew comfortably inside the hand-shaped outline.
-const shardProfiles = [
-  [[.12,0],[.86,.04],[1,.22],[.83,.91],[.39,1],[0,.72],[.025,.16]],
-  [[0,.14],[.61,0],[1,.13],[.94,.69],[.71,1],[.12,.91]],
-  [[0,.075],[.78,0],[1,.31],[.88,1],[.18,.95],[.04,.55]],
-  [[0,.25],[.21,0],[.9,.06],[1,.79],[.68,1],[.02,.9]],
-  [[0,0],[.76,.08],[1,.34],[.86,.86],[.32,1],[.06,.72]],
-  [[.08,.18],[.36,0],[.91,.06],[1,.6],[.72,.96],[.23,1],[0,.72]],
-  [[0,.08],[.69,0],[1,.24],[.95,.82],[.46,1],[.05,.84]],
-];
-const hull = points => {
-  const sorted = points.slice().sort((a,b)=>a.x-b.x || a.y-b.y);
-  const cross = (a,b,c)=>(b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x);
-  const lower=[], upper=[];
-  for (const p of sorted) { while(lower.length>1 && cross(lower.at(-2),lower.at(-1),p)<=0) lower.pop(); lower.push(p); }
-  for (const p of sorted.reverse()) { while(upper.length>1 && cross(upper.at(-2),upper.at(-1),p)<=0) upper.pop(); upper.push(p); }
-  return [...lower.slice(0,-1),...upper.slice(0,-1)];
-};
-const protectCrew = (points,people,anchors) => {
-  const outline=points.slice();
-  for(const point of anchors) for(const [dx,dy] of [[-10,-10],[10,-10],[10,10],[-10,10]]) outline.push({x:point.x+dx,y:point.y+dy});
-  // Protect the drawn helmet, body, beard and boots, not merely its center.
-  // Small extra margins keep the full silhouette visibly embedded in the ice.
-  for(const point of people) for(const [dx,dy] of [[-25,-36],[25,-36],[25,29],[-25,29]]) outline.push({x:point.x+dx,y:point.y+dy});
-  return hull(outline);
-};
-const block = (x,y,w,h,people,anchors) => {
-  anchors ||= [{x:x+w*.24,y:y+22},{x:x+w*.76,y:y+20}];
-  const profile=shardProfiles[Math.abs(x*3+y*7+w*11+h)%shardProfiles.length];
-  const outline=profile.map(([px,py])=>({x:x+px*w,y:y+py*h}));
-  return {points:protectCrew(outline,people,anchors), anchors, vikings:people};
-};
-const shape = (points,people,anchors) => ({points:protectCrew(points,people,anchors),vikings:people,anchors});
-const boat = (x=480,width=190) => ({x,width,y:548});
 const cut = (x1,y1,x2,y2) => [[x1,y1],[x2,y2]];
 const rock = points => ({points});
-const spike = (x,width=90,y=566,height=34) => ({x,y,width,height});
+const spike = (x,y,width=90,height=34) => ({x,y,width,height});
 const rune = (x,y) => ({x,y});
+const hull = points => {
+  const sorted=points.slice().sort((a,b)=>a.x-b.x||a.y-b.y),cross=(a,b,c)=>(b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x),lower=[],upper=[];
+  for(const p of sorted){while(lower.length>1&&cross(lower.at(-2),lower.at(-1),p)<=0)lower.pop();lower.push(p);}
+  for(const p of sorted.reverse()){while(upper.length>1&&cross(upper.at(-2),upper.at(-1),p)<=0)upper.pop();upper.push(p);}
+  return [...lower.slice(0,-1),...upper.slice(0,-1)];
+};
+const ice = (points,vikings=[],anchors=[],kind='brittle') => {
+  const protectedPoints=[...points];
+  for(const p of anchors)for(const [dx,dy]of[[-12,-12],[12,-12],[12,12],[-12,12]])protectedPoints.push({x:p.x+dx,y:p.y+dy});
+  for(const p of vikings)for(const [dx,dy]of[[-27,-38],[27,-38],[27,31],[-27,31]])protectedPoints.push({x:p.x+dx,y:p.y+dy});
+  return {points:hull(protectedPoints),vikings,anchors,kind};
+};
+const slab = (x,y,w,h,vikings=[],anchors=[],kind='brittle') => ice(poly([x+18,y],[x+w-28,y+7],[x+w,y+38],[x+w-10,y+h-13],[x+w*.64,y+h],[x+11,y+h-6],[x,y+42]),vikings,anchors,kind);
+const world = (width=1280,height=960) => ({width,height,waterY:height-42});
+const boat = (x,y,width=250) => ({x,y,width});
 
-const CHAPTERS = [
-  {id:0,name:'First Thaw',subtitle:'A small cut. A brave beginning.',color:'#7ee7ee'},
-  {id:1,name:'Split Decision',subtitle:'Leave the anchors. Save the crew.',color:'#b5b8ff'},
-  {id:2,name:'Stone Current',subtitle:'Let the mountain lend a hand.',color:'#8ddfb1'},
-  {id:3,name:'Northern Lights',subtitle:'More friends. More moving pieces.',color:'#f4c984'},
-  {id:4,name:'The Last Crossing',subtitle:'Bring every last sailor home.',color:'#ffaabf'},
+const CHAPTERS=[
+  {id:0,name:'The Expedition',subtitle:'Five physics puzzles',color:'#8edfe5'},
 ];
 
-const LEVELS = [
+const LEVELS=[
   {
-    id:1,name:'A Clean Break',chapter:0,par:1,
-    hint:'Slice below the gold pins and above the sailor. The ropes hold the top while your little ice raft drops.',
-    boat:boat(480,190),ice:[block(425,145,110,205,[sailor(480,325)])],
-    rocks:[],spikes:[],runes:[rune(480,429)],
-    solution:[cut(395,270,565,270)],
+    id:1,name:'Narrow Channel',chapter:0,par:3,
+    hint:'Carve a narrow column between the side pins, then cut its roof. The sloping channel leads to the ship.',
+    objective:'Extract the center without bringing the pinned shoulders into the channel.',
+    world:world(1280,960),boat:boat(785,860,280),
+    ice:[ice(poly([350,320],[410,210],[535,150],[690,190],[800,280],[822,390],[810,447],[647,460],[351,454],[325,390]),[sailor(580,420,0)],[{x:365,y:425},{x:795,y:425},{x:580,y:183}])],
+    rocks:[rock(poly([420,530],[715,775],[715,812],[420,567])),rock(poly([770,560],[1030,560],[1030,602],[820,602]))],
+    spikes:[spike(270,890,110),spike(1070,890,110)],
+    runes:[rune(610,655),rune(755,810)],
+    solutionDelay:0,solution:[cut(550,130,525,490),cut(610,130,635,490),cut(510,365,650,365)],
   },
   {
-    id:2,name:'Just a Little Off',chapter:0,par:1,
-    hint:'A shorter piece is easier to land. Cut close above the sailor, not through them.',
-    boat:boat(440,170),ice:[block(395,105,90,265,[sailor(440,345,1)])],
-    rocks:[],spikes:[spike(180),spike(690)],runes:[rune(440,440)],
-    solution:[cut(360,300,520,300)],
+    id:2,name:'Counterweight',chapter:0,par:4,
+    hint:'The timber is hinged. Drop the left ballast to lift its right end, then release a compact piece through the opened gate.',
+    objective:'Use the heavy empty ice to rotate the gate before releasing the crew.',
+    world:world(1360,1000),boat:boat(850,895,250),hammerArea:10500,
+    ice:[
+      slab(390,250,170,200,[],[{x:425,y:270},{x:525,y:270}],'pack'),
+      slab(690,155,330,290,[sailor(855,405,1)],[{x:715,y:410},{x:995,y:410},{x:855,y:177}],'pack'),
+    ],
+    timbers:[{x:680,y:680,width:500,height:30,angle:0,pivot:{x:680,y:680}}],
+    rocks:[rock(rect(360,920,225,55)),rock(rect(660,800,40,150)),rock(rect(1020,735,200,50)),rock(rect(900,698,75,65))],
+    spikes:[spike(365,896,180,25),spike(1080,925,150)],
+    runes:[rune(855,585),rune(855,810)],
+    solutionDelays:[1800,0,0,0],
+    solution:[cut(365,315,585,315),cut(825,125,800,470),cut(885,125,910,470),cut(785,355,925,355)],
   },
   {
-    id:3,name:'Thick as Thieves',chapter:0,par:1,
-    hint:'Both friends can ride the same piece of ice.',
-    boat:boat(480,245),ice:[block(385,145,190,205,[sailor(435,325,0),sailor(525,325,2)])],
-    rocks:[],spikes:[],runes:[rune(435,440),rune(525,440)],
-    solution:[cut(355,270,605,270)],
+    id:3,name:'Across the Divide',chapter:0,par:4,
+    hint:'Free the lower rider first. Trim the two sides of the swinging floe, then cut its rope as it moves right over the divide.',
+    objective:'Time a compact swinging floe past the central cliff and join the crew below.',
+    world:world(1480,1000),boat:boat(930,890,430),hammerArea:24000,
+    ice:[
+      ice(poly([340,225],[425,185],[560,230],[550,365],[415,390],[350,355]),[sailor(445,340,2)],[{x:435,y:235,pivot:{x:660,y:75}}],'pack'),
+      slab(850,575,100,170,[sailor(900,705,0)],[{x:873,y:595},{x:927,y:595}]),
+    ],
+    rocks:[rock(poly([440,640],[620,640],[620,930],[440,930])),rock(poly([1110,660],[1280,660],[1280,705],[1150,705]))],
+    spikes:[spike(450,615,160,25),spike(1175,930,130)],
+    runes:[rune(900,805),rune(580,470)],
+    solutionDelays:[0,0,700,0],
+    solution:[cut(825,660,975,660),cut(390,170,390,420),cut(500,200,500,420),cut(300,130,1050,130)],
   },
   {
-    id:4,name:'The Blue Diamond',chapter:0,par:1,
-    hint:'The shape is different. The trick is the same: leave the pins behind.',
-    boat:boat(500,220),
-    ice:[shape(poly([500,95],[590,205],[550,345],[450,345],[410,205]),[sailor(500,320,3)],[{x:475,y:145},{x:525,y:145}])],
-    rocks:[],spikes:[spike(160),spike(720)],runes:[rune(500,435)],
-    solution:[cut(390,275,610,275)],
+    id:4,name:'Thick Ice',chapter:0,par:4,
+    hint:'Blue pack ice survives the rocks. Clear the side pins, lower the slab onto the ship, then divide it between the crew so the hammer can break it.',
+    objective:'Land the heavy slab intact, then reduce each occupied piece below the hammer limit.',
+    world:world(1360,980),boat:boat(710,870,330),hammerArea:12500,
+    ice:[slab(400,160,620,305,[sailor(655,420,0),sailor(765,420,3)],[{x:425,y:425},{x:995,y:425},{x:710,y:182}],'pack')],
+    rocks:[rock(rect(320,605,235,55)),rock(rect(865,605,240,55))],
+    spikes:[spike(360,580,160,25),spike(900,580,160,25),spike(1150,910,100)],
+    runes:[rune(655,735),rune(765,735)],
+    solutionDelays:[0,0,2200,0],
+    solution:[cut(625,130,600,490),cut(795,130,820,490),cut(580,365,840,365),cut(710,715,710,900)],
   },
   {
-    id:5,name:'Two of a Kind',chapter:0,par:1,
-    hint:'One long swipe can cut more than one ice block.',
-    boat:boat(480,240),
-    ice:[block(397,160,66,190,[sailor(430,326,1)]),block(497,195,66,155,[sailor(530,326,2)])],
-    rocks:[],spikes:[],runes:[rune(430,440),rune(530,440)],
-    solution:[cut(370,280,590,280)],
-  },
-  {
-    id:6,name:'First Swing',chapter:0,par:1,
-    hint:'Let the floe swing toward the boat, then swipe across its rope. There is no rush: it swings back.',
-    boat:boat(560,280),
-    ice:[shape(poly([295,205],[345,180],[395,215],[385,280],[340,315],[305,285]),[sailor(347,280,1)],[{x:350,y:210,pivot:{x:480,y:80}}])],
-    rocks:[],spikes:[spike(165,95),spike(780,80)],runes:[rune(510,395),rune(570,475)],
-    solutionInitialDelay:700,solution:[cut(200,140,800,140)],
-  },
-  {
-    id:7,name:'Between the Pins',chapter:1,par:2,
-    hint:'Pause to plan two cuts around the sailor. Angle the sides outward toward the bottom, then resume and watch the ropes swing.',
-    boat:boat(480,180),
-    ice:[block(280,165,400,190,[sailor(480,330,0)],[{x:305,y:325},{x:655,y:325}])],
-    rocks:[],spikes:[spike(220,110),spike(630,110)],runes:[rune(480,445)],
-    solutionDelay:300,solution:[cut(450,140,420,380),cut(510,140,540,380)],
-  },
-  {
-    id:8,name:'A Window in Winter',chapter:1,par:3,
-    hint:'Make two sides and a roof. Pause lets you plan all three before gravity takes over.',
-    boat:boat(480,185),
-    ice:[block(300,120,360,245,[sailor(480,340,1)],[{x:325,y:335},{x:635,y:335},{x:480,y:140}])],
-    rocks:[],spikes:[spike(200,90),spike(670,90)],runes:[rune(480,450)],
-    solutionDelay:300,solution:[cut(430,95,430,390),cut(530,95,530,390),cut(405,285,555,285)],
-  },
-  {
-    id:9,name:'Room for Two',chapter:1,par:2,
-    hint:'Give the friends one shared column. Angle the cuts outward toward the bottom so the ice can slide free.',
-    boat:boat(480,250),
-    ice:[block(245,175,470,180,[sailor(435,330,2),sailor(525,330,3)],[{x:270,y:325},{x:690,y:325}])],
-    rocks:[],spikes:[spike(195,100),spike(665,100)],runes:[rune(435,445),rune(525,445)],
-    solutionDelay:300,solution:[cut(410,150,380,380),cut(550,150,580,380)],
-  },
-  {
-    id:10,name:'The Crooked Crown',chapter:1,par:2,
-    hint:'Cut away the two pinned shoulders. The middle is your lifeboat ticket.',
-    boat:boat(480,205),
-    ice:[shape(poly([300,145],[620,115],[670,315],[545,370],[415,370],[280,315]),[sailor(480,345,0)],[{x:310,y:300},{x:640,y:300}])],
-    rocks:[],spikes:[spike(170,100),spike(700,100)],runes:[rune(480,455)],
-    solutionDelay:300,solution:[cut(445,90,415,395),cut(515,90,545,395)],
-  },
-  {
-    id:11,name:'Twin Windows',chapter:1,par:3,
-    hint:'The two sailors share a roof, but each needs the pins cut off their side.',
-    boat:boat(480,270),
-    ice:[block(315,160,155,195,[sailor(435,330,1)],[{x:332,y:330},{x:435,y:178}]),block(490,160,155,195,[sailor(525,330,2)],[{x:628,y:330},{x:525,y:178}])],
-    rocks:[],spikes:[],runes:[rune(435,440),rune(525,440)],
-    solutionDelay:300,solution:[cut(395,135,395,380),cut(565,135,565,380),cut(365,280,595,280)],
-  },
-  {
-    id:12,name:'Under One Roof',chapter:1,par:3,
-    hint:'Carve out the whole crew. A wide, shallow raft will land more gently.',
-    boat:boat(480,310),
-    ice:[block(220,115,520,250,[sailor(400,340,0),sailor(480,340,1),sailor(560,340,3)],[{x:245,y:335},{x:715,y:335},{x:480,y:135}])],
-    rocks:[],spikes:[spike(150,95),spike(715,95)],runes:[rune(400,450),rune(480,450),rune(560,450)],
-    solutionDelay:300,solution:[cut(370,90,340,390),cut(590,90,620,390),cut(330,285,630,285)],
-  },
-  {
-    id:13,name:'Follow the Fjord',chapter:2,par:1,
-    hint:'Release a small piece. The stone slope guides it toward the boat.',
-    boat:boat(480,270),
-    ice:[block(310,110,70,185,[sailor(345,271,1)])],
-    rocks:[rock(poly([245,355],[425,465],[425,492],[245,382]))],
-    spikes:[spike(150,90),spike(730,90)],runes:[rune(365,370),rune(440,468)],
-    solution:[cut(280,235,410,235)],solutionDelay:300,
-  },
-  {
-    id:14,name:'The Other Shore',chapter:2,par:1,
-    hint:'This slope runs the other way. A tidy little ice cube will do.',
-    boat:boat(480,270),
-    ice:[block(580,115,70,190,[sailor(615,281,2)])],
-    rocks:[rock(poly([535,465],[715,355],[715,382],[535,492]))],
-    spikes:[spike(140,100),spike(725,95)],runes:[rune(595,375),rune(520,468)],
-    solution:[cut(550,245,680,245)],solutionDelay:300,
-  },
-  {
-    id:15,name:'Meeting in the Middle',chapter:2,par:1,
-    hint:'One swipe, two slopes. Give both friends a small piece to ride.',
-    boat:boat(480,300),
-    ice:[block(310,115,64,190,[sailor(342,281,0)]),block(586,115,64,190,[sailor(618,281,3)])],
-    rocks:[rock(poly([245,355],[375,465],[375,492],[245,382])),rock(poly([585,465],[715,355],[715,382],[585,492]))],
-    spikes:[spike(140,85),spike(735,85)],runes:[rune(365,385),rune(595,385)],
-    solution:[cut(280,245,680,245)],solutionDelay:300,
-  },
-  {
-    id:16,name:'The Narrow Pass',chapter:2,par:3,
-    hint:'Trim the pinned sides first. Then a short top cut releases a compact rider.',
-    boat:boat(480,285),
-    ice:[block(240,110,220,195,[sailor(350,281,0)],[{x:260,y:280},{x:440,y:280},{x:350,y:130}])],
-    rocks:[rock(poly([245,355],[425,465],[425,492],[245,382]))],
-    spikes:[spike(130,95),spike(720,100)],runes:[rune(370,380),rune(440,470)],
-    solution:[cut(330,85,305,330),cut(370,85,395,330),cut(290,245,410,245)],solutionDelay:300,
-  },
-  {
-    id:17,name:'A Friend Downstream',chapter:2,par:2,
-    hint:'Send the lower friend first. The slope will bring the other one along.',
-    boat:boat(490,310),
-    ice:[block(565,115,68,185,[sailor(599,276,2)]),block(415,285,68,155,[sailor(449,416,1)])],
-    rocks:[rock(poly([570,460],[700,350],[700,378],[570,488]))],
-    spikes:[spike(160,100),spike(725,95)],runes:[rune(449,475),rune(570,370)],
-    solution:[cut(390,380,510,380),cut(540,240,660,240)],solutionDelay:300,
-  },
-  {
-    id:18,name:'Three Rivers',chapter:2,par:3,
-    hint:'The middle sailor has a clear drop. The others take the scenic route.',
-    boat:boat(480,340),
-    ice:[block(302,105,60,195,[sailor(332,276,0)]),block(450,215,60,175,[sailor(480,366,1)]),block(598,105,60,195,[sailor(628,276,3)])],
-    rocks:[rock(poly([240,350],[360,455],[360,482],[240,377])),rock(poly([600,455],[720,350],[720,377],[600,482]))],
-    spikes:[spike(120,90),spike(750,90)],runes:[rune(350,370),rune(480,465),rune(610,370)],
-    solution:[cut(425,330,535,330),cut(275,240,390,240),cut(570,240,685,240)],solutionDelay:300,
-  },
-  {
-    id:19,name:'The Flying Longship',chapter:3,par:1,
-    hint:'Two friends, one swinging shard. Cut the rope while the floe is moving toward the right-hand boat.',
-    boat:boat(570,330),
-    ice:[shape(poly([215,205],[300,180],[385,225],[365,300],[290,340],[235,300]),[sailor(275,300,0),sailor(330,295,2)],[{x:300,y:210,pivot:{x:470,y:75}}])],
-    rocks:[],spikes:[spike(120,100),spike(800,85)],runes:[rune(485,400),rune(570,465)],
-    solutionInitialDelay:700,solution:[cut(170,135,800,135)],
-  },
-  {
-    id:20,name:'The Longship Window',chapter:3,par:3,
-    hint:'Three pins guard one sailor. Think sides first, roof last.',
-    boat:boat(530,180),
-    ice:[shape(poly([275,100],[720,150],[690,370],[370,370]),[sailor(530,345,3)],[{x:390,y:342},{x:665,y:342},{x:535,y:160}])],
-    rocks:[rock(rect(180,450,110,45))],spikes:[spike(180,110),spike(720,90)],runes:[rune(530,455)],
-    solutionDelay:300,solution:[cut(500,75,475,395),cut(560,75,585,395),cut(460,285,600,285)],
-  },
-  {
-    id:21,name:'Two Little Islands',chapter:3,par:4,
-    hint:'Each sailor needs two cuts: a side cut to leave the low pin, then a roof cut.',
-    boat:boat(480,285),
-    ice:[block(285,110,185,240,[sailor(432,326,1)],[{x:305,y:325},{x:432,y:130}]),block(490,205,185,235,[sailor(528,416,2)],[{x:655,y:415},{x:528,y:225}])],
-    rocks:[],spikes:[spike(150,95),spike(715,95)],runes:[rune(432,435),rune(528,480)],
-    solutionDelay:300,solution:[cut(568,180,568,465),cut(480,380,595,380),cut(392,85,392,375),cut(365,290,480,290)],
-  },
-  {
-    id:22,name:'The Glass Staircase',chapter:3,par:3,
-    hint:'Work from the lowest block to the highest. Leave each friend a small raft.',
-    boat:boat(480,300),
-    ice:[block(360,80,70,180,[sailor(395,236,0)]),block(445,200,70,165,[sailor(480,341,1)]),block(530,315,70,140,[sailor(565,431,3)])],
-    rocks:[],spikes:[spike(190,90),spike(680,90)],runes:[rune(395,420),rune(480,450),rune(565,490)],
-    solutionDelay:300,solution:[cut(505,395,625,395),cut(420,305,540,305),cut(335,200,455,200)],
-  },
-  {
-    id:23,name:'The Broad Shoulder',chapter:3,par:3,
-    hint:'A broad slab will catch the rock. Make a little central window before releasing it.',
-    boat:boat(490,200),
-    ice:[block(240,120,500,240,[sailor(490,336,2)],[{x:260,y:335},{x:720,y:335},{x:490,y:140}])],
-    rocks:[rock(poly([250,430],[400,430],[400,462],[250,462])),rock(poly([580,430],[730,430],[730,462],[580,462]))],
-    spikes:[spike(225,110),spike(645,110)],runes:[rune(490,455)],
-    solutionDelay:300,solution:[cut(445,95,445,385),cut(535,95,535,385),cut(420,300,560,300)],
-  },
-  {
-    id:24,name:'Aurora Convoy',chapter:3,par:4,
-    hint:'Open the middle window first. The two outside friends can share a final swipe.',
-    boat:boat(480,320),
-    ice:[block(340,220,66,175,[sailor(373,371,0)]),block(425,95,110,300,[sailor(480,371,1)],[{x:438,y:370},{x:522,y:370},{x:480,y:115}]),block(554,220,66,175,[sailor(587,371,3)])],
-    rocks:[],spikes:[spike(160,105),spike(695,105)],runes:[rune(373,470),rune(480,470),rune(587,470)],
-    solutionDelay:300,solution:[cut(462,70,447,420),cut(498,70,513,420),cut(430,335,530,335),cut(310,330,650,330)],
-  },
-  {
-    id:25,name:'Crossed Currents',chapter:4,par:2,
-    hint:'The two floes swing inward. Cut one rope, then the other; a little midair bump will not hurt the crew.',
-    boat:boat(480,330),
-    ice:[shape(poly([250,205],[295,175],[350,215],[337,290],[292,325],[258,280]),[sailor(300,285,0)],[{x:300,y:210,pivot:{x:450,y:80}}]),
-      shape(poly([610,215],[655,180],[705,205],[700,280],[668,325],[623,290]),[sailor(660,285,2)],[{x:660,y:210,pivot:{x:510,y:80}}])],
-    rocks:[],spikes:[spike(145,95),spike(720,95)],runes:[rune(420,410),rune(500,375)],
-    solutionInitialDelay:500,solutionDelays:[300,2000],solution:[cut(100,140,479,140),cut(481,140,850,140)],
-  },
-  {
-    id:26,name:'Stone and Snow',chapter:4,par:4,
-    hint:'Open the pinned window over the boat. Then release the friend on the slope.',
-    boat:boat(490,315),
-    ice:[block(310,105,64,195,[sailor(342,276,1)]),block(415,105,240,245,[sailor(535,326,3)],[{x:435,y:325},{x:635,y:325},{x:535,y:125}])],
-    rocks:[rock(poly([240,355],[410,465],[410,492],[240,382]))],
-    spikes:[spike(130,90),spike(750,90)],runes:[rune(360,380),rune(535,480)],
-    solution:[cut(510,80,490,375),cut(560,80,580,375),cut(475,290,595,290),cut(285,240,400,240)],solutionDelay:300,
-  },
-  {
-    id:27,name:'The Three-Sailor Problem',chapter:4,par:4,
-    hint:'Cut the outer pins off the raft, free its roof, then bring down the last sailor.',
-    boat:boat(480,320),
-    ice:[block(250,115,290,235,[sailor(390,326,0),sailor(470,326,1)],[{x:270,y:325},{x:530,y:325},{x:430,y:135}]),block(545,285,66,155,[sailor(578,416,2)])],
-    rocks:[],spikes:[spike(150,100),spike(710,100)],runes:[rune(390,450),rune(470,450),rune(578,480)],
-    solutionDelay:300,solution:[cut(365,90,340,375),cut(495,90,520,375),cut(325,285,535,285),cut(520,380,635,380)],
-  },
-  {
-    id:28,name:'Between the Teeth',chapter:4,par:4,
-    hint:'Leave a narrow raft for each friend. The stone teeth punish oversized pieces.',
-    boat:boat(480,290),
-    ice:[block(220,105,250,245,[sailor(420,326,1)],[{x:240,y:325},{x:420,y:125}]),block(490,200,250,240,[sailor(540,416,3)],[{x:720,y:415},{x:540,y:220}])],
-    rocks:[rock(poly([240,450],[360,450],[360,480],[240,480])),rock(poly([600,450],[720,450],[720,480],[600,480]))],
-    spikes:[spike(205,100),spike(655,100)],runes:[rune(420,450),rune(540,480)],
-    solutionDelay:300,solution:[cut(580,175,580,465),cut(475,380,605,380),cut(380,80,380,375),cut(355,290,485,290)],
-  },
-  {
-    id:29,name:'Homeward Bound',chapter:4,par:5,
-    hint:'The middle friend needs a three-cut window. The slopes carry the other two home.',
-    boat:boat(480,350),
-    ice:[block(300,95,60,205,[sailor(330,276,0)]),block(420,115,120,225,[sailor(480,316,1)],[{x:432,y:315},{x:528,y:315},{x:480,y:135}]),block(600,95,60,205,[sailor(630,276,2)])],
-    rocks:[rock(poly([235,350],[355,455],[355,482],[235,377])),rock(poly([605,455],[725,350],[725,377],[605,482]))],
-    spikes:[spike(120,85),spike(755,85)],runes:[rune(350,370),rune(480,470),rune(610,370)],
-    solution:[cut(462,90,445,365),cut(498,90,515,365),cut(425,280,535,280),cut(275,240,385,240),cut(575,240,685,240)],solutionDelay:300,
-  },
-  {
-    id:30,name:'Nobody Left Behind',chapter:4,par:5,
-    hint:'Open a window for the center sailor, then free the two lower friends. Every helmet comes home.',
-    boat:boat(480,330),
-    ice:[block(245,105,470,250,[sailor(480,331,3)],[{x:270,y:330},{x:690,y:330},{x:480,y:125}]),block(340,390,66,100,[sailor(373,466,0)]),block(554,390,66,100,[sailor(587,466,1)])],
-    rocks:[rock(poly([210,475],[305,475],[305,505],[210,505])),rock(poly([655,475],[750,475],[750,505],[655,505]))],
-    spikes:[spike(185,100),spike(675,100)],runes:[rune(373,515),rune(480,440),rune(587,515)],
-    solutionDelay:300,solution:[cut(450,80,425,380),cut(510,80,535,380),cut(410,290,550,290),cut(315,430,435,430),cut(525,430,645,430)],
+    id:5,name:'Last Passage',chapter:0,par:7,
+    hint:'Open a tall window for the two trapped crew. Trim and release the swinging floe over the cliff, then divide the heavy pack ice once it reaches the ship.',
+    objective:'Combine the pinned window, a timed swing, and a final on-deck split.',
+    world:world(1600,1100),boat:boat(1150,995,760),hammerArea:25000,
+    ice:[
+      slab(1165,140,360,450,[sailor(1290,425,0),sailor(1400,425,3)],[{x:1190,y:550},{x:1500,y:550},{x:1345,y:162}],'pack'),
+      ice(poly([440,225],[525,185],[660,230],[650,365],[515,390],[450,355]),[sailor(545,340,1)],[{x:535,y:235,pivot:{x:760,y:75}}],'pack'),
+    ],
+    rocks:[rock(poly([440,640],[720,640],[720,1030],[440,1030])),rock(poly([1530,690],[1600,690],[1600,740],[1570,740]))],
+    spikes:[spike(450,615,260,25),spike(1550,1030,45)],
+    runes:[rune(680,470),rune(1290,720),rune(1400,720)],
+    solutionDelays:[0,0,0,0,700,2200,0],
+    solution:[cut(1260,110,1235,620),cut(1430,110,1455,620),cut(1215,370,1475,370),cut(490,170,490,420),cut(600,200,600,420),cut(400,130,825,130),cut(1345,650,1345,1030)],
   },
 ];
+
+
+// ship-art.js
+// Original, resolution-independent longship artwork. No images or physics changes.
+// All coordinates are world coordinates; y is the real, fixed landing surface.
+// Layer order: back -> falling ice / walkers -> rescued crew -> front.
+// The optional drawViking callback uses game.js's existing world-coordinate API.
+// Extras: hammer = swing progress 0..1, success = warm highlight intensity 0..1,
+// captain = false to omit him, sail = 'raised' for decorative hero previews.
+
+const SHIP_TAU = Math.PI * 2;
+
+function shipEllipse(ctx, x, y, rx, ry, fill) {
+  ctx.beginPath(); ctx.ellipse(x, y, rx, ry, 0, 0, SHIP_TAU);
+  ctx.fillStyle = fill; ctx.fill();
+}
+function shipStroke(ctx, points, color, width = 1) {
+  ctx.beginPath();
+  points.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
+  ctx.strokeStyle = color; ctx.lineWidth = width; ctx.stroke();
+}
+function shipPolygon(ctx, points, fill, stroke, width = 1) {
+  ctx.beginPath();
+  points.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
+  ctx.closePath();
+  if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+  if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = width; ctx.stroke(); }
+}
+function shipCurve(ctx, points, color, width = 1) {
+  ctx.beginPath(); ctx.moveTo(points[0], points[1]);
+  ctx.bezierCurveTo(...points.slice(2));
+  ctx.strokeStyle = color; ctx.lineWidth = width; ctx.stroke();
+}
+function shipOptions(options = {}) {
+  const width = Math.max(100, Number(options.width) || 190);
+  return {
+    ...options,
+    x: Number(options.x) || 0,
+    y: Number(options.y) || 0,
+    width,
+    half: width / 2,
+    time: options.reducedMotion ? 0 : (Number(options.time) || 0),
+    rescued: options.rescued || [],
+  };
+}
+function shipHullPath(ctx, h) {
+  ctx.beginPath(); ctx.moveTo(-h - 15, -12);
+  ctx.bezierCurveTo(-h + 3, 16, -h + 8, 32, -h + 34, 40);
+  ctx.bezierCurveTo(-h + 62, 49, h - 60, 49, h - 33, 39);
+  ctx.bezierCurveTo(h - 10, 31, h + 6, 8, h + 19, -13);
+  ctx.bezierCurveTo(h - 8, -2, -h + 2, -2, -h - 15, -12);
+  ctx.closePath();
+}
+
+function shipWake(ctx, o) {
+  const { half: h, time: t } = o;
+  shipEllipse(ctx, 0, 47, h + 31, 11, '#163d50a6');
+  shipEllipse(ctx, 0, 51, h + 16, 4, '#0e35453b');
+  // Soft, broken crescents are deliberately quieter than the moving ice.
+  for (let i = 0; i < 3; i++) {
+    const phase = Math.sin(t * .0008 + i * 1.9) * 2;
+    shipCurve(ctx, [-h - 31 + phase, 42 + i * 8, -h * .55, 57 + i * 5,
+      h * .5, 56 + i * 5, h + 30 - phase, 40 + i * 8],
+    ['#bddfd54a', '#91d7d650', '#8bcdc12d'][i], 1.6 - i * .25);
+  }
+  for (const side of [-1, 1]) {
+    shipCurve(ctx, [side * (h - 3), 35, side * (h + 10), 38,
+      side * (h + 19), 38, side * (h + 30), 34], '#d8eee088', 1.6);
+    shipEllipse(ctx, side * (h + 23), 39, 3, 1, '#e2efe177');
+  }
+}
+
+function shipOars(ctx, o) {
+  const count = Math.max(2, Math.min(5, Math.round(o.width / 69)));
+  for (let i = 0; i < count; i++) {
+    const x = (i - (count - 1) / 2) * Math.min(53, (o.width - 50) / count);
+    ctx.save(); ctx.translate(x, 15);
+    ctx.rotate(-.46 + Math.sin(o.time * .0009 + i * .7) * .018);
+    // Blades disappear below the dark hull and return over the water.
+    shipStroke(ctx, [[0, -5], [0, 43]], '#223e47', 6);
+    shipStroke(ctx, [[-.6, -5], [-.6, 43]], '#c89961', 3);
+    shipPolygon(ctx, [[-2, 35], [-5, 45], [-5, 53], [0, 57], [5, 53], [4, 43], [2, 35]],
+      '#d9b67b', '#5f6656', 1.1);
+    shipPolygon(ctx, [[-4, 44], [-4, 51], [0, 54], [4, 51], [3, 44]], '#4e8480');
+    shipStroke(ctx, [[0, 37], [0, 51]], '#f0c98b99', 1);
+    ctx.restore();
+  }
+}
+
+function shipRigging(ctx, o) {
+  const h = o.half, m = -h + 31, top = -91;
+  // Stern-set, low rig: the central rescue corridor remains completely open.
+  shipCurve(ctx, [m, top + 5, m - 5, -53, -h - 6, -37, -h + 5, -4], '#152f3d', 3);
+  shipCurve(ctx, [m, top + 5, m - 5, -53, -h - 6, -37, -h + 5, -4], '#b9ac82', 1.1);
+  shipCurve(ctx, [m, top + 8, m + 7, -48, m + 22, -34, m + 25, -3], '#173745', 2.8);
+  shipCurve(ctx, [m, top + 8, m + 7, -48, m + 22, -34, m + 25, -3], '#c4b38b', 1);
+  shipStroke(ctx, [[m, 3], [m, top]], '#3f3a35', 7);
+  shipStroke(ctx, [[m - 1, 2], [m - 1, top]], '#b87e4e', 4);
+  shipStroke(ctx, [[m - 2, -2], [m - 2, top + 3]], '#e0ac69', 1);
+  for (const y of [-12, -16, -20, -74, -77])
+    shipStroke(ctx, [[m - 4, y], [m + 3, y + 1]], '#dac597', 1.4);
+
+  const flutter = Math.sin(o.time * .0013) * 2;
+  shipPolygon(ctx, [[m + 2, top + 1], [m + 26, top + 3 + flutter],
+    [m + 19, top + 9 + flutter], [m + 25, top + 14 + flutter], [m + 2, top + 11]],
+  '#b75648', '#e5b36b', 1);
+  shipStroke(ctx, [[m + 7, top + 5], [m + 12, top + 7], [m + 7, top + 9]], '#f0cf92', 1);
+
+  ctx.save(); ctx.translate(m, -66);
+  ctx.rotate(Math.sin(o.time * .00075) * .012);
+  if (o.sail === 'raised') {
+    // Optional wider display sail, for hero art rather than the puzzle board.
+    shipPolygon(ctx, [[-24, -9], [27, -9], [31, 30], [0, 35], [-29, 30]], '#e4d9b5', '#706e5a', 1.3);
+    for (const x of [-15, 9])
+      shipPolygon(ctx, [[x, -8], [x + 10, -8], [x + 12, 31], [x + 1, 33]], '#6c9992');
+    shipCurve(ctx, [-27, 27, -10, 31, 13, 32, 29, 27], '#fff2cf66', 1);
+  } else {
+    // Stowed square sail: three rounded folds and clearly readable bindings.
+    ctx.beginPath(); ctx.moveTo(-24, -4);
+    ctx.quadraticCurveTo(-28, 5, -22, 10);
+    ctx.bezierCurveTo(-7, 14, 10, 14, 25, 9);
+    ctx.quadraticCurveTo(31, 4, 26, -3); ctx.closePath();
+    const cloth = ctx.createLinearGradient(0, -4, 0, 13);
+    cloth.addColorStop(0, '#f1e5c5'); cloth.addColorStop(.5, '#d7d2ad'); cloth.addColorStop(1, '#9baf9e');
+    ctx.fillStyle = cloth; ctx.fill(); ctx.strokeStyle = '#4c696a'; ctx.lineWidth = 1.3; ctx.stroke();
+    for (const x of [-14, 8])
+      shipPolygon(ctx, [[x, -3], [x + 8, -3], [x + 8, 11], [x, 11]], '#638e87');
+    shipCurve(ctx, [-23, 5, -7, 9, 12, 10, 26, 4], '#fff1cf99', 1);
+    for (const x of [-20, 0, 22]) {
+      shipCurve(ctx, [x, -5, x - 3, 1, x - 3, 8, x, 13], '#766b51', 2);
+      shipCurve(ctx, [x + 1, -5, x - 1, 1, x - 1, 8, x + 1, 12], '#e7c99a', .8);
+    }
+  }
+  shipStroke(ctx, [[-30, -6], [32, -6]], '#493f36', 5);
+  shipStroke(ctx, [[-29, -7], [31, -7]], '#cf9c62', 2);
+  ctx.restore();
+}
+
+function shipStern(ctx, h) {
+  ctx.beginPath(); ctx.moveTo(-h + 19, 16);
+  ctx.bezierCurveTo(-h - 7, 8, -h - 30, -25, -h - 18, -43);
+  ctx.bezierCurveTo(-h - 9, -55, -h + 10, -42, -h - 2, -31);
+  ctx.bezierCurveTo(-h + 4, -46, -h - 15, -44, -h - 12, -31);
+  ctx.bezierCurveTo(-h - 9, -18, -h + 6, -5, -h + 24, 4);
+  ctx.closePath(); ctx.fillStyle = '#9b6547'; ctx.fill();
+  ctx.strokeStyle = '#d1a16b'; ctx.lineWidth = 2; ctx.stroke();
+  shipCurve(ctx, [-h + 13, 5, -h - 4, -5, -h - 19, -27, -h - 14, -37], '#4b544b', 3);
+  shipCurve(ctx, [-h + 13, 5, -h - 4, -5, -h - 19, -27, -h - 14, -37], '#e6b977', .8);
+}
+
+function shipHull(ctx, o) {
+  const h = o.half;
+  const wood = ctx.createLinearGradient(0, -7, 0, 49);
+  wood.addColorStop(0, '#c58c58'); wood.addColorStop(.32, '#a66c47');
+  wood.addColorStop(.76, '#704b3f'); wood.addColorStop(1, '#3c3e3c');
+  shipHullPath(ctx, h); ctx.fillStyle = wood; ctx.fill();
+  ctx.save(); ctx.clip();
+  for (let i = 0; i < 5; i++) {
+    const y = 7 + i * 8;
+    shipCurve(ctx, [-h - 18, y - 20, -h * .56, y + 7, h * .55, y + 7, h + 20, y - 21],
+      i % 2 ? '#dd9a5c3b' : '#342e303b', 6.5);
+    shipCurve(ctx, [-h - 18, y - 15, -h * .56, y + 10, h * .55, y + 10, h + 20, y - 16], '#3f3a34b3', 1.5);
+    shipCurve(ctx, [-h - 18, y - 13.5, -h * .56, y + 11.5, h * .55, y + 11.5, h + 20, y - 14.5], '#e8aa6870', .7);
+  }
+  // A handful of carved wood-grain lines, not random flickering noise.
+  for (let i = 0; i < 7; i++) {
+    const x = -h + 20 + i * (o.width - 40) / 6, y = 21 + (i % 3) * 7;
+    shipCurve(ctx, [x - 9, y, x - 3, y - 2, x + 4, y + 1, x + 11, y], '#f0b07133', .7);
+    shipEllipse(ctx, x, y + 4, .9, .8, '#392f2f88');
+  }
+  // Raised clinker ribs and iron fastenings catch a thin warm edge light.
+  for (let x = -h + 31; x < h - 20; x += 37) {
+    shipCurve(ctx, [x, 5, x - 3, 19, x - 1, 29, x + 7, 42], '#3d39369c', 3);
+    shipCurve(ctx, [x + 1.3, 5, x - 1.7, 19, x + .3, 29, x + 8.3, 42], '#c98a585c', .8);
+    shipEllipse(ctx, x + 4, 35, 1.2, 1.2, '#b4a381');
+  }
+  ctx.restore();
+  shipHullPath(ctx, h); ctx.strokeStyle = '#243c40'; ctx.lineWidth = 2.2; ctx.stroke();
+
+  // Open deck: rear rail, planking, and cross-benches remain behind the crew.
+  ctx.beginPath(); ctx.moveTo(-h + 1, -5);
+  ctx.bezierCurveTo(-h * .55, -10, h * .55, -10, h + 1, -5);
+  ctx.lineTo(h - 10, 8); ctx.quadraticCurveTo(0, 18, -h + 10, 8); ctx.closePath();
+  ctx.fillStyle = '#3b504b'; ctx.fill();
+  ctx.beginPath(); ctx.moveTo(-h + 7, -3);
+  ctx.quadraticCurveTo(0, -8, h - 7, -3);
+  ctx.lineTo(h - 18, 5); ctx.quadraticCurveTo(0, 12, -h + 18, 5); ctx.closePath();
+  ctx.fillStyle = '#b19364'; ctx.fill();
+  for (let x = -h + 20; x < h - 15; x += 15)
+    shipStroke(ctx, [[x, -4], [x - 2, 6]], '#665d46', .8);
+  shipCurve(ctx, [-h + 1, -5, -h * .5, -10, h * .5, -10, h + 1, -5], '#263d3e', 5.5);
+  shipCurve(ctx, [-h + 1, -6, -h * .5, -11, h * .5, -11, h + 1, -6], '#d5ac70', 2);
+  for (let x = -h + 32; x < h - 22; x += 43)
+    shipStroke(ctx, [[x, -3], [x - 1, 7]], '#d2ab70', 4);
+}
+
+function shipShield(ctx, x, y, radius, index) {
+  ctx.save(); ctx.translate(x, y); ctx.rotate((index % 2 ? -1 : 1) * .13);
+  shipEllipse(ctx, 1.5, 2, radius + 1, radius + 1, '#203f425e');
+  const metal = ctx.createLinearGradient(-radius, -radius, radius, radius);
+  metal.addColorStop(0, '#e5cf98'); metal.addColorStop(.45, '#9aa78f'); metal.addColorStop(1, '#506d69');
+  shipEllipse(ctx, 0, 0, radius, radius, '#233f42');
+  shipEllipse(ctx, 0, 0, radius - 1, radius - 1, metal);
+  shipEllipse(ctx, 0, 0, radius - 2.6, radius - 2.6, '#e5d2a2');
+  const colors = ['#467d79', '#ad5d48', '#567c90'];
+  const color = colors[index % colors.length];
+  ctx.save(); ctx.beginPath(); ctx.arc(0, 0, radius - 2.6, 0, SHIP_TAU); ctx.clip();
+  if (index % 2) {
+    shipPolygon(ctx, [[-radius, -radius], [radius, -radius], [-radius, radius]], color);
+    shipPolygon(ctx, [[2, -radius], [5, -radius], [-radius, 5], [-radius, 2]], '#f5dfad99');
+  } else {
+    ctx.fillStyle = color; ctx.fillRect(-radius, -radius, radius, radius); ctx.fillRect(0, 0, radius, radius);
+  }
+  shipStroke(ctx, [[-radius, 0], [radius, 0]], '#293f433b', .8);
+  shipStroke(ctx, [[0, -radius], [0, radius]], '#293f433b', .8);
+  ctx.restore();
+  for (let i = 0; i < 8; i++) {
+    const a = i * Math.PI / 4;
+    shipEllipse(ctx, Math.cos(a) * (radius - 1.7), Math.sin(a) * (radius - 1.7), .65, .65, '#fff0bd');
+  }
+  shipEllipse(ctx, .3, .5, 3.8, 3.8, '#3b5659');
+  shipEllipse(ctx, 0, 0, 2.9, 2.9, metal);
+  shipEllipse(ctx, -.9, -1, .9, .8, '#fff1c7');
+  ctx.restore();
+}
+
+function shipDragon(ctx, h) {
+  // One continuous carved neck emerges from the prow, with a copper throat.
+  ctx.beginPath(); ctx.moveTo(h - 23, 26);
+  ctx.bezierCurveTo(h + 2, 9, h + 14, -8, h + 8, -29);
+  ctx.bezierCurveTo(h + 4, -43, h + 10, -54, h + 23, -54);
+  ctx.lineTo(h + 29, -49); ctx.lineTo(h + 40, -46); ctx.lineTo(h + 45, -37);
+  ctx.lineTo(h + 30, -35); ctx.lineTo(h + 24, -39);
+  ctx.bezierCurveTo(h + 16, -35, h + 22, -22, h + 20, -11);
+  ctx.bezierCurveTo(h + 18, 6, h + 3, 25, h - 15, 34);
+  ctx.closePath();
+  const dragon = ctx.createLinearGradient(h - 10, 0, h + 31, -25);
+  dragon.addColorStop(0, '#8a593e'); dragon.addColorStop(.5, '#bf8750'); dragon.addColorStop(1, '#dfa564');
+  ctx.fillStyle = dragon; ctx.fill(); ctx.strokeStyle = '#293f40'; ctx.lineWidth = 2.5; ctx.stroke();
+  // Antler-like crown and amber eye keep the small silhouette legible.
+  shipPolygon(ctx, [[h + 12, -50], [h + 8, -66], [h + 18, -57], [h + 20, -49]], '#ba8a55', '#2c4241', 1.4);
+  shipPolygon(ctx, [[h + 21, -51], [h + 25, -64], [h + 28, -50]], '#e0b474', '#314442', 1.2);
+  shipCurve(ctx, [h - 15, 25, h + 10, 8, h + 17, -7, h + 12, -28], '#e7b875', 2.3);
+  shipCurve(ctx, [h - 10, 25, h + 14, 8, h + 21, -7, h + 16, -28], '#5d654a', 2.2);
+  shipCurve(ctx, [h - 5, 21, h + 4, 12, h + 3, 7, h + 8, 3], '#e8bc7a', 1);
+  for (let i = 0; i < 4; i++) {
+    const yy = -25 + i * 9, xx = h + 14 - i * 1.1;
+    shipStroke(ctx, [[xx - 5, yy], [xx + 4, yy + 4], [xx - 3, yy + 7]], '#815a3e', 1.2);
+  }
+  shipStroke(ctx, [[h + 18, -47], [h + 29, -45]], '#5d513a', 2.8);
+  shipEllipse(ctx, h + 25, -44, 2.8, 2.5, '#263d3d');
+  shipEllipse(ctx, h + 25.7, -44.6, 1.1, 1.1, '#ffe0a0');
+  shipStroke(ctx, [[h + 29, -38], [h + 40, -39]], '#775b3c', 1.4);
+  shipEllipse(ctx, h + 38, -42, .8, .8, '#485047');
+  shipPolygon(ctx, [[h + 31, -36], [h + 33, -32], [h + 35, -36]], '#f2d69a');
+  // Bronze binding at the root of the figurehead.
+  shipStroke(ctx, [[h + 2, 6], [h + 13, 10]], '#394e46', 5);
+  shipStroke(ctx, [[h + 2, 5], [h + 13, 9]], '#d5b575', 2.4);
+  shipEllipse(ctx, h + 7, 7, 1, 1, '#f2dca5');
+}
+
+function shipLantern(ctx, o) {
+  const x = o.half - 17, sway = Math.sin(o.time * .0011) * .03;
+  shipStroke(ctx, [[x - 4, -1], [x - 5, -38], [x - 14, -43], [x - 22, -38]], '#263f40', 3.5);
+  shipStroke(ctx, [[x - 5, -2], [x - 6, -38], [x - 14, -42], [x - 21, -38]], '#b49d69', 1);
+  ctx.save(); ctx.translate(x - 21, -38); ctx.rotate(sway);
+  shipStroke(ctx, [[0, 0], [0, 6]], '#d6bd87', 1.4);
+  shipPolygon(ctx, [[-6, 8], [-4, 21], [4, 21], [6, 8]], '#f4c372', '#443f32', 1.5);
+  shipEllipse(ctx, 0, 14, 2.3, 4.4, '#fff5bf');
+  shipStroke(ctx, [[-3, 9], [-3, 20]], '#a87846', 1);
+  shipStroke(ctx, [[3, 9], [3, 20]], '#a87846', 1);
+  shipPolygon(ctx, [[-7, 8], [0, 3], [7, 8]], '#5b6c58', '#303f39', 1);
+  shipStroke(ctx, [[-5, 22], [5, 22]], '#d8aa68', 2);
+  ctx.restore();
+}
+
+function drawLongshipBack(ctx, options = {}) {
+  const o = shipOptions(options);
+  ctx.save(); ctx.translate(o.x, o.y); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  shipWake(ctx, o); shipOars(ctx, o); shipRigging(ctx, o); shipStern(ctx, o.half); shipHull(ctx, o);
+  // Warm light is behind faces and cargo, never a solid overlay on the puzzle.
+  const lx = o.half - 38, pulse = .9 + Math.sin(o.time * .003) * .05;
+  const glow = ctx.createRadialGradient(lx, -22, 1, lx, -22, 43);
+  glow.addColorStop(0, `rgba(255, 213, 132, ${.17 * pulse})`); glow.addColorStop(1, 'rgba(255, 213, 132, 0)');
+  ctx.fillStyle = glow; ctx.fillRect(lx - 44, -67, 88, 88);
+  ctx.restore();
+}
+
+function shipCaptain(ctx, o) {
+  const cx = o.x - o.half + 24, cy = o.y - 19;
+  o.drawViking(cx, cy, 2, 0, true, .76, 0, 1);
+  ctx.save(); ctx.translate(cx, o.y);
+  // A little brass brow and teal cloak distinguish the resident captain.
+  shipPolygon(ctx, [[-10, -24], [-17, -13], [-17, 1], [-10, -1], [-7, -17]], '#477a76', '#2b4e50', 1);
+  shipStroke(ctx, [[-11, -31], [11, -31]], '#d5b374', 2.8);
+  shipPolygon(ctx, [[0, -36], [3, -32], [0, -28], [-3, -32]], '#f3d397');
+  const p = Math.max(0, Math.min(1, Number(o.hammer) || 0));
+  const ease = n => n * n * (3 - 2 * n);
+  const angle = p <= .28 ? .28 - ease(p / .28) * .93
+    : p <= .62 ? -.65 + ease((p - .28) / .34) * 2.05
+      : 1.4 - ease((p - .62) / .38) * 1.12;
+  ctx.translate(13, -14);
+  if (p > .32 && p < .73 && !o.reducedMotion) {
+    ctx.beginPath(); ctx.arc(0, 0, 29, -.65 - Math.PI / 2, angle - Math.PI / 2);
+    ctx.strokeStyle = '#ffe0a351'; ctx.lineWidth = 4; ctx.stroke();
+    ctx.beginPath(); ctx.arc(0, 0, 33, -.7 - Math.PI / 2, angle - Math.PI / 2);
+    ctx.strokeStyle = '#ffeac73d'; ctx.lineWidth = 1.2; ctx.stroke();
+  }
+  ctx.rotate(o.reducedMotion ? .28 : angle);
+  shipStroke(ctx, [[0, 6], [0, -28]], '#273f42', 6);
+  shipStroke(ctx, [[-.5, 5], [-.5, -28]], '#b88854', 3.5);
+  for (const y of [1, 4]) shipStroke(ctx, [[-2, y], [2, y]], '#e0be82', 1.1);
+  shipPolygon(ctx, [[-11, -33], [9, -33], [12, -29], [10, -21], [-11, -21], [-13, -24]], '#708d8e', '#263f43', 1.5);
+  shipPolygon(ctx, [[-11, -33], [9, -33], [8, -29], [-12, -29]], '#bad0bf');
+  shipPolygon(ctx, [[7, -30], [12, -29], [10, -21], [7, -22]], '#425f65');
+  shipStroke(ctx, [[-3, -31], [-3, -23]], '#d8bc7d', 2.5);
+  shipStroke(ctx, [[1, -29], [4, -27], [1, -25]], '#dfebc7', 1);
+  shipEllipse(ctx, 0, 1, 3.5, 3.2, '#e5b388');
+  ctx.restore();
+}
+
+function drawLongshipCrew(ctx, options = {}) {
+  const o = shipOptions(options);
+  if (typeof o.drawViking !== 'function') return;
+  const captain = o.captain !== false;
+  const count = o.rescued.length, available = Math.max(30, o.width - (captain ? 96 : 67));
+  const spacing = Math.min(35, available / Math.max(1, count - 1));
+  const scale = Math.min(.67, available / Math.max(48, count * 34));
+  ctx.save();
+  if (captain) shipCaptain(ctx, o);
+  o.rescued.forEach((v, i) => {
+    const phase = o.time * .0008 + i * 2.1;
+    // Real arrivals retain their exact landing point. Hero/example crew alone
+    // use an arranged composition; gameplay never snaps a Viking to a slot.
+    const hasLanding=Number.isFinite(v.x)&&Number.isFinite(v.y);
+    const x=hasLanding?v.x:o.x+12+(i-(count-1)/2)*spacing;
+    const y=hasLanding?v.y:o.y-25*scale;
+    o.drawViking(x,y,v.look||0,0,true,hasLanding?(v.scale||1):scale,
+      0,1,{pose:v.pose||'idle',phase:v.phase||0,time:o.time});
+  });
+  ctx.restore();
+}
+
+function drawLongshipFront(ctx, options = {}) {
+  const o = shipOptions(options), h = o.half;
+  ctx.save(); ctx.translate(o.x, o.y); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  // The near gunwale hides boots, while the faces remain above it.
+  shipCurve(ctx, [-h - 2, -1, -h * .55, 14, h * .55, 14, h + 2, -1], '#283f3e', 8);
+  shipCurve(ctx, [-h - 2, -3, -h * .55, 11, h * .55, 11, h + 2, -3], '#be8d54', 5.5);
+  shipCurve(ctx, [-h - 2, -4, -h * .55, 10, h * .55, 10, h + 2, -4], '#efd094', 1.4);
+  // Evenly-spaced shield stations adapt to every campaign boat width.
+  const count = Math.max(3, Math.min(9, Math.floor((o.width - 27) / 29)));
+  const span = Math.max(35, o.width - 50), radius = Math.min(11.5, span / count * .4);
+  for (let i = 0; i < count; i++) {
+    const x = count === 1 ? 0 : -span / 2 + i * span / (count - 1);
+    const y = 19 - Math.pow(x / h, 2) * 5;
+    shipStroke(ctx, [[x, y - radius - 3], [x, y - radius + 2]], '#d2b380', 2);
+    shipShield(ctx, x, y, radius, i);
+  }
+  shipDragon(ctx, h); shipLantern(ctx, o);
+  const success = Math.max(0, Math.min(1, Number(o.success) || 0));
+  if (success) {
+    ctx.globalAlpha *= success * .6;
+    shipCurve(ctx, [-h + 8, -4, -h * .4, 9, h * .5, 8, h + 4, -5], '#ffe9ad', 2.1);
+    ctx.globalAlpha /= success * .6;
+  }
+  // A faint reflection belongs in front of the hull, below the landing surface.
+  shipCurve(ctx, [-h + 31, 47, -h * .3, 52, h * .3, 52, h - 31, 47], '#a6dcd253', 1.4);
+  ctx.restore();
+}
+
+function drawLongship(ctx, options = {}) {
+  drawLongshipBack(ctx, options);
+  drawLongshipCrew(ctx, options);
+  drawLongshipFront(ctx, options);
+}
+
+
+// viking-art.js
+// Original articulated crew artwork. Visual poses never change physics bodies.
+// time is milliseconds, gait is radians, phase is 0..1 for impact/rise/sink.
+// The body stays within x +/-30, y -40..+27 at scale 1. The raised cheer axe
+// extends that pose only to x +/-35, y -48, clear of neighboring crew.
+// Water poses clip at local y=7: put (x,y+7) on the water surface.
+const VIKING_TAU = Math.PI * 2;
+const VIKING_PALETTES = [
+  {hair:'#a85c35', light:'#d78c53', coat:'#bd6045', trim:'#e9c38d'},
+  {hair:'#b18338', light:'#e1b45f', coat:'#3e827d', trim:'#e4cda0'},
+  {hair:'#584239', light:'#96705a', coat:'#99714f', trim:'#d7c29b'},
+  {hair:'#aa654c', light:'#d69a71', coat:'#70699b', trim:'#e5c69c'},
+];
+const vikingClamp = (value,low,high) => Math.max(low,Math.min(high,value));
+const vikingLerp = (a,b,t) => a+(b-a)*t;
+const vikingSmooth = value => {const t=vikingClamp(value,0,1);return t*t*(3-2*t);};
+function vikingShape(ctx,points,fill,stroke='#243d4b',width=1.25) {
+  ctx.beginPath();
+  points.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));
+  ctx.closePath();
+  if(fill){ctx.fillStyle=fill;ctx.fill();}
+  if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke();}
+}
+function vikingLine(ctx,points,color,width=1.3) {
+  ctx.beginPath();points.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));
+  ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();
+}
+function vikingOval(ctx,x,y,rx,ry,color,angle=0) {
+  ctx.beginPath();ctx.ellipse(x,y,rx,ry,angle,0,VIKING_TAU);ctx.fillStyle=color;ctx.fill();
+}
+function vikingLimb(ctx,shoulder,elbow,hand,palette,front=true) {
+  // Two articulated segments make the action readable at normal play size.
+  vikingLine(ctx,[shoulder,elbow,hand],'#253d48',8);
+  vikingLine(ctx,[shoulder,elbow,hand],front?palette.coat:'#45616a',5.4);
+  const angle=Math.atan2(hand[1]-elbow[1],hand[0]-elbow[0]);
+  const cuff=[hand[0]-Math.cos(angle)*3.4,hand[1]-Math.sin(angle)*3.4];
+  vikingLine(ctx,[[cuff[0]-Math.sin(angle)*2.6,cuff[1]+Math.cos(angle)*2.6],
+    [cuff[0]+Math.sin(angle)*2.6,cuff[1]-Math.cos(angle)*2.6]],'#d8c29b',2.1);
+  vikingOval(ctx,hand[0],hand[1],3.4,3.2,'#eab48b',angle);
+  vikingLine(ctx,[[hand[0]+1,hand[1]-.6],[hand[0]+1.5,hand[1]+.6]],'#ad765d',.8);
+}
+function vikingLeg(ctx,hip,knee,ankle,front=true) {
+  const trouser=front?'#334b55':'#263d49';
+  vikingLine(ctx,[hip,knee,ankle],'#203744',7.5);
+  vikingLine(ctx,[hip,knee,ankle],trouser,5);
+  vikingLine(ctx,[[ankle[0]-2,ankle[1]-3],[ankle[0]+2.5,ankle[1]-4]],'#a58a66',1.5);
+  vikingShape(ctx,[[ankle[0]-3,ankle[1]-1],[ankle[0]+2.5,ankle[1]-1],
+    [ankle[0]+4.6,ankle[1]+1.3],[ankle[0]+4.2,ankle[1]+3],
+    [ankle[0]-3.8,ankle[1]+3]],front?'#6f5140':'#584638','#243d46',1.1);
+  vikingLine(ctx,[[ankle[0]-3,ankle[1]+2.2],[ankle[0]+3.7,ankle[1]+2.2]],'#ba986b',1);
+}
+function vikingAxe(ctx,hand,wave) {
+  ctx.save();ctx.translate(hand[0],hand[1]);ctx.rotate(-.015+wave*.02);
+  // A short carved ash haft and swept, single-sided beard blade. The grip is
+  // drawn again by the hand, so the axe reads as held rather than floating.
+  vikingLine(ctx,[[0,5.2],[1,-5],[2,-15]],'#243e49',4.5);
+  vikingLine(ctx,[[0,5.2],[1,-5],[2,-15]],'#be8c51',2.4);
+  vikingLine(ctx,[[1,-8.5],[2.5,-8.3]],'#e6c786',1.3);
+  vikingShape(ctx,[[.6,-15.8],[4.3,-16.4],[6.5,-19],[8.4,-17.6],
+    [9,-12.3],[7.9,-8.8],[4.2,-9.5],[3.6,-12.5],[.4,-12.7]],
+    '#b8c9c5','#294958',1.2);
+  vikingShape(ctx,[[6.5,-19],[8.4,-17.6],[9,-12.3],[7.9,-8.8],
+    [6.5,-10.5],[7.6,-13.4],[7,-17.1]],'#f0e9cb',null);
+  vikingLine(ctx,[[4.6,-14.6],[6.6,-13.5],[5,-12]],'#607f87',.9);
+  vikingLine(ctx,[[.3,-14.3],[3.1,-14.4]],'#d7b56e',1.9);
+  ctx.restore();
+}
+function vikingHead(ctx,palette,state) {
+  const {pose,t,still,face,beard,helmet}=state;
+  // Head is deliberately angular, with a brow and cheek planes rather than a
+  // rounded mascot face. All crews share a silhouette but have individual colors.
+  ctx.save();ctx.translate(0,-10);ctx.rotate(state.headTilt);
+  vikingOval(ctx,-12.8,1.3,3.1,4.4,'#d59b78');
+  vikingOval(ctx,12.8,1.3,3.1,4.4,'#e8b08a');
+  vikingShape(ctx,[[-11.7,-10],[-4,-14],[7,-12],[12,-7],[12,4],[8.5,10],
+    [0,13],[-9,8],[-12,2]],'#eabd93','#72594b',1);
+  vikingShape(ctx,[[-11,-6],[-6,-8],[-6,4],[-1,9],[-8.5,7],[-11,2]],'#d9a480',null);
+  vikingOval(ctx,8,2,3.2,2,'#cf846d');
+
+  // Beard pivots a little behind the head/torso, including two bound braids.
+  ctx.save();ctx.translate(0,6);ctx.rotate(beard);
+  vikingShape(ctx,[[-12,-5],[-9,1],[-4,4],[2,4],[8,0],[12,-5],[12,7],
+    [8,15],[4,17],[1,13],[-3,18],[-8,13],[-12,6]],palette.hair,'#654a3c',1.05);
+  vikingShape(ctx,[[-8,2],[-4,5],[-4,13],[-7,10]],palette.light,null);
+  vikingShape(ctx,[[4,4],[8,2],[7,12],[4,14]],palette.light,null);
+  vikingLine(ctx,[[-4.5,7],[-2.5,10],[-5.5,12],[-3.5,15]],'#724d37',1);
+  vikingLine(ctx,[[6,5],[4,8],[7,10],[4.5,12]],'#724d37',1);
+  vikingLine(ctx,[[-6.3,13],[-2.4,14]],'#d9b96e',2.2);
+  vikingLine(ctx,[[3.8,12.5],[7.1,11.5]],'#d9b96e',2.2);
+  ctx.restore();
+
+  const cycle=((t+state.seed*157)%4200+4200)%4200;
+  const blink=!still&&(cycle>3600&&cycle<3700||cycle>3840&&cycle<3910);
+  const eyesClosed=blink||pose==='impact'&&state.phase<.6||pose==='sink'&&state.phase>.86;
+  const eyeY=-2.6;
+  for(const side of [-1,1]){
+    const ex=side*5.2;
+    if(eyesClosed)vikingLine(ctx,[[ex-1.7,eyeY],[ex+1.7,eyeY+.2]],'#233a43',1.4);
+    else{
+      vikingOval(ctx,ex,eyeY,2.4,2.25,'#f5e6cf');
+      vikingOval(ctx,ex+state.eyeLook,eyeY+.2,1.25,1.7,'#203b47');
+    }
+  }
+  if(face==='concern'){
+    vikingLine(ctx,[[-8,-5.4],[-3,-6.2]],palette.hair,1.8);
+    vikingLine(ctx,[[3,-6.2],[8,-5.4]],palette.hair,1.8);
+  }else if(face==='focus'){
+    vikingLine(ctx,[[-8,-6],[-3,-5.1]],palette.hair,1.8);
+    vikingLine(ctx,[[3,-5.1],[8,-6]],palette.hair,1.8);
+  }else{
+    vikingLine(ctx,[[-8,-5.7],[-3,-5.9]],palette.hair,1.8);
+    vikingLine(ctx,[[3,-5.9],[8,-5.7]],palette.hair,1.8);
+  }
+  // The mouth sits clear of the moustache so emotion survives downscaling.
+  if(face==='alarm')vikingOval(ctx,0,6.8,2.5,3,'#624536');
+  else if(face==='smile'){
+    ctx.beginPath();ctx.arc(0,4.9,3.5,.12,Math.PI-.12);
+    ctx.strokeStyle='#543c32';ctx.lineWidth=1.7;ctx.stroke();
+  }else if(face==='concern')vikingLine(ctx,[[-2.7,7],[0,6.3],[2.7,7]],'#694734',1.2);
+  else vikingLine(ctx,[[-2.6,6.5],[2.6,6.5]],'#694734',1.1);
+  vikingShape(ctx,[[-1.6,-1],[0,-3.5],[2.8,1.7],[1.2,3],[-2.5,2]],'#efbe96',null);
+  vikingShape(ctx,[[-.4,2],[-4.3,1.4],[-8,4.7],[-4.1,5.3],[0,3.8],
+    [4.3,5.3],[8,4.7],[4.1,1.4]],palette.hair,null);
+  vikingLine(ctx,[[0,-1],[.5,1.1]],'#f8d4ac',1.3);
+
+  ctx.save();ctx.translate(0,-4);ctx.rotate(helmet);ctx.translate(0,4);
+  // Swept ivory horn ends and an iron nasal ridge read cleanly against ice.
+  for(const side of [-1,1]){
+    ctx.save();ctx.scale(side,1);
+    vikingShape(ctx,[[10,-13],[18,-17],[23,-25],[25,-26],[24,-16],
+      [19,-10],[13,-8]],'#d8d0ad','#5d7275',1.05);
+    vikingShape(ctx,[[16,-15],[21,-20],[23,-24],[22,-16],[18,-12]],'#f5e9c5',null);
+    vikingLine(ctx,[[15,-13],[18,-11]],'#aa9f81',1.3);ctx.restore();
+  }
+  vikingShape(ctx,[[-14,-6],[-12,-15],[-6,-20],[2,-22],[10,-18],[14,-10],[14,-6]],
+    '#63808b','#263f50',1.5);
+  vikingShape(ctx,[[-10,-14],[-4,-19],[-1,-19],[-2,-8],[-11,-8]],'#91a8a9',null);
+  vikingShape(ctx,[[3,-20],[9,-16],[12,-9],[4,-9]],'#4d6876',null);
+  vikingShape(ctx,[[-14.5,-10.5],[14.5,-10.5],[14.5,-6.5],[-14.5,-6.5]],
+    '#bdc7b4','#3f5966',1.05);
+  vikingShape(ctx,[[-1.8,-20.5],[1.3,-20.5],[2,-3.2],[-1.7,-3.2]],'#d1d7c2','#738a8c',.6);
+  for(const rx of [-10,-5,5,10])vikingOval(ctx,rx,-8.5,.75,.75,'#edf0d1');
+  ctx.restore();ctx.restore();
+}
+
+/** Draw one crew member without retaining state or touching gameplay data. */
+function drawAnimatedViking(ctx,options={}) {
+  const {x=0,y=0,look=0,angle=0,free=false,scale=1,gait=0,facing=1,
+    pose=free?'idle':'frozen',time=0,reducedMotion=false,phase=0}=options;
+  if(!ctx||![x,y,angle,scale].every(Number.isFinite)||scale<=0)return;
+  const seed=Number.isFinite(look)?Math.floor(look):0;
+  const palette=VIKING_PALETTES[((seed%4)+4)%4];
+  const still=!!reducedMotion,t=Number.isFinite(time)?time:0;
+  const p=vikingClamp(Number.isFinite(phase)?phase:0,0,1);
+  const wave=still?0:Math.sin(t*.006+seed*.7);
+  const walk=still?0:Math.sin(Number.isFinite(gait)&&gait?gait:t*.009+seed);
+  const stride=pose==='walking'?walk:0;
+  const state={pose,t,still,seed,phase:p,face:free?'smile':'focus',beard:0,
+    helmet:0,headTilt:0,eyeLook:0};
+  let rootX=0,rootY=0,tilt=0,localScale=1,bodyScaleY=1;
+  let left=[[-12,-1],[-15,7],[-14,13]],right=[[12,-1],[16,7],[14,13]];
+  let legs=[[[-6,10],[-7,17],[-8,23]],[[6,10],[7,17],[8,23]]];
+
+  if(pose==='frozen'){
+    const shiver=still?0:Math.sin(t*.045+seed)*.43*(.35+.65*Math.max(0,Math.sin(t*.0016+seed)));
+    rootX=shiver;rootY=still?0:Math.sin(t*.0035+seed)*.25;
+    left=[[-12,-1],[-17,6],[-9,3]];right=[[12,-1],[17,6],[9,3]];
+    state.face='concern';state.headTilt=shiver*.025;state.eyeLook=wave*.5;
+    state.beard=-shiver*.04;
+  }else if(pose==='falling'){
+    left=[[-12,-1],[-21,-7],[-25,-14+wave*1.6]];
+    right=[[12,-1],[21,-10],[25,-18-wave*1.4]];
+    legs=[[[-6,10],[-10,16],[-12,22]],[[6,10],[11,15],[13,19]]];
+    state.face='alarm';state.beard=-.07+wave*.065;state.helmet=wave*.025;
+    state.headTilt=-.025;rootY=still?0:wave*.45;
+  }else if(pose==='walking'){
+    rootY=still?0:-Math.abs(stride)*1.4;
+    tilt=still?0:stride*.018;
+    left=[[-12,-1],[-15-stride*1.6,5],[-15-stride*3.6,12-stride*2.7]];
+    right=[[12,-1],[15+stride*1.6,5],[15+stride*3.6,12+stride*2.7]];
+    legs=[[[-6,10],[-7+stride*2.3,16],[-7+stride*6,22-Math.max(0,-stride)*3]],
+      [[6,10],[7-stride*2.3,16],[7-stride*6,22-Math.max(0,stride)*3]]];
+    state.face='focus';state.beard=-stride*.06;state.helmet=stride*.012;state.eyeLook=.45;
+  }else if(pose==='celebrate'){
+    const hop=still?0:Math.pow(Math.max(0,Math.sin(t*.009+seed)),2);
+    rootY=-hop*2.4;
+    left=[[-12,-1],[-21,-10],[-22,-22]];
+    right=[[12,-1],[20,-10],[24.5+wave*.5,-21+wave]];
+    legs=[[[-6,10],[-8,16],[-10,22-hop]],[[6,10],[8,16],[10,22-hop]]];
+    state.face='smile';state.headTilt=wave*.025;state.beard=wave*.045;state.helmet=-wave*.015;
+  }else if(pose==='impact'||pose==='rise'){
+    // A compact, side-on landing preserves the physical center and footprint.
+    const prone=pose==='impact'?vikingSmooth(Math.min(1,p*3.5)):1-vikingSmooth(p);
+    tilt=-Math.PI*.48*prone;
+    localScale=Math.min(1-.25*prone,29/(28*Math.abs(Math.cos(tilt))+36*Math.abs(Math.sin(tilt))));
+    rootY=6*prone;bodyScaleY=1-(pose==='impact'?.16*(1-prone):.06*prone);
+    left=[[-12,-1],[-20,5],[-23,11]];
+    right=[[12,-1],[20,4],[22,12]];
+    legs=[[[-6,10],[-12,17],[-13,21]],[[6,10],[12,13],[15,20]]];
+    if(pose==='rise'){
+      left=[[-12,-1],[-18,8],[-20,18-prone*6]];
+      right=[[12,-1],[18,6],[13,12]];
+    }
+    state.face=pose==='impact'?'alarm':'focus';state.beard=.12*prone;state.helmet=-.035*prone;
+    state.headTilt=.07*prone;
+  }else if(pose==='swim'||pose==='sink'){
+    const flail=still?0:Math.sin(t*.014+seed);
+    rootY=3+(still?0:wave*1.2)+(pose==='sink'?p*46:0);
+    left=[[-12,-1],[-21,-5-flail*3],[-25,-12-flail*7]];
+    right=[[12,-1],[21,-5+flail*3],[25,-12+flail*7]];
+    if(pose==='sink'){
+      left=[[-12,-1],[-20,-13],[-20,-26]];
+      right=[[12,-1],[20,-14],[23,-25+flail*2]];
+    }
+    state.face='alarm';state.headTilt=flail*.035;state.beard=flail*.055;
+  }else{
+    // Captain/deck idle: a quiet breath, hand on belt and occasional glance.
+    rootY=still?0:Math.sin(t*.0026+seed)*.35-.15;
+    right=[[12,-1],[17,6],[10,10]];
+    state.face=free?'smile':'focus';state.eyeLook=wave*.35;
+    state.beard=still?0:Math.sin(t*.0026+seed-.5)*.015;
+  }
+
+  ctx.save();
+  try{
+    ctx.translate(x,y);ctx.rotate(angle);ctx.scale(scale*(facing<0?-1:1),scale);
+    ctx.lineCap='round';ctx.lineJoin='round';
+    if(pose==='swim'||pose==='sink'){
+      ctx.beginPath();ctx.rect(-31,-42,62,49);ctx.clip();
+    }else if(pose!=='falling'){
+      vikingOval(ctx,0,24.5,pose==='impact'?22:17.5,2.3,'#16354a30');
+    }
+    ctx.translate(rootX,rootY);ctx.rotate(tilt);ctx.scale(localScale,localScale);
+    vikingLeg(ctx,...legs[0],false);vikingLeg(ctx,...legs[1],true);
+    ctx.save();ctx.scale(1,bodyScaleY);
+    if(pose==='celebrate')vikingAxe(ctx,right[2],wave);
+    vikingLimb(ctx,...left,palette,false);
+    vikingLimb(ctx,...right,palette,true);
+    vikingShape(ctx,[[-11,-6],[-15,0],[-15,11],[-10,16],[0,14],[10,16],
+      [15,11],[15,0],[11,-6]],palette.coat,'#29434d',1.4);
+    vikingShape(ctx,[[-12,1],[-7,2],[-7,12],[-10,14],[-14,11]],'#284e5538',null);
+    vikingLine(ctx,[[-12,10],[12,10]],'#3f433b',3.6);
+    vikingLine(ctx,[[-12,9.2],[12,9.2]],palette.trim,1);
+    vikingShape(ctx,[[2,7.8],[6,7.8],[6,11.6],[2,11.6]],'#e4c17b','#735e3c',.8);
+    vikingShape(ctx,[[-11,-7],[-14,-3],[-11,1],[-8,-1],[-6,1],[0,-1],
+      [6,1],[8,-1],[11,1],[14,-3],[11,-7]],'#d4d0ae','#55666a',.9);
+    vikingLine(ctx,[[-11,-4],[-8,-3],[-5,-4]],'#f1e6c5',1.3);
+    vikingLine(ctx,[[6,-4],[9,-3],[11,-4]],'#f1e6c5',1.3);
+    vikingHead(ctx,palette,state);
+    // Tucked hands belong in front of the beard, not hidden behind the coat.
+    if(pose==='frozen'){
+      vikingOval(ctx,-8.5,3.5,3.1,3,'#e2ad86');
+      vikingOval(ctx,8.5,3.5,3.1,3,'#eabb91');
+      vikingLine(ctx,[[-10,4],[-7.5,4]],'#b78162',.8);
+      vikingLine(ctx,[[7.5,4],[10,4]],'#b78162',.8);
+    }
+    ctx.restore();
+  }finally{ctx.restore();}
+}
+
+
+// village-art.js
+/**
+ * Original, quiet coastal settlement artwork for Frosty Champs.
+ * Coordinates are a 960 × 640 composition; the canvas behind it stays transparent.
+ * Draw after the distant landscape and before any interactive world objects.
+ */
+const VILLAGE_TAU = Math.PI * 2;
+const VILLAGE_PALETTE = {
+  ink: '#254957', timber: '#47616a', timberLight: '#5e7377', timberDark: '#344e5a',
+  roof: '#48665f', roofLight: '#658074', roofDark: '#35584f', snow: '#98b6ae',
+  stone: '#526e76', stoneDark: '#3a5a68', amber: '#c5a473', glow: '#dec48d',
+  skin: '#bb9e85', beard: '#9a8065', red: '#806b64', teal: '#658b86',
+};
+function villagePolygon(ctx, points, fill, stroke, width = 1) {
+  ctx.beginPath();
+  points.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
+  ctx.closePath();
+  if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+  if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = width; ctx.stroke(); }
+}
+function villageLine(ctx, points, color, width = 1) {
+  ctx.beginPath();
+  points.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
+  ctx.strokeStyle = color; ctx.lineWidth = width; ctx.stroke();
+}
+function villageOval(ctx, x, y, rx, ry, fill) {
+  ctx.beginPath(); ctx.ellipse(x, y, rx, ry, 0, 0, VILLAGE_TAU);
+  ctx.fillStyle = fill; ctx.fill();
+}
+function villageRect(ctx, x, y, w, h, color) {
+  ctx.fillStyle = color; ctx.fillRect(x, y, w, h);
+}
+function villageRoofCarving(ctx, x, y, facing = 1) {
+  ctx.save(); ctx.translate(x, y); ctx.scale(facing, 1);
+  ctx.beginPath(); ctx.moveTo(-2, 12); ctx.bezierCurveTo(8, 4, 10, -5, 4, -7);
+  ctx.bezierCurveTo(-2, -11, -10, -4, -5, 0); ctx.lineTo(0, -1);
+  ctx.strokeStyle = VILLAGE_PALETTE.timberLight; ctx.lineWidth = 4; ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(-2, 11); ctx.bezierCurveTo(7, 4, 8, -4, 3, -5);
+  ctx.strokeStyle = '#a0a18a'; ctx.lineWidth = 1; ctx.stroke();
+  villageOval(ctx, -4, -5, .9, .9, VILLAGE_PALETTE.ink); ctx.restore();
+}
+function villageWindowPane(ctx, x, y, w = 9, h = 11, warm = true) {
+  villageRect(ctx, x - 2, y - 2, w + 4, h + 4, VILLAGE_PALETTE.timberDark);
+  villageRect(ctx, x, y, w, h, warm ? VILLAGE_PALETTE.amber : '#78918d');
+  villageRect(ctx, x, y, w, 2, warm ? '#dbba84' : '#92aba1');
+  villageLine(ctx, [[x + w / 2, y], [x + w / 2, y + h]], VILLAGE_PALETTE.timberDark, 1.5);
+  villageLine(ctx, [[x, y + h / 2], [x + w, y + h / 2]], VILLAGE_PALETTE.timberDark, 1.3);
+}
+function villageShield(ctx, x, y, color = VILLAGE_PALETTE.red, radius = 7) {
+  villageOval(ctx, x, y, radius + 1, radius + 1, VILLAGE_PALETTE.timberDark);
+  villageOval(ctx, x, y, radius, radius, color);
+  villageLine(ctx, [[x - radius + 1, y], [x + radius - 1, y]], '#879286', 1);
+  villageLine(ctx, [[x, y - radius + 1], [x, y + radius - 1]], '#879286', 1);
+  villageOval(ctx, x, y, 2.2, 2.2, '#a0a28b');
+  villageOval(ctx, x - .6, y - .5, .7, .7, '#c0bc9a');
+}
+function villageChimneySmoke(ctx, x, y, t, phase) {
+  ctx.save();
+  for (let i = 0; i < 4; i++) {
+    const u = ((t * .000035 + phase + i / 4) % 1 + 1) % 1;
+    const drift = Math.sin(u * 5 + phase * 4) * 5 + u * 14;
+    ctx.globalAlpha *= .65;
+    ctx.strokeStyle = `rgba(181,201,194,${.16 * Math.sin(u * Math.PI)})`;
+    ctx.lineWidth = 3 + u * 5;
+    ctx.beginPath(); ctx.moveTo(x, y - 1);
+    ctx.bezierCurveTo(x - 5, y - 12, x + drift + 9, y - 12 - u * 22, x + drift, y - 10 - u * 49);
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+function villageLonghouse(ctx, x, y, scale, t, options = {}) {
+  const { mirror = false, warm = true, phase = 0, snow = true } = options;
+  ctx.save(); ctx.translate(x, y); ctx.scale(scale * (mirror ? -1 : 1), scale);
+  villageOval(ctx, 70, 1, 79, 6, '#274b5855');
+  // Chunky stacked foundation and hand-cut siding.
+  villagePolygon(ctx, [[0,-9],[143,-7],[145,3],[-2,4]], VILLAGE_PALETTE.stoneDark);
+  for (let i = 0; i < 12; i++) villageRect(ctx, i * 12, i % 2 - 6, 10, 4, VILLAGE_PALETTE.stone);
+  villagePolygon(ctx, [[3,-36],[61,-34],[61,-3],[3,-3]], VILLAGE_PALETTE.timber, VILLAGE_PALETTE.timberDark, 1.5);
+  villagePolygon(ctx, [[61,-34],[139,-28],[139,-4],[61,-3]], VILLAGE_PALETTE.timberDark);
+  for (let i = 0; i < 4; i++) {
+    villageLine(ctx, [[5,-29+i*7],[59,-28+i*7]], '#657b7d', .9);
+    villageLine(ctx, [[64,-28+i*6],[137,-23+i*6]], '#536b72', .8);
+  }
+  for (const dx of [5, 58]) villageRect(ctx, dx, -36, 3, 32, '#384f57');
+  for (const dx of [85, 112, 135]) villageLine(ctx, [[dx,-30+(dx-61)*.08],[dx,-5]], '#6b7978', 2.4);
+  // A recessed arched doorway and a small carved lintel.
+  ctx.beginPath(); ctx.moveTo(23,-3); ctx.lineTo(23,-21); ctx.quadraticCurveTo(33,-33,43,-21); ctx.lineTo(43,-3); ctx.closePath(); ctx.fillStyle=VILLAGE_PALETTE.ink; ctx.fill();
+  villageRect(ctx, 27, -20, 13, 17, '#53635d');
+  villageLine(ctx, [[33,-23],[33,-4]], '#839080', 1);
+  villageOval(ctx, 37, -13, 1, 1, '#b1a27a');
+  villagePolygon(ctx, [[20,-4],[45,-4],[49,1],[17,1]], '#718786');
+  villageWindowPane(ctx, 9, -26, 7, 9, warm); villageWindowPane(ctx, 70, -24, 8, 10, warm); villageWindowPane(ctx, 117, -19, 8, 9, warm);
+  villageShield(ctx, 98, -16, VILLAGE_PALETTE.teal, 6);
+  // Tall gable, asymmetric turf roof, and layered grassy eaves.
+  villagePolygon(ctx, [[-7,-34],[30,-73],[70,-32]], '#526d69', VILLAGE_PALETTE.timberDark, 2);
+  villagePolygon(ctx, [[30,-73],[112,-62],[148,-25],[70,-32]], VILLAGE_PALETTE.roofDark, VILLAGE_PALETTE.ink, 1.5);
+  villagePolygon(ctx, [[30,-73],[112,-62],[142,-31],[69,-38]], VILLAGE_PALETTE.roof);
+  villagePolygon(ctx, [[1,-37],[30,-68],[60,-37]], VILLAGE_PALETTE.timber);
+  for (let i = 0; i < 5; i++) villageLine(ctx, [[10+i*4,-41-i*5],[50-i*4,-41-i*5]], '#667c76', .8);
+  villageLine(ctx, [[-7,-34],[30,-73],[70,-32]], '#91a08b', 4);
+  villageLine(ctx, [[-5,-32],[30,-67],[67,-31]], '#405950', 1.4);
+  villageLine(ctx, [[31,-70],[111,-60],[144,-28]], VILLAGE_PALETTE.roofLight, 2);
+  for (let i = 0; i < 16; i++) {
+    const dx = 70+i*4.6, dy = -35+(dx-70)*.082;
+    villageLine(ctx, [[dx-1,dy-4-(i%3)],[dx,dy+2],[dx+2,dy-2]], i%2 ? VILLAGE_PALETTE.roofLight : '#6b8777', 1.2);
+  }
+  // Gentle roof patches, not bright enough to masquerade as playable ice.
+  if (snow) {
+    villagePolygon(ctx, [[33,-72],[69,-67],[63,-64],[45,-66],[39,-64]], VILLAGE_PALETTE.snow);
+    villagePolygon(ctx, [[95,-63],[111,-61],[124,-47],[115,-49],[112,-53],[105,-52]], '#8da99d');
+    villageLine(ctx, [[-6,-36],[10,-52],[15,-54]], '#a1b8a8', 2);
+  }
+  villageLine(ctx, [[30,-66],[30,-38]], '#9ba38a', 2);
+  villageOval(ctx, 30, -47, 4, 4, VILLAGE_PALETTE.ink); villageOval(ctx, 30, -47, 2, 2, '#718781');
+  villageRoofCarving(ctx, 26, -76); villageRoofCarving(ctx, 115, -65, -1);
+  // Small chimney, with the smoke drawn behind its stone cap.
+  villageChimneySmoke(ctx, 93, -77, t, phase);
+  villagePolygon(ctx, [[88,-54],[88,-77],[98,-76],[98,-53]], VILLAGE_PALETTE.stoneDark);
+  villageLine(ctx, [[88,-69],[97,-68]], VILLAGE_PALETTE.stone, 1); villageLine(ctx, [[89,-61],[97,-60]], VILLAGE_PALETTE.stone, 1);
+  villageRect(ctx, 86, -80, 14, 4, '#6b8283'); villageRect(ctx, 88, -81, 10, 2, '#a2b6a8');
+  ctx.restore();
+}
+function villagePine(ctx, x, y, s, color = '#335862') {
+  ctx.save(); ctx.translate(x,y); ctx.scale(s,s);
+  villageLine(ctx, [[0,-30],[0,9]], color, 3);
+  villagePolygon(ctx, [[0,-47],[-12,-25],[-7,-25],[-18,-6],[-10,-6],[-23,10],[22,10],[11,-6],[18,-6],[7,-25],[12,-25]], color);
+  villageLine(ctx, [[-2,-39],[-7,-30],[-3,-31]], '#718f8a', 1.5); ctx.restore();
+}
+function villageVillager(ctx, x, y, scale, t, kind = 0) {
+  ctx.save(); ctx.translate(x,y); ctx.scale(scale,scale);
+  const wave = Math.sin(t*.0014 + kind*2), bob = Math.sin(t*.0008 + kind)*.4;
+  ctx.translate(0,bob);
+  villageLine(ctx, [[-2,0],[-3,-6],[3,-6],[4,0]], VILLAGE_PALETTE.ink, 2.2);
+  villagePolygon(ctx, [[-4,-13],[4,-13],[6,-4],[-6,-4]], kind%2 ? VILLAGE_PALETTE.red : VILLAGE_PALETTE.teal);
+  villageLine(ctx, [[-3,-12],[-6,-8],[-8,-11]], VILLAGE_PALETTE.timberDark, 2);
+  villageLine(ctx, [[4,-12],[8,-14],[8+wave*2,-19]], VILLAGE_PALETTE.timberDark, 2);
+  villageOval(ctx, 0,-17,4,4,VILLAGE_PALETTE.skin);
+  villagePolygon(ctx, [[-4,-17],[-3,-11],[0,-8],[4,-12],[4,-17],[0,-14]], kind%2 ? '#ae987b' : '#7e786b');
+  villagePolygon(ctx, [[-5,-19],[-3,-24],[2,-25],[5,-19]], '#7e9493');
+  villageLine(ctx, [[-5,-19],[5,-19]], '#a5b1a0', 1.7);
+  if (kind === 1) {
+    // The lookout's telescopic inspection is in entirely the wrong direction.
+    villageLine(ctx, [[-2,-17],[-9,-17]], '#909c8d', 3);
+    villageRect(ctx, -11,-19,3,4,VILLAGE_PALETTE.timberDark);
+  }
+  ctx.restore();
+}
+function villageGoat(ctx, x, y, scale, t) {
+  ctx.save();ctx.translate(x,y);ctx.scale(scale,scale);
+  const nibble = (1+Math.sin(t*.0023))*.5;
+  villageOval(ctx,-2,-8,9,5,'#a0afa2');
+  for (const dx of [-8,-3,4]) villageLine(ctx, [[dx,-6],[dx-1,1]], '#697e79', 1.7);
+  villageLine(ctx, [[-10,-10],[-14,-13]], '#a0afa2', 2);
+  ctx.save();ctx.translate(7,-10);ctx.rotate(.12+nibble*.35);
+  villageOval(ctx,2,0,4,5,'#b4bba5');
+  villageLine(ctx, [[-1,-3],[-3,-8],[-5,-8]], '#83958a', 1.6);
+  villageLine(ctx, [[2,-4],[4,-8],[3,-9]], '#83958a', 1.6);
+  villagePolygon(ctx, [[3,2],[8,3],[6,5],[2,4]], '#b4bba5');
+  villageLine(ctx, [[4,5],[4,8]], '#a0afa2', 1.5);
+  villageOval(ctx,4,0,.8,.8,VILLAGE_PALETTE.ink);ctx.restore();ctx.restore();
+}
+function villageRaven(ctx, x, y, t) {
+  ctx.save();ctx.translate(x,y);
+  const tilt = Math.sin(t*.0009)>.7 ? -.27 : .08;
+  ctx.rotate(tilt);villageOval(ctx,0,-4,4,5,VILLAGE_PALETTE.ink);villageOval(ctx,2,-9,3,3,VILLAGE_PALETTE.ink);
+  villagePolygon(ctx, [[4,-10],[8,-8],[4,-7]], '#82958e');
+  villagePolygon(ctx, [[-3,-3],[-7,1],[-1,-1]], VILLAGE_PALETTE.ink);
+  villageLine(ctx, [[-1,0],[-1,3],[1,3]], VILLAGE_PALETTE.ink, 1);villageLine(ctx, [[2,0],[3,3],[5,3]], VILLAGE_PALETTE.ink, 1);
+  villageOval(ctx,3,-10,.6,.6,'#b6bfa8');ctx.restore();
+}
+function villageFishRack(ctx, x, y, t) {
+  ctx.save();ctx.translate(x,y);
+  villageLine(ctx, [[-18,2],[-17,-30],[17,-30],[18,2]], '#536a6c', 3);
+  villageLine(ctx, [[-22,-29],[22,-29]], '#92a18f', 2);
+  villageLine(ctx, [[-21,2],[-17,-9]], VILLAGE_PALETTE.timberDark, 2);villageLine(ctx, [[21,2],[17,-9]], VILLAGE_PALETTE.timberDark, 2);
+  for(let i=0;i<4;i++) {
+    ctx.save();ctx.translate(-12+i*8,-29);ctx.rotate(Math.sin(t*.001+i)*.05);
+    villageLine(ctx,[[0,0],[0,6]],'#9aab99',.8);
+    villagePolygon(ctx,[[-2,6],[2,6],[0,9],[3,14],[1,19],[-1,20],[-3,14]],i%2?'#92aaa3':'#758f8c');
+    villageOval(ctx,1,16,.6,.6,VILLAGE_PALETTE.ink);ctx.restore();
+  }
+  ctx.restore();
+}
+function villageBarrel(ctx, x, y, scale = 1) {
+  ctx.save();ctx.translate(x,y);ctx.scale(scale,scale);
+  villagePolygon(ctx,[[-5,-11],[5,-11],[6,-3],[4,0],[-4,0],[-6,-3]],'#6c7871');
+  villageOval(ctx,0,-11,5,2,'#879184');villageLine(ctx,[[-5,-8],[5,-8]],VILLAGE_PALETTE.timberDark,1.5);villageLine(ctx,[[-5,-3],[5,-3]],VILLAGE_PALETTE.timberDark,1.5);
+  villageLine(ctx,[[0,-10],[0,-1]],'#8d9786',.6);ctx.restore();
+}
+function villageDock(ctx, x, y, t) {
+  ctx.save();ctx.translate(x,y);
+  for(const dx of [-35,-10,18,39]) {villageRect(ctx,dx,-1,4,12,VILLAGE_PALETTE.timberDark);villageOval(ctx,dx+2,-1,3,1.5,'#8aa19a');}
+  villagePolygon(ctx,[[-40,-3],[31,-7],[48,1],[-31,5]],'#526e75',VILLAGE_PALETTE.timberDark,1);
+  for(let i=0;i<9;i++)villageLine(ctx,[[-35+i*8,-3-i*.04],[-27+i*8,4-i*.04]],'#7e918b',.8);
+  villageBarrel(ctx,-25,-3,.8);
+  villageVillager(ctx,8,-2,.7,t,0);
+  // Fishing rod: every so often the catch is a very small old boot.
+  villageLine(ctx,[[10,-13],[24,-33],[35,-40]],'#81918a',1.2);
+  const phase=((t%18000)+18000)%18000;
+  const lift=phase>11500&&phase<15500 ? Math.sin((phase-11500)/4000*Math.PI)*16 : 0;
+  ctx.beginPath();ctx.moveTo(35,-40);ctx.quadraticCurveTo(47,-28,40,-5-lift);ctx.strokeStyle='#b3bbaa66';ctx.lineWidth=.7;ctx.stroke();
+  if(lift>2)villagePolygon(ctx,[[37,-8-lift],[42,-8-lift],[42,-3-lift],[47,-3-lift],[47,-1-lift],[37,-1-lift]],'#738478');
+  ctx.restore();
+}
+function villageLookout(ctx, x, y, t) {
+  ctx.save();ctx.translate(x,y);
+  villageLine(ctx,[[-13,0],[-10,-48]],VILLAGE_PALETTE.timberDark,5);villageLine(ctx,[[13,0],[10,-48]],VILLAGE_PALETTE.timberDark,5);
+  villageLine(ctx,[[-11,-7],[10,-32],[-10,-32],[11,-7]],'#68817c',2.2);
+  villagePolygon(ctx,[[-18,-48],[18,-48],[16,-36],[-16,-36]],'#516b70');
+  for(let i=-12;i<=12;i+=6)villageLine(ctx,[[i,-47],[i,-36]],'#80958b',1.4);
+  villageVillager(ctx,0,-48,.66,t,1);
+  villagePolygon(ctx,[[-23,-67],[0,-86],[23,-67]],VILLAGE_PALETTE.roofDark,VILLAGE_PALETTE.ink,1);
+  villageLine(ctx,[[-23,-67],[0,-86],[23,-67]],'#81998a',2.5);
+  villageLine(ctx,[[-15,-68],[-15,-46]],VILLAGE_PALETTE.timberDark,2);villageLine(ctx,[[15,-68],[15,-46]],VILLAGE_PALETTE.timberDark,2);
+  villageRect(ctx,-2,-94,2,10,VILLAGE_PALETTE.timberDark);
+  const flutter=Math.sin(t*.0018)*2;
+  villagePolygon(ctx,[[0,-94],[17,-93+flutter],[13,-87+flutter],[0,-89]],'#78827a');
+  ctx.restore();
+}
+function villagePennant(ctx,x,y,t) {
+  villageLine(ctx,[[x,y],[x,y-49]],'#657b79',2);
+  const sway=Math.sin(t*.0013)*2;
+  villagePolygon(ctx,[[x,y-48],[x+18,y-46+sway],[x+13,y-38+sway],[x+1,y-39]],'#827c70');
+  villageLine(ctx,[[x+6,y-45],[x+9,y-40],[x+12,y-44]],'#acaa8e',.8);
+}
+
+/**
+ * Paint a subdued, transparent village at screen scale. time is milliseconds.
+ * No random state, external resources, text, hit regions, or canvas state leaks.
+ */
+function drawVillage(ctx, {
+  width=960, height=640, time=0, reducedMotion=false,
+  cameraX=0, cameraY=0, chapter=0,
+} = {}) {
+  const t=reducedMotion ? 0 : (Number.isFinite(time) ? time : 0);
+  ctx.save();
+  ctx.scale(width/960,height/640);
+  ctx.lineCap='round';ctx.lineJoin='round';
+  // Keep the water readable even while a large world camera pans vertically.
+  ctx.beginPath();ctx.rect(0,0,960,575);ctx.clip();
+  // A restrained parallax shift, separate from the playable world camera.
+  ctx.translate(-(Number.isFinite(cameraX)?cameraX:0)*.15,-(Number.isFinite(cameraY)?cameraY:0)*.08);
+  // The further bank is deliberately sparse, so the puzzle always reads first.
+  ctx.save();ctx.globalAlpha*=.5;
+  villagePine(ctx,185,509,.6);villagePine(ctx,279,519,.42);villagePine(ctx,693,515,.45);
+  villageLonghouse(ctx,189,520,.53,t,{phase:.2,warm:chapter!==1});
+  villageLonghouse(ctx,755,518,.49,t,{mirror:true,phase:.63,warm:true});
+  villageLine(ctx,[[260,524],[306,525],[320,529]],'#63827f',1.5);
+  villageLine(ctx,[[670,526],[695,525],[723,524]],'#63827f',1.5);
+  ctx.restore();
+  // The inhabited shore: shaped banks with little paths, wood piles, and piers.
+  ctx.save();ctx.globalAlpha*=.91;
+  villagePolygon(ctx,[[-30,540],[18,530],[72,536],[117,528],[162,541],[211,548],[253,554],[249,562],[193,562],[137,558],[84,565],[-30,560]],'#3a5f69');
+  villagePolygon(ctx,[[724,554],[754,543],[793,541],[831,532],[899,534],[945,528],[990,538],[990,561],[932,568],[863,562],[799,565]],'#3a5f69');
+  villageLine(ctx,[[9,540],[52,543],[84,552],[113,551],[143,554]],'#87a299',3);
+  villageLine(ctx,[[769,552],[803,548],[838,553],[880,549],[910,553]],'#7c9990',2);
+  villagePine(ctx,-9,541,.8);villagePine(ctx,21,523,.65);villagePine(ctx,945,537,.8);villagePine(ctx,974,549,.75);
+  villageLookout(ctx,8,539,t);
+  villageLonghouse(ctx,43,548,.89,t,{phase:.04});
+  villageLonghouse(ctx,912,548,.92,t,{mirror:true,phase:.52});
+  villageFishRack(ctx,212,551,t);
+  villageDock(ctx,250,559,t);
+  villagePennant(ctx,925,550,t);
+  // A roof is apparently also the village goat's salad bar.
+  villageGoat(ctx,108,493,.77,t);
+  villageRaven(ctx,851,480,t);
+  villageVillager(ctx,178,553,.77,t,0);
+  villageVillager(ctx,762,554,.7,t+1300,0);
+  villageBarrel(ctx,737,553,.86);villageBarrel(ctx,750,553,.7);villageBarrel(ctx,185,552,.85);
+  // Chopped logs and a tiny sled outside the longhouse.
+  for(const [x,y] of [[49,550],[56,550],[52,545]]){villageOval(ctx,x,y,4,3,'#6f7e72');villageOval(ctx,x,y,2,1.6,'#9c9e82');}
+  villageLine(ctx,[[829,553],[846,553],[850,550]],'#8a998a',1.5);villageLine(ctx,[[831,548],[843,548]],VILLAGE_PALETTE.timberDark,3);villageLine(ctx,[[832,549],[832,553]],VILLAGE_PALETTE.timberDark,1);villageLine(ctx,[[842,549],[842,553]],VILLAGE_PALETTE.timberDark,1);
+  // One brief leaping fish, safely behind gameplay and above the waterline.
+  const fishPhase=((t+4800)%19000)/19000;
+  if(!reducedMotion&&fishPhase<.055){
+    const p=fishPhase/.055;
+    ctx.save();ctx.translate(704+p*30,574-Math.sin(p*Math.PI)*17);ctx.rotate((p-.5)*2.2);
+    villageOval(ctx,0,0,5,2.2,'#839e95');villagePolygon(ctx,[[-4,0],[-8,-3],[-8,3]],'#839e95');villageOval(ctx,3,-.4,.6,.6,VILLAGE_PALETTE.ink);ctx.restore();
+  }
+  ctx.restore();
+  ctx.restore();
+}
 
 
 // game.js
-const $=id=>document.getElementById(id),canvas=$('game'),ctx=canvas.getContext('2d'),W=960,H=640;
-const STORAGE='frosty-champs-v1';let saved={levels:{},sound:false,last:0};try{const data=JSON.parse(localStorage.getItem(STORAGE));if(data&&typeof data==='object')saved={...saved,...data,levels:data.levels||{}};}catch{}
-let sim=null,index=0,started=false,paused=false,modalOpen=false,undo=[],drag=null,particles=[],trails=[],guideUntil=0,toastTimer,finishTimer,lastFrame=0,accumulator=0,clock=0,audio=null;
+const $=id=>document.getElementById(id),canvas=$('game'),ctx=canvas.getContext('2d');let W=960,H=640;
+const STORAGE='frosty-champs-expedition-v3';let saved={levels:{},sound:false,last:0};try{const data=JSON.parse(localStorage.getItem(STORAGE));if(data&&typeof data==='object')saved={...saved,...data,levels:data.levels||{}};}catch{}
+let sim=null,index=0,started=false,paused=false,modalOpen=false,drag=null,particles=[],trails=[],guideUntil=0,toastTimer,finishTimer,lastFrame=0,accumulator=0,clock=0,audio=null,hammerAt=-Infinity,successAt=-Infinity;
+let camera={x:0,y:0,zoom:1,minZoom:.5},panMode=false,panDrag=null,cameraTween=null;const arrivals=new Map();let waterLoss=null;
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const copy=['Every great voyage begins with a small crack.','The clever way home is rarely a straight line.','Some mountains are obstacles. Some are helpful.','No sailor left behind. Not even the grumpy one.','A long way from shore. A little closer to home.'];
 function persist(){try{localStorage.setItem(STORAGE,JSON.stringify(saved));}catch{}}
 function sound(type){if(!saved.sound)return;try{audio ||= new (window.AudioContext||window.webkitAudioContext)();if(audio.state==='suspended')audio.resume();const notes={slice:[670,410],rune:[740,990,1320],rescue:[523,659,784],win:[523,659,784,1046],lost:[245,184],blocked:[150],click:[440],rope:[240,360],shatter:[1320,880,1740]}[type]||[440];notes.forEach((f,i)=>{const osc=audio.createOscillator(),gain=audio.createGain(),t=audio.currentTime+i*.075;osc.type=type==='slice'?'triangle':'sine';osc.frequency.setValueAtTime(f,t);if(type==='slice')osc.frequency.exponentialRampToValueAtTime(f*.5,t+.12);gain.gain.setValueAtTime(0,t);gain.gain.linearRampToValueAtTime(.06,t+.008);gain.gain.exponentialRampToValueAtTime(.001,t+.22);osc.connect(gain);gain.connect(audio.destination);osc.start(t);osc.stop(t+.24);});}catch{}}
 function setSound(){ $('soundLabel').textContent=saved.sound?'Sound on':'Sound off';$('soundBtn').setAttribute('aria-label',saved.sound?'Turn sound off':'Turn sound on');$('soundIcon').style.opacity=saved.sound?'1':'.6';}
 function toast(text){$('toast').textContent=text;$('toast').classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('visible'),3100);}
 function burst(x,y,color,count=15){for(let i=0;i<count;i++){const a=Math.random()*Math.PI*2,s=1+Math.random()*4;particles.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-1,life:1,color,size:2+Math.random()*5});}}
 function onEvent(e){
+if(e.type==='oversize')toast('Trim the ice for the hammer');
 if(e.type==='rope'){sound('rope');burst(e.x,e.y,'#ead0a1',10);}
 if(e.type==='shatter'){
+ if(e.surface==='boat'&&e.crew)hammerAt=clock;
  sound('shatter');
  const n=Math.min(38,14+Math.round(e.points.length*2));
  for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,speed=1.5+Math.random()*4.5;particles.push({x:e.x+(Math.random()-.5)*40,y:e.y+(Math.random()-.5)*35,vx:Math.cos(a)*speed+e.velocity.x*.3,vy:Math.sin(a)*speed-1.2,life:1.3,color:['#bdf8f5','#81d3e4','#e1ffff'][i%3],size:6+Math.random()*14,shard:true,spin:(Math.random()-.5)*7});}
  burst(e.x,e.y,'#e2ffff',15);
- if(e.crew&&!saved.sawShatter){saved.sawShatter=true;persist();toast('Crack! Free Vikings pace on safe ground. The boat is still home.');}
+ if(e.crew&&e.surface!=='boat'&&!saved.sawShatter){saved.sawShatter=true;persist();toast('Reach the ship');}
 }
-if(e.type==='slice'){sound('slice');for(let t=0;t<=1;t+=.08)burst(e.a.x+(e.b.x-e.a.x)*t,e.a.y+(e.b.y-e.a.y)*t,'#c5ffff',2);trails.push({...e,life:1});}if(e.type==='blocked'){sound('blocked');toast('Mind the helmets! Cut around your crew, not through them.');}if(e.type==='rune'){sound('rune');burst(e.x,e.y,'#f4d088',22);}if(e.type==='rescue'){sound('rescue');burst(e.x,e.y,'#d4f6d6',26);}if(e.type==='lost'){sound('lost');burst(e.x,Math.min(e.y,610),'#8dbed0',16);finishTimer=setTimeout(()=>showResult(false),650);}if(e.type==='win'){sound('win');const old=saved.levels[sim.level.id];saved.levels[sim.level.id]={stars:Math.max(e.stars,old?.stars||0),cuts:Math.min(e.cuts,old?.cuts??Infinity)};saved.last=Math.min(index+1,LEVELS.length-1);persist();finishTimer=setTimeout(()=>showResult(true),850);}updateUI();}
-function loadLevel(n){clearTimeout(finishTimer);clearTimeout(toastTimer);$('toast').classList.remove('visible');sim?.destroy();index=Math.max(0,Math.min(n,LEVELS.length-1));sim=new RescueSimulation(window.Matter,LEVELS[index],onEvent);undo=[];particles=[];trails=[];guideUntil=0;drag=null;paused=false;accumulator=0;$('hintCard').hidden=true;$('hintBtn').setAttribute('aria-expanded','false');$('pauseBtn').innerHTML='<span>Ⅱ</span> Pause';closeModal();updateUI();}
-function updateUI(){if(!sim)return;const l=sim.level,c=CHAPTERS[l.chapter];$('chapterLabel').textContent=`${String(l.chapter+1).padStart(2,'0')} / ${c.name.toUpperCase()}`;$('levelTitle').textContent=l.name;$('missionName').textContent=l.name;$('levelNumber').textContent=String(l.id).padStart(2,'0');$('missionIntro').textContent=copy[l.chapter];$('rescueCount').textContent=`${sim.rescued.length} / ${sim.total}`;$('cutCount').textContent=`${sim.cuts} / ${l.par}`;$('crewGoal').textContent=`Rescue ${sim.total} stranded Viking${sim.total===1?'':'s'}.`;$('parGoal').textContent=`The clever cut${l.par===1?'':'s'}: ${l.par}`;$('runeGoal').textContent=sim.runes.length?`${sim.runes.filter(r=>r.collected).length} / ${sim.runes.length} runes caught. Guide the crew through.`:'A little gift: this star is yours.';$('hintText').textContent=l.hint;const records=Object.values(saved.levels),done=records.length,stars=records.reduce((n,v)=>n+v.stars,0);$('progressText').textContent=`${done} / ${LEVELS.length}`;$('startBtn').innerHTML=done?'Continue the voyage <span>→</span>':'Begin the voyage <span>→</span>'; $('progressBar').style.width=`${done/LEVELS.length*100}%`;$('starTotal').textContent=stars;$('undoBtn').disabled=!undo.length;$('pauseBtn').innerHTML=paused?'<span>▶</span> Resume':'<span>Ⅱ</span> Pause';$('gestureTip').innerHTML=index===0?'<span>→</span> Cut beneath the gold pins, above the helmet.':'<span>→</span> Drag a line through the ice. Let gravity do the rest.';}
-function start(){started=true;document.body.classList.remove('is-splash');$('splash').hidden=true;loadLevel(saved.last||0);canvas.focus({preventScroll:true});if(index===0){guideUntil=clock+6500;toast('Click and drag across the ice above your Viking.');}sound('click');}
-function doUndo(){if(!undo.length)return;clearTimeout(finishTimer);sim.restore(undo.pop());particles=[];closeModal();paused=false;updateUI();toast('A fresh chance. Make this cut count.');}
-function restart(){loadLevel(index);if(started)toast('Fresh ice. Fresh ideas.');}
+if(e.type==='slice'){sound('slice');for(let t=0;t<=1;t+=.08)burst(e.a.x+(e.b.x-e.a.x)*t,e.a.y+(e.b.y-e.a.y)*t,'#c5ffff',2);trails.push({...e,life:1});}if(e.type==='blocked'){sound('blocked');toast('Cut blocked by crew');}if(e.type==='rune'){sound('rune');burst(e.x,e.y,'#f4d088',22);}if(e.type==='rescue'){arrivals.set(e.id,clock);successAt=clock;sound('rescue');burst(e.x,e.y,'#d4f6d6',26);}if(e.type==='lost'){clearTimeout(toastTimer);$('toast').classList.remove('visible');sound('lost');const sea=sim.world.waterY-18;burst(e.x,Math.min(e.y,sea),'#b6edf1',24);waterLoss=e.cause==='water'?{...e,startedAt:clock,y:sea}:null;if(waterLoss)cinematicFocus(e.x,sea-90,W<800?1.35:1.2);finishTimer=setTimeout(()=>showResult(false),waterLoss?2100:950);}if(e.type==='win'){clearTimeout(toastTimer);$('toast').classList.remove('visible');cinematicFocus(sim.level.boat.x,sim.level.boat.y-90,W<800?1.2:1.3);sound('win');const old=saved.levels[sim.level.id];saved.levels[sim.level.id]={stars:Math.max(e.stars,old?.stars||0),cuts:Math.min(e.cuts,old?.cuts??Infinity)};saved.last=Math.min(index+1,LEVELS.length-1);persist();finishTimer=setTimeout(()=>showResult(true),2350);}updateUI();}
+function loadLevel(n){clearTimeout(finishTimer);clearTimeout(toastTimer);$('toast').classList.remove('visible');sim?.destroy();index=Math.max(0,Math.min(n,LEVELS.length-1));sim=new RescueSimulation(window.Matter,LEVELS[index],onEvent);arrivals.clear();waterLoss=null;particles=[];trails=[];guideUntil=0;drag=null;hammerAt=-Infinity;successAt=-Infinity;paused=true;accumulator=0;$('hintCard').hidden=true;$('hintBtn').setAttribute('aria-expanded','false');$('pauseBtn').innerHTML='<span aria-hidden="true">Ⅱ</span><small>Pause</small>'; resetCamera();closeModal();updateUI();}
+function updateUI(){if(!sim)return;const l=sim.level;$('chapterLabel').textContent=String(l.id).padStart(2,'0');$('chapterLabel').title=CHAPTERS[l.chapter].name;$('levelTitle').textContent=l.name;$('rescueCount').textContent=`${sim.rescued.length}/${sim.total}`;$('cutCount').textContent=`${sim.cuts}/${l.par}`;$('runeCount').textContent=`${sim.runes.filter(r=>r.collected).length}/${sim.runes.length}`;$('hintText').textContent=l.hint;const done=Object.keys(saved.levels).length;$('startBtn').innerHTML=`${done?'Continue':'Play'} <span aria-hidden="true">→</span>`;$('pauseBtn').innerHTML=paused?'<span aria-hidden="true">►</span><small>Go</small>':'<span aria-hidden="true">Ⅱ</span><small>Pause</small>';$('pauseBtn').setAttribute('aria-label',paused?'Resume game':'Pause game');$('gestureTip').textContent=panMode?'Drag to pan':'Drag to cut · Scroll to explore';}
+
+function start(){started=true;document.body.classList.remove('is-splash');$('splash').hidden=true;loadLevel(saved.last||0);canvas.focus({preventScroll:true});if(index===0){guideUntil=clock+6500;toast('Drag to cut · + zoom · ✥ pan');}sound('click');}
+function restart(){loadLevel(index);}
 function showModal(html,cls=''){modalOpen=true;$('modal').className=`modal ${cls}`;$('modal').innerHTML=html;$('modalBackdrop').hidden=false;$('modal').focus();$('modal').querySelector('.close')?.addEventListener('click',closeModal);}
 function closeModal(){modalOpen=false;$('modalBackdrop').hidden=true;if(started)canvas.focus({preventScroll:true});}
-function showResult(win){if(!sim||win&&sim.state!=='won'||!win&&sim.state!=='failed')return;const n=sim.runes.filter(r=>r.collected).length;showModal(`<span class="eyebrow">${win?'SAFE & SOUND':'A CHILLY DETOUR'}</span><h2 id="modalTitle">${win?(index===29?'The whole fjord is home.':'Everyone aboard!'):'Let’s try a different cut.'}</h2><p>${win?(index===29?'Thirty crossings, a very grateful crew, and a story worth telling. Revisit your favorite shores and chase every last star.':'Warm socks, a crackling fire, and one very grateful crew. A good captain always finds a way.'):'One of your crew missed the boat. Nothing is lost: undo your last cut, or start again with fresh ice.'}</p>${win?`<div class="result-art" aria-label="${sim.stars} out of 3 stars">${[1,2,3].map(s=>`<span class="${s>sim.stars?'empty':''}">✦</span>`).join('')}</div><div class="result-stats"><span><strong>${sim.rescued.length}</strong> rescued</span><span><strong>${sim.cuts}</strong> cuts / ${sim.level.par} target</span><span><strong>${n}</strong> runes</span></div>`:''}<div class="modal-actions"><button id="resultPrimary" class="primary-button">${win?(index===29?'Explore the voyage':'On to the next shore'):'Undo last cut'} <span>→</span></button><button id="resultRestart" class="secondary-button">${win?'Try for a cleaner cut':'Restart level'}</button><button id="resultMap" class="secondary-button">The voyage</button></div>`);$('resultPrimary').onclick=win?()=>{if(index===29)showMap();else loadLevel(index+1);}:doUndo;$('resultRestart').onclick=restart;$('resultMap').onclick=showMap;}
-function showHelp(){sound('click');showModal(`<button class="close" aria-label="Close instructions">×</button><span class="eyebrow">A CAPTAIN'S FIELD GUIDE</span><h2 id="modalTitle">Small cuts. Big adventures.</h2><ol class="help-steps"><li><b>1</b><div><strong>Slice the ice.</strong>Click and drag, or swipe with a finger. Start outside a block and cut all the way through. Time pauses while you aim. You can also pause to plan several cuts.</div></li><li><b>2</b><div><strong>Let the ropes do the swinging.</strong>Gold pins connect ice to real hanging ropes. Slice below a pin to free the ice, or cut an exposed rope. A single rope makes a great pendulum. Stone cannot be cut.</div></li><li><b>3</b><div><strong>Crack the ice. Bring the crew home.</strong>Ice shatters on a solid landing. Free Vikings slide down slopes and happily pace on safe stone, turning before an edge. Only reaching the boat counts as a rescue. Water and red ice are still trouble.</div></li><li><b>✦</b><div><strong>Find your perfect three-star route.</strong>Rescue the crew for one star, meet the cut target for another, and collect every golden rune for the third. Undo and retry as much as you like.</div></li></ol><p>R: restart · Z: undo · Space: pause · M: sound<br>All 30 shores are open to explore. Your stars stay on this device.</p><button id="helpDone" class="primary-button">I’ve got this <span>→</span></button>`);$('helpDone').onclick=closeModal;}
-function showMap(){sound('click');showModal(`<button class="close" aria-label="Close voyage map">×</button><span class="eyebrow">THIRTY SHORES. ONE LITTLE BOAT.</span><h2 id="modalTitle">The voyage</h2><p class="map-intro">Follow the journey or choose a shore. Every level is yours to explore.</p>${CHAPTERS.map(c=>`<section class="chapter-section"><h3>${String(c.id+1).padStart(2,'0')} · ${c.name}</h3><div class="level-grid">${LEVELS.filter(l=>l.chapter===c.id).map(l=>`<button class="level-tile ${l.id===index+1?'current':''} ${saved.levels[l.id]?'complete':''}" data-level="${l.id-1}" aria-label="Level ${l.id}, ${l.name}, ${saved.levels[l.id]?.stars||0} stars"><b>${String(l.id).padStart(2,'0')}</b><small>${l.name}</small><span>${'✦'.repeat(saved.levels[l.id]?.stars||0)}${'·'.repeat(3-(saved.levels[l.id]?.stars||0))}</span></button>`).join('')}</div></section>`).join('')}`,'map');$('modal').querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{if(!started){started=true;$('splash').hidden=true;document.body.classList.remove('is-splash');}loadLevel(+b.dataset.level);});}
-function togglePause(){if(!started||sim.state!=='playing')return;paused=!paused;$('pauseBtn').innerHTML=paused?'<span>▶</span> Resume':'<span>Ⅱ</span> Pause';if(paused)toast('Planning pause. You can still make cuts.');}
-$('startBtn').onclick=start;$('undoBtn').onclick=doUndo;$('restartBtn').onclick=restart;$('pauseBtn').onclick=togglePause;$('soundBtn').onclick=()=>{saved.sound=!saved.sound;persist();setSound();sound('rune');};$('helpBtn').onclick=showHelp;$('mapBtn').onclick=showMap;
-$('hintBtn').onclick=()=>{if(innerWidth<=850){toast(sim.level.hint);guideUntil=clock+6500;}else{$('hintCard').hidden=!$('hintCard').hidden;$('hintBtn').setAttribute('aria-expanded',String(!$('hintCard').hidden));}};$('guideBtn').onclick=()=>{guideUntil=clock+6500;toast('Try this cut. The rest of the voyage is yours.');};
+function showResult(win){if(!sim||win&&sim.state!=='won'||!win&&sim.state!=='failed')return;const n=sim.runes.filter(r=>r.collected).length;showModal(`<h2 id="modalTitle">${win?(index===LEVELS.length-1?'Expedition complete':'Crew rescued'):'Crew lost'}</h2>${win?`<div class="result-art" aria-label="${sim.stars} out of 3 stars">${[1,2,3].map(s=>`<span class="${s>sim.stars?'empty':''}">✦</span>`).join('')}</div><div class="result-stats"><span><strong>${sim.rescued.length}</strong> crew</span><span><strong>${sim.cuts}/${sim.level.par}</strong> cuts</span><span><strong>${n}/${sim.runes.length}</strong> runes</span></div>`:''}<div class="modal-actions"><button id="resultPrimary" class="primary-button">${win?(index===LEVELS.length-1?'Levels':'Next'):'Restart'} <span aria-hidden="true">→</span></button>${win?'<button id="resultRestart" class="secondary-button">Replay</button>':''}<button id="resultMap" class="secondary-button">Levels</button></div>`);$('resultPrimary').onclick=win?()=>{if(index===LEVELS.length-1)showMap();else loadLevel(index+1);}:restart;if($('resultRestart'))$('resultRestart').onclick=restart;$('resultMap').onclick=showMap;}
+function showHelp(){sound('click');showModal(`<button class="close" aria-label="Close instructions">×</button><h2 id="modalTitle">Controls & materials</h2><ol class="help-steps"><li><b aria-hidden="true">╱</b><div><strong>Drag through ice or rope.</strong>Helmet in the way? The cut is blocked. Time stops while aiming.</div></li><li><b class="pale-ice" aria-hidden="true">◇</b><div><strong>Pale ice breaks on impact.</strong>Blue pack ice stays solid. Rock and timber cannot be cut.</div></li><li><b aria-hidden="true">⚒</b><div><strong>The hammer needs small pieces.</strong>Trim oversized ice after it lands on the ship.</div></li><li><b aria-hidden="true">✥</b><div><strong>Plan, then Go.</strong>Pause for cuts. Pan or scroll to explore; + / − to zoom. Restart to try again.</div></li><li><b aria-hidden="true">✦</b><div><strong>Three stars.</strong>Rescue everyone · Meet the cut target · Catch all runes.</div></li></ol><p>R restart · P pan · Space pause · M sound<br>Progress saves on this device.</p><button id="helpDone" class="primary-button">Play <span aria-hidden="true">→</span></button>`);$('helpDone').onclick=closeModal;}
+function showMap(){sound('click');const records=Object.values(saved.levels);showModal(`<button class="close" aria-label="Close voyage map">×</button><h2 id="modalTitle">The voyage</h2><div class="map-progress"><span>${records.length}/${LEVELS.length} solved</span><span class="gold-stars">✦ ${records.reduce((n,v)=>n+v.stars,0)}/${LEVELS.length*3}</span></div>${CHAPTERS.map(c=>`<section class="chapter-section"><h3>${String(c.id+1).padStart(2,'0')} · ${c.name}</h3><div class="level-grid">${LEVELS.filter(l=>l.chapter===c.id).map(l=>`<button class="level-tile ${l.id===index+1?'current':''} ${saved.levels[l.id]?'complete':''}" data-level="${l.id-1}" aria-label="Level ${l.id}, ${l.name}, ${saved.levels[l.id]?.stars||0} stars"><b>${String(l.id).padStart(2,'0')}</b><small>${l.name}</small><span>${'✦'.repeat(saved.levels[l.id]?.stars||0)}${'·'.repeat(3-(saved.levels[l.id]?.stars||0))}</span></button>`).join('')}</div></section>`).join('')}`,'map');$('modal').querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{if(!started){started=true;$('splash').hidden=true;document.body.classList.remove('is-splash');}loadLevel(+b.dataset.level);});}
+function togglePause(){if(!started||sim.state!=='playing')return;paused=!paused;updateUI();if(paused)toast('Plan your cuts. Press ► to go.');}
+$('startBtn').onclick=start;$('restartBtn').onclick=restart;$('pauseBtn').onclick=togglePause;$('soundBtn').onclick=()=>{saved.sound=!saved.sound;persist();setSound();sound('rune');};$('helpBtn').onclick=showHelp;$('mapBtn').onclick=showMap;
+$('hintBtn').onclick=()=>{$('hintCard').hidden=!$('hintCard').hidden;$('hintBtn').setAttribute('aria-expanded',String(!$('hintCard').hidden));};$('closeHintBtn').onclick=()=>{$('hintCard').hidden=true;$('hintBtn').setAttribute('aria-expanded','false');};$('guideBtn').onclick=()=>{guideUntil=clock+6500;$('closeHintBtn').click();};
+$('fullscreenBtn').hidden=!document.fullscreenEnabled;$('fullscreenBtn').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await $('gameShell').requestFullscreen();}catch{toast('Fullscreen is unavailable here');}};document.addEventListener('fullscreenchange',()=>{$('fullscreenBtn').setAttribute('aria-label',document.fullscreenElement?'Exit fullscreen':'Enter fullscreen');});
 $('modalBackdrop').addEventListener('click',e=>{if(e.target===$('modalBackdrop')&&sim.state==='playing')closeModal();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(modalOpen)closeModal();else if(started)showMap();}if(e.key==='Tab'&&modalOpen){const nodes=[...$('modal').querySelectorAll('button,[href],[tabindex="0"]')];if(!nodes.length)return;const first=nodes[0],last=nodes.at(-1);if(e.shiftKey&&(document.activeElement===first||document.activeElement===$('modal'))){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}if(modalOpen||!started)return;if(e.code==='KeyR')restart();if(e.code==='KeyZ')doUndo();if(e.code==='KeyM')$('soundBtn').click();if(e.code==='Space'){e.preventDefault();togglePause();}});
-function point(e){const r=canvas.getBoundingClientRect();return{x:Math.max(-30,Math.min(W+30,(e.clientX-r.left)*W/r.width)),y:Math.max(-30,Math.min(H+30,(e.clientY-r.top)*H/r.height))};}
-canvas.addEventListener('pointerdown',e=>{if(!started||modalOpen||sim.state!=='playing'||e.button>0)return;e.preventDefault();canvas.setPointerCapture(e.pointerId);drag={a:point(e),b:point(e),id:e.pointerId};});canvas.addEventListener('pointermove',e=>{if(drag&&e.pointerId===drag.id)drag.b=point(e);});canvas.addEventListener('pointerup',e=>{if(!drag||e.pointerId!==drag.id)return;const {a,b}=drag;drag=null;const snap=sim.snapshot(),result=sim.slice(a,b);guideUntil=0;if(result.ok){undo.push(snap);if(undo.length>25)undo.shift();updateUI();}else if(result.reason==='miss')toast('A clean cut goes from one side of the ice to the other.');});canvas.addEventListener('pointercancel',()=>{drag=null;});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(modalOpen)closeModal();else if(started)showMap();}if(e.key==='Tab'&&modalOpen){const nodes=[...$('modal').querySelectorAll('button,[href],[tabindex="0"]')];if(!nodes.length)return;const first=nodes[0],last=nodes.at(-1);if(e.shiftKey&&(document.activeElement===first||document.activeElement===$('modal'))){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}if(modalOpen||!started)return;if(e.code==='KeyR')restart();if(e.code==='KeyP')togglePan();if(e.code==='KeyM')$('soundBtn').click();if(e.code==='Space'){e.preventDefault();togglePause();}});
+function resizeCanvas(){const small=innerWidth<=580;W=small?640:960;H=small?800:640;canvas.width=W;canvas.height=H;$('gameShell').style.setProperty('--board-ratio',String(W/H));$('canvasWrap').style.aspectRatio=`${W}/${H}`;if(sim){camera.minZoom=Math.min(W/sim.world.width,H/sim.world.height);clampCamera();}}
+function clampCamera(){camera.zoom=Math.max(camera.minZoom,Math.min(1.7,camera.zoom));const mx=sim.world.width-W/camera.zoom,my=sim.world.height-H/camera.zoom;camera.x=mx<0?mx/2:Math.max(0,Math.min(mx,camera.x));camera.y=my<0?my/2:Math.max(0,Math.min(my,camera.y));}
+function resetCamera(){cameraTween=null;camera.minZoom=Math.min(W/sim.world.width,H/sim.world.height);camera.zoom=camera.minZoom;camera.x=0;camera.y=0;clampCamera();panDrag=null;}
+function focusWorld(x,y){camera.x=x-W/camera.zoom/2;camera.y=y-H/camera.zoom/2;clampCamera();}
+function zoomCamera(factor){cameraTween=null;const x=camera.x+W/camera.zoom/2,y=camera.y+H/camera.zoom/2;camera.zoom*=factor;clampCamera();focusWorld(x,y);}
+function cinematicFocus(x,y,zoom){const initial={...camera};camera.zoom=zoom;focusWorld(x,y);const target={...camera};Object.assign(camera,initial);cameraTween={initial,target,startedAt:clock};}
+function togglePan(){panMode=!panMode;$('panBtn').setAttribute('aria-pressed',String(panMode));canvas.style.cursor=panMode?'grab':'crosshair';updateUI();}
+$('panBtn').onclick=togglePan;$('zoomInBtn').onclick=()=>zoomCamera(1.25);$('zoomOutBtn').onclick=()=>zoomCamera(.8);$('fitBtn').onclick=resetCamera;window.addEventListener('resize',resizeCanvas);
+function screenPoint(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*W/r.width,y:(e.clientY-r.top)*H/r.height};}
+function point(e){const p=screenPoint(e);return{x:camera.x+p.x/camera.zoom,y:camera.y+p.y/camera.zoom};}
+function miniBounds(){const w=W<800?126:146,h=w*sim.world.height/sim.world.width;return{x:W-w-12,y:H-h-12,w,h};}
+canvas.addEventListener('pointerdown',e=>{if(!started||modalOpen||sim.state!=='playing')return;e.preventDefault();canvas.setPointerCapture(e.pointerId);const p=screenPoint(e),m=miniBounds();if(p.x>=m.x&&p.y>=m.y&&p.x<=m.x+m.w&&p.y<=m.y+m.h){focusWorld((p.x-m.x)/m.w*sim.world.width,(p.y-m.y)/m.h*sim.world.height);return;}if(panMode||e.button===1||e.button===2||e.altKey){cameraTween=null;panDrag={start:p,x:camera.x,y:camera.y,id:e.pointerId};canvas.style.cursor='grabbing';return;}if(e.button>0)return;drag={a:point(e),b:point(e),id:e.pointerId};});
+canvas.addEventListener('pointermove',e=>{if(panDrag&&e.pointerId===panDrag.id){const p=screenPoint(e);camera.x=panDrag.x-(p.x-panDrag.start.x)/camera.zoom;camera.y=panDrag.y-(p.y-panDrag.start.y)/camera.zoom;clampCamera();}else if(drag&&e.pointerId===drag.id)drag.b=point(e);});
+canvas.addEventListener('pointerup',e=>{if(panDrag&&e.pointerId===panDrag.id){panDrag=null;canvas.style.cursor=panMode?'grab':'crosshair';return;}if(!drag||e.pointerId!==drag.id)return;const {a,b}=drag;drag=null;const result=sim.slice(a,b);guideUntil=0;if(result.ok)updateUI();else if(result.reason==='miss')toast('Cut all the way through');});
+canvas.addEventListener('pointercancel',()=>{drag=null;panDrag=null;});canvas.addEventListener('contextmenu',e=>e.preventDefault());canvas.addEventListener('wheel',e=>{if(!started||modalOpen)return;e.preventDefault();cameraTween=null;if(e.ctrlKey||e.metaKey)zoomCamera(e.deltaY<0?1.1:1/1.1);else{camera.x+=(e.shiftKey?e.deltaY:e.deltaX)/camera.zoom;camera.y+=(e.shiftKey?0:e.deltaY)/camera.zoom;clampCamera();}},{passive:false});
 // Hand-painted vector world. Everything below is original canvas artwork.
 function path(points,fill,stroke=null,width=1){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p.x??p[0],p.y??p[1]):ctx.moveTo(p.x??p[0],p.y??p[1]));ctx.closePath();if(fill){ctx.fillStyle=fill;ctx.fill();}if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke();}}
 function line(points,color,width=1){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();}
@@ -656,7 +1420,7 @@ function background(t){const chapter=sim?.level.chapter||0;const palettes=[['#17
  // quiet aurora ribbons
  ctx.save();ctx.globalAlpha=.13;for(let j=0;j<3;j++){ctx.beginPath();ctx.moveTo(-70,40+j*28);ctx.bezierCurveTo(240,180+Math.sin(t*.0002)*22,310,-70,620,70+j*30);ctx.bezierCurveTo(800,150,860,50,1030,110+j*15);ctx.strokeStyle=j===1?'#d8ffdf':'#8be9d5';ctx.lineWidth=23-j*5;ctx.stroke();}ctx.restore();
  const rand=rng(72);for(let i=0;i<40;i++){let x=rand()*960,y=rand()*235,r=rand()*1.1+.3;ctx.globalAlpha=.25+rand()*.45;ellipse(x,y,r,r,'#e8eee0');}ctx.globalAlpha=1;
- ellipse(784,105,36,36,'#dae4cf');ellipse(775,96,34,34,palettes[0]);
+ const skyAspect=(W/960)/(H/640);ellipse(784,105,36,36*skyAspect,'#dae4cf');ellipse(775,105-9*skyAspect,34,34*skyAspect,palettes[0]);
  path([[-30,380],[99,167],[158,262],[247,139],[369,341],[454,212],[590,375],[715,176],[820,311],[923,199],[1000,338],[1000,610],[-30,610]],'#52768a');
  path([[99,167],[158,262],[126,233],[108,248],[91,221],[63,240]],'#aec9cc');path([[247,139],[315,251],[281,234],[258,251],[239,217],[218,233],[200,211]],'#c0d5d1');path([[715,176],[771,259],[740,241],[715,261],[695,223],[676,244]],'#bed6d0');path([[923,199],[980,279],[945,253],[922,270],[901,245],[873,270]],'#bfd1cf');
  path([[-30,460],[80,340],[162,421],[283,303],[381,417],[490,327],[617,448],[731,321],[817,399],[905,337],[1000,450],[1000,600],[-30,600]],'#416577');
@@ -670,40 +1434,44 @@ function background(t){const chapter=sim?.level.chapter||0;const palettes=[['#17
  if(!reducedMotion){const flakes=rng(36);for(let i=0;i<30;i++){let x=(flakes()*1000+t*.004*(.5+flakes()))%1000-20,y=(flakes()*690+t*.009*(.4+flakes()))%690-25;ellipse(x,y,1.2,1.2,'#e8f7ed55');}}
 }
 function drawRock(body){const p=body.vertices;path(p,'#496576','#7292a0',2);ctx.save();ctx.clip();const c=body.position;path([[c.x-140,c.y-80],[c.x+15,c.y+55],[c.x+95,c.y-90]],'#627d8a');line([[c.x-32,c.y-60],[c.x+3,c.y+12],[c.x-20,c.y+60]],'#2f4f60',3);ctx.restore();let minY=Math.min(...p.map(v=>v.y));for(let i=0;i<p.length;i++){const a=p[i],b=p[(i+1)%p.length];if(b.x>a.x+5)line([[a.x,a.y-2],[b.x,b.y-2]],'#c6e0d9',7);}}
-function drawViking(x,y,look=0,angle=0,free=false,scale=1,gait=0,facing=1){ctx.save();ctx.translate(x,y+(gait?Math.abs(Math.sin(gait))*.8:0));ctx.rotate(angle);ctx.scale(scale*facing,scale);const hair=['#bb683c','#d5a24e','#6c493b','#cd744f'][look%4],shirt=['#c77353','#4f8c85','#ae7954','#776eaa'][look%4];
- ellipse(0,24,19,4,'#16354a2e');const step=gait?Math.sin(gait)*3:0;path([[-11,8],[-13,23+step],[-4,25+step],[-1,9]],'#273e4e');path([[1,9],[4,25-step],[14,23-step],[11,8]],'#273e4e');line([[-13,24+step],[-5,24+step]],'#6c5144',3);line([[5,24-step],[14,22-step]],'#6c5144',3);path([[-13,-5],[-20,14],[-10,18],[0,14],[10,18],[20,14],[13,-5]],shirt,'#344c57',1.4);line([[-12,10],[12,10]],'#d3b77a',3);ellipse(0,-8,16,18,'#efb98e');ellipse(-14,-4,4,5,'#e8ad83');ellipse(14,-4,4,5,'#e8ad83');
- // braided beards, rosy noses, and very serious helmets
- path([[-14,-4],[-13,12],[-5,24],[0,20],[5,24],[14,11],[14,-4],[7,3],[0,5],[-7,3]],hair);path([[-11,6],[-8,17],[-3,12],[0,20],[4,12],[9,17],[12,5]],hair);ellipse(0,-1,5,4,'#f3bd93');ellipse(-6,-9,1.6,2,'#243747');ellipse(6,-9,1.6,2,'#243747');line([[-9,-13],[-3,-12]],hair,2);line([[3,-12],[9,-13]],hair,2);if(free){ctx.strokeStyle='#5e3f37';ctx.lineWidth=1.8;ctx.beginPath();ctx.arc(0,5,4,0,Math.PI);ctx.stroke();}
- path([[-16,-15],[-13,-28],[0,-32],[13,-28],[16,-15]],'#718c98','#344f61',1.5);path([[-14,-25],[-23,-29],[-27,-40],[-30,-39],[-28,-23],[-17,-17]],'#eee2c4','#aab6ab',1);path([[14,-25],[23,-29],[27,-40],[30,-39],[28,-23],[17,-17]],'#eee2c4','#aab6ab',1);path([[-17,-18],[17,-18],[17,-12],[-17,-12]],'#c5c9b9','#587383',1);line([[0,-31],[0,-14]],'#d6d9c8',3);for(const ax of[-12,12])ellipse(ax,-15,1.4,1.4,'#e8e7ce');ctx.restore();}
+function drawViking(x,y,look=0,angle=0,free=false,scale=1,gait=0,facing=1,animation={}){drawAnimatedViking(ctx,{x,y,look,angle,free,scale,gait,facing,pose:free?(gait?'walking':'idle'):'frozen',time:clock,reducedMotion,...animation});}
 function drawRopes(ice){
  for(const a of ice.anchors){const end=toWorld(ice.body,a),p=a.pivot,d=Math.hypot(end.x-p.x,end.y-p.y),sag=Math.sqrt(Math.max(0,a.length*a.length-d*d))*.35;
  ctx.save();ctx.lineCap='round';ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.quadraticCurveTo((p.x+end.x)/2,(p.y+end.y)/2+sag,end.x,end.y);ctx.strokeStyle='#17364570';ctx.lineWidth=6;ctx.stroke();ctx.strokeStyle='#c5ac7e';ctx.lineWidth=3;ctx.stroke();ctx.setLineDash([2,5]);ctx.strokeStyle='#f2dbac';ctx.lineWidth=1;ctx.stroke();ctx.setLineDash([]);
  ellipse(p.x,p.y,8,8,'#405565');ellipse(p.x,p.y,5.5,5.5,'#b6a27b');ellipse(p.x,p.y,2.5,2.5,'#263f4d');line([[p.x-9,p.y-9],[p.x+9,p.y-9]],'#bed8d2',3);ctx.restore();
  }
 }
-function drawWalkers(t){for(const v of sim.walkers){const p=v.body.position,gait=v.walking?t*.011+v.id:0;drawViking(p.x,p.y-3,v.look,0,true,1,gait,v.direction);if(v.walking){ctx.save();ctx.globalAlpha=.45;ellipse(p.x-v.direction*13,p.y+23,3,1,'#d8f2e8');ctx.restore();}}}
-function drawIce(ice,t){const body=ice.body,pts=body.vertices;ctx.save();const g=ctx.createLinearGradient(body.bounds.min.x,body.bounds.min.y,body.bounds.max.x,body.bounds.max.y);g.addColorStop(0,'#c3f7f3d9');g.addColorStop(.35,'#73d0e2c9');g.addColorStop(1,'#4b97bccc');path(pts,g,'#c8ffff',2.5);ctx.clip();const min=body.bounds.min,max=body.bounds.max,r=rng(ice.seed);ctx.globalAlpha=.22;for(let j=0;j<5;j++){path([[min.x+r()*(max.x-min.x),min.y-20],[max.x+20,min.y+r()*(max.y-min.y)],[min.x+r()*(max.x-min.x),max.y+20]],j%2?'#dcffff':'#2b83aa');}ctx.globalAlpha=.5;line([[min.x+8,min.y+20],[min.x+22,min.y+34],[min.x+17,min.y+52]],'#defbff',1.3);ctx.globalAlpha=1;ctx.restore();
- for(const v of ice.vikings){const p=toWorld(body,v.local);drawViking(p.x,p.y,v.look,body.angle);ellipse(p.x-19,p.y-12,3,8,'#efffff65');}
+function drawWalkers(t){for(const v of sim.walkers){const p=v.body.position,age=v.landedAt==null?-1:sim.time-v.landedAt;let pose=!v.grounded?'falling':age<220?'impact':age<650?'rise':v.walking?'walking':'idle',phase=pose==='impact'?age/220:pose==='rise'?(age-220)/430:0;drawViking(p.x,p.y-3,v.look,0,true,1,v.walking?t*.011+v.id:0,v.direction,{pose,phase});}}
+function drawIce(ice,t){const body=ice.body,pts=body.vertices;ctx.save();const g=ctx.createLinearGradient(body.bounds.min.x,body.bounds.min.y,body.bounds.max.x,body.bounds.max.y);g.addColorStop(0,ice.kind==='pack'?'#9dcdf6ee':'#c3f7f3d9');g.addColorStop(.35,ice.kind==='pack'?'#408bc9dd':'#73d0e2c9');g.addColorStop(1,ice.kind==='pack'?'#285b9bee':'#4b97bccc');path(pts,g,ice.kind==='pack'?'#b1dfff':'#c8ffff',ice.kind==='pack'?3.5:2.5);ctx.clip();const min=body.bounds.min,max=body.bounds.max,r=rng(ice.seed);ctx.globalAlpha=.22;for(let j=0;j<5;j++){path([[min.x+r()*(max.x-min.x),min.y-20],[max.x+20,min.y+r()*(max.y-min.y)],[min.x+r()*(max.x-min.x),max.y+20]],j%2?'#dcffff':'#2b83aa');}ctx.globalAlpha=.5;line([[min.x+8,min.y+20],[min.x+22,min.y+34],[min.x+17,min.y+52]],'#defbff',1.3);ctx.globalAlpha=1;ctx.restore();
+ for(const v of ice.vikings){const p=toWorld(body,v.local);drawViking(p.x,p.y,v.look,body.angle,false,1,0,1,{pose:!ice.anchors.length&&Math.hypot(body.velocity.x,body.velocity.y)>2?'falling':'frozen'});ellipse(p.x-19,p.y-12,3,8,'#efffff65');}
  ctx.save();path(pts,null,'#dcffffaa',1);ctx.clip();let p=pts[0],q=pts[1];line([[p.x+2,p.y+4],[q.x-2,q.y+4]],'#f5ffffaa',2);ctx.restore();
+ if(ice.waitingForHammer){ctx.save();ctx.font='bold 13px Trebuchet MS';ctx.textAlign='center';ctx.fillStyle='#fff2be';ctx.fillText('╱ Trim',body.position.x,body.bounds.min.y-12);ctx.restore();}
  for(const a of ice.anchors){const p=toWorld(body,a);ellipse(p.x,p.y,8,8,'#405b67');ellipse(p.x,p.y,5.5,5.5,'#d6b677');ellipse(p.x-1,p.y-1,2,2,'#ffe4a5');}
 }
-function drawBoat(t){const {x,width:w,y}=sim.level.boat;ctx.save();ctx.translate(x,y);const glow=ctx.createRadialGradient(w*.28,-45,0,w*.28,-45,55);glow.addColorStop(0,'#ffe6a72b');glow.addColorStop(1,'#ffe6a700');ctx.fillStyle=glow;ctx.fillRect(w*.28-55,-100,110,110);ellipse(0,49,w*.64,7,'#a6d9d323');path([[-w/2-23,-8],[-w/2+6,33],[-w/2+29,44],[w/2-31,44],[w/2-5,31],[w/2+24,-8],[w/2-9,4],[-w/2+7,4]],'#885443','#d59661',2);path([[-w/2+2,5],[-w/2+23,29],[w/2-24,29],[w/2-3,5]],'#b8774e');line([[-w/2+17,18],[w/2-17,18]],'#744d40',2);line([[-w/2+26,31],[w/2-28,31]],'#533e38',2);line([[-w/2+6,2],[w/2-7,2]],'#e2ae75',6);for(let i=-w/2+30;i<w/2-20;i+=29){ellipse(i,20,10,10,'#465e67');ellipse(i,20,7,7,'#a6c5bd');path([[i,13],[i+7,20],[i,27],[i-7,20]],'#c48b59');ellipse(i,20,2,2,'#596a69');}
- // carved bird prow and warm lantern
- path([[w/2-5,7],[w/2+17,-14],[w/2+16,-29],[w/2+31,-33],[w/2+39,-23],[w/2+27,-20],[w/2+25,-7],[w/2+13,10]],'#bb7a50','#d99b66',2);ellipse(w/2+27,-27,2,2,'#263e48');line([[w*.28,0],[w*.28,-55]],'#d1a16b',4);line([[w*.28-9,-48],[w*.28+9,-48]],'#c9b388',3);path([[w*.28-7,-46],[w*.28+7,-46],[w*.28+6,-30],[w*.28-6,-30]],'#f6ce7d','#ba9366',2);ellipse(w*.28,-38,3,5,'#fff4ba');
- for(let i=0;i<sim.rescued.length;i++){let phase=t*.0009+i*2,vx=(i-(sim.rescued.length-1)/2)*38+Math.sin(phase)*8;drawViking(vx,-23,sim.rescued[i].look,0,true,.65,t*.01+i,Math.cos(phase)>=0?1:-1);}
- if(!sim.rescued.length){ctx.font='10px Trebuchet MS';ctx.fillStyle='#fff2ccaa';ctx.textAlign='center';ctx.fillText('HOME',0,61);}ctx.restore();}
+function arrivalPresentation(v,t,bob=0){const age=Math.max(0,t-(arrivals.get(v.id)??(t-3000)));const pose=age<260?'impact':age<750?'rise':age<2150?'celebrate':'idle';return {...v,y:v.y+bob,pose,phase:pose==='impact'?age/260:pose==='rise'?(age-260)/490:pose==='celebrate'?(age-750)/1400:0,scale:1};}
+function boatArt(t){const bob=reducedMotion?0:Math.sin(t*.0016)*3.2+Math.sin(t*.0027)*.7;return {...sim.level.boat,y:sim.level.boat.y+bob,rescued:sim.rescued.map(v=>arrivalPresentation(v,t,bob)),time:t,reducedMotion,drawViking,hammer:t-hammerAt<580?(t-hammerAt)/580:0,success:Math.max(0,1-(t-successAt)/900)};}
+function drawTitleScene(t){
+ // The launch screen celebrates the ship, not a wall of instructions.
+ ctx.save();ctx.translate(650,510+(reducedMotion?0:Math.sin(t*.0016)*3.5));ctx.scale(1.45,1.45);drawLongship(ctx,{x:0,y:0,width:270,rescued:[{look:0},{look:1}],time:t,reducedMotion,drawViking});ctx.restore();
+ ctx.save();ctx.translate(690,230);ctx.rotate(-.12);const floe=[[-58,-62],[30,-79],[72,-23],[52,62],[-35,76],[-67,20]];path(floe,'#7cd8e4b8','#c7ffff',2.5);path([[-58,-62],[15,-20],[30,-79]],'#d1fff45a');path([[15,-20],[52,62],[72,-23]],'#3185aa5a');drawViking(0,11,3,0,false,.82);line([[-46,-48],[-30,-35],[-34,-14]],'#e6ffffaa',1.5);ctx.restore();
+ const sparkle=(x,y,r)=>{path([[x,y-r],[x+r*.3,y-r*.3],[x+r,y],[x+r*.3,y+r*.3],[x,y+r],[x-r*.3,y+r*.3],[x-r,y],[x-r*.3,y-r*.3]],'#e5d6a0');};sparkle(555,290,10);sparkle(801,335,7);
+}
 function drawRune(r,t){if(r.collected)return;const pulse=1+Math.sin(t*.004+r.x)*.12;ctx.save();ctx.translate(r.x,r.y);const glow=ctx.createRadialGradient(0,0,2,0,0,28);glow.addColorStop(0,'#f7dc9940');glow.addColorStop(1,'#f7dc9900');ctx.fillStyle=glow;ctx.fillRect(-30,-30,60,60);ctx.scale(pulse,pulse);path([[0,-14],[5,-4],[12,0],[5,4],[0,14],[-5,4],[-12,0],[-5,-4]],'#f1cc81','#ffedb5',1);line([[0,-7],[0,7]],'#fff1bc',1);ctx.restore();}
 function drawSpikes(s){ctx.save();ctx.fillStyle='#694a65';ctx.fillRect(s.x,s.y+12,s.width,s.height);for(let x=s.x;x<s.x+s.width;x+=18){path([[x,s.y+18],[x+8,s.y-9],[x+19,s.y+18]],'#b26e85','#e7a1ab',1);path([[x+8,s.y-9],[x+11,s.y+14],[x+19,s.y+18]],'#794b72');}ctx.restore();}
-function drawGuide(t){if(!started||guideUntil<t||!sim.level.solution?.length||sim.cuts>0)return;const [a,b]=sim.level.solution[0];ctx.save();ctx.strokeStyle='#fff0b8';ctx.lineWidth=2;ctx.setLineDash([9,7]);ctx.globalAlpha=.45+Math.sin(t*.005)*.2;line([a,b],'#fff0b8',2);ctx.setLineDash([]);ellipse(a[0],a[1],5,5,'#fff0b8');const progress=(t%1800)/1800;ellipse(a[0]+(b[0]-a[0])*progress,a[1]+(b[1]-a[1])*progress,7,7,'#fff8d9');ctx.font='12px Trebuchet MS';ctx.textAlign='center';ctx.fillStyle='#fff0b8';ctx.fillText('CUT HERE',((a[0]+b[0])/2),a[1]-17);ctx.restore();}
-function render(t){ctx.clearRect(0,0,W,H);background(t);for(const rock of sim.rocks)drawRock(rock);for(const s of sim.level.spikes||[])drawSpikes(s);for(const r of sim.runes)drawRune(r,t);for(const ice of sim.ice)drawRopes(ice);for(const ice of sim.ice)drawIce(ice,t);drawWalkers(t);drawBoat(t);drawGuide(t);
- if(sim.level.wind){ctx.save();ctx.fillStyle='#e9eee0aa';ctx.font='12px Trebuchet MS';ctx.textAlign='left';ctx.fillText(sim.level.wind>0?'BREEZE  →':'←  BREEZE',29,34);ctx.restore();}
+function drawGuide(t){if(!started||guideUntil<t||!sim.level.solution?.length)return;const [a,b]=sim.level.solution[Math.min(sim.cuts,sim.level.solution.length-1)];ctx.save();ctx.strokeStyle='#fff0b8';ctx.lineWidth=2;ctx.setLineDash([9,7]);ctx.globalAlpha=.45+Math.sin(t*.005)*.2;line([a,b],'#fff0b8',2);ctx.setLineDash([]);ellipse(a[0],a[1],5,5,'#fff0b8');const progress=(t%1800)/1800;ellipse(a[0]+(b[0]-a[0])*progress,a[1]+(b[1]-a[1])*progress,7,7,'#fff8d9');ctx.font='12px Trebuchet MS';ctx.textAlign='center';ctx.fillStyle='#fff0b8';ctx.restore();}
+function drawWorldWater(t){const y=sim.world.waterY-18,w=sim.world.width,h=sim.world.height;const g=ctx.createLinearGradient(0,y,0,h+100);g.addColorStop(0,'#397e91');g.addColorStop(1,'#123b54');ctx.fillStyle=g;ctx.fillRect(0,y,w,h-y+200);for(let i=0;i<7;i++){ctx.beginPath();for(let x=0;x<=w;x+=16){const yy=y+i*10+Math.sin(x*.025+t*.001+i)*2;x?ctx.lineTo(x,yy):ctx.moveTo(x,yy);}ctx.strokeStyle=i%2?'#85c7d34d':'#ceeae966';ctx.lineWidth=i===0?2:1;ctx.stroke();}}
+function drawTimber(timber){const body=timber.body;ctx.save();ctx.translate(body.position.x,body.position.y);ctx.rotate(body.angle);const w=timber.width,h=timber.height;path([[-w/2,-h/2],[w/2,-h/2],[w/2,h/2],[-w/2,h/2]],'#967048','#d9b379',2);line([[-w/2+4,0],[w/2-4,0]],'#5d503e',2);for(let x=-w/2+12;x<w/2;x+=40){line([[x,-h/2+3],[x+8,h/2-3]],'#b8925a',1);ellipse(x,0,2,2,'#354e55');}ctx.restore();if(timber.pivot){ellipse(timber.pivot.x,timber.pivot.y,12,12,'#2a4653');ellipse(timber.pivot.x,timber.pivot.y,8,8,'#b8b99a');ellipse(timber.pivot.x,timber.pivot.y,3,3,'#4f6368');}}
+function drawWaterLoss(t){if(!waterLoss)return;const age=t-waterLoss.startedAt,phase=Math.max(0,Math.min(1,(age-850)/1000));drawViking(waterLoss.x,waterLoss.y-7,waterLoss.look,0,true,1,0,1,{pose:age<850?'swim':'sink',phase:age<850?age/850:phase});ctx.save();for(let i=0;i<7;i++){const life=((age+i*160)%1100)/1100;if(age>450){ctx.globalAlpha=(1-life)*.65;ctx.strokeStyle='#bfeefa';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(waterLoss.x+Math.sin(i*3)*17,waterLoss.y+24-life*44,2+i%3,0,Math.PI*2);ctx.stroke();}}ctx.globalAlpha=.5;for(let i=0;i<2;i++){ctx.beginPath();ctx.ellipse(waterLoss.x,waterLoss.y+2,17+(age*.025+i*12)%39,3+(age*.002)%4,0,0,Math.PI*2);ctx.strokeStyle='#c5f2f5';ctx.stroke();}ctx.restore();}
+function drawMinimap(){if(!started)return;const m=miniBounds(),sx=m.w/sim.world.width,sy=m.h/sim.world.height;ctx.save();ctx.fillStyle='#0d2a3dea';ctx.strokeStyle='#94bab888';ctx.lineWidth=1;ctx.beginPath();ctx.roundRect(m.x,m.y,m.w,m.h,5);ctx.fill();ctx.stroke();ctx.beginPath();ctx.rect(m.x,m.y,m.w,m.h);ctx.clip();ctx.translate(m.x,m.y);ctx.scale(sx,sy);for(const r of sim.rocks)path(r.vertices,'#71929c');for(const i of sim.ice)path(i.body.vertices,i.kind==='pack'?'#71c2ef':'#b6f2ee');for(const v of sim.getVikings())ellipse(v.x,v.y,12,12,'#f1d399');ctx.fillStyle='#eab778';ctx.fillRect(sim.level.boat.x-sim.level.boat.width/2,sim.level.boat.y,sim.level.boat.width,22);ctx.strokeStyle='#ffedb6';ctx.lineWidth=2/sx;ctx.strokeRect(camera.x,camera.y,W/camera.zoom,H/camera.zoom);ctx.restore();}
+function render(t){ctx.clearRect(0,0,W,H);ctx.save();ctx.scale(W/960,H/640);background(t);drawVillage(ctx,{time:t,reducedMotion,cameraX:camera.x,cameraY:camera.y,chapter:sim?.level.chapter||0});if(!started){ctx.restore();ctx.save();const heroScale=W/960;ctx.translate(0,(H-640*heroScale)*.58);ctx.scale(heroScale,heroScale);drawTitleScene(t);ctx.restore();return;}ctx.restore();ctx.save();ctx.scale(camera.zoom,camera.zoom);ctx.translate(-camera.x,-camera.y);drawWorldWater(t);const ship=boatArt(t);drawLongshipBack(ctx,ship);for(const rock of sim.rocks)drawRock(rock);for(const timber of sim.timbers)drawTimber(timber);for(const s of sim.level.spikes||[])drawSpikes(s);for(const r of sim.runes)drawRune(r,t);for(const ice of sim.ice)drawRopes(ice);for(const ice of sim.ice){ctx.save();if(waterLoss?.sourceBody===ice.body.id){ctx.beginPath();ctx.rect(-1000,-1000,sim.world.width+2000,waterLoss.y+1000);ctx.clip();ctx.translate(0,Math.max(0,t-waterLoss.startedAt)*.2);}drawIce(ice,t);ctx.restore();}drawWalkers(t);drawLongshipCrew(ctx,ship);drawLongshipFront(ctx,ship);drawWaterLoss(t);drawGuide(t);
+ if(sim.level.wind){ctx.save();ctx.fillStyle='#e9eee0aa';ctx.font='12px Trebuchet MS';ctx.textAlign='left';ctx.fillText(sim.level.wind>0?'〰 →':'← 〰',29,34);ctx.restore();}
  for(const p of particles){ctx.globalAlpha=p.life;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.life*(p.spin||4));path(p.shard?[[-p.size,-p.size*.4],[p.size*.7,-p.size*.6],[p.size*.25,p.size]]:[[-p.size,0],[0,-p.size],[p.size,0],[0,p.size]],p.color);ctx.restore();}ctx.globalAlpha=1;for(const s of trails){ctx.globalAlpha=s.life;line([[s.a.x,s.a.y],[s.b.x,s.b.y]],'#e5ffff',2+s.life*2);}ctx.globalAlpha=1;
- if(drag){ctx.save();ctx.shadowColor='#dfffff';ctx.shadowBlur=15;line([[drag.a.x,drag.a.y],[drag.b.x,drag.b.y]],'#fff4cb',2.5);ellipse(drag.a.x,drag.a.y,4,4,'#fff4cb');ellipse(drag.b.x,drag.b.y,5,5,'#fff4cb');ctx.restore();}
- if(paused){ctx.save();ctx.fillStyle='#102d3ee8';ctx.beginPath();ctx.roundRect(255,15,450,57,12);ctx.fill();ctx.strokeStyle='#b7e9df88';ctx.lineWidth=1;ctx.stroke();ctx.fillStyle='#f5f1db';ctx.textAlign='center';ctx.font='17px Georgia';ctx.fillText('Planning pause',W/2,39);ctx.font='11px Trebuchet MS';ctx.fillStyle='#bddbd9';ctx.fillText('Draw your cuts, then press Space or Resume to let things move.',W/2,57);ctx.restore();}
+ if(drag){const preview=sim.inspectSlice(drag.a,drag.b),color=preview.ok?'#a9ffe0':preview.reason==='viking'?'#ff969b':'#fff2c9';canvas.dataset.cutPreview=preview.ok?'valid':preview.reason;ctx.save();ctx.lineJoin='round';for(const candidate of preview.candidates){ctx.globalAlpha=.12;path(candidate.ice.body.vertices,color);ctx.globalAlpha=.75;path(candidate.ice.body.vertices,null,color,1.5);}ctx.globalAlpha=1;if(preview.blocked){ctx.beginPath();ctx.arc(preview.blocked.x,preview.blocked.y,27,0,Math.PI*2);ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();}for(const rope of preview.ropes){ellipse(rope.hit.x,rope.hit.y,8,8,'#a9ffe033');ellipse(rope.hit.x,rope.hit.y,3,3,color);}ctx.shadowColor=color;ctx.shadowBlur=12;if(!preview.ok)ctx.setLineDash([7,5]);line([[drag.a.x,drag.a.y],[drag.b.x,drag.b.y]],color,2.8);ctx.setLineDash([]);ellipse(drag.a.x,drag.a.y,4,4,color);ellipse(drag.b.x,drag.b.y,7,7,'#123644');ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();ctx.font='bold 11px Trebuchet MS';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle=color;ctx.fillText(preview.ok?'✓':preview.reason==='viking'?'×':'·',drag.b.x,drag.b.y);ctx.restore();}else delete canvas.dataset.cutPreview;
+ ctx.restore();drawMinimap();if(paused){ctx.save();ctx.fillStyle='#102d3ee8';ctx.beginPath();ctx.roundRect(15,15,145,39,9);ctx.fill();ctx.strokeStyle='#b7e9df88';ctx.lineWidth=1;ctx.stroke();ctx.fillStyle='#f5f1db';ctx.textAlign='center';ctx.font='15px Trebuchet MS';ctx.fillText('Ⅱ  Planning',87.5,40);ctx.restore();}
 }
-function frame(t){const dt=Math.min(t-lastFrame||16.67,50);lastFrame=t;clock=t;if(started&&!paused&&!modalOpen&&!drag){accumulator+=dt;while(accumulator>=1000/60){sim.step(1000/60);accumulator-=1000/60;}}else accumulator=0;for(const p of particles){p.x+=p.vx*dt/16.67;p.y+=p.vy*dt/16.67;p.vy+=.06*dt/16.67;p.life-=dt/800;}particles=particles.filter(p=>p.life>0);for(const s of trails)s.life-=dt/420;trails=trails.filter(s=>s.life>0);render(t);requestAnimationFrame(frame);}
-document.body.classList.add('is-splash');setSound();loadLevel(0);requestAnimationFrame(frame);
-if(new URLSearchParams(location.search).has('test'))window.__frostyChamps={get sim(){return sim;},get started(){return started;},get index(){return index;},loadLevel:n=>{if(!started)start();loadLevel(n);},slice:(a,b)=>{const s=sim.snapshot();const r=sim.slice(a,b);if(r.ok)undo.push(s);updateUI();return r;},step:n=>{for(let i=0;i<n;i++)sim.step(1000/60);updateUI();},showMap,closeModal,doUndo,LEVELS};
+function frame(t){const dt=Math.min(t-lastFrame||16.67,50);lastFrame=t;clock=t;if(cameraTween){const p=Math.min(1,(t-cameraTween.startedAt)/(reducedMotion?1:420)),ease=p*p*(3-2*p);for(const k of ['x','y','zoom'])camera[k]=cameraTween.initial[k]+(cameraTween.target[k]-cameraTween.initial[k])*ease;if(p>=1)cameraTween=null;}if(started&&!paused&&!modalOpen&&!drag&&!panDrag){accumulator+=dt;while(accumulator>=1000/60){sim.step(1000/60);accumulator-=1000/60;}}else accumulator=0;for(const p of particles){p.x+=p.vx*dt/16.67;p.y+=p.vy*dt/16.67;p.vy+=.06*dt/16.67;p.life-=dt/800;}particles=particles.filter(p=>p.life>0);for(const s of trails)s.life-=dt/420;trails=trails.filter(s=>s.life>0);render(t);requestAnimationFrame(frame);}
+document.body.classList.add('is-splash');resizeCanvas();setSound();loadLevel(0);requestAnimationFrame(frame);
+if(new URLSearchParams(location.search).has('test'))window.__frostyChamps={get sim(){return sim;},get started(){return started;},get index(){return index;},get camera(){return {...camera,width:W,height:H};},get panMode(){return panMode;},get arrivals(){return sim.rescued.map(v=>arrivalPresentation(v,clock));},get waterLoss(){return waterLoss?{...waterLoss,age:clock-waterLoss.startedAt}:null;},get paused(){return paused;},loadLevel:n=>{if(!started)start();loadLevel(n);},slice:(a,b)=>{const r=sim.slice(a,b);updateUI();return r;},step:n=>{for(let i=0;i<n;i++)sim.step(1000/60);updateUI();},showMap,closeModal,LEVELS};
 
 </script>
 </body></html>
