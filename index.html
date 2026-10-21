@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="frosty-champs-version" content="3.1.0">
-  <meta name="theme-color" content="#102d3e"><meta name="description" content="Slice the ice. Save your Vikings. An original five-puzzle physics expedition.">
+  <meta name="frosty-champs-version" content="4.0.0">
+  <meta name="theme-color" content="#102d3e"><meta name="description" content="Slice the ice. Save your Vikings. A replayable randomized ice-rescue test map.">
   <title>Frosty Champs</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22%23173747%22%2F%3E%3Cpath%20d%3D%22M10%2043h46L44%2056H24z%22%20fill%3D%22%23eea16b%22%2F%3E%3Cpath%20d%3D%22M36%208v32H15z%22%20fill%3D%22%23c0eee4%22%2F%3E%3Cpath%20d%3D%22M40%2015v25h16z%22%20fill%3D%22%236fb6bd%22%2F%3E%3C%2Fsvg%3E%0A" type="image/svg+xml"><style>
 :root{--ink:#102d3e;--cream:#f3f0dc;--muted:#93b3b8;--mint:#b7e9df;--gold:#e7b775;--orange:#eea16b;--line:#345362}*{box-sizing:border-box}body{margin:0;background:#0c2332;color:var(--cream);font-family:"Trebuchet MS",Arial,sans-serif;min-height:100vh}.ambient{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 15% 0,#38687855,transparent 55%),radial-gradient(ellipse at 95% 100%,#123d4a,transparent 45%);z-index:-1}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer;color:inherit;border:0;transition:background .15s,transform .15s}button:focus-visible,a:focus-visible,canvas:focus-visible{outline:3px solid var(--orange);outline-offset:3px}button:hover{filter:brightness(1.15)}button:active{transform:translateY(1px)}button:disabled{opacity:.3;cursor:default;filter:none}[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.masthead{max-width:1120px;margin:auto;padding:20px 24px 16px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;color:var(--cream);text-decoration:none;font-size:20px;letter-spacing:2px;font-weight:900}.brand svg{width:35px;height:35px}nav{display:flex;align-items:center;gap:10px}.icon-button{width:44px;height:44px;background:#1e3c4b99;border:1px solid #45637088;border-radius:50%;font-size:22px;color:var(--mint);display:grid;place-items:center}.map-button{background:#254858;border:1px solid #4a6875;border-radius:8px;min-height:44px;padding:0 14px;display:flex;align-items:center;gap:9px;font-size:12px;font-weight:700}.map-button>span:first-child{font-size:21px;color:var(--mint)}main{max-width:1120px;padding:0 24px 24px;margin:auto}.game-shell{border:1px solid #53717c;border-radius:14px;overflow:hidden;background:#112c3b;box-shadow:0 25px 70px #04141e60}.game-topbar{height:65px;display:flex;justify-content:space-between;align-items:center;padding:11px 20px;background:linear-gradient(115deg,#234757,#1b3949);border-bottom:1px solid #436675;gap:15px}.level-identity{display:flex;align-items:center;gap:12px;min-width:0}.eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--mint)}.level-identity .eyebrow{border:1px solid #66868e;border-radius:7px;padding:9px 8px;background:#102d3e40;letter-spacing:1px}.level-identity h1{font-family:inherit;margin:0;font-size:21px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.quick-stats{display:flex;align-items:center;gap:23px;flex-shrink:0}.quick-stats>div{display:grid;grid-template-columns:18px auto;column-gap:7px;align-items:center}.quick-stats span{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums}.quick-stats .stat-icon{grid-row:1/3;font-size:21px;font-weight:400;color:#a6d6d0}.quick-stats small{font-size:8px;letter-spacing:.8px;color:#a4c2c7;text-transform:uppercase;margin-top:3px}.rune,.quick-stats .rune{color:var(--gold)}.canvas-wrap{position:relative;aspect-ratio:3/2;overflow:hidden;background:#142e46}canvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair;outline:none}.toast{position:absolute;bottom:15px;left:50%;transform:translate(-50%,7px);padding:9px 15px;border-radius:24px;background:#102b3ef2;border:1px solid #7395a0;color:#ecf7ef;font-size:12px;text-align:center;opacity:0;pointer-events:none;transition:.2s;max-width:90%;width:max-content;box-shadow:0 4px 15px #0003}.toast.visible{opacity:1;transform:translate(-50%,0)}.game-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 12px;background:#173644;min-height:64px;border-top:1px solid #395867}.tool-buttons{display:flex;gap:7px;flex-shrink:0}.tool-buttons button{background:#244756;border:1px solid #476776;border-radius:8px;min-width:44px;min-height:44px;padding:7px 12px;display:flex;gap:7px;align-items:center;justify-content:center}.tool-buttons span{font-size:24px;line-height:1}.tool-buttons small{font-size:11px}.game-bottom p{font-size:11px;color:#8eb1ba;margin:0}.splash{position:absolute;inset:0;background:linear-gradient(90deg,#102c40ed,#102c4060 50%,transparent 80%);display:flex;align-items:center;padding:7%;cursor:default}.primary-button{display:flex;justify-content:space-between;align-items:center;gap:25px;background:var(--orange);color:#173342;border-radius:9px;padding:14px 21px;font-size:14px;font-weight:800;min-width:165px;min-height:48px;border:1px solid #ffc596;box-shadow:0 4px 0 #b9764a40}.primary-button span{font-size:23px}.hint-card{position:absolute;left:50%;bottom:15px;transform:translateX(-50%);width:min(460px,92%);background:#183b4ef5;border:1px solid #79949d;padding:16px 46px 13px 17px;border-radius:10px;box-shadow:0 7px 25px #0005}.hint-card p{font-size:12px;line-height:1.6;color:#d0e4df;margin:0 0 8px}.hint-card button:not(.close-hint){font-size:12px;color:var(--gold);background:#294b5c;border-radius:6px;padding:10px 14px;min-height:40px}.close-hint{position:absolute;top:4px;right:3px;background:none;width:40px;height:40px;font-size:22px;color:#a7c7cc}.modal-backdrop{position:fixed;inset:0;z-index:10;background:#03141ec9;display:grid;place-items:center;padding:24px;backdrop-filter:blur(7px)}.modal{position:relative;max-width:550px;width:100%;max-height:90vh;overflow:auto;background:#173b4d;border:1px solid #567d88;border-radius:15px;box-shadow:0 24px 80px #0007;padding:32px;color:var(--cream)}.modal h2{font-family:inherit;font-weight:900;font-size:32px;line-height:1.2;margin:9px 0}.modal>p{font-size:12px;line-height:1.6;color:#aecbd0;margin:15px 0}.modal .close{position:absolute;top:8px;right:8px;width:44px;height:44px;background:none;font-size:26px;color:#a1c4ca}.modal-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:24px}.secondary-button{border:1px solid #64828d;background:#274d5c;border-radius:8px;padding:12px 17px;font-size:12px;min-height:45px}.result-art{font-size:52px;letter-spacing:10px;color:var(--gold);margin:20px 0}.result-art .empty{opacity:.2}.result-stats{display:flex;gap:20px;padding:16px 0;border-top:1px solid #446472;border-bottom:1px solid #446472;color:#a7c9ce;font-size:11px}.result-stats strong{font-size:19px;color:var(--cream);margin-right:5px}.help-steps{list-style:none;padding:0;margin:20px 0}.help-steps li{display:flex;gap:15px;align-items:center;margin:16px 0;font-size:12px;color:#adcbd0;line-height:1.6}.help-steps li>b{display:grid;place-items:center;width:40px;height:40px;border:1px solid #638692;color:var(--mint);border-radius:10px;flex-shrink:0;font-size:21px}.help-steps strong{display:block;color:var(--cream)}.modal.map{max-width:800px}.map-progress{display:flex;align-items:center;gap:16px;font-size:12px;color:#a7c8cb}.map-progress .gold-stars{color:var(--gold)}.chapter-section{margin-top:23px}.chapter-section h3{font-size:10px;letter-spacing:1.8px;color:var(--mint);text-transform:uppercase;font-weight:400}.level-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:9px}.level-tile{background:#244a5c;border:1px solid #446b7a;border-radius:8px;padding:9px 4px;min-height:78px;display:flex;flex-direction:column;align-items:center;gap:5px}.level-tile.current{border-color:var(--orange);box-shadow:0 0 0 1px var(--orange)}.level-tile.complete{background:#2a575c}.level-tile b{font-size:21px;font-weight:400}.level-tile small{font-size:8px;line-height:1.3;min-height:20px}.level-tile span{font-size:10px;color:var(--gold);letter-spacing:2px}body.is-splash .game-topbar,body.is-splash .game-bottom{display:none}body.is-splash main{padding-bottom:24px}.game-shell:fullscreen{background:#0b2332;border:0;border-radius:0;display:flex;flex-direction:column;align-items:center;justify-content:center}.game-shell:fullscreen .canvas-wrap{height:calc(100dvh - 129px);width:auto;max-width:100vw;aspect-ratio:3/2;flex-shrink:0}.game-shell:fullscreen .game-topbar,.game-shell:fullscreen .game-bottom{width:min(100vw,calc((100dvh - 129px)*1.5));flex-shrink:0}
@@ -40,17 +40,17 @@
 <div class="ambient" aria-hidden="true"></div>
 <header class="masthead">
   <a class="brand" href="./" aria-label="Frosty Champs home"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M8 29h28l-7 8H16z" fill="#efaa73"/><path d="M23 5v23H10z" fill="#d8f9f3"/><path d="M26 9v17h11z" fill="#71c5c9"/><path d="M6 37q7-4 14 0t17 0" fill="none" stroke="#71c5c9" stroke-width="2"/></svg><span>FROSTY CHAMPS</span></a>
-  <nav aria-label="Game controls"><button id="soundBtn" class="icon-button" aria-label="Turn sound on" title="Sound (M)"><span id="soundIcon" aria-hidden="true">♪</span><span id="soundLabel" class="sr-only">Sound off</span></button><button id="helpBtn" class="icon-button" aria-label="How to play" title="How to play"><span aria-hidden="true">?</span></button><button id="mapBtn" class="map-button" aria-label="Choose level"><span aria-hidden="true">▦</span><span>Levels</span></button></nav>
+  <nav aria-label="Game controls"><button id="soundBtn" class="icon-button" aria-label="Turn sound on" title="Sound (M)"><span id="soundIcon" aria-hidden="true">♪</span><span id="soundLabel" class="sr-only">Sound off</span></button><button id="helpBtn" class="icon-button" aria-label="How to play" title="How to play"><span aria-hidden="true">?</span></button><button id="mapBtn" class="map-button" aria-label="Map options"><span aria-hidden="true">▦</span><span>Map</span></button></nav>
 </header>
 <main>
 <section class="game-shell" id="gameShell" aria-label="Frosty Champs puzzle game">
-  <div class="game-topbar"><div class="level-identity"><span id="chapterLabel" class="eyebrow">01</span><h1 id="levelTitle">Narrow Channel</h1></div><div class="quick-stats"><div title="Crew rescued" aria-label="Crew rescued"><span class="stat-icon" aria-hidden="true">⚑</span><span id="rescueCount">0/1</span><small>Crew</small></div><div title="Cuts / star target"><span class="stat-icon" aria-hidden="true">╱</span><span id="cutCount">0/1</span><small>Cuts</small></div><div title="Runes collected"><span class="stat-icon rune" aria-hidden="true">✦</span><span id="runeCount">0/1</span><small>Runes</small></div></div></div>
+  <div class="game-topbar"><div class="level-identity"><span id="chapterLabel" class="eyebrow">01</span><h1 id="levelTitle">Random Fjord</h1></div><div class="quick-stats"><div title="Crew rescued" aria-label="Crew rescued"><span class="stat-icon" aria-hidden="true">⚑</span><span id="rescueCount">0/1</span><small>Crew</small></div><div title="Cuts / star target"><span class="stat-icon" aria-hidden="true">╱</span><span id="cutCount">0/1</span><small>Cuts</small></div><div title="Runes collected"><span class="stat-icon rune" aria-hidden="true">✦</span><span id="runeCount">0/1</span><small>Runes</small></div></div></div>
   <div class="canvas-wrap" id="canvasWrap"><canvas id="game" width="960" height="640" aria-label="Ice-cutting game. Drag across ice or rope. R restarts, Space pauses, M toggles sound. Select Pan to explore." tabindex="0"></canvas><div id="toast" class="toast" role="status" aria-live="polite"></div>
     <div class="camera-controls" id="cameraControls" aria-label="Camera controls"><button id="zoomOutBtn" aria-label="Zoom out" title="Zoom out">−</button><button id="fitBtn" aria-label="Show whole level" title="Show whole level">⌖</button><button id="zoomInBtn" aria-label="Zoom in" title="Zoom in">+</button></div>
     <div id="splash" class="splash"><h2 id="menuTitle" class="menu-title" aria-label="Frosty Champs"></h2><div class="menu-actions"><button id="startBtn" class="primary-button menu-play">Play <span aria-hidden="true" class="menu-play-icon"></span></button></div></div>
     <div id="hintCard" class="hint-card" hidden><button id="closeHintBtn" class="close-hint" aria-label="Close hint">×</button><p id="hintText"></p><button id="guideBtn">Show cut <span aria-hidden="true">↗</span></button></div>
   </div>
-  <div class="game-bottom"><div class="tool-buttons"><button id="panBtn" title="Pan mode (P)" aria-label="Pan mode" aria-pressed="false"><span aria-hidden="true">✥</span><small>Pan</small></button><button id="restartBtn" title="Restart level (R)" aria-label="Restart level"><span aria-hidden="true">↻</span><small>Retry</small></button><button id="pauseBtn" title="Pause game (Space)" aria-label="Pause game"><span aria-hidden="true">Ⅱ</span><small>Pause</small></button></div><p id="gestureTip">Drag to slice</p><div class="tool-buttons"><button id="hintBtn" aria-label="Show hint" aria-expanded="false" title="Hint"><span class="rune" aria-hidden="true">✧</span><small>Hint</small></button><button id="fullscreenBtn" aria-label="Enter fullscreen" title="Fullscreen"><span aria-hidden="true">⛶</span></button></div></div>
+  <div class="game-bottom"><div class="tool-buttons"><button id="panBtn" title="Pan mode (P)" aria-label="Pan mode" aria-pressed="false"><span aria-hidden="true">✥</span><small>Pan</small></button><button id="restartBtn" title="Restart level (R)" aria-label="Restart level"><span aria-hidden="true">↻</span><small>Replay</small></button><button id="pauseBtn" title="Pause game (Space)" aria-label="Pause game"><span aria-hidden="true">Ⅱ</span><small>Pause</small></button></div><p id="gestureTip">Drag to slice</p><div class="tool-buttons"><button id="hintBtn" aria-label="Show hint" aria-expanded="false" title="Hint"><span class="rune" aria-hidden="true">✧</span><small>Hint</small></button><button id="fullscreenBtn" aria-label="Enter fullscreen" title="Fullscreen"><span aria-hidden="true">⛶</span></button></div></div>
 <div id="modalBackdrop" class="modal-backdrop" hidden><section id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1"></section></div>
 </section>
 </main>
@@ -114,7 +114,7 @@ class RescueSimulation {
     this.engine.positionIterations=9; this.engine.velocityIterations=8; this.engine.constraintIterations=5;
     this.ice=[]; this.walkers=[]; this.rocks=[]; this.timbers=[]; this.rescued=[]; this.lost=[];
     this.runes=(level.runes||[]).map(r=>({...r,collected:false}));
-    this.cuts=0; this.time=0; this.state='playing'; this.nextViking=0; this.nextRope=0; this.shatters=0;
+    this.cuts=0; this.time=0; this.state='playing'; this.nextViking=0; this.nextRope=0; this.shatters=0; this.melts=0;
     this.world={width:960,height:640,waterY:615,...level.world};
     this.total=level.ice.reduce((n,p)=>n+p.vikings.length,0);
     for (const slab of level.ice) {
@@ -135,7 +135,7 @@ class RescueSimulation {
     const {Bodies,Body,Composite,Constraint}=this.M,c=centroid(points);
     const body=Bodies.fromVertices(c.x,c.y,[points],{friction:.025,frictionStatic:.035,frictionAir:.005,restitution:.1,density:.0015,label:'ice'});
     if(!body) return null;
-    const ice={body,kind,anchors:[],vikings:vikings.map(v=>({...v,local:toLocal(body,v)})),seed:Math.round(c.x*7+c.y*13),area:area(points),born:this.time};
+    const ice={body,kind,anchors:[],vikings:vikings.map(v=>({...v,local:toLocal(body,v)})),seed:Math.round(c.x*7+c.y*13),area:area(points),born:this.time,meltElapsed:0,meltProgress:0,lastBoatContact:null};
     Composite.add(this.engine.world,body);
     for (const anchor of anchors) {
       const local=toLocal(body,anchor),pivot=anchor.pivot?{...anchor.pivot}:{x:anchor.x,y:Math.max(16,anchor.y-130)};
@@ -215,7 +215,8 @@ class RescueSimulation {
       this.removeIce(ice);
       for(const poly of parts) {
         const c=centroid(poly),v={x:vel.x-av*(c.y-pos.y),y:vel.y+av*(c.x-pos.x)};
-        this.addIce(poly,anchors.filter(p=>inside(p,poly)),vikings.filter(v=>inside(v,poly)),v,av,ice.kind);
+        const fragment=this.addIce(poly,anchors.filter(p=>inside(p,poly)),vikings.filter(v=>inside(v,poly)),v,av,ice.kind);
+        if(fragment){fragment.meltElapsed=ice.meltElapsed;fragment.meltProgress=ice.meltProgress;fragment.lastBoatContact=ice.lastBoatContact;}
       }
     }
     this.cuts++;this.onEvent({type:'slice',a,b,ropes:ropes.length});
@@ -229,6 +230,17 @@ class RescueSimulation {
     this.removeIce(ice); this.shatters++;
     for(const v of vikings) this.addWalker(v,velocity);
     this.onEvent({type:'shatter',x:pos.x,y:pos.y,points,velocity,impact,surface,crew:vikings.length});
+  }
+
+  meltIce(ice) {
+    if(!this.ice.includes(ice))return;
+    const points=ice.body.vertices.map(p=>({x:p.x,y:p.y})),pos={...ice.body.position},velocity={...ice.body.velocity};
+    const vikings=ice.vikings.map(v=>({...v,...toWorld(ice.body,v.local)}));
+    this.removeIce(ice);this.melts++;
+    // Release at the actual frozen positions. Gravity completes the landing;
+    // neither melting nor rescue teleports a passenger into a decorative slot.
+    for(const v of vikings)this.addWalker(v,velocity);
+    this.onEvent({type:'melt',x:pos.x,y:pos.y,points,velocity,surface:'boat',crew:vikings.length});
   }
 
   supportAt(x,foot,drop=12,rise=10) {
@@ -290,7 +302,6 @@ class RescueSimulation {
     this.time+=delta; const preVelocities=new Map();
     this.updateWalkers();
     for(const ice of this.ice) {
-      ice.waitingForHammer=false;
       preVelocities.set(ice.body.id,{...ice.body.velocity});
       if(this.level.wind)this.M.Body.applyForce(ice.body,ice.body.position,{x:ice.body.mass*this.level.wind,y:0});
       for(const a of ice.anchors) {
@@ -299,7 +310,7 @@ class RescueSimulation {
       }
     }
     this.M.Engine.update(this.engine,delta);
-    const shattering=new Map();
+    const shattering=new Map(),boatContacts=new Set();
     for(const pair of this.engine.pairs.list) {
       if(!pair.isActive)continue;
       const [a,b]=[pair.bodyA,pair.bodyB],body=a.label==='ice'?a:b.label==='ice'?b:null,ground=body===a?b:a;
@@ -307,11 +318,24 @@ class RescueSimulation {
       const ice=this.ice.find(i=>i.body===body);if(!ice)continue;
       const vel=preVelocities.get(body.id)||{x:0,y:0},normal=pair.collision.normal;
       const impact=Math.abs(vel.x*normal.x+vel.y*normal.y);
-      const fitsHammer=ice.area<=(this.level.hammerArea??Infinity);
-      const boatHit=ground.label==='boat';
-      if(boatHit&&!fitsHammer&&ice.vikings.length){ice.waitingForHammer=true;if(!ice.oversizeNotified){ice.oversizeNotified=true;this.onEvent({type:'oversize',x:body.position.x,y:body.position.y});}}
-      if(boatHit?fitsHammer&&(ice.vikings.length||impact>=(this.level.impactThreshold??2.1)):ice.kind!=='pack'&&impact>=(this.level.impactThreshold??2.1))shattering.set(ice,{impact,surface:ground.label});
+      if(ground.label==='boat')boatContacts.add(ice);
+      else if(ice.kind!=='pack'&&impact>=(this.level.impactThreshold??2.1))shattering.set(ice,{impact,surface:ground.label});
     }
+    const meltDuration=Math.max(100,this.level.meltDuration??1200);
+    for(const ice of this.ice){
+      if(boatContacts.has(ice)){
+        if(ice.meltElapsed===0)this.onEvent({type:'meltStart',x:ice.body.position.x,y:ice.body.position.y,crew:ice.vikings.length});
+        ice.lastBoatContact=this.time;
+        ice.meltElapsed=Math.min(meltDuration,ice.meltElapsed+delta);
+        ice.meltProgress=ice.meltElapsed/meltDuration;
+        shattering.delete(ice); // A ship landing melts instead of exploding.
+      }else if(ice.lastBoatContact!=null&&this.time-ice.lastBoatContact>120){
+        // Ignore tiny contact gaps caused by the landing bounce, but a floe
+        // knocked off deck must not melt safely in midair above the water.
+        ice.meltElapsed=0;ice.meltProgress=0;ice.lastBoatContact=null;
+      }
+    }
+    for(const ice of [...boatContacts])if(ice.meltProgress>=1)this.meltIce(ice);
     for(const [ice,{impact,surface}] of shattering)this.shatterIce(ice,impact,surface);
     for(const ice of [...this.ice]) {
       for(const v of [...ice.vikings]) {
@@ -328,8 +352,8 @@ class RescueSimulation {
   }
 
   snapshot() {
-    return {cuts:this.cuts,time:this.time,state:this.state,stars:this.stars,shatters:this.shatters,nextRope:this.nextRope,rescued:structuredClone(this.rescued),lost:structuredClone(this.lost),runes:structuredClone(this.runes),
-      ice:this.ice.map(i=>({kind:i.kind,points:i.body.vertices.map(p=>({x:p.x,y:p.y})),anchors:i.anchors.map(p=>this.anchorWorld(i,p)),vikings:i.vikings.map(v=>({...v,...toWorld(i.body,v.local)})),velocity:{...i.body.velocity},angularVelocity:i.body.angularVelocity,born:i.born})),
+    return {cuts:this.cuts,time:this.time,state:this.state,stars:this.stars,shatters:this.shatters,melts:this.melts,nextRope:this.nextRope,rescued:structuredClone(this.rescued),lost:structuredClone(this.lost),runes:structuredClone(this.runes),
+      ice:this.ice.map(i=>({kind:i.kind,points:i.body.vertices.map(p=>({x:p.x,y:p.y})),anchors:i.anchors.map(p=>this.anchorWorld(i,p)),vikings:i.vikings.map(v=>({...v,...toWorld(i.body,v.local)})),velocity:{...i.body.velocity},angularVelocity:i.body.angularVelocity,born:i.born,meltElapsed:i.meltElapsed,meltProgress:i.meltProgress,lastBoatContact:i.lastBoatContact})),
       walkers:this.walkers.map(v=>({id:v.id,look:v.look,x:v.body.position.x,y:v.body.position.y,velocity:{...v.body.velocity},direction:v.direction,grounded:v.grounded,walking:v.walking,freedAt:v.freedAt,landedAt:v.landedAt})),
       timbers:this.timbers.map(t=>({x:t.body.position.x,y:t.body.position.y,width:t.width,height:t.height,angle:t.body.angle,velocity:{...t.body.velocity},angularVelocity:t.body.angularVelocity,pivot:t.pivot,fixed:t.fixed}))};
   }
@@ -340,9 +364,9 @@ class RescueSimulation {
     for(const t of this.timbers){this.M.Composite.remove(this.engine.world,t.body);if(t.constraint)this.M.Composite.remove(this.engine.world,t.constraint);}
     this.timbers=[];for(const t of data.timbers||[])this.addTimber(t);
     this.walkers=[];this.time=data.time;this.nextRope=data.nextRope||0;
-    for(const i of data.ice){const ice=this.addIce(i.points,i.anchors,i.vikings,i.velocity,i.angularVelocity,i.kind||'brittle');ice.born=i.born??data.time;}
+    for(const i of data.ice){const ice=this.addIce(i.points,i.anchors,i.vikings,i.velocity,i.angularVelocity,i.kind||'brittle');ice.born=i.born??data.time;ice.meltElapsed=i.meltElapsed||0;ice.meltProgress=i.meltProgress||0;ice.lastBoatContact=i.lastBoatContact??null;}
     for(const v of data.walkers||[])this.addWalker(v,v.velocity,{direction:v.direction,grounded:v.grounded,walking:v.walking,freedAt:v.freedAt,landedAt:v.landedAt});
-    this.cuts=data.cuts;this.state=data.state;this.stars=data.stars;this.shatters=data.shatters||0;this.rescued=structuredClone(data.rescued);this.lost=structuredClone(data.lost);this.runes=structuredClone(data.runes);
+    this.cuts=data.cuts;this.state=data.state;this.stars=data.stars;this.shatters=data.shatters||0;this.melts=data.melts||0;this.rescued=structuredClone(data.rescued);this.lost=structuredClone(data.lost);this.runes=structuredClone(data.runes);
     this.M.Pairs.clear(this.engine.pairs);
   }
   destroy(){this.M.Composite.clear(this.engine.world,false);this.M.Engine.clear(this.engine);}
@@ -350,108 +374,50 @@ class RescueSimulation {
 
 
 // levels.js
-// Five authored expedition puzzles. All coordinates are world-space, not viewport-space.
-const poly = (...pairs) => pairs.map(([x,y]) => ({x,y}));
-const rect = (x,y,w,h) => poly([x,y],[x+w,y],[x+w,y+h],[x,y+h]);
-const sailor = (x,y,look=0) => ({x,y,look});
-const cut = (x1,y1,x2,y2) => [[x1,y1],[x2,y2]];
-const rock = points => ({points});
-const spike = (x,y,width=90,height=34) => ({x,y,width,height});
-const rune = (x,y) => ({x,y});
-// A visible wall pin is a real zero-length Matter constraint, not a paused body.
-// Roof pins keep preparation deliberate; shoulder pins release when carved off.
-const pin = (x,y) => ({x,y,pivot:{x,y},length:0});
-const hull = points => {
-  const sorted=points.slice().sort((a,b)=>a.x-b.x||a.y-b.y),cross=(a,b,c)=>(b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x),lower=[],upper=[];
-  for(const p of sorted){while(lower.length>1&&cross(lower.at(-2),lower.at(-1),p)<=0)lower.pop();lower.push(p);}
-  for(const p of sorted.reverse()){while(upper.length>1&&cross(upper.at(-2),upper.at(-1),p)<=0)upper.pop();upper.push(p);}
-  return [...lower.slice(0,-1),...upper.slice(0,-1)];
-};
-const ice = (points,vikings=[],anchors=[],kind='brittle') => {
-  const protectedPoints=[...points];
-  for(const p of anchors)for(const [dx,dy]of[[-12,-12],[12,-12],[12,12],[-12,12]])protectedPoints.push({x:p.x+dx,y:p.y+dy});
-  for(const p of vikings)for(const [dx,dy]of[[-27,-38],[27,-38],[27,31],[-27,31]])protectedPoints.push({x:p.x+dx,y:p.y+dy});
-  return {points:hull(protectedPoints),vikings,anchors,kind};
-};
-const slab = (x,y,w,h,vikings=[],anchors=[],kind='brittle') => ice(poly([x+18,y],[x+w-28,y+7],[x+w,y+38],[x+w-10,y+h-13],[x+w*.64,y+h],[x+11,y+h-6],[x,y+42]),vikings,anchors,kind);
-const world = (width=1280,height=960) => ({width,height,waterY:height-42});
-const boat = (x,y,width=250) => ({x,y,width});
-
-const CHAPTERS=[
-  {id:0,name:'The Expedition',subtitle:'Five physics puzzles',color:'#8edfe5'},
-];
-
-const LEVELS=[
-  {
-    id:1,name:'Narrow Channel',chapter:0,par:3,
-    hint:'Carve a narrow column between the side pins, then cut its roof. The sloping channel leads to the ship.',
-    objective:'Extract the center without bringing the pinned shoulders into the channel.',
-    world:world(1280,960),boat:boat(785,860,280),
-    ice:[ice(poly([350,320],[410,210],[535,150],[690,190],[800,280],[822,390],[810,447],[647,460],[351,454],[325,390]),[sailor(580,420,0)],[{x:365,y:425},{x:795,y:425},pin(580,183)])],
-    rocks:[rock(poly([420,530],[715,775],[715,812],[420,567])),rock(poly([770,560],[1030,560],[1030,602],[820,602]))],
-    spikes:[spike(270,890,110),spike(1070,890,110)],
-    runes:[rune(610,655),rune(755,810)],
-    solutionInitialDelay:900,solutionDelay:600,solution:[cut(550,130,525,490),cut(610,130,635,490),cut(510,365,650,365)],
-  },
-  {
-    id:2,name:'Counterweight',chapter:0,par:4,
-    hint:'Trim the crew’s side pins first. Drop the left ballast to lift the hinged gate, then cut the compact piece’s roof.',
-    objective:'Use the heavy empty ice to rotate the gate before releasing the crew.',
-    world:world(1360,1000),boat:boat(850,895,250),hammerArea:10500,
-    ice:[
-      slab(390,250,170,200,[],[{x:425,y:270},{x:525,y:270}],'pack'),
-      slab(690,155,330,290,[sailor(855,405,1)],[{x:715,y:410},{x:995,y:410},pin(855,177)],'pack'),
-    ],
-    timbers:[{x:680,y:680,width:500,height:30,angle:0,pivot:{x:680,y:680}}],
-    rocks:[rock(rect(360,920,225,55)),rock(rect(660,800,40,150)),rock(rect(1020,735,200,50)),rock(rect(900,698,75,65))],
-    spikes:[spike(365,896,180,25),spike(1080,925,150)],
-    runes:[rune(855,585),rune(855,810)],
-    solutionInitialDelay:900,solutionDelays:[600,600,1800,600],
-    solution:[cut(825,125,800,470),cut(885,125,910,470),cut(365,315,585,315),cut(785,355,925,355)],
-  },
-  {
-    id:3,name:'Across the Divide',chapter:0,par:4,
-    hint:'Free the lower rider. Trim the floe’s right side, then carve off its left wall pin to start the swing. Cut the rope as it moves right.',
-    objective:'Time a compact swinging floe past the central cliff and join the crew below.',
-    world:world(1480,1000),boat:boat(930,890,430),hammerArea:24000,
-    ice:[
-      ice(poly([340,225],[425,185],[560,230],[550,365],[415,390],[350,355]),[sailor(445,340,2)],[{x:435,y:235,pivot:{x:660,y:75}},pin(365,280)],'pack'),
-      slab(850,575,100,170,[sailor(900,705,0)],[{x:873,y:595},{x:927,y:595}]),
-    ],
-    rocks:[rock(poly([440,640],[620,640],[620,930],[440,930])),rock(poly([1110,660],[1280,660],[1280,705],[1150,705]))],
-    spikes:[spike(450,615,160,25),spike(1175,930,130)],
-    runes:[rune(900,805),rune(580,470)],
-    solutionInitialDelay:900,solutionDelays:[600,600,650,600],
-    solution:[cut(825,660,975,660),cut(500,200,520,420),cut(390,170,390,420),cut(300,130,1050,130)],
-  },
-  {
-    id:4,name:'Thick Ice',chapter:0,par:4,
-    hint:'Blue pack ice survives the rocks. Clear the side pins, lower the slab onto the ship, then divide it between the crew so the hammer can break it.',
-    objective:'Land the heavy slab intact, then reduce each occupied piece below the hammer limit.',
-    world:world(1360,980),boat:boat(710,870,330),hammerArea:13000,
-    ice:[slab(400,160,620,305,[sailor(655,420,0),sailor(765,420,3)],[{x:425,y:425},{x:995,y:425},pin(710,182)],'pack')],
-    rocks:[rock(rect(320,605,235,55)),rock(rect(865,605,240,55))],
-    spikes:[spike(360,580,160,25),spike(900,580,160,25),spike(1150,910,100)],
-    runes:[rune(655,735),rune(765,735)],
-    solutionInitialDelay:900,solutionDelays:[600,600,2200,600],
-    solution:[cut(625,130,600,490),cut(795,130,820,490),cut(580,365,840,365),cut(710,715,710,900)],
-  },
-  {
-    id:5,name:'Last Passage',chapter:0,par:7,
-    hint:'Open the tall crew window. Trim the floe’s right side, then its left wall pin to start the swing. Release its rope over the cliff, then split the pack ice on deck.',
-    objective:'Combine the pinned window, a timed swing, and a final on-deck split.',
-    world:world(1600,1100),boat:boat(1150,995,760),hammerArea:25000,
-    ice:[
-      slab(1165,140,360,450,[sailor(1290,425,0),sailor(1400,425,3)],[{x:1190,y:550},{x:1500,y:550},pin(1345,162)],'pack'),
-      ice(poly([440,225],[525,185],[660,230],[650,365],[515,390],[450,355]),[sailor(545,340,1)],[{x:535,y:235,pivot:{x:760,y:75}},pin(465,280)],'pack'),
-    ],
-    rocks:[rock(poly([440,640],[720,640],[720,1030],[440,1030])),rock(poly([1530,690],[1600,690],[1600,740],[1570,740]))],
-    spikes:[spike(450,615,260,25),spike(1550,1030,45)],
-    runes:[rune(680,470),rune(1290,720),rune(1400,720)],
-    solutionInitialDelay:900,solutionDelays:[600,600,600,600,650,2200,600],
-    solution:[cut(1260,110,1235,620),cut(1430,110,1455,620),cut(1215,370,1475,370),cut(600,200,620,420),cut(490,170,490,420),cut(400,130,825,130),cut(1345,650,1345,1030)],
-  },
-];
+// A seeded construction, not unconstrained random placement. Every crew lane is
+// vertically clear, surrounded by pinned shoulders and aligned over a wide deck.
+const CHAPTERS=[{id:0,name:'Random Fjord',subtitle:'One replayable test map',color:'#8edfe5'}];
+const DEFAULT_SEED=271828;
+function normalizeSeed(value){const n=Number(value);return Number.isFinite(n)?(Math.floor(n)>>>0):DEFAULT_SEED;}
+function seedRandom(seed){let s=normalizeSeed(seed);return()=>{s=(Math.imul(s,1664525)+1013904223)>>>0;return s/4294967296;};}
+const randomRect=(x,y,w,h)=>[{x,y},{x:x+w,y},{x:x+w,y:y+h},{x,y:y+h}];
+function generateRandomLevel(input=DEFAULT_SEED){
+ const seed=normalizeSeed(input),random=seedRandom(seed),pick=n=>Math.floor(random()*n);
+ const count=1+pick(3),cx=520+pick(7)*40,cy=330+pick(5)*20,span=(count-1)*74+112,left=cx-span/2,right=cx+span/2,top=130+pick(3)*15,bottom=cy+44;
+ const roof=cy-58,shoulder=90+pick(3)*12,boatY=790+pick(4)*20,boatWidth=span+320;
+ const members=Array.from({length:count},(_,i)=>({x:cx+(i-(count-1)/2)*74,y:cy,look:pick(16)}));
+ const points=[{x:left-shoulder+20,y:top},{x:right+shoulder-20,y:top},{x:right+shoulder,y:top+45},{x:right+shoulder,y:bottom},{x:left-shoulder,y:bottom},{x:left-shoulder,y:top+45}];
+ const pins=[{x:left-shoulder+25,y:cy},{x:right+shoulder-25,y:cy},{x:cx-span/4,y:top+22},{x:cx+span/4,y:top+22}].map(p=>({...p,pivot:{...p},length:0}));
+ const shelfY=bottom+130+pick(4)*22,wall=left-100;
+ return {id:1,seed,name:'Random Fjord',chapter:0,par:3,generatorVersion:1,
+  hint:'Carve down both sides of the crew, inside the brass pins. Then cut across above their helmets. The ice melts automatically on the ship.',
+  objective:'Free the crew into the open channel. Replay keeps this seed; New Map rolls another.',
+  world:{width:1280,height:960,waterY:925},boat:{x:cx,y:boatY,width:boatWidth},
+  ice:[{points,vikings:members,anchors:pins,kind:random()<.5?'pack':'brittle'}],
+  rocks:[{points:randomRect(140,shelfY,Math.max(80,wall-140),46)},{points:randomRect(right+100,shelfY+40,Math.max(80,1130-right-100),46)}],
+  spikes:[{x:170,y:shelfY-20,width:70,height:22},{x:1040,y:shelfY+20,width:65,height:22}],
+  runes:members.map(v=>({x:v.x,y:cy+110})),
+  solutionInitialDelay:900,solutionDelay:650,
+  solution:[[[left+12,top-35],[left-18,bottom+35]],[[right-12,top-35],[right+18,bottom+35]],[[left-25,roof],[right+25,roof]]],
+ };
+}
+function verifyLevelSolution(Matter,level,{initial=900,delay=650,jitter=0,trial=1}={}){
+ const sim=new RescueSimulation(Matter,level),random=seedRandom(trial),dt=1000/60;
+ const advance=ms=>{for(let n=0;n<Math.ceil(ms/dt)&&sim.state==='playing';n++)sim.step(dt);};
+ let valid=true;advance(initial);
+ for(const stroke of level.solution){const points=stroke.map(([x,y])=>({x:x+(random()-.5)*jitter*2,y:y+(random()-.5)*jitter*2}));valid=sim.slice(...points).ok&&valid;advance(delay);}
+ advance(15000);
+ const result={ok:valid&&sim.state==='won'&&sim.stars===3,state:sim.state,stars:sim.stars,rescued:sim.rescued.length,total:sim.total,cuts:sim.cuts};sim.destroy();return result;
+}
+function verifiedRandomLevel(Matter,seed){
+ const level=generateRandomLevel(seed),check=verifyLevelSolution(Matter,level);
+ if(check.ok)return {...level,verified:true};
+ // Bounded deterministic fallback, still verified by the same runtime engine.
+ const fallback=generateRandomLevel(DEFAULT_SEED);
+ if(!verifyLevelSolution(Matter,fallback).ok)throw new Error('Map validation failed. Please reload.');
+ return {...fallback,seed:normalizeSeed(seed),fallbackSeed:DEFAULT_SEED,verified:true};
+}
+const LEVELS=[generateRandomLevel(DEFAULT_SEED)];
 
 
 // ship-art.js
@@ -459,7 +425,7 @@ const LEVELS=[
 // All coordinates are world coordinates; y is the real, fixed landing surface.
 // Layer order: back -> falling ice / walkers -> rescued crew -> front.
 // The optional drawViking callback uses game.js's existing world-coordinate API.
-// Extras: hammer = swing progress 0..1, success = warm highlight intensity 0..1,
+// Extras: success = warm highlight intensity 0..1,
 // captain = false to omit him, sail = 'raised' for decorative hero previews.
 
 const SHIP_TAU = Math.PI * 2;
@@ -742,34 +708,13 @@ function drawLongshipBack(ctx, options = {}) {
 
 function shipCaptain(ctx, o) {
   const cx = o.x - o.half + 24, cy = o.y - 19;
-  o.drawViking(cx, cy, 2, 0, true, .76, 0, 1);
+  // The welcoming captain waves. Ice melts unaided; there is no hammer prop.
+  o.drawViking(cx, cy, 0, 0, true, .76, 0, 1,
+    {pose:o.success>0?'celebrate':'idle',celebration:3,time:o.time});
   ctx.save(); ctx.translate(cx, o.y);
-  // A little brass brow and teal cloak distinguish the resident captain.
   shipPolygon(ctx, [[-10, -24], [-17, -13], [-17, 1], [-10, -1], [-7, -17]], '#477a76', '#2b4e50', 1);
   shipStroke(ctx, [[-11, -31], [11, -31]], '#d5b374', 2.8);
   shipPolygon(ctx, [[0, -36], [3, -32], [0, -28], [-3, -32]], '#f3d397');
-  const p = Math.max(0, Math.min(1, Number(o.hammer) || 0));
-  const ease = n => n * n * (3 - 2 * n);
-  const angle = p <= .28 ? .28 - ease(p / .28) * .93
-    : p <= .62 ? -.65 + ease((p - .28) / .34) * 2.05
-      : 1.4 - ease((p - .62) / .38) * 1.12;
-  ctx.translate(13, -14);
-  if (p > .32 && p < .73 && !o.reducedMotion) {
-    ctx.beginPath(); ctx.arc(0, 0, 29, -.65 - Math.PI / 2, angle - Math.PI / 2);
-    ctx.strokeStyle = '#ffe0a351'; ctx.lineWidth = 4; ctx.stroke();
-    ctx.beginPath(); ctx.arc(0, 0, 33, -.7 - Math.PI / 2, angle - Math.PI / 2);
-    ctx.strokeStyle = '#ffeac73d'; ctx.lineWidth = 1.2; ctx.stroke();
-  }
-  ctx.rotate(o.reducedMotion ? .28 : angle);
-  shipStroke(ctx, [[0, 6], [0, -28]], '#273f42', 6);
-  shipStroke(ctx, [[-.5, 5], [-.5, -28]], '#b88854', 3.5);
-  for (const y of [1, 4]) shipStroke(ctx, [[-2, y], [2, y]], '#e0be82', 1.1);
-  shipPolygon(ctx, [[-11, -33], [9, -33], [12, -29], [10, -21], [-11, -21], [-13, -24]], '#708d8e', '#263f43', 1.5);
-  shipPolygon(ctx, [[-11, -33], [9, -33], [8, -29], [-12, -29]], '#bad0bf');
-  shipPolygon(ctx, [[7, -30], [12, -29], [10, -21], [7, -22]], '#425f65');
-  shipStroke(ctx, [[-3, -31], [-3, -23]], '#d8bc7d', 2.5);
-  shipStroke(ctx, [[1, -29], [4, -27], [1, -25]], '#dfebc7', 1);
-  shipEllipse(ctx, 0, 1, 3.5, 3.2, '#e5b388');
   ctx.restore();
 }
 
@@ -790,7 +735,7 @@ function drawLongshipCrew(ctx, options = {}) {
     const x=hasLanding?v.x:o.x+12+(i-(count-1)/2)*spacing;
     const y=hasLanding?v.y:o.y-25*scale;
     o.drawViking(x,y,v.look||0,0,true,hasLanding?(v.scale||1):scale,
-      0,1,{pose:v.pose||'idle',phase:v.phase||0,time:o.time});
+      0,1,{pose:v.pose||'idle',phase:v.phase||0,time:o.time,celebration:v.celebration??v.id??i});
   });
   ctx.restore();
 }
@@ -833,6 +778,7 @@ function drawLongship(ctx, options = {}) {
 // viking-art.js
 // Original articulated crew artwork. Visual poses never change physics bodies.
 // time is milliseconds, gait is radians, phase is 0..1 for impact/rise/sink.
+// look modulo 4: man, woman, cow, pig. Higher values vary celebration style.
 // The body stays within x +/-30, y -40..+27 at scale 1. The raised cheer axe
 // extends that pose only to x +/-35, y -48, clear of neighboring crew.
 // Water poses clip at local y=7: put (x,y+7) on the water surface.
@@ -909,6 +855,15 @@ function vikingHead(ctx,palette,state) {
   vikingShape(ctx,[[-11,-6],[-6,-8],[-6,4],[-1,9],[-8.5,7],[-11,2]],'#d9a480',null);
   vikingOval(ctx,8,2,3.2,2,'#cf846d');
 
+  // Women wear two long bound hair braids; men have a braided beard.
+  if(state.species===1){
+    for(const side of [-1,1]){
+      ctx.save();ctx.scale(side,1);ctx.rotate(beard*.6);
+      vikingShape(ctx,[[10,-12],[16,-6],[17,8],[19,18],[14,22],[11,16],[12,7],[9,-2]],palette.hair,'#654a3c',1);
+      for(let yy=1;yy<18;yy+=5)vikingLine(ctx,[[12,yy],[16,yy+3],[13,yy+5]],palette.light,2);
+      vikingLine(ctx,[[13,17],[18,17]],'#e3bf77',2.5);ctx.restore();
+    }
+  }else{
   // Beard pivots a little behind the head/torso, including two bound braids.
   ctx.save();ctx.translate(0,6);ctx.rotate(beard);
   vikingShape(ctx,[[-12,-5],[-9,1],[-4,4],[2,4],[8,0],[12,-5],[12,7],
@@ -920,6 +875,7 @@ function vikingHead(ctx,palette,state) {
   vikingLine(ctx,[[-6.3,13],[-2.4,14]],'#d9b96e',2.2);
   vikingLine(ctx,[[3.8,12.5],[7.1,11.5]],'#d9b96e',2.2);
   ctx.restore();
+  }
 
   const cycle=((t+state.seed*157)%4200+4200)%4200;
   const blink=!still&&(cycle>3600&&cycle<3700||cycle>3840&&cycle<3910);
@@ -951,7 +907,7 @@ function vikingHead(ctx,palette,state) {
   }else if(face==='concern')vikingLine(ctx,[[-2.7,7],[0,6.3],[2.7,7]],'#694734',1.2);
   else vikingLine(ctx,[[-2.6,6.5],[2.6,6.5]],'#694734',1.1);
   vikingShape(ctx,[[-1.6,-1],[0,-3.5],[2.8,1.7],[1.2,3],[-2.5,2]],'#efbe96',null);
-  vikingShape(ctx,[[-.4,2],[-4.3,1.4],[-8,4.7],[-4.1,5.3],[0,3.8],
+  if(state.species!==1)vikingShape(ctx,[[-.4,2],[-4.3,1.4],[-8,4.7],[-4.1,5.3],[0,3.8],
     [4.3,5.3],[8,4.7],[4.1,1.4]],palette.hair,null);
   vikingLine(ctx,[[0,-1],[.5,1.1]],'#f8d4ac',1.3);
 
@@ -975,19 +931,88 @@ function vikingHead(ctx,palette,state) {
   ctx.restore();ctx.restore();
 }
 
+// Small quadrupeds keep the same gameplay footprint as the human crew. Their
+// broad muzzle, ears, four hooves and tiny helmet distinguish them even in ice.
+function drawVikingAnimal(ctx,state){
+  const {species,pose,t,still,wave,walk,celebration}=state,cow=species===2;
+  const fur=cow?'#eee4cc':'#e9a6a0',shade=cow?'#c9c3ac':'#cb827e';
+  const active=pose==='celebrate',stride=pose==='walking'?walk:0;
+  const bounce=active&&!still?Math.max(0,Math.sin(t*.012+state.seed))*3:0;
+  const wiggle=active&&!still?Math.sin(t*.013+state.seed):0;
+  // Curly tail or tasselled cow tail, behind the rump.
+  ctx.save();ctx.translate(-17,3);ctx.rotate((still?0:wave*.14)+(active?wiggle*.25:0));
+  if(cow){vikingLine(ctx,[[0,0],[-6,-2],[-8,5]],'#827967',2);vikingShape(ctx,[[-10,4],[-6,4],[-7,9],[-10,8]],'#655649',null);}
+  else{ctx.beginPath();ctx.moveTo(0,0);ctx.bezierCurveTo(-11,-9,-12,6,-6,4);ctx.bezierCurveTo(-2,2,-6,-3,-9,0);ctx.strokeStyle='#aa696b';ctx.lineWidth=2;ctx.stroke();}ctx.restore();
+  // Rear legs are darker; lifted front hooves celebrate without changing physics.
+  for(const [n,x] of [[0,-12],[1,10],[2,-6],[3,16]]){
+    const rear=n<2,step=stride*(n%2?1:-1)*3;
+    const kick=active&&celebration===2?Math.max(0,wiggle*(n%2?1:-1))*6:0;
+    const lift=active&&(celebration===0||celebration===3)&&n===3?7+bounce:0;
+    const bend=pose==='falling'?(n%2?3:-3):step;
+    vikingLine(ctx,[[x,8],[x+bend,16-kick-lift],[x+bend*1.4,22-kick-lift]],rear?shade:fur,5);
+    vikingShape(ctx,[[x-3+bend*1.4,20-kick-lift],[x+3+bend*1.4,20-kick-lift],[x+4+bend*1.4,25-kick-lift],[x-3+bend*1.4,25-kick-lift]],cow?'#4d4b46':'#785354','#3e4545',.9);
+    vikingLine(ctx,[[x+bend*1.4,22-kick-lift],[x+bend*1.4,24-kick-lift]],'#c5bda4',.7);
+  }
+  // Rounded belly, little teal Viking blanket and a bronze clasp.
+  vikingOval(ctx,-1,3,20,13,'#344b4f');vikingOval(ctx,-1,2,19,12,fur);
+  if(cow){vikingShape(ctx,[[-16,-5],[-8,-8],[-3,-2],[-6,5],[-14,5]],'#71675b',null);vikingOval(ctx,10,7,5,4,'#75685a');}
+  vikingShape(ctx,[[-9,-10],[7,-10],[10,1],[5,9],[-7,7],[-11,0]],cow?'#5b8f8d':'#9277a2','#42616a',1);
+  vikingLine(ctx,[[-9,-9],[6,-9],[8,1],[4,6],[-6,5]],'#edce91',1.2);
+  vikingOval(ctx,0,-2,2.6,2.6,'#d5ad61');vikingLine(ctx,[[-1,-3],[1,-1]],'#fff0b3',.7);
+  // Slight head bob makes the moo / oink, ear wiggle, and happy hops distinct.
+  ctx.save();ctx.translate(5,-14-bounce*.35);ctx.rotate(active?wiggle*(cow?.045:.085):state.headTilt);
+  for(const side of [-1,1]){
+    ctx.save();ctx.scale(side,1);ctx.rotate(active&&!still?wave*.04:0);
+    vikingShape(ctx,[[9,-5],[22,-9],[20,1],[13,4]],fur,'#766d66',1);
+    vikingShape(ctx,[[13,-4],[19,-6],[17,0]],cow?'#c49690':'#c87782',null);
+    ctx.restore();
+  }
+  vikingOval(ctx,0,-1,14,14,'#42565a');vikingOval(ctx,0,-1,13,13,fur);
+  if(cow)vikingShape(ctx,[[-11,-8],[-4,-12],[-1,-5],[-4,3],[-11,2]],'#776b5d',null);
+  const blink=!still&&((t+state.seed*157)%4300)>4070;
+  const alarm=pose==='falling'||pose==='swim'||pose==='sink';
+  for(const side of [-1,1]){
+    const x=side*6,y=-3;
+    if(blink||pose==='impact')vikingLine(ctx,[[x-2,y],[x+2,y]],'#283f47',1.4);
+    else if(active){ctx.beginPath();ctx.arc(x,y+1,2.2,Math.PI+.2,VIKING_TAU-.2);ctx.strokeStyle='#283f47';ctx.lineWidth=1.5;ctx.stroke();}
+    else {vikingOval(ctx,x,y,2.6,alarm?3:2.4,'#fff3d9');vikingOval(ctx,x+.5,y+.3,1.3,1.8,'#253e48');}
+  }
+  const muzzle=cow?'#d6aaa0':'#efb4b0';
+  vikingOval(ctx,0,7,cow?11:9,cow?6:6.5,'#a57672');vikingOval(ctx,0,6.1,cow?10.5:8.5,5.8,muzzle);
+  for(const side of [-1,1])vikingOval(ctx,side*(cow?5:3.6),5.5,cow?1.3:1.6,cow?1.7:2,'#965f65');
+  if(alarm)vikingOval(ctx,0,11,2.4,1.9,'#825559');
+  else{ctx.beginPath();ctx.arc(0,8,3,.25,Math.PI-.25);ctx.strokeStyle='#945f60';ctx.lineWidth=1;ctx.stroke();}
+  // Stubby horned iron helmet sits between the ears, with a clear nasal band.
+  for(const side of [-1,1]){ctx.save();ctx.scale(side,1);vikingShape(ctx,[[8,-13],[14,-15],[17,-22],[19,-22],[18,-13],[12,-9]],'#e9d6a7','#6a7b7e',.9);ctx.restore();}
+  vikingShape(ctx,[[-12,-9],[-11,-17],[-5,-22],[4,-22],[11,-17],[12,-9]],'#65848c','#2c4655',1.3);
+  vikingShape(ctx,[[-9,-16],[-3,-20],[0,-20],[-1,-11],[-10,-11]],'#a3b8b1',null);
+  vikingLine(ctx,[[-12,-10],[12,-10]],'#c9cfb5',3);
+  vikingLine(ctx,[[0,-21],[0,-5]],'#dde0c5',2.2);
+  for(const x of [-8,8])vikingOval(ctx,x,-10,.8,.8,'#f9ebbc');
+  ctx.restore();
+  if(active&&celebration===1){ // quick paired hoof clap in front of the blanket
+    const clap=still?0:(1+Math.sin(t*.018))*.5;
+    for(const side of [-1,1]){
+      const x=side*(7-clap*4);vikingLine(ctx,[[side*12,5],[x,-1]],fur,5);vikingOval(ctx,x,-2,3,3,cow?'#4d4b46':'#785354');
+    }
+  }
+}
+
 /** Draw one crew member without retaining state or touching gameplay data. */
 function drawAnimatedViking(ctx,options={}) {
   const {x=0,y=0,look=0,angle=0,free=false,scale=1,gait=0,facing=1,
     pose=free?'idle':'frozen',time=0,reducedMotion=false,phase=0}=options;
   if(!ctx||![x,y,angle,scale].every(Number.isFinite)||scale<=0)return;
   const seed=Number.isFinite(look)?Math.floor(look):0;
-  const palette=VIKING_PALETTES[((seed%4)+4)%4];
+  const species=((seed%4)+4)%4;
+  const celebration=((Math.floor(options.celebration??seed/4)%4)+4)%4;
+  const palette=VIKING_PALETTES[species];
   const still=!!reducedMotion,t=Number.isFinite(time)?time:0;
   const p=vikingClamp(Number.isFinite(phase)?phase:0,0,1);
   const wave=still?0:Math.sin(t*.006+seed*.7);
   const walk=still?0:Math.sin(Number.isFinite(gait)&&gait?gait:t*.009+seed);
   const stride=pose==='walking'?walk:0;
-  const state={pose,t,still,seed,phase:p,face:free?'smile':'focus',beard:0,
+  const state={pose,t,still,seed,species,celebration,phase:p,face:free?'smile':'focus',beard:0,
     helmet:0,headTilt:0,eyeLook:0};
   let rootX=0,rootY=0,tilt=0,localScale=1,bodyScaleY=1;
   let left=[[-12,-1],[-15,7],[-14,13]],right=[[12,-1],[16,7],[14,13]];
@@ -1019,6 +1044,15 @@ function drawAnimatedViking(ctx,options={}) {
     left=[[-12,-1],[-21,-10],[-22,-22]];
     right=[[12,-1],[20,-10],[24.5+wave*.5,-21+wave]];
     legs=[[[-6,10],[-8,16],[-10,22-hop]],[[6,10],[8,16],[10,22-hop]]];
+    if(celebration===1){ // delighted clapping
+      const clap=still?0:(1+Math.sin(t*.016+seed))*.5;
+      left=[[-12,-1],[-14,-7],[-7+clap*5,-9]];right=[[12,-1],[14,-7],[7-clap*5,-9]];rootY=-hop;
+    }else if(celebration===2){ // heel-toe dance
+      tilt=wave*.065;rootX=wave*1.8;left=[[-12,-1],[-20,-2],[-24,-8-wave*3]];right=[[12,-1],[20,-2],[24,-8+wave*3]];
+      legs=[[[-6,10],[-8,16],[-10,22-Math.max(0,wave)*5]],[[6,10],[8,16],[10,22-Math.max(0,-wave)*5]]];
+    }else if(celebration===3){ // friendly overhead wave
+      left=[[-12,-1],[-17,5],[-12,10]];right=[[12,-1],[18,-13],[22+wave*3,-25]];rootY=-hop*.7;
+    }
     state.face='smile';state.headTilt=wave*.025;state.beard=wave*.045;state.helmet=-wave*.015;
   }else if(pose==='impact'||pose==='rise'){
     // A compact, side-on landing preserves the physical center and footprint.
@@ -1063,9 +1097,10 @@ function drawAnimatedViking(ctx,options={}) {
       vikingOval(ctx,0,24.5,pose==='impact'?22:17.5,2.3,'#16354a30');
     }
     ctx.translate(rootX,rootY);ctx.rotate(tilt);ctx.scale(localScale,localScale);
+    if(species>=2){drawVikingAnimal(ctx,{...state,palette,wave,walk,bodyScaleY});return;}
     vikingLeg(ctx,...legs[0],false);vikingLeg(ctx,...legs[1],true);
     ctx.save();ctx.scale(1,bodyScaleY);
-    if(pose==='celebrate')vikingAxe(ctx,right[2],wave);
+    if(pose==='celebrate'&&celebration===0)vikingAxe(ctx,right[2],wave);
     vikingLimb(ctx,...left,palette,false);
     vikingLimb(ctx,...right,palette,true);
     vikingShape(ctx,[[-11,-6],[-15,0],[-15,11],[-10,16],[0,14],[10,16],
@@ -1536,8 +1571,9 @@ function menuTitleMarkup() {
 // game.js
 const $=id=>document.getElementById(id),canvas=$('game'),ctx=canvas.getContext('2d');let W=960,H=640;
 $('menuTitle').innerHTML=menuTitleMarkup();
-const STORAGE='frosty-champs-expedition-v3';let saved={levels:{},sound:false,last:0};try{const data=JSON.parse(localStorage.getItem(STORAGE));if(data&&typeof data==='object')saved={...saved,...data,levels:data.levels||{}};}catch{}
-let sim=null,index=0,started=false,paused=false,modalOpen=false,drag=null,particles=[],trails=[],guideUntil=0,toastTimer,finishTimer,lastFrame=0,accumulator=0,clock=0,audio=null,hammerAt=-Infinity,successAt=-Infinity;
+const STORAGE='frosty-champs-random-v4';let saved={levels:{},sound:false,last:0};try{const data=JSON.parse(localStorage.getItem(STORAGE));if(data&&typeof data==='object')saved={...saved,...data,levels:data.levels||{}};}catch{}
+let currentSeed=normalizeSeed(new URLSearchParams(location.search).get('seed')??saved.seed??(crypto.getRandomValues(new Uint32Array(1))[0])), currentLevel=null;
+let sim=null,index=0,started=false,paused=false,modalOpen=false,drag=null,particles=[],trails=[],guideUntil=0,toastTimer,finishTimer,lastFrame=0,accumulator=0,clock=0,audio=null,successAt=-Infinity;
 let camera={x:0,y:0,zoom:1,minZoom:.5},panMode=false,panDrag=null,cameraTween=null;const arrivals=new Map();let waterLoss=null;
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function persist(){try{localStorage.setItem(STORAGE,JSON.stringify(saved));}catch{}}
@@ -1546,10 +1582,10 @@ function setSound(){ $('soundLabel').textContent=saved.sound?'Sound on':'Sound o
 function toast(text){$('toast').textContent=text;$('toast').classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('visible'),3100);}
 function burst(x,y,color,count=15){for(let i=0;i<count;i++){const a=Math.random()*Math.PI*2,s=1+Math.random()*4;particles.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-1,life:1,color,size:2+Math.random()*5});}}
 function onEvent(e){
-if(e.type==='oversize')toast('Trim the ice for the hammer');
+if(e.type==='meltStart'){burst(e.x,e.y,'#c9fff2',8);}
+if(e.type==='melt'){sound('rune');burst(e.x,e.y,'#baf5ef',18);}
 if(e.type==='rope'){sound('rope');burst(e.x,e.y,'#ead0a1',10);}
 if(e.type==='shatter'){
- if(e.surface==='boat'&&e.crew)hammerAt=clock;
  sound('shatter');
  const n=Math.min(38,14+Math.round(e.points.length*2));
  for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,speed=1.5+Math.random()*4.5;particles.push({x:e.x+(Math.random()-.5)*40,y:e.y+(Math.random()-.5)*35,vx:Math.cos(a)*speed+e.velocity.x*.3,vy:Math.sin(a)*speed-1.2,life:1.3,color:['#bdf8f5','#81d3e4','#e1ffff'][i%3],size:6+Math.random()*14,shard:true,spin:(Math.random()-.5)*7});}
@@ -1557,16 +1593,17 @@ if(e.type==='shatter'){
  if(e.crew&&e.surface!=='boat'&&!saved.sawShatter){saved.sawShatter=true;persist();toast('Reach the ship');}
 }
 if(e.type==='slice'){sound('slice');for(let t=0;t<=1;t+=.08)burst(e.a.x+(e.b.x-e.a.x)*t,e.a.y+(e.b.y-e.a.y)*t,'#c5ffff',2);trails.push({...e,life:1});}if(e.type==='blocked'){sound('blocked');toast('Cut blocked by crew');}if(e.type==='rune'){sound('rune');burst(e.x,e.y,'#f4d088',22);}if(e.type==='rescue'){arrivals.set(e.id,clock);successAt=clock;sound('rescue');burst(e.x,e.y,'#d4f6d6',26);}if(e.type==='lost'){clearTimeout(toastTimer);$('toast').classList.remove('visible');sound('lost');const sea=sim.world.waterY-18;burst(e.x,Math.min(e.y,sea),'#b6edf1',24);waterLoss=e.cause==='water'?{...e,startedAt:clock,y:sea}:null;if(waterLoss)cinematicFocus(e.x,sea-90,W<800?1.35:1.2);finishTimer=setTimeout(()=>showResult(false),waterLoss?2100:950);}if(e.type==='win'){clearTimeout(toastTimer);$('toast').classList.remove('visible');cinematicFocus(sim.level.boat.x,sim.level.boat.y-90,W<800?1.2:1.3);sound('win');const old=saved.levels[sim.level.id];saved.levels[sim.level.id]={stars:Math.max(e.stars,old?.stars||0),cuts:Math.min(e.cuts,old?.cuts??Infinity)};saved.last=Math.min(index+1,LEVELS.length-1);persist();finishTimer=setTimeout(()=>showResult(true),2350);}updateUI();}
-function loadLevel(n){clearTimeout(finishTimer);clearTimeout(toastTimer);$('toast').classList.remove('visible');sim?.destroy();index=Math.max(0,Math.min(n,LEVELS.length-1));sim=new RescueSimulation(window.Matter,LEVELS[index],onEvent);arrivals.clear();waterLoss=null;particles=[];trails=[];guideUntil=0;drag=null;hammerAt=-Infinity;successAt=-Infinity;paused=false;accumulator=0;$('hintCard').hidden=true;$('hintBtn').setAttribute('aria-expanded','false');$('pauseBtn').innerHTML='<span aria-hidden="true">Ⅱ</span><small>Pause</small>'; resetCamera();closeModal();updateUI();}
-function updateUI(){if(!sim)return;const l=sim.level;$('chapterLabel').textContent=String(l.id).padStart(2,'0');$('chapterLabel').title=CHAPTERS[l.chapter].name;$('levelTitle').textContent=l.name;$('rescueCount').textContent=`${sim.rescued.length}/${sim.total}`;$('cutCount').textContent=`${sim.cuts}/${l.par}`;$('runeCount').textContent=`${sim.runes.filter(r=>r.collected).length}/${sim.runes.length}`;$('hintText').textContent=l.hint;const done=Object.keys(saved.levels).length;$('startBtn').innerHTML=`${done?'Continue':'Play'} <span aria-hidden="true" class="menu-play-icon"></span>`;$('pauseBtn').innerHTML=paused?'<span aria-hidden="true">►</span><small>Resume</small>':'<span aria-hidden="true">Ⅱ</span><small>Pause</small>';$('pauseBtn').setAttribute('aria-label',paused?'Resume game':'Pause game');$('gestureTip').textContent=panMode?'Drag to pan':'Drag to cut · Scroll to explore';}
+function loadLevel(n){clearTimeout(finishTimer);clearTimeout(toastTimer);$('toast').classList.remove('visible');sim?.destroy();index=Math.max(0,Math.min(n,LEVELS.length-1));currentLevel ||= verifiedRandomLevel(window.Matter,currentSeed);sim=new RescueSimulation(window.Matter,currentLevel,onEvent);saved.seed=currentSeed;persist();arrivals.clear();waterLoss=null;particles=[];trails=[];guideUntil=0;drag=null;successAt=-Infinity;paused=false;accumulator=0;$('hintCard').hidden=true;$('hintBtn').setAttribute('aria-expanded','false');$('pauseBtn').innerHTML='<span aria-hidden="true">Ⅱ</span><small>Pause</small>'; resetCamera();closeModal();updateUI();}
+function updateUI(){if(!sim)return;const l=sim.level;$('chapterLabel').textContent='TEST';$('chapterLabel').title=CHAPTERS[l.chapter].name;$('levelTitle').textContent=l.name;$('levelTitle').title=`Seed ${currentSeed}`;$('rescueCount').textContent=`${sim.rescued.length}/${sim.total}`;$('cutCount').textContent=`${sim.cuts}/${l.par}`;$('runeCount').textContent=`${sim.runes.filter(r=>r.collected).length}/${sim.runes.length}`;$('hintText').textContent=l.hint;const done=Object.keys(saved.levels).length;$('startBtn').innerHTML=`${done?'Continue':'Play'} <span aria-hidden="true" class="menu-play-icon"></span>`;$('pauseBtn').innerHTML=paused?'<span aria-hidden="true">►</span><small>Resume</small>':'<span aria-hidden="true">Ⅱ</span><small>Pause</small>';$('pauseBtn').setAttribute('aria-label',paused?'Resume game':'Pause game');$('gestureTip').textContent=panMode?'Drag to pan':'Drag to cut · Scroll to explore';}
 
-function start(){started=true;document.body.classList.remove('is-splash');$('splash').hidden=true;loadLevel(saved.last||0);canvas.focus({preventScroll:true});if(index===0){guideUntil=clock+6500;toast('Drag to cut · + zoom · ✥ pan');}sound('click');}
-function restart(){loadLevel(index);}
+function start(){try{const url=new URL(location.href);url.searchParams.set('seed',String(currentSeed));history.replaceState(null,'',url);}catch{}started=true;document.body.classList.remove('is-splash');$('splash').hidden=true;loadLevel(saved.last||0);canvas.focus({preventScroll:true});if(index===0){guideUntil=clock+6500;toast('Drag to cut · + zoom · ✥ pan');}sound('click');}
+function restart(){loadLevel(0);}
+function newMap(seed){const previous=currentSeed;currentSeed=seed==null?crypto.getRandomValues(new Uint32Array(1))[0]:normalizeSeed(seed);if(seed==null&&currentSeed===previous)currentSeed=(currentSeed+1)>>>0;currentLevel=null;started=true;$('splash').hidden=true;document.body.classList.remove('is-splash');loadLevel(0);try{const url=new URL(location.href);url.searchParams.set('seed',String(currentSeed));history.replaceState(null,'',url);}catch{}}
 function showModal(html,cls=''){modalOpen=true;$('modal').className=`modal ${cls}`;$('modal').innerHTML=html;$('modalBackdrop').hidden=false;$('modal').focus();$('modal').querySelector('.close')?.addEventListener('click',closeModal);}
 function closeModal(){modalOpen=false;$('modalBackdrop').hidden=true;if(started)canvas.focus({preventScroll:true});}
-function showResult(win){if(!sim||win&&sim.state!=='won'||!win&&sim.state!=='failed')return;const n=sim.runes.filter(r=>r.collected).length;showModal(`<h2 id="modalTitle">${win?(index===LEVELS.length-1?'Expedition complete':'Crew rescued'):'Crew lost'}</h2>${win?`<div class="result-art" aria-label="${sim.stars} out of 3 stars">${[1,2,3].map(s=>`<span class="${s>sim.stars?'empty':''}">✦</span>`).join('')}</div><div class="result-stats"><span><strong>${sim.rescued.length}</strong> crew</span><span><strong>${sim.cuts}/${sim.level.par}</strong> cuts</span><span><strong>${n}/${sim.runes.length}</strong> runes</span></div>`:''}<div class="modal-actions"><button id="resultPrimary" class="primary-button">${win?(index===LEVELS.length-1?'Levels':'Next'):'Restart'} <span aria-hidden="true">→</span></button>${win?'<button id="resultRestart" class="secondary-button">Replay</button>':''}<button id="resultMap" class="secondary-button">Levels</button></div>`);$('resultPrimary').onclick=win?()=>{if(index===LEVELS.length-1)showMap();else loadLevel(index+1);}:restart;if($('resultRestart'))$('resultRestart').onclick=restart;$('resultMap').onclick=showMap;}
-function showHelp(){sound('click');showModal(`<button class="close" aria-label="Close instructions">×</button><h2 id="modalTitle">Controls & materials</h2><ol class="help-steps"><li><b aria-hidden="true">╱</b><div><strong>Drag through ice or rope.</strong>Helmet in the way? The cut is blocked. Each cut takes effect immediately.</div></li><li><b class="pale-ice" aria-hidden="true">◇</b><div><strong>Pale ice breaks on impact.</strong>Blue pack ice stays solid. Rock and timber cannot be cut.</div></li><li><b aria-hidden="true">⚒</b><div><strong>The hammer needs small pieces.</strong>Trim oversized ice after it lands on the ship.</div></li><li><b aria-hidden="true">✥</b><div><strong>Keep moving.</strong>Pan or scroll to explore; + / − to zoom. Pause stops play. Resume before cutting.</div></li><li><b aria-hidden="true">✦</b><div><strong>Three stars.</strong>Rescue everyone · Meet the cut target · Catch all runes.</div></li></ol><p>R restart · P pan · Space pause · M sound<br>Progress saves on this device.</p><button id="helpDone" class="primary-button">Play <span aria-hidden="true">→</span></button>`);$('helpDone').onclick=closeModal;}
-function showMap(){sound('click');const records=Object.values(saved.levels);showModal(`<button class="close" aria-label="Close voyage map">×</button><h2 id="modalTitle">The voyage</h2><div class="map-progress"><span>${records.length}/${LEVELS.length} solved</span><span class="gold-stars">✦ ${records.reduce((n,v)=>n+v.stars,0)}/${LEVELS.length*3}</span></div>${CHAPTERS.map(c=>`<section class="chapter-section"><h3>${String(c.id+1).padStart(2,'0')} · ${c.name}</h3><div class="level-grid">${LEVELS.filter(l=>l.chapter===c.id).map(l=>`<button class="level-tile ${l.id===index+1?'current':''} ${saved.levels[l.id]?'complete':''}" data-level="${l.id-1}" aria-label="Level ${l.id}, ${l.name}, ${saved.levels[l.id]?.stars||0} stars"><b>${String(l.id).padStart(2,'0')}</b><small>${l.name}</small><span>${'✦'.repeat(saved.levels[l.id]?.stars||0)}${'·'.repeat(3-(saved.levels[l.id]?.stars||0))}</span></button>`).join('')}</div></section>`).join('')}`,'map');$('modal').querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{if(!started){started=true;$('splash').hidden=true;document.body.classList.remove('is-splash');}loadLevel(+b.dataset.level);});}
+function showResult(win){if(!sim||win&&sim.state!=='won'||!win&&sim.state!=='failed')return;const n=sim.runes.filter(r=>r.collected).length;showModal(`<h2 id="modalTitle">${win?'Crew rescued!':'Try that fjord again'}</h2><p class="seed-caption">Seed ${currentSeed} · Same map on Replay</p>${win?`<div class="result-art" aria-label="${sim.stars} out of 3 stars">${[1,2,3].map(s=>`<span class="${s>sim.stars?'empty':''}">✦</span>`).join('')}</div><div class="result-stats"><span><strong>${sim.rescued.length}</strong> crew</span><span><strong>${sim.cuts}/${sim.level.par}</strong> cuts</span><span><strong>${n}/${sim.runes.length}</strong> runes</span></div>`:''}<div class="modal-actions"><button id="resultRestart" class="primary-button">Replay ↻</button><button id="resultPrimary" class="secondary-button">New Map →</button></div>`);$('resultPrimary').onclick=()=>newMap();$('resultRestart').onclick=restart;}
+function showHelp(){sound('click');showModal(`<button class="close" aria-label="Close instructions">×</button><h2 id="modalTitle">Controls & materials</h2><ol class="help-steps"><li><b aria-hidden="true">╱</b><div><strong>Drag through ice or rope.</strong>Helmet in the way? The cut is blocked. Each cut takes effect immediately.</div></li><li><b class="pale-ice" aria-hidden="true">◇</b><div><strong>Pale ice breaks on impact.</strong>Blue pack ice stays solid. Rock and timber cannot be cut.</div></li><li><b aria-hidden="true">≈</b><div><strong>A warm welcome.</strong>Ice melts on the ship and the crew steps out. No extra tap or cut needed.</div></li><li><b aria-hidden="true">✥</b><div><strong>Keep moving.</strong>Pan or scroll to explore; + / − to zoom. Pause stops play. Resume before cutting.</div></li><li><b aria-hidden="true">✦</b><div><strong>Three stars.</strong>Rescue everyone · Meet the cut target · Catch all runes.</div></li></ol><p>R restart · P pan · Space pause · M sound<br>Replay keeps your seed. New Map changes it.</p><button id="helpDone" class="primary-button">Play <span aria-hidden="true">→</span></button>`);$('helpDone').onclick=closeModal;}
+function showMap(){sound('click');showModal(`<button class="close" aria-label="Close map options">×</button><h2 id="modalTitle">One fjord. Fresh adventures.</h2><p>Carve out the crew, land on the ship, and watch the ice melt.</p><p class="seed-caption">Seed ${currentSeed}</p><div class="modal-actions"><button id="mapReplay" class="primary-button">Replay this map ↻</button><button id="mapNew" class="secondary-button">New Map →</button></div><p class="seed-caption">Each generated map is checked with a complete solution before play. A wrong cut can still lose the crew.</p>`,'map');$('mapReplay').onclick=()=>{started=true;$('splash').hidden=true;document.body.classList.remove('is-splash');restart();};$('mapNew').onclick=()=>newMap();}
 function togglePause(){if(!started||sim.state!=='playing')return;paused=!paused;drag=null;panDrag=null;canvas.style.cursor=panMode?'grab':'crosshair';updateUI();if(paused)toast('Paused · Resume to cut');else{clearTimeout(toastTimer);$('toast').classList.remove('visible');}}
 $('startBtn').onclick=start;$('restartBtn').onclick=restart;$('pauseBtn').onclick=togglePause;$('soundBtn').onclick=()=>{saved.sound=!saved.sound;persist();setSound();sound('rune');};$('helpBtn').onclick=showHelp;$('mapBtn').onclick=showMap;
 $('hintBtn').onclick=()=>{$('hintCard').hidden=!$('hintCard').hidden;$('hintBtn').setAttribute('aria-expanded',String(!$('hintCard').hidden));};$('closeHintBtn').onclick=()=>{$('hintCard').hidden=true;$('hintBtn').setAttribute('aria-expanded','false');};$('guideBtn').onclick=()=>{guideUntil=clock+6500;$('closeHintBtn').click();};
@@ -1619,14 +1656,14 @@ function drawRopes(ice){
  }
 }
 function drawWalkers(t){for(const v of sim.walkers){const p=v.body.position,age=v.landedAt==null?-1:sim.time-v.landedAt;let pose=!v.grounded?'falling':age<220?'impact':age<650?'rise':v.walking?'walking':'idle',phase=pose==='impact'?age/220:pose==='rise'?(age-220)/430:0;drawViking(p.x,p.y-3,v.look,0,true,1,v.walking?t*.011+v.id:0,v.direction,{pose,phase});}}
-function drawIce(ice,t){const body=ice.body,pts=body.vertices;ctx.save();const g=ctx.createLinearGradient(body.bounds.min.x,body.bounds.min.y,body.bounds.max.x,body.bounds.max.y);g.addColorStop(0,ice.kind==='pack'?'#9dcdf6ee':'#c3f7f3d9');g.addColorStop(.35,ice.kind==='pack'?'#408bc9dd':'#73d0e2c9');g.addColorStop(1,ice.kind==='pack'?'#285b9bee':'#4b97bccc');path(pts,g,ice.kind==='pack'?'#b1dfff':'#c8ffff',ice.kind==='pack'?3.5:2.5);ctx.clip();const min=body.bounds.min,max=body.bounds.max,r=rng(ice.seed);ctx.globalAlpha=.22;for(let j=0;j<5;j++){path([[min.x+r()*(max.x-min.x),min.y-20],[max.x+20,min.y+r()*(max.y-min.y)],[min.x+r()*(max.x-min.x),max.y+20]],j%2?'#dcffff':'#2b83aa');}ctx.globalAlpha=.5;line([[min.x+8,min.y+20],[min.x+22,min.y+34],[min.x+17,min.y+52]],'#defbff',1.3);ctx.globalAlpha=1;ctx.restore();
+function drawIce(ice,t){const body=ice.body,pts=body.vertices,melt=ice.meltProgress||0;ctx.save();ctx.globalAlpha=1-melt*.9;const g=ctx.createLinearGradient(body.bounds.min.x,body.bounds.min.y,body.bounds.max.x,body.bounds.max.y);g.addColorStop(0,ice.kind==='pack'?'#9dcdf6ee':'#c3f7f3d9');g.addColorStop(.35,ice.kind==='pack'?'#408bc9dd':'#73d0e2c9');g.addColorStop(1,ice.kind==='pack'?'#285b9bee':'#4b97bccc');path(pts,g,ice.kind==='pack'?'#b1dfff':'#c8ffff',ice.kind==='pack'?3.5:2.5);ctx.clip();const min=body.bounds.min,max=body.bounds.max,r=rng(ice.seed);ctx.globalAlpha=.22*(1-melt);for(let j=0;j<5;j++){path([[min.x+r()*(max.x-min.x),min.y-20],[max.x+20,min.y+r()*(max.y-min.y)],[min.x+r()*(max.x-min.x),max.y+20]],j%2?'#dcffff':'#2b83aa');}ctx.globalAlpha=.5*(1-melt);line([[min.x+8,min.y+20],[min.x+22,min.y+34],[min.x+17,min.y+52]],'#defbff',1.3);ctx.globalAlpha=1;ctx.restore();
  for(const v of ice.vikings){const p=toWorld(body,v.local);drawViking(p.x,p.y,v.look,body.angle,false,1,0,1,{pose:!ice.anchors.length&&Math.hypot(body.velocity.x,body.velocity.y)>2?'falling':'frozen'});ellipse(p.x-19,p.y-12,3,8,'#efffff65');}
- ctx.save();path(pts,null,'#dcffffaa',1);ctx.clip();let p=pts[0],q=pts[1];line([[p.x+2,p.y+4],[q.x-2,q.y+4]],'#f5ffffaa',2);ctx.restore();
- if(ice.waitingForHammer){ctx.save();ctx.font='bold 13px Trebuchet MS';ctx.textAlign='center';ctx.fillStyle='#fff2be';ctx.fillText('╱ Trim',body.position.x,body.bounds.min.y-12);ctx.restore();}
+ ctx.save();ctx.globalAlpha=1-melt;path(pts,null,'#dcffffaa',1);ctx.clip();let p=pts[0],q=pts[1];line([[p.x+2,p.y+4],[q.x-2,q.y+4]],'#f5ffffaa',2);ctx.restore();
+ if(melt>0){ctx.save();for(let k=0;k<9;k++){const f=((t*.0014+k*.137)%1),x=body.bounds.min.x+(body.bounds.max.x-body.bounds.min.x)*(k+.5)/9;ctx.globalAlpha=(1-f)*melt;ellipse(x,body.bounds.max.y+f*21,2.5,4+f*3,'#c4fff3');}ctx.globalAlpha=.22*melt;ellipse(body.position.x,sim.level.boat.y-2,(body.bounds.max.x-body.bounds.min.x)*.55,5,'#a7fff0');ctx.restore();}
  for(const a of ice.anchors){const p=toWorld(body,a);ellipse(p.x,p.y,8,8,'#405b67');ellipse(p.x,p.y,5.5,5.5,'#d6b677');ellipse(p.x-1,p.y-1,2,2,'#ffe4a5');}
 }
-function arrivalPresentation(v,t,bob=0){const age=Math.max(0,t-(arrivals.get(v.id)??(t-3000)));const pose=age<260?'impact':age<750?'rise':age<2150?'celebrate':'idle';return {...v,y:v.y+bob,pose,phase:pose==='impact'?age/260:pose==='rise'?(age-260)/490:pose==='celebrate'?(age-750)/1400:0,scale:1};}
-function boatArt(t){const bob=reducedMotion?0:Math.sin(t*.0016)*3.2+Math.sin(t*.0027)*.7;return {...sim.level.boat,y:sim.level.boat.y+bob,rescued:sim.rescued.map(v=>arrivalPresentation(v,t,bob)),time:t,reducedMotion,drawViking,hammer:t-hammerAt<580?(t-hammerAt)/580:0,success:Math.max(0,1-(t-successAt)/900)};}
+function arrivalPresentation(v,t,bob=0){const age=Math.max(0,t-(arrivals.get(v.id)??(t-3000)));const pose=age<260?'impact':age<750?'rise':age<2150?'celebrate':'idle';return {...v,celebration:Math.floor((v.look||0)/4)%4,y:v.y+bob,pose,phase:pose==='impact'?age/260:pose==='rise'?(age-260)/490:pose==='celebrate'?(age-750)/1400:0,scale:1};}
+function boatArt(t){const bob=reducedMotion?0:Math.sin(t*.0016)*3.2+Math.sin(t*.0027)*.7;return {...sim.level.boat,y:sim.level.boat.y+bob,rescued:sim.rescued.map(v=>arrivalPresentation(v,t,bob)),time:t,reducedMotion,drawViking,success:Math.max(0,1-(t-successAt)/900)};}
 function drawTitleScene(t){
  // The carved title and axe are SVG overlay art; the crew remain alive behind it.
  ctx.save();ctx.translate(690,530+(reducedMotion?0:Math.sin(t*.0016)*3.5));ctx.scale(1.45,1.45);drawLongship(ctx,{x:0,y:0,width:270,rescued:[{look:0},{look:1}],time:t,reducedMotion,drawViking});ctx.restore();
@@ -1648,7 +1685,7 @@ function render(t){ctx.clearRect(0,0,W,H);ctx.save();ctx.scale(W/960,H/640);back
 }
 function frame(t){const dt=Math.min(t-lastFrame||16.67,50);lastFrame=t;clock=t;if(cameraTween){const p=Math.min(1,(t-cameraTween.startedAt)/(reducedMotion?1:420)),ease=p*p*(3-2*p);for(const k of ['x','y','zoom'])camera[k]=cameraTween.initial[k]+(cameraTween.target[k]-cameraTween.initial[k])*ease;if(p>=1)cameraTween=null;}if(started&&!paused&&!modalOpen){accumulator+=dt;while(accumulator>=1000/60){sim.step(1000/60);accumulator-=1000/60;}}else accumulator=0;for(const p of particles){p.x+=p.vx*dt/16.67;p.y+=p.vy*dt/16.67;p.vy+=.06*dt/16.67;p.life-=dt/800;}particles=particles.filter(p=>p.life>0);for(const s of trails)s.life-=dt/420;trails=trails.filter(s=>s.life>0);render(t);requestAnimationFrame(frame);}
 document.body.classList.add('is-splash');resizeCanvas();setSound();loadLevel(0);requestAnimationFrame(frame);
-if(new URLSearchParams(location.search).has('test'))window.__frostyChamps={get sim(){return sim;},get started(){return started;},get index(){return index;},get camera(){return {...camera,width:W,height:H};},get panMode(){return panMode;},get arrivals(){return sim.rescued.map(v=>arrivalPresentation(v,clock));},get waterLoss(){return waterLoss?{...waterLoss,age:clock-waterLoss.startedAt}:null;},get paused(){return paused;},loadLevel:n=>{if(!started)start();loadLevel(n);},slice:(a,b)=>{const r=paused?{ok:false,reason:'paused'}:sim.slice(a,b);updateUI();return r;},step:n=>{for(let i=0;i<n;i++)sim.step(1000/60);updateUI();},showMap,closeModal,LEVELS};
+if(new URLSearchParams(location.search).has('test'))window.__frostyChamps={get seed(){return currentSeed;},newMap,get sim(){return sim;},get started(){return started;},get index(){return index;},get camera(){return {...camera,width:W,height:H};},get panMode(){return panMode;},get arrivals(){return sim.rescued.map(v=>arrivalPresentation(v,clock));},get waterLoss(){return waterLoss?{...waterLoss,age:clock-waterLoss.startedAt}:null;},get paused(){return paused;},get level(){return currentLevel;},loadLevel:n=>{if(!started)start();loadLevel(n);},slice:(a,b)=>{const r=paused?{ok:false,reason:'paused'}:sim.slice(a,b);updateUI();return r;},step:n=>{for(let i=0;i<n;i++)sim.step(1000/60);updateUI();},showMap,closeModal,LEVELS};
 
 </script>
 </body></html>
