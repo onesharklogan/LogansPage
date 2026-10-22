@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="frosty-champs-version" content="5.0.0">
+  <meta name="frosty-champs-version" content="6.0.0">
   <meta name="theme-color" content="#102d3e"><meta name="description" content="Slice the ice. Save your Vikings. Procedural ice-rescue expeditions with ropes, gates and changing routes.">
   <title>Frosty Champs</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22%23173747%22%2F%3E%3Cpath%20d%3D%22M10%2043h46L44%2056H24z%22%20fill%3D%22%23eea16b%22%2F%3E%3Cpath%20d%3D%22M36%208v32H15z%22%20fill%3D%22%23c0eee4%22%2F%3E%3Cpath%20d%3D%22M40%2015v25h16z%22%20fill%3D%22%236fb6bd%22%2F%3E%3C%2Fsvg%3E%0A" type="image/svg+xml"><style>
@@ -126,7 +126,8 @@ class RescueSimulation {
       Matter.Composite.add(this.engine.world,body); this.rocks.push(body);
     }
     for(const timber of level.timbers||[])this.addTimber(timber);
-    const b=level.boat;
+    this.boat={...level.boat};const b=this.boat;this.boatOrigin=b.x;this.boatDx=0;this.frostGate=null;
+    if(level.frostGate){const g=level.frostGate;const body=Matter.Bodies.rectangle(g.x,g.y,g.width,g.height,{isStatic:true,label:'frostGate',friction:.02});this.frostGate={...g,body,triggeredAt:null,progress:0,opened:false};Matter.Composite.add(this.engine.world,body);}
     this.deck=Matter.Bodies.rectangle(b.x,b.y+9,b.width-22,18,{isStatic:true,friction:.12,label:'boat'});
     Matter.Composite.add(this.engine.world,this.deck);
   }
@@ -191,10 +192,11 @@ class RescueSimulation {
       const end=toWorld(ice.body,anchor),hit=segmentIntersection(a,b,anchor.pivot,end);
       if(hit&&!inside(hit,ice.body.vertices)) ropes.push({ice,anchor,hit});
     }
-    if(!candidates.length&&!ropes.length) return {ok:false,reason:'miss',candidates,ropes};
+    const switches=this.frostGate&&!this.frostGate.opened&&this.frostGate.triggeredAt==null&&segmentIntersection(a,b,this.frostGate.fuse[0],this.frostGate.fuse[1])?[this.frostGate]:[];
+    if(!candidates.length&&!ropes.length&&!switches.length) return {ok:false,reason:'miss',candidates,ropes};
     const blocked=this.getVikings().find(v=>distanceToSegment(v,a,b)<21);
     if(blocked) return {ok:false,reason:'viking',blocked,candidates,ropes};
-    return {ok:true,candidates,ropes};
+    return {ok:true,candidates,ropes,switches};
   }
 
   slice(a,b) {
@@ -203,7 +205,8 @@ class RescueSimulation {
       if(preview.blocked)this.onEvent({type:'blocked',x:preview.blocked.x,y:preview.blocked.y});
       return {ok:false,reason:preview.reason};
     }
-    const {candidates,ropes}=preview;
+    const {candidates,ropes,switches=[]}=preview;
+    for(const gate of switches){gate.triggeredAt=this.time;this.onEvent({type:'fuse',x:gate.fuse[1].x,y:gate.fuse[1].y});}
     for(const {ice,anchor,hit} of ropes) {
       this.M.Composite.remove(this.engine.world,anchor.constraint);
       ice.anchors.splice(ice.anchors.indexOf(anchor),1);
@@ -245,7 +248,7 @@ class RescueSimulation {
 
   supportAt(x,foot,drop=12,rise=10) {
     let best=null;
-    for(const body of [...this.rocks,this.deck,...this.timbers.map(t=>t.body),...this.ice.map(i=>i.body)]) {
+    for(const body of [...this.rocks,...(this.frostGate&&!this.frostGate.opened?[this.frostGate.body]:[]),this.deck,...this.timbers.map(t=>t.body),...this.ice.map(i=>i.body)]) {
       const ys=[];
       for(let i=0;i<body.vertices.length;i++) {
         const a=body.vertices[i],b=body.vertices[(i+1)%body.vertices.length];
@@ -286,20 +289,35 @@ class RescueSimulation {
   }
 
   crewOutcome(v,p,remove,canRescue=true,sourceBody=null) {
-    this.collectRunes(p);const b=this.level.boat;
+    this.collectRunes(p);const b=this.boat;
     if(this.isDanger(p)||p.y>this.world.waterY||p.x<-100||p.x>this.world.width+100) {
       const cause=this.isDanger(p)?'spikes':p.y>this.world.waterY?'water':'void';
       this.lost.push({id:v.id,look:v.look,x:p.x,y:p.y,cause});remove();this.state='failed';this.onEvent({type:'lost',...p,id:v.id,look:v.look,cause,sourceBody});return;
     }
     // Only reaching the actual longboat rescues a sailor. A safe rock is not a win.
     if(canRescue&&p.x>b.x-b.width/2+10&&p.x<b.x+b.width/2-10&&p.y>=b.y-40&&p.y<b.y+44&&this.supportAt(p.x,p.y+22,8,8)?.body===this.deck) {
-      this.rescued.push({id:v.id,look:v.look,x:p.x,y:p.y,landedAt:this.time});remove();this.onEvent({type:'rescue',...p,id:v.id,look:v.look});
+      this.rescued.push({id:v.id,look:v.look,x:p.x,y:p.y,landedAt:this.time,deckOffset:p.x-b.x});remove();this.onEvent({type:'rescue',...p,id:v.id,look:v.look});
     }
+  }
+
+  updateMechanisms(delta) {
+    const motion=this.level.boat.motion,oldX=this.boat.x;
+    if(motion)this.boat.x=this.boatOrigin+motion.amplitude*Math.sin(this.time*2*Math.PI/motion.period+(motion.phase||0));
+    const dx=this.boat.x-oldX;this.boatDx=dx;
+    if(dx){
+      // Carry only resting deck contacts, never pull an airborne floe toward the boat.
+      for(const ice of this.ice)if(ice.lastBoatContact!=null&&this.time-ice.lastBoatContact<100)this.M.Body.translate(ice.body,{x:dx,y:0});
+      for(const v of this.walkers)if(this.supportAt(v.body.position.x,v.body.position.y+22,12,12)?.body===this.deck)this.M.Body.translate(v.body,{x:dx,y:0});
+      this.M.Body.setPosition(this.deck,{x:this.boat.x,y:this.boat.y+9});
+      for(const v of this.rescued)v.x=this.boat.x+(v.deckOffset??v.x-oldX);
+    }
+    const g=this.frostGate;
+    if(g&&g.triggeredAt!=null&&!g.opened){g.progress=Math.min(1,(this.time-g.triggeredAt)/g.duration);if(g.progress>=1){g.opened=true;this.M.Composite.remove(this.engine.world,g.body);this.onEvent({type:'gateOpen',x:g.x,y:g.y});}}
   }
 
   step(delta=1000/60) {
     if(this.state!=='playing')return;
-    this.time+=delta; const preVelocities=new Map();
+    this.time+=delta;this.updateMechanisms(delta); const preVelocities=new Map();
     this.updateWalkers();
     for(const ice of this.ice) {
       preVelocities.set(ice.body.id,{...ice.body.velocity});
@@ -352,7 +370,7 @@ class RescueSimulation {
   }
 
   snapshot() {
-    return {cuts:this.cuts,time:this.time,state:this.state,stars:this.stars,shatters:this.shatters,melts:this.melts,nextRope:this.nextRope,rescued:structuredClone(this.rescued),lost:structuredClone(this.lost),runes:structuredClone(this.runes),
+    return {boatX:this.boat.x,frostGate:this.frostGate?{triggeredAt:this.frostGate.triggeredAt,progress:this.frostGate.progress,opened:this.frostGate.opened}:null,cuts:this.cuts,time:this.time,state:this.state,stars:this.stars,shatters:this.shatters,melts:this.melts,nextRope:this.nextRope,rescued:structuredClone(this.rescued),lost:structuredClone(this.lost),runes:structuredClone(this.runes),
       ice:this.ice.map(i=>({kind:i.kind,points:i.body.vertices.map(p=>({x:p.x,y:p.y})),anchors:i.anchors.map(p=>this.anchorWorld(i,p)),vikings:i.vikings.map(v=>({...v,...toWorld(i.body,v.local)})),velocity:{...i.body.velocity},angularVelocity:i.body.angularVelocity,born:i.born,meltElapsed:i.meltElapsed,meltProgress:i.meltProgress,lastBoatContact:i.lastBoatContact})),
       walkers:this.walkers.map(v=>({id:v.id,look:v.look,x:v.body.position.x,y:v.body.position.y,velocity:{...v.body.velocity},direction:v.direction,grounded:v.grounded,walking:v.walking,freedAt:v.freedAt,landedAt:v.landedAt})),
       timbers:this.timbers.map(t=>({x:t.body.position.x,y:t.body.position.y,width:t.width,height:t.height,angle:t.body.angle,velocity:{...t.body.velocity},angularVelocity:t.body.angularVelocity,pivot:t.pivot,fixed:t.fixed}))};
@@ -363,7 +381,7 @@ class RescueSimulation {
     for(const v of this.walkers)this.M.Composite.remove(this.engine.world,v.body);
     for(const t of this.timbers){this.M.Composite.remove(this.engine.world,t.body);if(t.constraint)this.M.Composite.remove(this.engine.world,t.constraint);}
     this.timbers=[];for(const t of data.timbers||[])this.addTimber(t);
-    this.walkers=[];this.time=data.time;this.nextRope=data.nextRope||0;
+    this.walkers=[];this.time=data.time;this.boat.x=data.boatX??this.boatOrigin;this.M.Body.setPosition(this.deck,{x:this.boat.x,y:this.boat.y+9});if(this.frostGate&&data.frostGate){const wasOpen=this.frostGate.opened;Object.assign(this.frostGate,data.frostGate);if(wasOpen&&!this.frostGate.opened)this.M.Composite.add(this.engine.world,this.frostGate.body);if(!wasOpen&&this.frostGate.opened)this.M.Composite.remove(this.engine.world,this.frostGate.body);}this.nextRope=data.nextRope||0;
     for(const i of data.ice){const ice=this.addIce(i.points,i.anchors,i.vikings,i.velocity,i.angularVelocity,i.kind||'brittle');ice.born=i.born??data.time;ice.meltElapsed=i.meltElapsed||0;ice.meltProgress=i.meltProgress||0;ice.lastBoatContact=i.lastBoatContact??null;}
     for(const v of data.walkers||[])this.addWalker(v,v.velocity,{direction:v.direction,grounded:v.grounded,walking:v.walking,freedAt:v.freedAt,landedAt:v.landedAt});
     this.cuts=data.cuts;this.state=data.state;this.stars=data.stars;this.shatters=data.shatters||0;this.melts=data.melts||0;this.rescued=structuredClone(data.rescued);this.lost=structuredClone(data.lost);this.runes=structuredClone(data.runes);
@@ -576,10 +594,21 @@ function generateFamily(seed,index=0){
  level=moveModule(level,dx,dy,random()<.5,level.world.width);
  const boatSlack=pick(4)*14;
  level.boat.width+=boatSlack;
+ // Independent seeded modifiers preserve all six physical route families.
+ const sailing=random()<.48;
+ if(sailing){level.boat.motion={amplitude:35+pick(4)*10,period:12000+pick(4)*2000,phase:0};level.boat.width+=2*level.boat.motion.amplitude;level.hint+=' The ship patrols slowly: watch its wake and release toward its deck.';}
+ if(random()<.34){
+  const b=level.boat,x=b.x,y=b.y-85,fx=Math.max(60,Math.min(level.world.width-60,x-b.width/2-85));
+  level.frostGate={x,y,width:b.width+110,height:24,duration:1500,fuse:[{x:fx,y:y-135},{x:fx,y:y-65}]};
+  level.solution.unshift(cut(fx-40,y-100,fx+40,y-100));
+  level.solutionDelays=[1800,...(level.solutionDelays||Array(level.solution.length-1).fill(level.solutionDelay??650))];level.par++;
+  level.hint='Frost lock: cut the glowing amber fuse to thaw the striped barrier (1.5 seconds). '+level.hint;
+  level.objective='Thaw the frost lock, then '+level.objective[0].toLowerCase()+level.objective.slice(1);
+ }
  // Crew appearance is independent of geometry, with no impact on collisions.
  for(const slab of level.ice)for(const v of slab.vikings)v.look=pick(16);
  const meta=FAMILY_INFO[fi];
- return {...level,id:1,seed:Number(seed)>>>0,family:meta.id,familyIndex:fi,name:meta.name,difficulty:meta.difficulty,mechanic:meta.mechanic,generatorVersion:2,topologySignature:meta.id+'-'+level.ice.length+'-'+level.solution.length,biome:pick(5),solutionInitialDelay:900};
+ return {...level,id:1,seed:Number(seed)>>>0,family:meta.id,familyIndex:fi,name:meta.name,difficulty:meta.difficulty,mechanic:meta.mechanic,generatorVersion:3,topologySignature:meta.id+'-'+level.ice.length+'-'+level.solution.length+(sailing?'-sailing':'')+(level.frostGate?'-frost-lock':''),biome:pick(5),solutionInitialDelay:900};
 }
 
 
@@ -590,7 +619,7 @@ function normalizeSeed(value){const n=Number(value);return Number.isFinite(n)?(M
 function seedRandom(seed){let s=normalizeSeed(seed);return()=>{s=(Math.imul(s,1664525)+1013904223)>>>0;return s/4294967296;};}
 function familyForSeed(seed){return normalizeSeed(seed)%FAMILY_INFO.length;}
 function nextMapSeed(seed,previousFamily){let value=normalizeSeed(seed);for(let i=0;i<FAMILY_INFO.length;i++){if(FAMILY_INFO[familyForSeed(value)].id!==previousFamily)return value;value=(value+1)>>>0;}return value;}
-function generateRandomLevel(input=DEFAULT_SEED){const seed=normalizeSeed(input),family=familyForSeed(seed);return {...generateFamily(seed,family),id:1,seed,chapter:0,generatorVersion:2};}
+function generateRandomLevel(input=DEFAULT_SEED){const seed=normalizeSeed(input),family=familyForSeed(seed);return {...generateFamily(seed,family),id:1,seed,chapter:0,generatorVersion:3};}
 function verifyLevelSolution(Matter,level,{initial=level.solutionInitialDelay??900,delay=null,delayScale=1,jitter=0,trial=1,skip=-1,reverse=false}={}){
  const sim=new RescueSimulation(Matter,level),random=seedRandom(trial),dt=1000/60;
  const advance=ms=>{for(let n=0;n<Math.ceil(ms/dt)&&sim.state==='playing';n++)sim.step(dt);};
@@ -605,17 +634,26 @@ function verifyLevelSolution(Matter,level,{initial=level.solutionInitialDelay??9
 }
 function verifiedRandomLevel(Matter,input){
  const seed=normalizeSeed(input),family=familyForSeed(seed);let attempts=0;
- const admissible=candidate=>verifyLevelSolution(Matter,candidate).ok&&verifyLevelSolution(Matter,candidate,{initial:2500,jitter:2,trial:seed,delayScale:1.03}).ok&&verifyLevelSolution(Matter,candidate,{initial:1500,jitter:2,trial:seed,delayScale:1.03}).ok;
+ const admissible=candidate=>{
+  const trials=[{}, {initial:2500,jitter:2,trial:seed,delayScale:1.03},{initial:1500,jitter:3,trial:seed,delayScale:.97},
+   {initial:5000,jitter:2,trial:seed,delayScale:.94},{initial:30000,jitter:3,trial:seed,delayScale:1.03},{initial:30000,jitter:2,trial:seed,delayScale:1.02}];
+  if(candidate.boat.motion){const period=candidate.boat.motion.period;
+   trials.push({initial:0},{initial:period*.25},{initial:period*.5},{initial:period*.75},
+    {initial:11000,jitter:2,trial:seed,delayScale:.92},
+    {initial:60000,jitter:2,trial:seed,delayScale:1.08});
+  }
+  return trials.every(options=>verifyLevelSolution(Matter,candidate,options).ok);
+ };
  // Keep the selected mechanism even if a particular geometric mutation fails.
  // A deterministic bounded admission pass tests the actual engine, not geometry alone.
  for(let n=0;n<18;n++){
   const constructionSeed=n===0?seed:(seed+Math.imul(n,2654435761))>>>0;
-  const candidate={...generateFamily(constructionSeed,family),id:1,seed,chapter:0,generatorVersion:2,constructionSeed};attempts++;
+  const candidate={...generateFamily(constructionSeed,family),id:1,seed,chapter:0,generatorVersion:3,constructionSeed};attempts++;
   if(admissible(candidate))return {...candidate,verified:true,validationAttempts:attempts};
  }
  // Canonical family variants are independently exercised in release testing.
  for(const canonical of [0,1,2,3,4,5,271828]){
-  const candidate={...generateFamily(canonical,family),id:1,seed,chapter:0,generatorVersion:2,constructionSeed:canonical};attempts++;
+  const candidate={...generateFamily(canonical,family),id:1,seed,chapter:0,generatorVersion:3,constructionSeed:canonical};attempts++;
   if(admissible(candidate))return {...candidate,verified:true,validationAttempts:attempts,fallback:true};
  }
  throw new Error('This expedition could not be verified. Try New Map.');
@@ -1795,24 +1833,25 @@ if(e.type==='shatter'){
  burst(e.x,e.y,'#e2ffff',15);
  if(e.crew&&e.surface!=='boat'&&!saved.sawShatter){saved.sawShatter=true;persist();toast('Reach the ship');}
 }
-if(e.type==='slice'){sound('slice');for(let t=0;t<=1;t+=.08)burst(e.a.x+(e.b.x-e.a.x)*t,e.a.y+(e.b.y-e.a.y)*t,'#c5ffff',2);trails.push({...e,life:1});}if(e.type==='blocked'){sound('blocked');toast('Cut blocked by crew');}if(e.type==='rune'){sound('rune');burst(e.x,e.y,'#f4d088',22);}if(e.type==='rescue'){arrivals.set(e.id,clock);successAt=clock;sound('rescue');burst(e.x,e.y,'#d4f6d6',26);}if(e.type==='lost'){clearTimeout(toastTimer);$('toast').classList.remove('visible');sound('lost');const sea=sim.world.waterY-18;burst(e.x,Math.min(e.y,sea),'#b6edf1',24);waterLoss=e.cause==='water'?{...e,startedAt:clock,y:sea}:null;if(waterLoss)cinematicFocus(e.x,sea-90,W<800?1.35:1.2);finishTimer=setTimeout(()=>showResult(false),waterLoss?2100:950);}if(e.type==='win'){clearTimeout(toastTimer);$('toast').classList.remove('visible');cinematicFocus(sim.level.boat.x,sim.level.boat.y-90,W<800?1.2:1.3);sound('win');const old=saved.levels[sim.level.id];saved.levels[sim.level.id]={stars:Math.max(e.stars,old?.stars||0),cuts:Math.min(e.cuts,old?.cuts??Infinity)};saved.last=Math.min(index+1,LEVELS.length-1);persist();finishTimer=setTimeout(()=>showResult(true),2350);}updateUI();}
+if(e.type==='fuse'){sound('rope');toast('Frost lock thawing…');burst(e.x,e.y,'#ffd08c',18);}if(e.type==='gateOpen'){sound('rune');burst(e.x,e.y,'#b9ffff',30);}if(e.type==='slice'){sound('slice');for(let t=0;t<=1;t+=.08)burst(e.a.x+(e.b.x-e.a.x)*t,e.a.y+(e.b.y-e.a.y)*t,'#c5ffff',2);trails.push({...e,life:1});}if(e.type==='blocked'){sound('blocked');toast('Cut blocked by crew');}if(e.type==='rune'){sound('rune');burst(e.x,e.y,'#f4d088',22);}if(e.type==='rescue'){arrivals.set(e.id,clock);successAt=clock;sound('rescue');burst(e.x,e.y,'#d4f6d6',26);}if(e.type==='lost'){clearTimeout(toastTimer);$('toast').classList.remove('visible');sound('lost');const sea=sim.world.waterY-18;burst(e.x,Math.min(e.y,sea),'#b6edf1',24);waterLoss=e.cause==='water'?{...e,startedAt:clock,y:sea}:null;if(waterLoss)cinematicFocus(e.x,sea-90,W<800?1.35:1.2);finishTimer=setTimeout(()=>showResult(false),waterLoss?2100:950);}if(e.type==='win'){clearTimeout(toastTimer);$('toast').classList.remove('visible');cinematicFocus(sim.boat.x,sim.boat.y-90,W<800?1.2:1.3);sound('win');const old=saved.levels[sim.level.id];saved.levels[sim.level.id]={stars:Math.max(e.stars,old?.stars||0),cuts:Math.min(e.cuts,old?.cuts??Infinity)};saved.last=Math.min(index+1,LEVELS.length-1);persist();finishTimer=setTimeout(()=>showResult(true),2350);}updateUI();}
 function loadLevel(n){clearTimeout(finishTimer);clearTimeout(toastTimer);$('toast').classList.remove('visible');sim?.destroy();index=Math.max(0,Math.min(n,LEVELS.length-1));currentLevel ||= verifiedRandomLevel(window.Matter,currentSeed);sim=new RescueSimulation(window.Matter,currentLevel,onEvent);saved.seed=currentSeed;persist();arrivals.clear();waterLoss=null;particles=[];trails=[];guideUntil=0;drag=null;successAt=-Infinity;paused=false;accumulator=0;$('hintCard').hidden=true;$('hintBtn').setAttribute('aria-expanded','false');$('pauseBtn').innerHTML='<span aria-hidden="true">Ⅱ</span><small>Pause</small>'; resetCamera();closeModal();updateUI();}
-function updateUI(){if(!sim)return;const l=sim.level;$('chapterLabel').textContent=l.difficulty||'HARD';$('chapterLabel').title=CHAPTERS[l.chapter].name;$('levelTitle').textContent=l.name;$('levelTitle').title=`Seed ${currentSeed}`;$('rescueCount').textContent=`${sim.rescued.length}/${sim.total}`;$('cutCount').textContent=`${sim.cuts}/${l.par}`;$('runeCount').textContent=`${sim.runes.filter(r=>r.collected).length}/${sim.runes.length}`;$('hintText').textContent=l.hint;const done=Object.keys(saved.levels).length;$('startBtn').innerHTML=`${done?'Continue':'Play'} <span aria-hidden="true" class="menu-play-icon"></span>`;$('pauseBtn').innerHTML=paused?'<span aria-hidden="true">►</span><small>Resume</small>':'<span aria-hidden="true">Ⅱ</span><small>Pause</small>';$('pauseBtn').setAttribute('aria-label',paused?'Resume game':'Pause game');$('gestureTip').textContent=panMode?'Drag to pan':'Drag to cut · Scroll to explore';}
+function updateUI(){if(!sim)return;const l=sim.level;$('chapterLabel').textContent=l.difficulty||'HARD';$('chapterLabel').title=CHAPTERS[l.chapter].name;$('levelTitle').textContent=l.name;$('levelTitle').title=`Seed ${currentSeed}`;$('rescueCount').textContent=`${sim.rescued.length}/${sim.total}`;$('cutCount').textContent=`${sim.cuts}/${l.par}`;$('runeCount').textContent=`${sim.runes.filter(r=>r.collected).length}/${sim.runes.length}`;$('hintText').textContent=l.hint;$('restartBtn').disabled=!canReplay();$('restartBtn').title=canReplay()?'Replay this failed map':'Replay unlocks after a failed attempt';$('restartBtn').setAttribute('aria-disabled',String(!canReplay()));const done=Object.keys(saved.levels).length;$('startBtn').innerHTML=`${done?'Continue':'Play'} <span aria-hidden="true" class="menu-play-icon"></span>`;$('pauseBtn').innerHTML=paused?'<span aria-hidden="true">►</span><small>Resume</small>':'<span aria-hidden="true">Ⅱ</span><small>Pause</small>';$('pauseBtn').setAttribute('aria-label',paused?'Resume game':'Pause game');$('gestureTip').textContent=panMode?'Drag to pan':'Drag to cut · Scroll to explore';}
 
-function start(){try{const url=new URL(location.href);url.searchParams.set('seed',String(currentSeed));history.replaceState(null,'',url);}catch{}started=true;document.body.classList.remove('is-splash');$('splash').hidden=true;loadLevel(saved.last||0);canvas.focus({preventScroll:true});if(index===0){toast('Study the route · Drag to cut · Hint if needed');}sound('click');}
-function restart(){loadLevel(0);}
-function newMap(seed){const previous=currentSeed;currentSeed=seed==null?nextMapSeed(crypto.getRandomValues(new Uint32Array(1))[0],currentLevel?.family):normalizeSeed(seed);if(seed==null&&currentSeed===previous)currentSeed=(currentSeed+1)>>>0;currentLevel=null;started=true;$('splash').hidden=true;document.body.classList.remove('is-splash');loadLevel(0);try{const url=new URL(location.href);url.searchParams.set('seed',String(currentSeed));history.replaceState(null,'',url);}catch{}}
+function start(){if(started)return;try{const url=new URL(location.href);url.searchParams.set('seed',String(currentSeed));history.replaceState(null,'',url);}catch{}started=true;document.body.classList.remove('is-splash');$('splash').hidden=true;loadLevel(saved.last||0);canvas.focus({preventScroll:true});if(index===0){toast('Study the route · Drag to cut · Hint if needed');}sound('click');}
+function canReplay(){return !!sim&&sim.state==='failed';}
+function restart(){if(!canReplay())return false;loadLevel(0);return true;}
+function newMap(seed){if(seed!=null&&normalizeSeed(seed)===currentSeed&&started)return restart();const previous=currentSeed;currentSeed=seed==null?nextMapSeed(crypto.getRandomValues(new Uint32Array(1))[0],currentLevel?.family):normalizeSeed(seed);if(seed==null&&currentSeed===previous)currentSeed=(currentSeed+1)>>>0;currentLevel=null;started=true;$('splash').hidden=true;document.body.classList.remove('is-splash');loadLevel(0);try{const url=new URL(location.href);url.searchParams.set('seed',String(currentSeed));history.replaceState(null,'',url);}catch{}}
 function showModal(html,cls=''){modalOpen=true;$('modal').className=`modal ${cls}`;$('modal').innerHTML=html;$('modalBackdrop').hidden=false;$('modal').focus();$('modal').querySelector('.close')?.addEventListener('click',closeModal);}
 function closeModal(){modalOpen=false;$('modalBackdrop').hidden=true;if(started)canvas.focus({preventScroll:true});}
-function showResult(win){if(!sim||win&&sim.state!=='won'||!win&&sim.state!=='failed')return;const n=sim.runes.filter(r=>r.collected).length;showModal(`<h2 id="modalTitle">${win?'Crew rescued!':'Try that fjord again'}</h2><p class="seed-caption">Seed ${currentSeed} · Same map on Replay</p>${win?`<div class="result-art" aria-label="${sim.stars} out of 3 stars">${[1,2,3].map(s=>`<span class="${s>sim.stars?'empty':''}">✦</span>`).join('')}</div><div class="result-stats"><span><strong>${sim.rescued.length}</strong> crew</span><span><strong>${sim.cuts}/${sim.level.par}</strong> cuts</span><span><strong>${n}/${sim.runes.length}</strong> runes</span></div>`:''}<div class="modal-actions"><button id="resultRestart" class="primary-button">Replay ↻</button><button id="resultPrimary" class="secondary-button">New Map →</button></div>`);$('resultPrimary').onclick=()=>newMap();$('resultRestart').onclick=restart;}
-function showHelp(){sound('click');showModal(`<button class="close" aria-label="Close instructions">×</button><h2 id="modalTitle">Controls & materials</h2><ol class="help-steps"><li><b aria-hidden="true">╱</b><div><strong>Drag through ice or rope.</strong>Helmet in the way? The cut is blocked. Each cut takes effect immediately.</div></li><li><b class="pale-ice" aria-hidden="true">◇</b><div><strong>Pale ice breaks on impact.</strong>Blue pack ice stays solid. Rock and timber cannot be cut.</div></li><li><b aria-hidden="true">≈</b><div><strong>A warm welcome.</strong>Ice melts on the ship and the crew steps out. No extra tap or cut needed.</div></li><li><b aria-hidden="true">✥</b><div><strong>Keep moving.</strong>Pan or scroll to explore; + / − to zoom. Pause stops play. Resume before cutting.</div></li><li><b aria-hidden="true">✦</b><div><strong>Three stars.</strong>Rescue everyone · Meet the cut target · Catch all runes.</div></li></ol><p>R restart · P pan · Space pause · M sound<br>Replay keeps your seed. New Map changes it.</p><button id="helpDone" class="primary-button">Play <span aria-hidden="true">→</span></button>`);$('helpDone').onclick=closeModal;}
-function showMap(){sound('click');showModal(`<button class="close" aria-label="Close map options">×</button><h2 id="modalTitle">Choose your next expedition.</h2><p>Ropes, ramps, gates and split rescues. Study what each piece will do before you cut.</p><p class="seed-caption">${sim?.level.name||'New expedition'} · ${sim?.level.difficulty||'HARD'}<br>Seed ${currentSeed}</p><div class="modal-actions"><button id="mapReplay" class="primary-button">Replay this map ↻</button><button id="mapNew" class="secondary-button">New Map →</button></div><p class="seed-caption">New Map changes the puzzle mechanism, not just its position. Each map passes a physics-solution check. Wrong cuts can still lose the crew.</p>`,'map');$('mapReplay').onclick=()=>{started=true;$('splash').hidden=true;document.body.classList.remove('is-splash');restart();};$('mapNew').onclick=()=>newMap();}
+function showResult(win){if(!sim||win&&sim.state!=='won'||!win&&sim.state!=='failed')return;const n=sim.runes.filter(r=>r.collected).length;showModal(`<h2 id="modalTitle">${win?'Crew rescued!':'Try that fjord again'}</h2><p class="seed-caption">Seed ${currentSeed}${win?'':' · Same map on Replay'}</p>${win?`<div class="result-art" aria-label="${sim.stars} out of 3 stars">${[1,2,3].map(s=>`<span class="${s>sim.stars?'empty':''}">✦</span>`).join('')}</div><div class="result-stats"><span><strong>${sim.rescued.length}</strong> crew</span><span><strong>${sim.cuts}/${sim.level.par}</strong> cuts</span><span><strong>${n}/${sim.runes.length}</strong> runes</span></div>`:''}<div class="modal-actions">${win?'':'<button id="resultRestart" class="primary-button">Replay ↻</button>'}<button id="resultPrimary" class="${win?'primary-button':'secondary-button'}">New Map →</button></div>`);$('resultPrimary').onclick=()=>newMap();if($('resultRestart'))$('resultRestart').onclick=restart;}
+function showHelp(){sound('click');showModal(`<button class="close" aria-label="Close instructions">×</button><h2 id="modalTitle">Controls & materials</h2><ol class="help-steps"><li><b aria-hidden="true">╱</b><div><strong>Drag through ice or rope.</strong>Helmet in the way? The cut is blocked. Each cut takes effect immediately.</div></li><li><b class="pale-ice" aria-hidden="true">◇</b><div><strong>Pale ice breaks on impact.</strong>Blue pack ice stays solid. Rock and timber cannot be cut.</div></li><li><b aria-hidden="true">≈</b><div><strong>A warm welcome.</strong>Ice melts on the ship and the crew steps out. No extra tap or cut needed.</div></li><li><b aria-hidden="true">✥</b><div><strong>Keep moving.</strong>Pan or scroll to explore; + / − to zoom. Pause stops play. Resume before cutting.</div></li><li><b aria-hidden="true">✦</b><div><strong>Three stars.</strong>Rescue everyone · Meet the cut target · Catch all runes.</div></li></ol><p>R replay after failure · P pan · Space pause · M sound<br>Replay unlocks only after a failed attempt and keeps your seed. New Map starts a different puzzle.</p><button id="helpDone" class="primary-button">Play <span aria-hidden="true">→</span></button>`);$('helpDone').onclick=closeModal;}
+function showMap(){sound('click');showModal(`<button class="close" aria-label="Close map options">×</button><h2 id="modalTitle">Choose your next expedition.</h2><p>Ropes, ramps, gates and split rescues. Study what each piece will do before you cut.</p><p class="seed-caption">${sim?.level.name||'New expedition'} · ${sim?.level.difficulty||'HARD'}<br>Seed ${currentSeed}</p><div class="modal-actions">${canReplay()?'<button id="mapReplay" class="primary-button">Replay this map ↻</button>':''}<button id="mapNew" class="secondary-button">New Map →</button></div><p class="seed-caption">New Map changes the puzzle mechanism, not just its position. Each map passes a physics-solution check. Wrong cuts can still lose the crew.</p>`,'map');if($('mapReplay'))$('mapReplay').onclick=()=>{started=true;$('splash').hidden=true;document.body.classList.remove('is-splash');restart();};$('mapNew').onclick=()=>newMap();}
 function togglePause(){if(!started||sim.state!=='playing')return;paused=!paused;drag=null;panDrag=null;canvas.style.cursor=panMode?'grab':'crosshair';updateUI();if(paused)toast('Paused · Resume to cut');else{clearTimeout(toastTimer);$('toast').classList.remove('visible');}}
 $('startBtn').onclick=start;$('restartBtn').onclick=restart;$('pauseBtn').onclick=togglePause;$('soundBtn').onclick=()=>{saved.sound=!saved.sound;persist();setSound();sound('rune');};$('helpBtn').onclick=showHelp;$('mapBtn').onclick=showMap;
 $('hintBtn').onclick=()=>{$('hintCard').hidden=!$('hintCard').hidden;$('hintBtn').setAttribute('aria-expanded',String(!$('hintCard').hidden));};$('closeHintBtn').onclick=()=>{$('hintCard').hidden=true;$('hintBtn').setAttribute('aria-expanded','false');};$('guideBtn').onclick=()=>{guideUntil=clock+6500;$('closeHintBtn').click();};
 $('fullscreenBtn').hidden=!document.fullscreenEnabled;$('fullscreenBtn').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await $('gameShell').requestFullscreen();}catch{toast('Fullscreen is unavailable here');}};document.addEventListener('fullscreenchange',()=>{$('fullscreenBtn').setAttribute('aria-label',document.fullscreenElement?'Exit fullscreen':'Enter fullscreen');});
 $('modalBackdrop').addEventListener('click',e=>{if(e.target===$('modalBackdrop')&&sim.state==='playing')closeModal();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(modalOpen)closeModal();else if(started)showMap();}if(e.key==='Tab'&&modalOpen){const nodes=[...$('modal').querySelectorAll('button,[href],[tabindex="0"]')];if(!nodes.length)return;const first=nodes[0],last=nodes.at(-1);if(e.shiftKey&&(document.activeElement===first||document.activeElement===$('modal'))){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}if(modalOpen||!started)return;if(e.code==='KeyR')restart();if(e.code==='KeyP')togglePan();if(e.code==='KeyM')$('soundBtn').click();if(e.code==='Space'){e.preventDefault();togglePause();}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(modalOpen)closeModal();else if(started)showMap();}if(e.key==='Tab'&&modalOpen){const nodes=[...$('modal').querySelectorAll('button,[href],[tabindex="0"]')];if(!nodes.length)return;const first=nodes[0],last=nodes.at(-1);if(e.shiftKey&&(document.activeElement===first||document.activeElement===$('modal'))){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}if(modalOpen||!started)return;if(e.code==='KeyR'&&canReplay())restart();if(e.code==='KeyP')togglePan();if(e.code==='KeyM')$('soundBtn').click();if(e.code==='Space'){e.preventDefault();togglePause();}});
 function resizeCanvas(){const small=innerWidth<=580;W=small?640:960;H=small?800:640;canvas.width=W;canvas.height=H;$('gameShell').style.setProperty('--board-ratio',String(W/H));$('canvasWrap').style.aspectRatio=`${W}/${H}`;if(sim){camera.minZoom=Math.min(W/sim.world.width,H/sim.world.height);clampCamera();}}
 function clampCamera(){camera.zoom=Math.max(camera.minZoom,Math.min(1.7,camera.zoom));const mx=sim.world.width-W/camera.zoom,my=sim.world.height-H/camera.zoom;camera.x=mx<0?mx/2:Math.max(0,Math.min(mx,camera.x));camera.y=my<0?my/2:Math.max(0,Math.min(my,camera.y));}
 function resetCamera(){cameraTween=null;camera.minZoom=Math.min(W/sim.world.width,H/sim.world.height);camera.zoom=camera.minZoom;camera.x=0;camera.y=0;clampCamera();panDrag=null;}
@@ -1862,11 +1901,11 @@ function drawWalkers(t){for(const v of sim.walkers){const p=v.body.position,age=
 function drawIce(ice,t){const body=ice.body,pts=body.vertices,melt=ice.meltProgress||0;ctx.save();ctx.globalAlpha=1-melt*.9;const g=ctx.createLinearGradient(body.bounds.min.x,body.bounds.min.y,body.bounds.max.x,body.bounds.max.y);g.addColorStop(0,ice.kind==='pack'?'#9dcdf6ee':'#c3f7f3d9');g.addColorStop(.35,ice.kind==='pack'?'#408bc9dd':'#73d0e2c9');g.addColorStop(1,ice.kind==='pack'?'#285b9bee':'#4b97bccc');path(pts,g,ice.kind==='pack'?'#b1dfff':'#c8ffff',ice.kind==='pack'?3.5:2.5);ctx.clip();const min=body.bounds.min,max=body.bounds.max,r=rng(ice.seed);ctx.globalAlpha=.22*(1-melt);for(let j=0;j<5;j++){path([[min.x+r()*(max.x-min.x),min.y-20],[max.x+20,min.y+r()*(max.y-min.y)],[min.x+r()*(max.x-min.x),max.y+20]],j%2?'#dcffff':'#2b83aa');}ctx.globalAlpha=.5*(1-melt);line([[min.x+8,min.y+20],[min.x+22,min.y+34],[min.x+17,min.y+52]],'#defbff',1.3);ctx.globalAlpha=1;ctx.restore();
  for(const v of ice.vikings){const p=toWorld(body,v.local);drawViking(p.x,p.y,v.look,body.angle,false,1,0,1,{pose:!ice.anchors.length&&Math.hypot(body.velocity.x,body.velocity.y)>2?'falling':'frozen'});ellipse(p.x-19,p.y-12,3,8,'#efffff65');}
  ctx.save();ctx.globalAlpha=1-melt;path(pts,null,'#dcffffaa',1);ctx.clip();let p=pts[0],q=pts[1];line([[p.x+2,p.y+4],[q.x-2,q.y+4]],'#f5ffffaa',2);ctx.restore();
- if(melt>0){ctx.save();for(let k=0;k<9;k++){const f=((t*.0014+k*.137)%1),x=body.bounds.min.x+(body.bounds.max.x-body.bounds.min.x)*(k+.5)/9;ctx.globalAlpha=(1-f)*melt;ellipse(x,body.bounds.max.y+f*21,2.5,4+f*3,'#c4fff3');}ctx.globalAlpha=.22*melt;ellipse(body.position.x,sim.level.boat.y-2,(body.bounds.max.x-body.bounds.min.x)*.55,5,'#a7fff0');ctx.restore();}
+ if(melt>0){ctx.save();for(let k=0;k<9;k++){const f=((t*.0014+k*.137)%1),x=body.bounds.min.x+(body.bounds.max.x-body.bounds.min.x)*(k+.5)/9;ctx.globalAlpha=(1-f)*melt;ellipse(x,body.bounds.max.y+f*21,2.5,4+f*3,'#c4fff3');}ctx.globalAlpha=.22*melt;ellipse(body.position.x,sim.boat.y-2,(body.bounds.max.x-body.bounds.min.x)*.55,5,'#a7fff0');ctx.restore();}
  for(const a of ice.anchors){const p=toWorld(body,a);ellipse(p.x,p.y,8,8,'#405b67');ellipse(p.x,p.y,5.5,5.5,'#d6b677');ellipse(p.x-1,p.y-1,2,2,'#ffe4a5');}
 }
 function arrivalPresentation(v,t,bob=0){const age=Math.max(0,t-(arrivals.get(v.id)??(t-3000)));const pose=age<260?'impact':age<750?'rise':age<2150?'celebrate':'idle';return {...v,celebration:Math.floor((v.look||0)/4)%4,y:v.y+bob,pose,phase:pose==='impact'?age/260:pose==='rise'?(age-260)/490:pose==='celebrate'?(age-750)/1400:0,scale:1};}
-function boatArt(t){const bob=reducedMotion?0:Math.sin(t*.0016)*3.2+Math.sin(t*.0027)*.7;return {...sim.level.boat,y:sim.level.boat.y+bob,rescued:sim.rescued.map(v=>arrivalPresentation(v,t,bob)),time:t,reducedMotion,drawViking,success:Math.max(0,1-(t-successAt)/900)};}
+function boatArt(t){const bob=reducedMotion?0:Math.sin(t*.0016)*3.2+Math.sin(t*.0027)*.7;return {...sim.boat,y:sim.boat.y+bob,rescued:sim.rescued.map(v=>arrivalPresentation(v,t,bob)),time:t,reducedMotion,drawViking,success:Math.max(0,1-(t-successAt)/900)};}
 function drawTitleScene(t){
  // The carved title and axe are SVG overlay art; the crew remain alive behind it.
  ctx.save();ctx.translate(690,530+(reducedMotion?0:Math.sin(t*.0016)*3.5));ctx.scale(1.45,1.45);drawLongship(ctx,{x:0,y:0,width:270,rescued:[{look:0},{look:1}],time:t,reducedMotion,drawViking});ctx.restore();
@@ -1877,10 +1916,15 @@ function drawRune(r,t){if(r.collected)return;const pulse=1+Math.sin(t*.004+r.x)*
 function drawSpikes(s){ctx.save();ctx.fillStyle='#694a65';ctx.fillRect(s.x,s.y+12,s.width,s.height);for(let x=s.x;x<s.x+s.width;x+=18){path([[x,s.y+18],[x+8,s.y-9],[x+19,s.y+18]],'#b26e85','#e7a1ab',1);path([[x+8,s.y-9],[x+11,s.y+14],[x+19,s.y+18]],'#794b72');}ctx.restore();}
 function drawGuide(t){if(!started||guideUntil<t||!sim.level.solution?.length)return;const [a,b]=sim.level.solution[Math.min(sim.cuts,sim.level.solution.length-1)];ctx.save();ctx.strokeStyle='#fff0b8';ctx.lineWidth=2;ctx.setLineDash([9,7]);ctx.globalAlpha=.45+Math.sin(t*.005)*.2;line([a,b],'#fff0b8',2);ctx.setLineDash([]);ellipse(a[0],a[1],5,5,'#fff0b8');const progress=(t%1800)/1800;ellipse(a[0]+(b[0]-a[0])*progress,a[1]+(b[1]-a[1])*progress,7,7,'#fff8d9');ctx.font='12px Trebuchet MS';ctx.textAlign='center';ctx.fillStyle='#fff0b8';ctx.restore();}
 function drawWorldWater(t){const y=sim.world.waterY-18,w=sim.world.width,h=sim.world.height;const g=ctx.createLinearGradient(0,y,0,h+100);g.addColorStop(0,'#397e91');g.addColorStop(1,'#123b54');ctx.fillStyle=g;ctx.fillRect(0,y,w,h-y+200);for(let i=0;i<7;i++){ctx.beginPath();for(let x=0;x<=w;x+=16){const yy=y+i*10+Math.sin(x*.025+t*.001+i)*2;x?ctx.lineTo(x,yy):ctx.moveTo(x,yy);}ctx.strokeStyle=i%2?'#85c7d34d':'#ceeae966';ctx.lineWidth=i===0?2:1;ctx.stroke();}}
+function drawFrostLock(t){const g=sim.frostGate;if(!g)return;const [a,b]=g.fuse;
+ ctx.save();if(!g.opened){ctx.globalAlpha=1-g.progress*.8;const w=g.width/2;path([[g.x-w,g.y-12],[g.x+w,g.y-12],[g.x+w,g.y+12],[g.x-w,g.y+12]],'#78bfd8','#dcffff',3);for(let x=g.x-w+12;x<g.x+w;x+=30)line([[x,g.y+10],[x+15,g.y-10]],g.triggeredAt==null?'#355e7e':'#f3cf81',5);ctx.globalAlpha=1;}
+ if(g.triggeredAt==null){line([[a.x,a.y],[b.x,b.y]],'#624b35',7);line([[a.x,a.y],[b.x,b.y]],'#f5c571',3);ellipse(b.x,b.y+8,12,16,'#9d683f');path([[b.x,b.y-4],[b.x+8,b.y+8],[b.x,b.y+20],[b.x-8,b.y+8]],'#ffe5a0');ctx.setLineDash([5,8]);line([[b.x+15,b.y+8],[g.x-g.width/2,g.y]],'#edcf8b88',2);ctx.setLineDash([]);}
+ ctx.font='bold 13px sans-serif';ctx.textAlign='center';ctx.fillStyle='#ffdfa4';ctx.fillText(g.opened?'LOCK OPEN':g.triggeredAt==null?'CUT FUSE':'THAWING…',a.x,a.y-12);ctx.restore();}
+function drawSailingRoute(t){const b=sim.boat,m=sim.level.boat.motion;if(!m)return;ctx.save();ctx.globalAlpha=.65;ctx.setLineDash([6,10]);line([[sim.boatOrigin-m.amplitude,b.y+60],[sim.boatOrigin+m.amplitude,b.y+60]],'#bddce1',2);ctx.setLineDash([]);for(const sign of [-1,1]){const x=sim.boatOrigin+sign*m.amplitude;line([[x-sign*8,b.y+55],[x,b.y+60],[x-sign*8,b.y+65]],'#d1f0ec',2);}ctx.font='bold 12px sans-serif';ctx.textAlign='center';ctx.fillStyle='#dbefdd';ctx.fillText('SAILING SHIP ↔',sim.boatOrigin,b.y+82);ctx.restore();}
 function drawTimber(timber){const body=timber.body;ctx.save();ctx.translate(body.position.x,body.position.y);ctx.rotate(body.angle);const w=timber.width,h=timber.height;path([[-w/2,-h/2],[w/2,-h/2],[w/2,h/2],[-w/2,h/2]],'#967048','#d9b379',2);line([[-w/2+4,0],[w/2-4,0]],'#5d503e',2);for(let x=-w/2+12;x<w/2;x+=40){line([[x,-h/2+3],[x+8,h/2-3]],'#b8925a',1);ellipse(x,0,2,2,'#354e55');}ctx.restore();if(timber.pivot){ellipse(timber.pivot.x,timber.pivot.y,12,12,'#2a4653');ellipse(timber.pivot.x,timber.pivot.y,8,8,'#b8b99a');ellipse(timber.pivot.x,timber.pivot.y,3,3,'#4f6368');}}
 function drawWaterLoss(t){if(!waterLoss)return;const age=t-waterLoss.startedAt,phase=Math.max(0,Math.min(1,(age-850)/1000));drawViking(waterLoss.x,waterLoss.y-7,waterLoss.look,0,true,1,0,1,{pose:age<850?'swim':'sink',phase:age<850?age/850:phase});ctx.save();for(let i=0;i<7;i++){const life=((age+i*160)%1100)/1100;if(age>450){ctx.globalAlpha=(1-life)*.65;ctx.strokeStyle='#bfeefa';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(waterLoss.x+Math.sin(i*3)*17,waterLoss.y+24-life*44,2+i%3,0,Math.PI*2);ctx.stroke();}}ctx.globalAlpha=.5;for(let i=0;i<2;i++){ctx.beginPath();ctx.ellipse(waterLoss.x,waterLoss.y+2,17+(age*.025+i*12)%39,3+(age*.002)%4,0,0,Math.PI*2);ctx.strokeStyle='#c5f2f5';ctx.stroke();}ctx.restore();}
-function drawMinimap(){if(!started)return;const m=miniBounds(),sx=m.w/sim.world.width,sy=m.h/sim.world.height;ctx.save();ctx.fillStyle='#0d2a3dea';ctx.strokeStyle='#94bab888';ctx.lineWidth=1;ctx.beginPath();ctx.roundRect(m.x,m.y,m.w,m.h,5);ctx.fill();ctx.stroke();ctx.beginPath();ctx.rect(m.x,m.y,m.w,m.h);ctx.clip();ctx.translate(m.x,m.y);ctx.scale(sx,sy);for(const r of sim.rocks)path(r.vertices,'#71929c');for(const i of sim.ice)path(i.body.vertices,i.kind==='pack'?'#71c2ef':'#b6f2ee');for(const v of sim.getVikings())ellipse(v.x,v.y,12,12,'#f1d399');ctx.fillStyle='#eab778';ctx.fillRect(sim.level.boat.x-sim.level.boat.width/2,sim.level.boat.y,sim.level.boat.width,22);ctx.strokeStyle='#ffedb6';ctx.lineWidth=2/sx;ctx.strokeRect(camera.x,camera.y,W/camera.zoom,H/camera.zoom);ctx.restore();}
-function render(t){ctx.clearRect(0,0,W,H);ctx.save();ctx.scale(W/960,H/640);background(t);drawVillage(ctx,{time:t,reducedMotion,cameraX:camera.x,cameraY:camera.y,chapter:sim?.level.biome??0});if(!started){ctx.restore();ctx.save();const heroScale=W/960;ctx.translate(0,(H-640*heroScale)*(W<800?.78:.58));ctx.scale(heroScale,heroScale);drawTitleScene(t);ctx.restore();return;}ctx.restore();ctx.save();ctx.scale(camera.zoom,camera.zoom);ctx.translate(-camera.x,-camera.y);drawWorldWater(t);const ship=boatArt(t);drawLongshipBack(ctx,ship);for(const rock of sim.rocks)drawRock(rock);for(const timber of sim.timbers)drawTimber(timber);for(const s of sim.level.spikes||[])drawSpikes(s);for(const r of sim.runes)drawRune(r,t);for(const ice of sim.ice)drawRopes(ice);for(const ice of sim.ice){ctx.save();if(waterLoss?.sourceBody===ice.body.id){ctx.beginPath();ctx.rect(-1000,-1000,sim.world.width+2000,waterLoss.y+1000);ctx.clip();ctx.translate(0,Math.max(0,t-waterLoss.startedAt)*.2);}drawIce(ice,t);ctx.restore();}drawWalkers(t);drawLongshipCrew(ctx,ship);drawLongshipFront(ctx,ship);drawWaterLoss(t);drawGuide(t);
+function drawMinimap(){if(!started)return;const m=miniBounds(),sx=m.w/sim.world.width,sy=m.h/sim.world.height;ctx.save();ctx.fillStyle='#0d2a3dea';ctx.strokeStyle='#94bab888';ctx.lineWidth=1;ctx.beginPath();ctx.roundRect(m.x,m.y,m.w,m.h,5);ctx.fill();ctx.stroke();ctx.beginPath();ctx.rect(m.x,m.y,m.w,m.h);ctx.clip();ctx.translate(m.x,m.y);ctx.scale(sx,sy);for(const r of sim.rocks)path(r.vertices,'#71929c');for(const i of sim.ice)path(i.body.vertices,i.kind==='pack'?'#71c2ef':'#b6f2ee');for(const v of sim.getVikings())ellipse(v.x,v.y,12,12,'#f1d399');ctx.fillStyle='#eab778';ctx.fillRect(sim.boat.x-sim.boat.width/2,sim.boat.y,sim.boat.width,22);ctx.strokeStyle='#ffedb6';ctx.lineWidth=2/sx;ctx.strokeRect(camera.x,camera.y,W/camera.zoom,H/camera.zoom);ctx.restore();}
+function render(t){ctx.clearRect(0,0,W,H);ctx.save();ctx.scale(W/960,H/640);background(t);drawVillage(ctx,{time:t,reducedMotion,cameraX:camera.x,cameraY:camera.y,chapter:sim?.level.biome??0});if(!started){ctx.restore();ctx.save();const heroScale=W/960;ctx.translate(0,(H-640*heroScale)*(W<800?.78:.58));ctx.scale(heroScale,heroScale);drawTitleScene(t);ctx.restore();return;}ctx.restore();ctx.save();ctx.scale(camera.zoom,camera.zoom);ctx.translate(-camera.x,-camera.y);drawWorldWater(t);const ship=boatArt(t);drawSailingRoute(t);drawLongshipBack(ctx,ship);for(const rock of sim.rocks)drawRock(rock);for(const timber of sim.timbers)drawTimber(timber);drawFrostLock(t);for(const s of sim.level.spikes||[])drawSpikes(s);for(const r of sim.runes)drawRune(r,t);for(const ice of sim.ice)drawRopes(ice);for(const ice of sim.ice){ctx.save();if(waterLoss?.sourceBody===ice.body.id){ctx.beginPath();ctx.rect(-1000,-1000,sim.world.width+2000,waterLoss.y+1000);ctx.clip();ctx.translate(0,Math.max(0,t-waterLoss.startedAt)*.2);}drawIce(ice,t);ctx.restore();}drawWalkers(t);drawLongshipCrew(ctx,ship);drawLongshipFront(ctx,ship);drawWaterLoss(t);drawGuide(t);
  if(sim.level.wind){ctx.save();ctx.fillStyle='#e9eee0aa';ctx.font='12px Trebuchet MS';ctx.textAlign='left';ctx.fillText(sim.level.wind>0?'〰 →':'← 〰',29,34);ctx.restore();}
  for(const p of particles){ctx.globalAlpha=p.life;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.life*(p.spin||4));path(p.shard?[[-p.size,-p.size*.4],[p.size*.7,-p.size*.6],[p.size*.25,p.size]]:[[-p.size,0],[0,-p.size],[p.size,0],[0,p.size]],p.color);ctx.restore();}ctx.globalAlpha=1;for(const s of trails){ctx.globalAlpha=s.life;line([[s.a.x,s.a.y],[s.b.x,s.b.y]],'#e5ffff',2+s.life*2);}ctx.globalAlpha=1;
  if(drag){const preview=sim.inspectSlice(drag.a,drag.b),color=preview.ok?'#a9ffe0':preview.reason==='viking'?'#ff969b':'#fff2c9';canvas.dataset.cutPreview=preview.ok?'valid':preview.reason;ctx.save();ctx.lineJoin='round';for(const candidate of preview.candidates){ctx.globalAlpha=.12;path(candidate.ice.body.vertices,color);ctx.globalAlpha=.75;path(candidate.ice.body.vertices,null,color,1.5);}ctx.globalAlpha=1;if(preview.blocked){ctx.beginPath();ctx.arc(preview.blocked.x,preview.blocked.y,27,0,Math.PI*2);ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();}for(const rope of preview.ropes){ellipse(rope.hit.x,rope.hit.y,8,8,'#a9ffe033');ellipse(rope.hit.x,rope.hit.y,3,3,color);}ctx.shadowColor=color;ctx.shadowBlur=12;if(!preview.ok)ctx.setLineDash([7,5]);line([[drag.a.x,drag.a.y],[drag.b.x,drag.b.y]],color,2.8);ctx.setLineDash([]);ellipse(drag.a.x,drag.a.y,4,4,color);ellipse(drag.b.x,drag.b.y,7,7,'#123644');ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();ctx.font='bold 11px Trebuchet MS';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle=color;ctx.fillText(preview.ok?'✓':preview.reason==='viking'?'×':'·',drag.b.x,drag.b.y);ctx.restore();}else delete canvas.dataset.cutPreview;
@@ -1888,7 +1932,7 @@ function render(t){ctx.clearRect(0,0,W,H);ctx.save();ctx.scale(W/960,H/640);back
 }
 function frame(t){const dt=Math.min(t-lastFrame||16.67,50);lastFrame=t;clock=t;if(cameraTween){const p=Math.min(1,(t-cameraTween.startedAt)/(reducedMotion?1:420)),ease=p*p*(3-2*p);for(const k of ['x','y','zoom'])camera[k]=cameraTween.initial[k]+(cameraTween.target[k]-cameraTween.initial[k])*ease;if(p>=1)cameraTween=null;}if(started&&!paused&&!modalOpen){accumulator+=dt;while(accumulator>=1000/60){sim.step(1000/60);accumulator-=1000/60;}}else accumulator=0;for(const p of particles){p.x+=p.vx*dt/16.67;p.y+=p.vy*dt/16.67;p.vy+=.06*dt/16.67;p.life-=dt/800;}particles=particles.filter(p=>p.life>0);for(const s of trails)s.life-=dt/420;trails=trails.filter(s=>s.life>0);render(t);requestAnimationFrame(frame);}
 document.body.classList.add('is-splash');resizeCanvas();setSound();loadLevel(0);requestAnimationFrame(frame);
-if(new URLSearchParams(location.search).has('test'))window.__frostyChamps={get seed(){return currentSeed;},newMap,get sim(){return sim;},get started(){return started;},get index(){return index;},get camera(){return {...camera,width:W,height:H};},get panMode(){return panMode;},get arrivals(){return sim.rescued.map(v=>arrivalPresentation(v,clock));},get waterLoss(){return waterLoss?{...waterLoss,age:clock-waterLoss.startedAt}:null;},get paused(){return paused;},get level(){return currentLevel;},loadLevel:n=>{if(!started)start();loadLevel(n);},slice:(a,b)=>{const r=paused?{ok:false,reason:'paused'}:sim.slice(a,b);updateUI();return r;},step:n=>{for(let i=0;i<n;i++)sim.step(1000/60);updateUI();},showMap,closeModal,LEVELS};
+if(new URLSearchParams(location.search).has('test'))window.__frostyChamps={get seed(){return currentSeed;},newMap,get sim(){return sim;},get started(){return started;},get index(){return index;},get camera(){return {...camera,width:W,height:H};},get panMode(){return panMode;},get arrivals(){return sim.rescued.map(v=>arrivalPresentation(v,clock));},get waterLoss(){return waterLoss?{...waterLoss,age:clock-waterLoss.startedAt}:null;},get paused(){return paused;},get level(){return currentLevel;},replay:restart,loadLevel:n=>{if(!started){start();return true;}return restart();},slice:(a,b)=>{const r=paused?{ok:false,reason:'paused'}:sim.slice(a,b);updateUI();return r;},step:n=>{for(let i=0;i<n;i++)sim.step(1000/60);updateUI();},showMap,closeModal,LEVELS};
 
 </script>
 </body></html>
