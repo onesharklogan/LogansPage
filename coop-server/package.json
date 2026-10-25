@@ -1,0 +1,1 @@
+{"name":"frost-adventure-coop","version":"1.0.0","private":true,"description":"Free-host compatible authoritative 2–8 player Frost Adventure demo","type":"module","scripts":{"start":"node server.mjs","test":"node --test tests.mjs"},"engines":{"node":">=20"},"dependencies":{"ws":"8.22.0"}}
