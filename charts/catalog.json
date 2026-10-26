@@ -518,11 +518,5 @@
       "url": "/charts/mes1-2026-10-23-81.json",
       "sha256": "3a3b26a321925abb850ef1a66e6408f3b150acb1ba9c6e289e0f48bf9be71fd4"
     }
-  ],
-  "download": {
-    "url": "/charts/MES1_5m_2026-08-18_to_2026-10-23_Chicago_81bar_sessions.csv",
-    "label": "Download merged 48-session source CSV",
-    "bytes": 202206,
-    "sha256": "b3af4e8ee7fe8b80feedb75151ded6da485676db0e2bcfdca1595ec234da3a2a"
-  }
+  ]
 }
