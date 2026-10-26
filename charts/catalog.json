@@ -2,6 +2,237 @@
   "version": 1,
   "sessions": [
     {
+      "id": "mes1-2026-08-19-81",
+      "title": "MES1! · 2026-08-19 · 81 bars",
+      "date": "2026-08-19",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-08-19-81.json",
+      "sha256": "b5cf002ded6a83c08e7610ea92cb49bc5634ac569ab1f9ca7ace4fe1b863358f"
+    },
+    {
+      "id": "mes1-2026-08-20-81",
+      "title": "MES1! · 2026-08-20 · 81 bars",
+      "date": "2026-08-20",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-08-20-81.json",
+      "sha256": "8157e60b5b73efa5876eae4e0e4920fa1a2a6a1f2da8c4dad85cb1277374db0a"
+    },
+    {
+      "id": "mes1-2026-08-21-81",
+      "title": "MES1! · 2026-08-21 · 81 bars",
+      "date": "2026-08-21",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-08-21-81.json",
+      "sha256": "a8f765135168f92bd107309e224ec20cb3774e019ff681a5d313454b433261c4"
+    },
+    {
+      "id": "mes1-2026-08-24-81",
+      "title": "MES1! · 2026-08-24 · 81 bars",
+      "date": "2026-08-24",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-08-24-81.json",
+      "sha256": "5695b1834ca133a3becb60399e646a4a248eb94dbc3d430627723ce5ec4f0c3f"
+    },
+    {
+      "id": "mes1-2026-08-25-81",
+      "title": "MES1! · 2026-08-25 · 81 bars",
+      "date": "2026-08-25",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-08-25-81.json",
+      "sha256": "bee0816929dfb346ed096bb405933e2612c9af3fbf15d6da1550b3e575bf2fed"
+    },
+    {
+      "id": "mes1-2026-08-26-81",
+      "title": "MES1! · 2026-08-26 · 81 bars",
+      "date": "2026-08-26",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-08-26-81.json",
+      "sha256": "8699f9d40b03e23f81dbca8757cefaf661a0dccdb1a833a912afe6ed384939f4"
+    },
+    {
+      "id": "mes1-2026-08-27-81",
+      "title": "MES1! · 2026-08-27 · 81 bars",
+      "date": "2026-08-27",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-08-27-81.json",
+      "sha256": "a0855ec7249a3bb9569d6b6afdfe1b8f09d094163da03c208a9a59ce119a0a7b"
+    },
+    {
+      "id": "mes1-2026-08-28-81",
+      "title": "MES1! · 2026-08-28 · 81 bars",
+      "date": "2026-08-28",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-08-28-81.json",
+      "sha256": "95afadb63a24638f3bf86323ba9f9467fa8c45550ecdcdb29dc89b81d2ff0ea5"
+    },
+    {
+      "id": "mes1-2026-08-31-81",
+      "title": "MES1! · 2026-08-31 · 81 bars",
+      "date": "2026-08-31",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-08-31-81.json",
+      "sha256": "5b6c296c265a944ed8809250eb46ef09ab436f9dc8a2fc1838536bcd031b33e0"
+    },
+    {
+      "id": "mes1-2026-09-01-81",
+      "title": "MES1! · 2026-09-01 · 81 bars",
+      "date": "2026-09-01",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-09-01-81.json",
+      "sha256": "ba73a799907f8abc470fb2364da9cf95e10bc7d587fc5d3ee9668738160d5445"
+    },
+    {
+      "id": "mes1-2026-09-02-81",
+      "title": "MES1! · 2026-09-02 · 81 bars",
+      "date": "2026-09-02",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-09-02-81.json",
+      "sha256": "a32a7548b0158840ec4f4c39f0c672a237691293f1dba5b6c1e5dd7970cfd748"
+    },
+    {
+      "id": "mes1-2026-09-03-81",
+      "title": "MES1! · 2026-09-03 · 81 bars",
+      "date": "2026-09-03",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-09-03-81.json",
+      "sha256": "ceb02b2f5d515a0b91244ea6a399f34e5ec70b8b443522ef5a5d09f7a977ed2f"
+    },
+    {
+      "id": "mes1-2026-09-04-81",
+      "title": "MES1! · 2026-09-04 · 81 bars",
+      "date": "2026-09-04",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-09-04-81.json",
+      "sha256": "623cb1cca7cdfad1449b94075f71d3f5368de2bcece4918c1d354d2640c8d70b"
+    },
+    {
+      "id": "mes1-2026-09-08-81",
+      "title": "MES1! · 2026-09-08 · 81 bars",
+      "date": "2026-09-08",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-09-08-81.json",
+      "sha256": "3994e30afca7762e92d6939c21da408891386117d4a1dd457013e27eebb4d778"
+    },
+    {
+      "id": "mes1-2026-09-09-81",
+      "title": "MES1! · 2026-09-09 · 81 bars",
+      "date": "2026-09-09",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-09-09-81.json",
+      "sha256": "30af89d643ef4cee198c068aa69291b1813342640fb61c24b300994b58db04a3"
+    },
+    {
+      "id": "mes1-2026-09-10-81",
+      "title": "MES1! · 2026-09-10 · 81 bars",
+      "date": "2026-09-10",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-09-10-81.json",
+      "sha256": "fced6ef6157ed03fa7898a1a06b28d57e5d23f8780a60db1ecdf414298d171f4"
+    },
+    {
+      "id": "mes1-2026-09-11-81",
+      "title": "MES1! · 2026-09-11 · 81 bars",
+      "date": "2026-09-11",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-09-11-81.json",
+      "sha256": "2c83ff2231df5245a1e7199e0291d4a9ecb7fd0e01e137339dc3dca943571c52"
+    },
+    {
+      "id": "mes1-2026-09-14-81",
+      "title": "MES1! · 2026-09-14 · 81 bars",
+      "date": "2026-09-14",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-09-14-81.json",
+      "sha256": "1f971aee0db8239397a4cf45bc3c78a0bc2a64b4527f8bf016aa2eafcc4822a6"
+    },
+    {
+      "id": "mes1-2026-09-15-81",
+      "title": "MES1! · 2026-09-15 · 81 bars",
+      "date": "2026-09-15",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-09-15-81.json",
+      "sha256": "99858f46cb30e8b1174377dc6e907ce2ce0dfbd3ba369a5f0cf4fcc39b9d9c38"
+    },
+    {
+      "id": "mes1-2026-09-16-81",
+      "title": "MES1! · 2026-09-16 · 81 bars",
+      "date": "2026-09-16",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-09-16-81.json",
+      "sha256": "b8b1c1887e20face19107f5bb6d7deb3c61bf5b96f98b8b75b6c8829908ed3b5"
+    },
+    {
+      "id": "mes1-2026-09-17-81",
+      "title": "MES1! · 2026-09-17 · 81 bars",
+      "date": "2026-09-17",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-09-17-81.json",
+      "sha256": "37bf8b5aa5a41633d1dec1f76163641c207686abe99e6a8f2c04c8f02dc6a127"
+    },
+    {
       "id": "mes1-2026-09-18-81",
       "title": "MES1! · 2026-09-18 · 81 bars",
       "date": "2026-09-18",
@@ -289,9 +520,9 @@
     }
   ],
   "download": {
-    "url": "/charts/MES1_5m_2026-09-17_to_2026-10-23_Chicago_81bar_sessions.csv",
-    "label": "Download merged 27-session source CSV",
-    "bytes": 113754,
-    "sha256": "2256bdd51b64b2835112b88eb10c93740ab4101baea9120a9bcaa5430c4fc78f"
+    "url": "/charts/MES1_5m_2026-08-18_to_2026-10-23_Chicago_81bar_sessions.csv",
+    "label": "Download merged 48-session source CSV",
+    "bytes": 202206,
+    "sha256": "b3af4e8ee7fe8b80feedb75151ded6da485676db0e2bcfdca1595ec234da3a2a"
   }
 }
