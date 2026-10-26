@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "sessions": [
+    {
+      "id": "mes1-2026-10-19-81",
+      "title": "MES1! · 2026-10-19 · 81 bars",
+      "date": "2026-10-19",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-10-19-81.json",
+      "sha256": "131f9820f1fb23e665be793606c5af4a1179752202ba8b001608d4ef77b9ddf3"
+    },
+    {
+      "id": "mes1-2026-10-20-81",
+      "title": "MES1! · 2026-10-20 · 81 bars",
+      "date": "2026-10-20",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-10-20-81.json",
+      "sha256": "51176054d8d0c52a7f111201c75afe9f19954b9c074d65830dc028f2f32b463e"
+    },
+    {
+      "id": "mes1-2026-10-21-81",
+      "title": "MES1! · 2026-10-21 · 81 bars",
+      "date": "2026-10-21",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-10-21-81.json",
+      "sha256": "b61f27bd9808c5629ad891899e979e4967e1a25de445f4d02061112c7990f7dc"
+    },
+    {
+      "id": "mes1-2026-10-22-81",
+      "title": "MES1! · 2026-10-22 · 81 bars",
+      "date": "2026-10-22",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-10-22-81.json",
+      "sha256": "479d210a7ed7280704c1ebb0181d2e5df506ce9de3e7ec5b7f821bf9d11e2c2e"
+    },
+    {
+      "id": "mes1-2026-10-23-81",
+      "title": "MES1! · 2026-10-23 · 81 bars",
+      "date": "2026-10-23",
+      "kind": "historical",
+      "range": "extended",
+      "instrument": "MES",
+      "intervalMinutes": 5,
+      "url": "/charts/mes1-2026-10-23-81.json",
+      "sha256": "3a3b26a321925abb850ef1a66e6408f3b150acb1ba9c6e289e0f48bf9be71fd4"
+    }
+  ],
+  "download": {
+    "url": "/charts/MES1_5m_2026-10-16_to_2026-10-23_Chicago_81bar_sessions.csv",
+    "label": "Download original 6-session source CSV",
+    "bytes": 25302,
+    "sha256": "a811c575a7448dce7763f0ec395c03b024368e1205360f72c2b9b64c94ab670a"
+  }
+}
