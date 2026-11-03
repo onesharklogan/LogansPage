@@ -2,7 +2,7 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 # This dedicated branch contains source, not runtime data. Verify before extraction.
-echo '04269dd11ea87b5c4c18dacc820afccda7af57aa7a8b43f8326edc8f1c2563a3  training-center-source.tar.gz' | sha256sum --check --status
+echo 'd6fd903a00a52a14e2f4a46d5dcea110f1f7867414b2ac1336e27bd85d510165  training-center-source.tar.gz' | sha256sum --check --status
 # Remove only the generated build directory so deleted source cannot survive a redeploy.
 rm -rf -- training-center-app
 mkdir -p training-center-app
