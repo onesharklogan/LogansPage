@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
-# Baseline v93 plus reviewed v101 features and approved owner-only point-limit overlay. Verify every final runtime byte.
+# Baseline v93 plus reviewed v102 features and PATC browser-title overlay. Verify every final runtime byte.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
-echo '1faf45c35a635a9ef4a776c2997d5037b36e70f3d331e299a1381dc54e6c7af4  training-center-overlay.tar.gz' | sha256sum --check --status
-echo '67b8b9d6e43f896834fdbb692a77bc663645ea0032d7ca72e2b23ee0e911a066  runtime-contents.json' | sha256sum --check --status
+echo '0b46f42f94e18f4e3578d42c0572299982d4793b2d8fb982387a70336fd56589  training-center-overlay.tar.gz' | sha256sum --check --status
+echo '6270816e26d5e33d2b937f077a1a409950594fa95cf8bb04b75af8c196da4348  runtime-contents.json' | sha256sum --check --status
 rm -rf -- training-center-app
 mkdir -p training-center-app
 tar -xzf training-center-source.tar.gz -C training-center-app --no-same-owner --no-same-permissions
