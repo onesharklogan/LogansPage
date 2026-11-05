@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
-# Baseline plus completion-only Random and separated mobile Finish controls. Verify every final runtime byte.
+# Baseline plus mobile Chart Matcher placement and seven-bar readiness. Verify every final runtime byte.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
-echo '4b939c7f421351f484b5f5014e490054378e09aa9be45a7b69ce7db7363fbcf1  training-center-overlay.tar.gz' | sha256sum --check --status
-echo '1d629b0911c48de205cdbe593f449d62f2e719c70f6cb87818293db25079b7fd  runtime-contents.json' | sha256sum --check --status
+echo '54c8a45f02653db0aebd71afa06a6e88c84c739e8539a1b3a77c7f9528f513dd  training-center-overlay.tar.gz' | sha256sum --check --status
+echo 'bacff3daf45e13880185964f57fcd5f8cd9c8a8633a10708cdf63a7958a59e09  runtime-contents.json' | sha256sum --check --status
 rm -rf -- training-center-app
 mkdir -p training-center-app
 tar -xzf training-center-source.tar.gz -C training-center-app --no-same-owner --no-same-permissions
