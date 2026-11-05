@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
-# Baseline plus approved Today history summary, saved point limit and manual Market Orders controls. Verify every final runtime byte.
+# Baseline plus completion-only Random and separated mobile Finish controls. Verify every final runtime byte.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
-echo 'f27500a86d821853a965b6eac3a3db2afee9181ea4109dcdcf0ce25a303ac702  training-center-overlay.tar.gz' | sha256sum --check --status
-echo '5248aa8c81c8cbed7ba2ed46698c950cd3bedae8d9c9df6620e59d6c0c79a033  runtime-contents.json' | sha256sum --check --status
+echo '4b939c7f421351f484b5f5014e490054378e09aa9be45a7b69ce7db7363fbcf1  training-center-overlay.tar.gz' | sha256sum --check --status
+echo '1d629b0911c48de205cdbe593f449d62f2e719c70f6cb87818293db25079b7fd  runtime-contents.json' | sha256sum --check --status
 rm -rf -- training-center-app
 mkdir -p training-center-app
 tar -xzf training-center-source.tar.gz -C training-center-app --no-same-owner --no-same-permissions
