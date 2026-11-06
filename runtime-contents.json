@@ -216,8 +216,8 @@
   },
   {
     "path": "components/chart-match-automatic.tsx",
-    "bytes": 28639,
-    "sha256": "c31b4935e80b1c5c652d58728b319dd129649cce0c079389f87e390b9c06ac43"
+    "bytes": 29513,
+    "sha256": "4fcbd11fac4da3721289ac3c8adf4a99d4268ab9d722e1bee1cd99b67db7c221"
   },
   {
     "path": "components/chart-match-data.mjs",
@@ -246,8 +246,8 @@
   },
   {
     "path": "components/chart-match-overview.tsx",
-    "bytes": 6029,
-    "sha256": "93b6a45161d6086ffb05fc1d7de4054b34b87016557232b60871a49c5143eaf4"
+    "bytes": 6270,
+    "sha256": "fe317cddf3d863d9d812488906a6cb3fdcfdcdeaeab61bcb63004cc324ed03ec"
   },
   {
     "path": "components/chart-match.module.css",
@@ -686,8 +686,13 @@
   },
   {
     "path": "lib/chart-match-auto.mjs",
-    "bytes": 54800,
-    "sha256": "85dc0fd8701caa6557650bcf5447e75ed726f85ed74c5373c83d715f52cf35c3"
+    "bytes": 55031,
+    "sha256": "5b7e46a455eb3168ff69316ff890fd456ff271aa94ecb06807db26fd03e08451"
+  },
+  {
+    "path": "lib/chart-match-features.mjs",
+    "bytes": 7917,
+    "sha256": "a1a3ddc6a77c9cec9c7549bcca94c6b9a04f463137fcbd1eee4774e223e1f127"
   },
   {
     "path": "lib/chart-match-full.mjs",
@@ -721,8 +726,8 @@
   },
   {
     "path": "lib/chart-match.mjs",
-    "bytes": 42217,
-    "sha256": "1243b13accaade59e271f93bb4b631d62bf347fb4c7cb93722fd87b7714c57e4"
+    "bytes": 46021,
+    "sha256": "45008bf77c03e670f99bc492e580e4630fe0048ca35e31f68da38501b1d6edac"
   },
   {
     "path": "lib/combined-simulator-history.mjs",
