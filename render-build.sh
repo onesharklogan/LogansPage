@@ -3,8 +3,8 @@ set -euo pipefail
 cd "$(dirname "$0")"
 # Preserve combined simulator; record device class and stay on chart at completion. Verify every final runtime byte.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
-echo '6f58ca4c546f23b7b93487c8ff7196e4142498bea29e2c5b74be2b067ac708d8  training-center-overlay.tar.gz' | sha256sum --check --status
-echo '8f88ab21eafbe57387e35ece311337734c4ff65eddd24afc271aea03553a045d  runtime-contents.json' | sha256sum --check --status
+echo 'd53fa33131c0f006e712c23ffdae7ddec8d9b9b0141ff56e49e0792e5005b1f9  training-center-overlay.tar.gz' | sha256sum --check --status
+echo '5c58f5c1234ff610cb4904381bf871ac44264f12fa81dc88f74eb0e62fa0017a  runtime-contents.json' | sha256sum --check --status
 rm -rf -- training-center-app
 mkdir -p training-center-app
 tar -xzf training-center-source.tar.gz -C training-center-app --no-same-owner --no-same-permissions

@@ -216,8 +216,8 @@
   },
   {
     "path": "components/chart-match-automatic.tsx",
-    "bytes": 24059,
-    "sha256": "90c83b7b968b574fb8ace470a8ebbdf757e68884f820d1799083d2008f87d0d3"
+    "bytes": 28639,
+    "sha256": "c31b4935e80b1c5c652d58728b319dd129649cce0c079389f87e390b9c06ac43"
   },
   {
     "path": "components/chart-match-data.mjs",
@@ -251,8 +251,8 @@
   },
   {
     "path": "components/chart-match.module.css",
-    "bytes": 5174,
-    "sha256": "1044fd3f9f5ed0eb74e018c5864999d6eb1e7e2834c6acb6de3249279b8fad23"
+    "bytes": 5629,
+    "sha256": "be05876d2ae9cad54404f904d5df981dae34cb6a1dd796e30768dcad9ba0592f"
   },
   {
     "path": "components/chart-match.tsx",
@@ -686,8 +686,8 @@
   },
   {
     "path": "lib/chart-match-auto.mjs",
-    "bytes": 52789,
-    "sha256": "e975871d1710f03d5706784fe113b44388cd41cc89e94f3538c735f0eed0d1a4"
+    "bytes": 54800,
+    "sha256": "85dc0fd8701caa6557650bcf5447e75ed726f85ed74c5373c83d715f52cf35c3"
   },
   {
     "path": "lib/chart-match-full.mjs",
@@ -696,8 +696,8 @@
   },
   {
     "path": "lib/chart-match-image.mjs",
-    "bytes": 38228,
-    "sha256": "826d6fbccd3792229bc4909c74e5abc5929e05c3533613e1833b55cda6579f07"
+    "bytes": 40540,
+    "sha256": "3a4029ce26ab166c2221bcc869c5546d90ebc01369189aa097f17bea83ed55a6"
   },
   {
     "path": "lib/chart-match-ocr.mjs",
