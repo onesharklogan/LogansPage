@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
-# Baseline plus combined Market/Limit simulator and 20-point stop/target settings. Verify every final runtime byte.
+# Preserve combined simulator; record device class and stay on chart at completion. Verify every final runtime byte.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
-echo 'dd996ca08e5b9fb63187860d0ff5bfb15a79013ad5b9c03d43287cf14d400419  training-center-overlay.tar.gz' | sha256sum --check --status
-echo '0ab292a3ebaee3c3c7785e847ac0526a2d8b11a701c92bcda81f856c657bdffb  runtime-contents.json' | sha256sum --check --status
+echo '02cafc3df3a3b0e74b1e15e6f986a73e810f469621962a586db94b03a42984f2  training-center-overlay.tar.gz' | sha256sum --check --status
+echo '6c92fda892a78a186f7d5504b4be2b8550d70da3411ddfa24c4d18c2665a514a  runtime-contents.json' | sha256sum --check --status
 rm -rf -- training-center-app
 mkdir -p training-center-app
 tar -xzf training-center-source.tar.gz -C training-center-app --no-same-owner --no-same-permissions
