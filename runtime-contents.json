@@ -6,13 +6,13 @@
   },
   {
     "path": "API-CONTRACT.md",
-    "bytes": 14092,
-    "sha256": "20b46babf337393d7e119bc2346b2a71e0f4f892829350f6a21b2b75902ab5a8"
+    "bytes": 14845,
+    "sha256": "2836b525689e370e209de3004e43750de560c484315648eaf8bd718450809190"
   },
   {
     "path": "README.md",
-    "bytes": 67135,
-    "sha256": "7e80c8a1d2cec2c015153aa002269873dd0904a7b978152393497cf57d844803"
+    "bytes": 69887,
+    "sha256": "54cd0eaa90e25a6dab43ea3cf714ad83300099d9a21413638d7c0489d8767d45"
   },
   {
     "path": "app/activate/page.tsx",
@@ -191,8 +191,8 @@
   },
   {
     "path": "components/admin-trader-history.tsx",
-    "bytes": 8178,
-    "sha256": "68f5676cdd1db04628f1814681ebd18823d7f4cb8520e72a8296523f7f20cc57"
+    "bytes": 8866,
+    "sha256": "17f0cfe6f79a0ec063689f784eb04dbd0fb3c54d0e8da2bdab38dcb0d7b4b6af"
   },
   {
     "path": "components/app-navigation.tsx",
@@ -222,7 +222,7 @@
   {
     "path": "components/chart-match-data.mjs",
     "bytes": 4290,
-    "sha256": "e82cacd5f1fff80c5760333fc25c13436d4c0561fd458c454b3d67aab44870d2"
+    "sha256": "8ac94e87981677838b92d4ed794fdf10f11a21207d12277844a4abd81501a274"
   },
   {
     "path": "components/chart-match-full.module.css",
@@ -316,13 +316,13 @@
   },
   {
     "path": "components/learner-trader-stats.module.css",
-    "bytes": 4295,
-    "sha256": "31be4671f2028750660c5848e6ab10772f63a9532123975a3bda33206bab53a6"
+    "bytes": 4617,
+    "sha256": "6dcd75b5a7c871edb50f4c5461d39a26c823a5ab4d83d12db2088ef0c79c9854"
   },
   {
     "path": "components/learner-trader-stats.tsx",
-    "bytes": 12672,
-    "sha256": "05a91ab5a2bdddb8f784311ae2ad60ee20eb048c2ff1e8467ccc166752784780"
+    "bytes": 13415,
+    "sha256": "f0257e874ed161a963615a97c1319808cd4cb708aed6800c667d11a6925f507d"
   },
   {
     "path": "components/lesson-access-boundary.tsx",
@@ -421,8 +421,8 @@
   },
   {
     "path": "components/practice-insights.tsx",
-    "bytes": 7575,
-    "sha256": "06b517a046d2df402729ed858c0ca7597ffb3acb232566709b4df3d77f08cae8"
+    "bytes": 7863,
+    "sha256": "c803d9002748180044376cae2cdedfcad2228d7f3b6a51e68424cbc5bff0907d"
   },
   {
     "path": "components/profiled-trade-simulator.tsx",
@@ -541,13 +541,13 @@
   },
   {
     "path": "components/trade-simulator.tsx",
-    "bytes": 110196,
-    "sha256": "9d88f4ea2a8c8d1a7edc2c1612d8f6259e138c970e644935d1bea7828fe97352"
+    "bytes": 110007,
+    "sha256": "0cb62e63d60e50d9ab3b4cfa9add7c08dc891ad695c116b4febcb9b165ae3d96"
   },
   {
     "path": "data/bias-provenance.json",
     "bytes": 23891,
-    "sha256": "94d5ac5027e3abcea56a18b0d131948a23e7b7c8d35f0bbc659dcc8f6bee97b1"
+    "sha256": "271ab0d0269504ab9d9c71c04b4ae324e30cce876e060bb377d93b87c4c035f0"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -561,8 +561,8 @@
   },
   {
     "path": "data/chart-references.json",
-    "bytes": 766848,
-    "sha256": "7d86855f95ad0469d7c3e76dd8e53b4dcce30d400d7d840e8dda9947396cc897"
+    "bytes": 771882,
+    "sha256": "6265dad32ce7908e295469688f9ca1c4b21107973aa2fc8bbfd0cce2c357f9c0"
   },
   {
     "path": "data/history-candle-retention-baseline.json",
@@ -571,8 +571,8 @@
   },
   {
     "path": "data/history-candle-retention.json",
-    "bytes": 181,
-    "sha256": "e871fe4162c52ff90a5762e942a2ebf3c7752bf89dfe3969664e077d11359cf2"
+    "bytes": 253,
+    "sha256": "0e2aaf427527a889581ff4fec30eda51eb9c381a3dc375305eb01f24c5185c10"
   },
   {
     "path": "data/mes-2025-observed.csv",
@@ -608,6 +608,16 @@
     "path": "data/mes-2026-additional-provenance.json",
     "bytes": 8154,
     "sha256": "c4fb72ff2df9d1b50f42328fa95b8c20ba6af9226e679caef4cd0cfd47fa253b"
+  },
+  {
+    "path": "data/mes-2026-screenshot-baseline.json",
+    "bytes": 74347,
+    "sha256": "0cb02086a1889a93816ce4075df588de9699ba39dff852fabad4b09872329b93"
+  },
+  {
+    "path": "data/mes-2026-screenshot-provenance.json",
+    "bytes": 5149,
+    "sha256": "808f1016ee34aaf8b0c0b7160273be9b5f9a0546a1d4d4e74c80904692ea07bf"
   },
   {
     "path": "docs/LEARNER-GOOGLE-INTEGRATION.md",
@@ -711,8 +721,8 @@
   },
   {
     "path": "lib/chart-match.mjs",
-    "bytes": 42239,
-    "sha256": "6deecb274e8e2f914374df76ea4e7ff4b96890496d5f5060b90147f7b9dc1be6"
+    "bytes": 42217,
+    "sha256": "1243b13accaade59e271f93bb4b631d62bf347fb4c7cb93722fd87b7714c57e4"
   },
   {
     "path": "lib/combined-simulator-history.mjs",
@@ -816,8 +826,8 @@
   },
   {
     "path": "lib/learner/stats.mjs",
-    "bytes": 5453,
-    "sha256": "af5553d860c1f5ed58e1b2f0b717117de91da86dc28692b449f0a39dfb3fd0d1"
+    "bytes": 5514,
+    "sha256": "a7919f4f49f3252b7128916a7d2bb7bc07545d88e2ef3926c4fc31cbca61bfec"
   },
   {
     "path": "lib/learner/trade-adapter.mjs",
@@ -836,8 +846,8 @@
   },
   {
     "path": "lib/marker-predefined.mjs",
-    "bytes": 6815,
-    "sha256": "c7811be36225fda71b06f10ea3a6f47dc8e9e64bce62b1066425612359774694"
+    "bytes": 6818,
+    "sha256": "a91b01ca96a338c91208030ca1877156f52e6d4bef1a2a554aed9574d1b91a8d"
   },
   {
     "path": "lib/portal/admin-guest-visits.mjs",
@@ -851,8 +861,8 @@
   },
   {
     "path": "lib/portal/admin-trader-history.mjs",
-    "bytes": 7610,
-    "sha256": "e2a739e0c0e8a36002efbe0e9d4bf0295d1e342996fce7a43704c09fb33d4564"
+    "bytes": 8020,
+    "sha256": "ac52db72eedc1be00f360194476203692d3c03a7d971befd4a7638803cfec767"
   },
   {
     "path": "lib/portal/crypto.mjs",
@@ -1411,8 +1421,8 @@
   },
   {
     "path": "public/charts/catalog.json",
-    "bytes": 166844,
-    "sha256": "1dd9fc4527064968a271a5030637e9b03208b427432b0129270b8b2b7ce6e526"
+    "bytes": 167939,
+    "sha256": "582159b7542cf926b5fdebeb369e748af9e953e7f6ff1f6437fd99ab08b8a85f"
   },
   {
     "path": "public/charts/mes1-2025-01-02-81.json",
@@ -3700,6 +3710,21 @@
     "sha256": "6167c90f523e31933de71b3b4a4e8ca18dabec0712b1a589383e1f789ced1883"
   },
   {
+    "path": "public/charts/mes1-2026-11-03-81.json",
+    "bytes": 84030,
+    "sha256": "792e860356836093a1ee1b51e7c18ddf74ef8eaec07c47b78ec0eec4f93252c7"
+  },
+  {
+    "path": "public/charts/mes1-2026-11-04-81.json",
+    "bytes": 89023,
+    "sha256": "20e39df60dc01c884b7ccb02b665b4fc383c916a8a18f06c37472c8e762654c0"
+  },
+  {
+    "path": "public/charts/mes1-2026-11-05-81.json",
+    "bytes": 94150,
+    "sha256": "44e06641bda35f517445117ae2d38893175765e81e5ea4a77503fdfa44a3794b"
+  },
+  {
     "path": "public/editor/index.html",
     "bytes": 274547,
     "sha256": "79bea256809ef36a265cdd7aff00aa916cd3e8a65a971514cdd0aa13e99a7713"
@@ -3741,8 +3766,8 @@
   },
   {
     "path": "public/modules/chart-match-index.json",
-    "bytes": 5107279,
-    "sha256": "fe4a8162470af14e950ea9128ee7f433081c5a771daa87fee506f4d8493cfb76"
+    "bytes": 5152446,
+    "sha256": "47150212c1d95d6f415f13f6e105b609c9572b8298ee9293c8aa3992ce8cf134"
   },
   {
     "path": "public/modules/direction-accuracy.js",
@@ -3756,8 +3781,8 @@
   },
   {
     "path": "public/modules/direction-exit-bracket-ui.js",
-    "bytes": 7310,
-    "sha256": "4ca7f2c4b20117dd48810047fb0e2d3dc4c210b32cdb358e953ff25c012629d1"
+    "bytes": 7320,
+    "sha256": "908507d80064bbc134b768c88e0e65f26d48665030ca9bb0f1a152b3bc186d4c"
   },
   {
     "path": "public/modules/direction-exit-bracket.js",
@@ -3777,17 +3802,22 @@
   {
     "path": "public/modules/history-candle-data.js",
     "bytes": 8205,
-    "sha256": "32950d74bbf8a5b8e4b4a88f6319c3d385c64262f5a1f2206c87a4f6e623c67d"
+    "sha256": "8af7619b23514df987350519604ce514ec5b0fd8994abd1546b2517120eed37f"
   },
   {
     "path": "public/modules/history-candle-index.json",
-    "bytes": 2056234,
-    "sha256": "d5e987bca98cc2f7a313d9ca209686b0754233b35b2e8990ded44f4c68976489"
+    "bytes": 2069645,
+    "sha256": "b4969ee7f9d601f7df6f7a3afbe817da6397db02c9b5579bba42bdf788b5065c"
   },
   {
     "path": "public/modules/history-candle-index/5171f568abcdbcc88852f84791eaa9dd2a3101119d0eef9df9c8067529dca68f.json",
     "bytes": 344056,
     "sha256": "5171f568abcdbcc88852f84791eaa9dd2a3101119d0eef9df9c8067529dca68f"
+  },
+  {
+    "path": "public/modules/history-candle-index/b4969ee7f9d601f7df6f7a3afbe817da6397db02c9b5579bba42bdf788b5065c.json",
+    "bytes": 2069645,
+    "sha256": "b4969ee7f9d601f7df6f7a3afbe817da6397db02c9b5579bba42bdf788b5065c"
   },
   {
     "path": "public/modules/history-candle-index/d5e987bca98cc2f7a313d9ca209686b0754233b35b2e8990ded44f4c68976489.json",
@@ -3816,8 +3846,8 @@
   },
   {
     "path": "public/modules/learner-stats.js",
-    "bytes": 8918,
-    "sha256": "c8e1f518faaeabddd7d5519d15d038362f8d02b993bd9d4a1065d1a01d99766c"
+    "bytes": 9406,
+    "sha256": "e943b84b7cfa7bd3b97198bf7d74eddd5feba2c3c90a9917b27b379239ae4636"
   },
   {
     "path": "public/modules/market-direction.html",
@@ -3856,8 +3886,8 @@
   },
   {
     "path": "scripts/build-chart-match-index.mjs",
-    "bytes": 5684,
-    "sha256": "6840b1067b66139d10c744804f5f25a569d655c37a896b78f3b80f6055da635d"
+    "bytes": 5682,
+    "sha256": "3ee3255ba2ece29fa7eee7886c0556a0afe4bbea9922021b4e6063f2db916c69"
   },
   {
     "path": "scripts/build-history-candle-index.mjs",
@@ -3866,8 +3896,8 @@
   },
   {
     "path": "scripts/check-release.mjs",
-    "bytes": 13685,
-    "sha256": "d95b90f2554b1ef65c5b90806e80530c68b593fb6eb5de9b02f396944ee7fe7a"
+    "bytes": 14636,
+    "sha256": "b30e9de826599923902b0a994df1d2c8dfbe30b00689856f69d044d91042b696"
   },
   {
     "path": "scripts/create-candle-loading.py",
@@ -3948,6 +3978,11 @@
     "path": "scripts/review/verify-lesson-completion-runtime.sql",
     "bytes": 4611,
     "sha256": "06aa41bd7ac312618cecc58bd968fb32ff48016429f344aeaa2b956afe8d3a25"
+  },
+  {
+    "path": "scripts/screenshot-2026-sessions.mjs",
+    "bytes": 15770,
+    "sha256": "34656339e558dc976e7300de9d961f624204cac6712141ba7cf57a6d1c90c30e"
   },
   {
     "path": "scripts/vendor-chart-match-ocr.mjs",
