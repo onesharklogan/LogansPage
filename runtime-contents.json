@@ -261,8 +261,8 @@
   },
   {
     "path": "components/combined-simulator-history.tsx",
-    "bytes": 5920,
-    "sha256": "7ca2902e780426dd763e81d6a3315d97ba91bd08fddd487a3b0a824169195c3a"
+    "bytes": 5912,
+    "sha256": "96e47f796b6004e0720c8ce3d74f536b5e3f00b58c728d3240e520ecc47983d9"
   },
   {
     "path": "components/combined-simulator.css",
@@ -271,8 +271,8 @@
   },
   {
     "path": "components/combined-simulator.tsx",
-    "bytes": 9978,
-    "sha256": "196c1e4bb5b162f94d8c78f0f0178d77019cb4ca7562353e47b7f63cd04a5ee5"
+    "bytes": 9975,
+    "sha256": "383f980e4daf1e9527e1eaf09e1bfd63256382cbca9bf3ea770855c2c658ad44"
   },
   {
     "path": "components/guest-visit-tracker.tsx",
@@ -321,8 +321,8 @@
   },
   {
     "path": "components/learner-trader-stats.tsx",
-    "bytes": 13415,
-    "sha256": "f0257e874ed161a963615a97c1319808cd4cb708aed6800c667d11a6925f507d"
+    "bytes": 13389,
+    "sha256": "4fec6e4bc4d5630d2c0da8c46892d505c3324ff727296c3de86ea64adc762379"
   },
   {
     "path": "components/lesson-access-boundary.tsx",
@@ -441,8 +441,8 @@
   },
   {
     "path": "components/simulator-profile-gate.tsx",
-    "bytes": 14638,
-    "sha256": "850981019043ce0b84dfa835fca35d7a20a3f9fd064afae9211e15b20a510bc3"
+    "bytes": 14625,
+    "sha256": "b042d0ba09f5cb93ae8f83f7ad0cf8c2305df0156192a668bbadacf816e05020"
   },
   {
     "path": "components/speak-chart-workspace.tsx",
@@ -552,7 +552,7 @@
   {
     "path": "data/bias-provenance.json",
     "bytes": 24549,
-    "sha256": "4abc154a2329823ff5fa87f729f007e141241fd6e06ca67265778018776ce181"
+    "sha256": "2db8d77492e30f8f76ef51f0b1c1d6c88c422fbcb135e04f214e6f3e04528334"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -3866,8 +3866,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 282861,
-    "sha256": "60df4416a35e0ad98cf1bfabfaef1f9c54f9583de81b1aa958861360c2d32529"
+    "bytes": 282848,
+    "sha256": "c71d686e1c5490db3a93d8700fd017dbcd0fe2b78c121bdfa66b47a2f375cc59"
   },
   {
     "path": "public/modules/practice-device.js",
