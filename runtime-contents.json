@@ -11,8 +11,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 69887,
-    "sha256": "54cd0eaa90e25a6dab43ea3cf714ad83300099d9a21413638d7c0489d8767d45"
+    "bytes": 70776,
+    "sha256": "f47ec50653efd9f7bd5ed9704aafb5bf364da59f82c07391d50f177205c7c722"
   },
   {
     "path": "app/activate/page.tsx",
@@ -395,6 +395,11 @@
     "sha256": "1175671b630438880ba94de106992e73e8576080669065820451dc1c9faf7ee1"
   },
   {
+    "path": "components/limit-trade-review.tsx",
+    "bytes": 6954,
+    "sha256": "b06a962cbd54e71042c1e567c0dfbae6c28dc2bee21b1733eddf328499587aa3"
+  },
+  {
     "path": "components/loading-indicator.tsx",
     "bytes": 768,
     "sha256": "ae2252dcd967ad34413947098f478e222ccc9c9e0b253b1b53ce07d71354f099"
@@ -541,13 +546,13 @@
   },
   {
     "path": "components/trade-simulator.tsx",
-    "bytes": 110007,
-    "sha256": "0cb62e63d60e50d9ab3b4cfa9add7c08dc891ad695c116b4febcb9b165ae3d96"
+    "bytes": 111966,
+    "sha256": "4b48d0fdc776d0e202b796552068e55ac7c8ab224a75d5820924f643c4c844bd"
   },
   {
     "path": "data/bias-provenance.json",
-    "bytes": 23891,
-    "sha256": "271ab0d0269504ab9d9c71c04b4ae324e30cce876e060bb377d93b87c4c035f0"
+    "bytes": 24549,
+    "sha256": "4abc154a2329823ff5fa87f729f007e141241fd6e06ca67265778018776ce181"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -3775,6 +3780,11 @@
     "sha256": "47150212c1d95d6f415f13f6e105b609c9572b8298ee9293c8aa3992ce8cf134"
   },
   {
+    "path": "public/modules/completed-trade-review.js",
+    "bytes": 10671,
+    "sha256": "b1eba6f782502f6c245ab2c6faaada3d97884e309bd1675449bcd6b43a8b5a44"
+  },
+  {
     "path": "public/modules/direction-accuracy.js",
     "bytes": 5540,
     "sha256": "f53e9d388719a6e8a05d82d7fcdf777549f004c2479694b01926c05e02b65941"
@@ -3856,8 +3866,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 280560,
-    "sha256": "51d4a9ca9e109915fddbebda5cc503848768ebed0657eac745930f7282bd5e16"
+    "bytes": 282861,
+    "sha256": "60df4416a35e0ad98cf1bfabfaef1f9c54f9583de81b1aa958861360c2d32529"
   },
   {
     "path": "public/modules/practice-device.js",
@@ -3901,8 +3911,8 @@
   },
   {
     "path": "scripts/check-release.mjs",
-    "bytes": 14636,
-    "sha256": "b30e9de826599923902b0a994df1d2c8dfbe30b00689856f69d044d91042b696"
+    "bytes": 14898,
+    "sha256": "25826e71f800d23f2d12d425a61e0b18df972754a756ac662e24580de11a0ec6"
   },
   {
     "path": "scripts/create-candle-loading.py",

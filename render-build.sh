@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
-# Preserve combined simulator; record device class and stay on chart at completion. Verify every final runtime byte.
+# Require each completed trade review, preserve viewport and scoring. Verify every final runtime byte.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
-echo '5f85886ac585ffee0c38a7c32622b72f116881c0fdd3187cecc082d1d31850a0  training-center-overlay.tar.gz' | sha256sum --check --status
-echo '0f3befce5f9f8cc1f68c4fbb96c56f39897e5db2ae27e01fab54b9a31c18d254  runtime-contents.json' | sha256sum --check --status
+echo 'dccfaab8855ec99ec55540061e5737f24bcaa1c952396589d9bc8096fbd9c5bc  training-center-overlay.tar.gz' | sha256sum --check --status
+echo '80cc7806cfa7ed3ffa9761e837f60fd1e7ddf11213283e207c20aa74dd3ed038  runtime-contents.json' | sha256sum --check --status
 rm -rf -- training-center-app
 mkdir -p training-center-app
 tar -xzf training-center-source.tar.gz -C training-center-app --no-same-owner --no-same-permissions
