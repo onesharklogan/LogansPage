@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
-# Require each completed trade review, preserve viewport and scoring. Verify every final runtime byte.
+# Show today in the account overview, preserve all-history totals. Verify every final runtime byte.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
-echo 'c3f8db29324153a67d1da8cf7a14035cee28d91a1673fceb9d2188e8e5413b4f  training-center-overlay.tar.gz' | sha256sum --check --status
-echo '51ba7119d0d3e8711cda0bc38607d1cb64715c7f0e1306220e2ca4e6b0377c7f  runtime-contents.json' | sha256sum --check --status
+echo '980fda356ecaeec1eb9dfcfcc6352f11360d2e36a2bd8fcf3cf1f894892b0707  training-center-overlay.tar.gz' | sha256sum --check --status
+echo 'e49284f92bd516e6b08ce962a824d439bdfcb13c824ab8e1a9d73ad87a5a3aac  runtime-contents.json' | sha256sum --check --status
 rm -rf -- training-center-app
 mkdir -p training-center-app
 tar -xzf training-center-source.tar.gz -C training-center-app --no-same-owner --no-same-permissions

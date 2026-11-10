@@ -331,8 +331,8 @@
   },
   {
     "path": "components/learner-trader-stats.tsx",
-    "bytes": 13577,
-    "sha256": "370debaac1d3f0ac6a86617e788e806a5f06d03d49d8d5bc6a9528434aeb8307"
+    "bytes": 13195,
+    "sha256": "316572c9ccc2f55b2957e6ee529877f1593a4de669163a19ea44604fdc7eca97"
   },
   {
     "path": "components/lesson-access-boundary.tsx",
@@ -523,6 +523,11 @@
     "path": "components/teacher-workspace.tsx",
     "bytes": 36047,
     "sha256": "0e1730478dd6ed1966190d35af7f8b5ef1c4055c4ca5d40194930103655358f0"
+  },
+  {
+    "path": "components/today-account-summary.tsx",
+    "bytes": 1813,
+    "sha256": "49a8eb1be1221354676ec97dc3214769d4dcba4235a4af136f430ad94a48effd"
   },
   {
     "path": "components/today-history-summary.module.css",
