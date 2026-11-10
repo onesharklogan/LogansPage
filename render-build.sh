@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
-# Use thin recap arrows fully below entry candles. Verify every final runtime byte.
+# Place green up arrows below and red down arrows above recap candles. Verify every final runtime byte.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
-echo 'f547bc8a839347fe354aa7a41227b5dbb810ca9c5915b399ce0077bf2c65e17b  training-center-overlay.tar.gz' | sha256sum --check --status
-echo '74875fccf9db5ced5ec49c7386c4f7ec8d207a8c23a3e032aa0e63e782927bbc  runtime-contents.json' | sha256sum --check --status
+echo '4bbc86d371f429a2fae7950fc8376a2c3bda9b0eda2923d2c30a11a79cb1110e  training-center-overlay.tar.gz' | sha256sum --check --status
+echo '25894d53c38bb0ec4eec3e99ec50223de414efcf4be566dd0292127a00d6afd6  runtime-contents.json' | sha256sum --check --status
 rm -rf -- training-center-app
 mkdir -p training-center-app
 tar -xzf training-center-source.tar.gz -C training-center-app --no-same-owner --no-same-permissions
