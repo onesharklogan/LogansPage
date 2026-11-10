@@ -11,8 +11,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 71309,
-    "sha256": "01df281050eaaba1322b1269f86d4aa1c840afc36c3efd7e778722f9a36c9833"
+    "bytes": 72405,
+    "sha256": "8683e4202fe89e646fccf81d65b1f504a4cbdfa639995215e26b99a956f590da"
   },
   {
     "path": "app/activate/page.tsx",
@@ -121,8 +121,13 @@
   },
   {
     "path": "app/page.tsx",
-    "bytes": 4184,
-    "sha256": "446c3a359d29c7deefccc64b693d3c2580a62c8b37599eca85bc4ad8fdedf5f3"
+    "bytes": 5119,
+    "sha256": "52c204a3c571013c3e325053b6789335c56e54a0928ca15d2d2b54b8616801bb"
+  },
+  {
+    "path": "app/pattern-match/page.tsx",
+    "bytes": 298,
+    "sha256": "2134682f4ad5137d8a3cbb9fc015d26175695e86e0a127b14d4101099d1abf8f"
   },
   {
     "path": "app/speak-the-chart/page.tsx",
@@ -191,13 +196,13 @@
   },
   {
     "path": "components/admin-trader-history.tsx",
-    "bytes": 8866,
-    "sha256": "17f0cfe6f79a0ec063689f784eb04dbd0fb3c54d0e8da2bdab38dcb0d7b4b6af"
+    "bytes": 8901,
+    "sha256": "abdd18d3762f0a7e8a83110d3f631c2fea17d0b549aedc74eca67994baca6b27"
   },
   {
     "path": "components/app-navigation.tsx",
-    "bytes": 2933,
-    "sha256": "5420ebae7d0d5a11527504239153d443c27f641f68f2e804ba34efe144219bfc"
+    "bytes": 2970,
+    "sha256": "2047b764ff0aeedc821e6b12bdd6da336b44cc73b082d01bd784d25434126284"
   },
   {
     "path": "components/chart-marker-workspace.tsx",
@@ -221,8 +226,8 @@
   },
   {
     "path": "components/chart-match-data.mjs",
-    "bytes": 4290,
-    "sha256": "8ac94e87981677838b92d4ed794fdf10f11a21207d12277844a4abd81501a274"
+    "bytes": 4291,
+    "sha256": "5a6364635022f477ff110220921a68299a69e382738fa5513fd53e8a22b25011"
   },
   {
     "path": "components/chart-match-full.module.css",
@@ -231,8 +236,8 @@
   },
   {
     "path": "components/chart-match-full.tsx",
-    "bytes": 19173,
-    "sha256": "834d3800f0f1edf06f055ba2dc598caf3dea20f38578d1a3bcfbe0c9af652f9c"
+    "bytes": 19320,
+    "sha256": "6639052e40e363c8d82a0a21230196ba07a5b84a8fccf9896883a973bbdb30b9"
   },
   {
     "path": "components/chart-match-input.mjs",
@@ -246,8 +251,8 @@
   },
   {
     "path": "components/chart-match-overview.tsx",
-    "bytes": 6270,
-    "sha256": "fe317cddf3d863d9d812488906a6cb3fdcfdcdeaeab61bcb63004cc324ed03ec"
+    "bytes": 6590,
+    "sha256": "58519c4cc39e30dbc64535ab5ce654f987ef5e4465429c3c469f16e7879c69c4"
   },
   {
     "path": "components/chart-match.module.css",
@@ -256,8 +261,8 @@
   },
   {
     "path": "components/chart-match.tsx",
-    "bytes": 46164,
-    "sha256": "996f3fcab034d18caf6e9ec7931fcbd42ca581802dc10a04cf379220810801cc"
+    "bytes": 46374,
+    "sha256": "52dce179b1afd453212ad639af0c7c301aac0514582d7c350881f574094b7baa"
   },
   {
     "path": "components/combined-simulator-history.tsx",
@@ -331,8 +336,8 @@
   },
   {
     "path": "components/learner-trader-stats.tsx",
-    "bytes": 13195,
-    "sha256": "316572c9ccc2f55b2957e6ee529877f1593a4de669163a19ea44604fdc7eca97"
+    "bytes": 13222,
+    "sha256": "2e8f160da132468ee70d65d9d4894d8378f12c299972f069bd7d774e3bdf2288"
   },
   {
     "path": "components/lesson-access-boundary.tsx",
@@ -362,7 +367,7 @@
   {
     "path": "components/lesson-review-data.mjs",
     "bytes": 4428,
-    "sha256": "7b708c7a3b8e49dbf5de717b3855b12d7ca2f4e1e42e1cb215bfe459c8db4dd4"
+    "sha256": "54adadafa7b4bdce15503a07c96b362020e69c40db4b625d8fa91be129f5ec8d"
   },
   {
     "path": "components/lesson-review.tsx",
@@ -425,6 +430,21 @@
     "sha256": "3698b386b9b3fc380b02041bb298802883ca222c84fcdccfdbc753eb8c39aac5"
   },
   {
+    "path": "components/pattern-candles.tsx",
+    "bytes": 3115,
+    "sha256": "298ef1190feda7acae5865d3f5081ef6e4770c38abacd8407edb7a6c3fbf1f0f"
+  },
+  {
+    "path": "components/pattern-match.module.css",
+    "bytes": 6350,
+    "sha256": "8cba410694a7939651d0b333ed071410ae31458060b493ba70c6063a49a3521f"
+  },
+  {
+    "path": "components/pattern-match.tsx",
+    "bytes": 18184,
+    "sha256": "18360a3d62bf6ff596ed111d9506cd45ce1af0828d4e1f2fe633720da69aad05"
+  },
+  {
     "path": "components/portal.tsx",
     "bytes": 5423,
     "sha256": "c4d20d3cee3c0badaf3d3cb8220fe9b9cef80aff18a58253d68bdf8f0ce5176d"
@@ -436,8 +456,8 @@
   },
   {
     "path": "components/practice-insights.tsx",
-    "bytes": 7863,
-    "sha256": "c803d9002748180044376cae2cdedfcad2228d7f3b6a51e68424cbc5bff0907d"
+    "bytes": 8557,
+    "sha256": "eca28d693646f1ab624a47aa10fae4d0016d89e911737cff3e54f1b7759399b5"
   },
   {
     "path": "components/profiled-trade-simulator.tsx",
@@ -556,18 +576,18 @@
   },
   {
     "path": "components/trade-simulator-data.mjs",
-    "bytes": 1935,
-    "sha256": "58f53571f412b2a2c1e1eedb623fce8d85c7a627ef167da3d71c207010aeb4d5"
+    "bytes": 1991,
+    "sha256": "6d4bf748d59f7159efbb7f3c8cf9aa48fb79c2976c1f525627bd0be541fc9040"
   },
   {
     "path": "components/trade-simulator.tsx",
-    "bytes": 111966,
-    "sha256": "4b48d0fdc776d0e202b796552068e55ac7c8ab224a75d5820924f643c4c844bd"
+    "bytes": 112108,
+    "sha256": "518106c51fbaec8838a89e69668392c5e596c6e11630b7fe72a52a4982f3bceb"
   },
   {
     "path": "data/bias-provenance.json",
     "bytes": 26064,
-    "sha256": "3025bd63267c6c50d5f260f52be957eb9be83ec12d2a2519b7f95ae5ee7bcd07"
+    "sha256": "1b2a084c7e577bff4e2076888530d28d0c131089b8d2c89f5baf40dd283427d6"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -576,23 +596,23 @@
   },
   {
     "path": "data/chart-marker-provenance.json",
-    "bytes": 13261,
-    "sha256": "1bc233a9ce627b0d65e522f2b67bb3bfae3b626b90ab80adabcc8e9f2a1fc37b"
+    "bytes": 13255,
+    "sha256": "0a58bc05ab44887f3a27c0b6740f5bcf7d0f59ac58767710cc0d2b07c1e01bc8"
   },
   {
     "path": "data/chart-references.json",
-    "bytes": 771882,
-    "sha256": "6265dad32ce7908e295469688f9ca1c4b21107973aa2fc8bbfd0cce2c357f9c0"
+    "bytes": 1197567,
+    "sha256": "27f8272d3cc794064fef6b45d331ca3d98be4b5f16c7f5bd65451d1786cce3f3"
   },
   {
     "path": "data/history-candle-retention-baseline.json",
-    "bytes": 181,
-    "sha256": "e871fe4162c52ff90a5762e942a2ebf3c7752bf89dfe3969664e077d11359cf2"
+    "bytes": 253,
+    "sha256": "0e2aaf427527a889581ff4fec30eda51eb9c381a3dc375305eb01f24c5185c10"
   },
   {
     "path": "data/history-candle-retention.json",
-    "bytes": 253,
-    "sha256": "0e2aaf427527a889581ff4fec30eda51eb9c381a3dc375305eb01f24c5185c10"
+    "bytes": 325,
+    "sha256": "3079dd3e4ae91b9b34c2d787b11955ac21da068638ee1f0daae6bfbb255b2cee"
   },
   {
     "path": "data/mes-2025-observed.csv",
@@ -638,6 +658,26 @@
     "path": "data/mes-2026-screenshot-provenance.json",
     "bytes": 5149,
     "sha256": "808f1016ee34aaf8b0c0b7160273be9b5f9a0546a1d4d4e74c80904692ea07bf"
+  },
+  {
+    "path": "data/tradestation-2024-baseline.json",
+    "bytes": 72926,
+    "sha256": "9d4579f1ba7654027429747607506ab336f4d244e3cad46e3be56e91cdf52d07"
+  },
+  {
+    "path": "data/tradestation-2024-coverage.json",
+    "bytes": 1134,
+    "sha256": "ce77272f293c7c29d3de9369c819773c9438de545b866caafaf69aeb1d63b99d"
+  },
+  {
+    "path": "data/tradestation-2024-observed.csv",
+    "bytes": 3066920,
+    "sha256": "204d254679a9c30d12707efbd078b7afde2569965f5aa536d34ce22ee218918a"
+  },
+  {
+    "path": "data/tradestation-2024-provenance.json",
+    "bytes": 115023,
+    "sha256": "753ff8e7ab6b85d10f26480555dbeb4f576b7764ed987a46d71f52e5e2a3893f"
   },
   {
     "path": "docs/LEARNER-GOOGLE-INTEGRATION.md",
@@ -705,6 +745,11 @@
     "sha256": "9853cd12037573ac6c6016dbf54126f2c8342dbdfff4f7cb97219fc5611a983f"
   },
   {
+    "path": "docs/tradestation-2024-rollout.md",
+    "bytes": 3755,
+    "sha256": "98c6854034ff01757932d3bfcb246b0008fcdc0d6004b4bbc10c8a4c473714ae"
+  },
+  {
     "path": "lib/chart-match-auto.mjs",
     "bytes": 55031,
     "sha256": "5b7e46a455eb3168ff69316ff890fd456ff271aa94ecb06807db26fd03e08451"
@@ -716,8 +761,8 @@
   },
   {
     "path": "lib/chart-match-full.mjs",
-    "bytes": 3960,
-    "sha256": "e889a300e9136d0224576811e5b9bb34856b71875b856fcd8bc578ae17c69a52"
+    "bytes": 3968,
+    "sha256": "e023d832f7c4a96f330cc5ac7c01d91d26792e6cc8383d597f97ef0656b8ca1a"
   },
   {
     "path": "lib/chart-match-image.mjs",
@@ -731,8 +776,8 @@
   },
   {
     "path": "lib/chart-match-overview.mjs",
-    "bytes": 4025,
-    "sha256": "1cffffa6314e6e0cabdcc3036de7200042757002079240f10ade4b5620bbd1fe"
+    "bytes": 4035,
+    "sha256": "43082ddf9efc28b1a76ba516cc52758af728d108648ceb6c6d4aa80b871714a0"
   },
   {
     "path": "lib/chart-match-preview.mjs",
@@ -746,8 +791,8 @@
   },
   {
     "path": "lib/chart-match.mjs",
-    "bytes": 46021,
-    "sha256": "45008bf77c03e670f99bc492e580e4630fe0048ca35e31f68da38501b1d6edac"
+    "bytes": 46230,
+    "sha256": "186008d090e4fdd840c3581318ab9e7726a2b1cdd2638d8d5f7b12a3dc236b93"
   },
   {
     "path": "lib/combined-simulator-history.mjs",
@@ -756,23 +801,23 @@
   },
   {
     "path": "lib/combined-simulator.mjs",
-    "bytes": 1134,
-    "sha256": "af8bae23226a103f557bf9d2cd7757fc8e08bf600a2061ac6512cae14b6b0645"
+    "bytes": 1194,
+    "sha256": "0411b09aeea2ab4fd3bdb0297f2d44cabb963210e0c08f14c4957125dcd7e1bd"
   },
   {
     "path": "lib/failed-charts-book.mjs",
-    "bytes": 1365,
-    "sha256": "020e41b692a5b26c15afc43635db79f71135981323b06d173df80153be5d4dea"
+    "bytes": 1375,
+    "sha256": "b65b0b6a3df36e218641e9e96c2f68ca13976c96d4147c813a11594d08b5aeef"
   },
   {
     "path": "lib/learner/attempts.mjs",
-    "bytes": 5374,
-    "sha256": "4e587b8cb52552a375c93e6a541d61feaeb29c9c18b75e286659e17448dcba4e"
+    "bytes": 5472,
+    "sha256": "1546f2b2658fb45fe5a9a874b2d89d5b22e85c4dfff862b7c35a87d368d0686f"
   },
   {
     "path": "lib/learner/charts.mjs",
-    "bytes": 1629,
-    "sha256": "e9d9d079090989bb459e251b9155ab147d08133afce9aca55b4fcfd8f8898715"
+    "bytes": 1639,
+    "sha256": "5c1645c010a538a4ae3ece0c9073d3970a1a8ce443bb28aee905b90948be50b5"
   },
   {
     "path": "lib/learner/client.mjs",
@@ -876,8 +921,18 @@
   },
   {
     "path": "lib/marker-predefined.mjs",
-    "bytes": 6818,
-    "sha256": "a91b01ca96a338c91208030ca1877156f52e6d4bef1a2a554aed9574d1b91a8d"
+    "bytes": 7013,
+    "sha256": "e21c964a94c1c2fc26547d8fdfabb771bb96a5241562b4ba964d1ec11a1e6062"
+  },
+  {
+    "path": "lib/pattern-match.mjs",
+    "bytes": 8998,
+    "sha256": "e9e046b7f61b8ddbcd05e3005433664386afe36290839cd097fe91d2cba57a37"
+  },
+  {
+    "path": "lib/pattern-selection.mjs",
+    "bytes": 1612,
+    "sha256": "1982af9c5ea372c84d8ff5ab2aae9d4780619614df35b79d5e9161e6615e6e96"
   },
   {
     "path": "lib/portal/admin-guest-visits.mjs",
@@ -1071,8 +1126,13 @@
   },
   {
     "path": "lib/session-calendar.mjs",
-    "bytes": 4910,
-    "sha256": "c06e87b2e09174e4851764b484e6afd4f0c7006ac7bcdde1a77d65b21a5c8bcd"
+    "bytes": 4918,
+    "sha256": "3237e696640522f6bbf9fd30b035efeda1c82f3411e02f2da717599aec893286"
+  },
+  {
+    "path": "lib/session-source.mjs",
+    "bytes": 700,
+    "sha256": "80b80d04b95261479452be41f738b68c446462ba3588fb0f76669aa414a77e09"
   },
   {
     "path": "lib/speak-chart/access.mjs",
@@ -1081,13 +1141,13 @@
   },
   {
     "path": "lib/speak-chart/commands.cjs",
-    "bytes": 4990,
-    "sha256": "ee85a9b3989e2efc97511be61f5c399579fc51a9d1b10a2a594c428bcd5d8987"
+    "bytes": 5292,
+    "sha256": "b86a89f34bade6332c0ab7c5f9fc00511035ec9ea2a091aa98d15f1d4fac625e"
   },
   {
     "path": "lib/speak-chart/workspace.html",
-    "bytes": 152912,
-    "sha256": "f033ff7d7f857809e6cf541c77d28559badd51b5dbbd8232f5b7887efec80ed1"
+    "bytes": 153038,
+    "sha256": "fac4c5f1b1513f9be13b5750a04361d4d9b9a72ce3bff443c46d5cde5b82c188"
   },
   {
     "path": "lib/today-history.mjs",
@@ -1451,8 +1511,1298 @@
   },
   {
     "path": "public/charts/catalog.json",
-    "bytes": 167939,
-    "sha256": "582159b7542cf926b5fdebeb369e748af9e953e7f6ff1f6437fd99ab08b8a85f"
+    "bytes": 265205,
+    "sha256": "4d334d9d1805f84f9b6881404560690220fe1289870aa2155660fcf79da9dec7"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-02-81.json",
+    "bytes": 148071,
+    "sha256": "e018c52c6223669a80a9dbde4b62daa319930d60d6a596141fde2e5a0686914c"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-03-81.json",
+    "bytes": 148049,
+    "sha256": "319d5b0de655d02d2a5cb9a391569c8b31b8befe0b01d8db78146f0ce9e375d6"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-04-81.json",
+    "bytes": 148098,
+    "sha256": "d38254f7c65d17f5ee2d3bd2d8cd5f823cb407cf28b25c168a424f356ef0fec2"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-05-81.json",
+    "bytes": 148034,
+    "sha256": "67ddc53576b5a36599c34bac3bd904568db23269adc1ee9dd3ab1f2df3fc9ecb"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-08-81.json",
+    "bytes": 148007,
+    "sha256": "2a63649875cc1b6c76bd981d26447c5b826c4f8577182b884bf6a8960ed7ee16"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-09-81.json",
+    "bytes": 148054,
+    "sha256": "717dc7ab35b5a64f26195429e2192f749b263422f5870bc2094cf9b19f372bb4"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-10-81.json",
+    "bytes": 148066,
+    "sha256": "da1fcab78e9ef2ef130a84ce102e994f79d7c94620bb3b77c317ea5c3eb1e0d5"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-11-81.json",
+    "bytes": 148058,
+    "sha256": "65ff7cd84b64d341c527612d315bd61b2167968168ba04244f81b77a1c249851"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-12-81.json",
+    "bytes": 148079,
+    "sha256": "e296f0241b9cf071becb96fb2ee9b2dc82b5a7f279bd45bec6f6d3200963c9ea"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-15-42.json",
+    "bytes": 143432,
+    "sha256": "3c8c6705b648140afc45965bf13a9fc3deab27ff055937aa476056aefbc45f64"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-16-81.json",
+    "bytes": 142925,
+    "sha256": "de16e5a59cc1b120ce51dd1675c80dbdf6f39436730bf286af1e5d681c9b490e"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-17-81.json",
+    "bytes": 148090,
+    "sha256": "a8a66929a66d17986255921364bd466101b619a6b41c2e7f828b7dc0640fb6a3"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-18-81.json",
+    "bytes": 148107,
+    "sha256": "38a97a465667f8275c8d3e7fc01f13da4aca86f87e9f2c096c84dee4d4f1252f"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-19-81.json",
+    "bytes": 148151,
+    "sha256": "ed830d81794c32f70d395867d24f7790442a45b472493b56b6ea6090122bccb4"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-22-81.json",
+    "bytes": 148145,
+    "sha256": "4ada533f7e2832867d9d8e95ff5ec34712a5f9d9ab67d02a4d67623aa659f296"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-23-81.json",
+    "bytes": 148111,
+    "sha256": "1bdcf2571b19d8214d6b7302a98aa6460c773d09e8ad04aaf915cef8dde5e3b1"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-24-81.json",
+    "bytes": 148157,
+    "sha256": "37bfc464bbf43b60bfdd1c6f86312006bec65a963d727503ea78c307ca099dc1"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-25-81.json",
+    "bytes": 148126,
+    "sha256": "eeb01e06d9df2b568018f897f405c8bd01de38d0911520b87e20939e3739b583"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-26-81.json",
+    "bytes": 148067,
+    "sha256": "af3cb0ad297641bcb779cc78e9ecd9538e73cf1ab18c737fe53b89df1dd82ccc"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-29-81.json",
+    "bytes": 148126,
+    "sha256": "568cb5011b6614c8b72e7c4470e5cbc21314172246817387602f80488e989ff0"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-30-81.json",
+    "bytes": 148083,
+    "sha256": "1bbbc7db51741783cdf8f87f7cbaef158bff18e8d93c6eae166b4334b703ba1f"
+  },
+  {
+    "path": "public/charts/mes1-2024-01-31-81.json",
+    "bytes": 148101,
+    "sha256": "3d8603d756bf2664ae4e68576af1238eff3898c1c5eb008b5ed01df2ef26debe"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-01-81.json",
+    "bytes": 148096,
+    "sha256": "06b4731e886fc760b02cb1a1d06ec02683e060362f795ae6051af95c7e302231"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-02-81.json",
+    "bytes": 148104,
+    "sha256": "822a03090a751aebca2458dbb4c9f478080a3f55a09343cd00302a8e692e7641"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-05-81.json",
+    "bytes": 148108,
+    "sha256": "b365f3d63bd8d7abc88401856a4b0dfbccd0703a790b9312b615a01e657ac819"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-06-81.json",
+    "bytes": 148076,
+    "sha256": "96a03e6c38a2659392e1260a01782739e7295ad99a9e9289bc9047daf6ab4fc8"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-07-81.json",
+    "bytes": 148024,
+    "sha256": "00554222efe4532cfe71075f811d848e0e10dfc08e6a35b7a164c631afb2da0f"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-08-81.json",
+    "bytes": 148045,
+    "sha256": "91b1998e3dd0f975c15d9d9366c40889df374ba41d21f7965106b5050d622b69"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-09-81.json",
+    "bytes": 148081,
+    "sha256": "4f9f5d603ebc2784830fa91ec4d9d101ba1d54efef1793057a1c46f0aadf93b9"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-12-81.json",
+    "bytes": 148116,
+    "sha256": "de6c76cffe1d9823ca70817b15293e0c3645998fc7f34da45f3d33a85ab8d2bf"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-13-81.json",
+    "bytes": 148142,
+    "sha256": "eb3d636c45ce07424a5b0585acc9cb87c5afee0ac093ac0664e1a8749548ba3a"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-14-81.json",
+    "bytes": 148167,
+    "sha256": "45aaaee74eedd34bc79ceca9c04bf7ff32d2edc602a5192b582e1bbd71c42cf7"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-15-81.json",
+    "bytes": 148146,
+    "sha256": "cc7323c17a0d2c1dd05a893a9a029f77233726d89d9b4f62153dba8f3a55d3c1"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-16-81.json",
+    "bytes": 148129,
+    "sha256": "ecfd8b337035226bb7aea6fcda9d48496e292e782dbd0535b111f47718fbf8ac"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-19-42.json",
+    "bytes": 143456,
+    "sha256": "cc97db9b04517b8e7ad98e725508cfbd21a7845ae8f7d332cfab72c9b6d2c61a"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-20-81.json",
+    "bytes": 142952,
+    "sha256": "3377e74378dddcf9e900fe7c2f79cfff5d679016b71b9470a9839c4b7907589d"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-21-81.json",
+    "bytes": 148170,
+    "sha256": "abaf98bd89252c7302e4a019df9bbe6d92dc65d5e7c6cdad0a7b3f287e104d55"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-22-81.json",
+    "bytes": 148157,
+    "sha256": "1bc09f6f3133c9d3e67d56fe769631324e52dcf5548f8a8375aea907e07d1223"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-23-81.json",
+    "bytes": 148132,
+    "sha256": "796b794329b3e462e7b12a5bba2e8f1fbea2699dcc62e14f5d65507f21af809c"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-26-81.json",
+    "bytes": 148132,
+    "sha256": "f699a0ed5ddafe326472a967ab488c1657fae2711ee4334172a58c76ff407fea"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-27-81.json",
+    "bytes": 148118,
+    "sha256": "527de1560add986d37cd50933cf1b5efa652b1437735f2ebde652b43465e09cc"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-28-81.json",
+    "bytes": 148140,
+    "sha256": "c4a4c228ff3f63cabac3213b613032c3a59fd3cfbc04bb359011d1d438ec3272"
+  },
+  {
+    "path": "public/charts/mes1-2024-02-29-81.json",
+    "bytes": 148060,
+    "sha256": "c1831503d9d38467967d7870ca4c3eda5349b715ccd5eb32d46f7b5a37a717c1"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-01-81.json",
+    "bytes": 148020,
+    "sha256": "a9876e6e364ba411f791971dd62714ae60016e5d60e1168291d6baae8603796d"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-04-81.json",
+    "bytes": 148069,
+    "sha256": "3f1bf18fc5c11ddbab26d66063933cb5109ab6836346ab1f34aa84da1c3e0516"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-05-81.json",
+    "bytes": 148049,
+    "sha256": "e57179b76c91d14fdc25d39aeced9cc86c830699433513d434ac586e25964b8c"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-06-81.json",
+    "bytes": 148033,
+    "sha256": "7c68de3fd2f1b74d676920d04ea952226efadb422da96284df40f0bfcb9b09d4"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-07-81.json",
+    "bytes": 148073,
+    "sha256": "0f7119cfbad5f8f36ee8f0a93a0e585e5a61415b64da4cfe0d7ab90fc1c29676"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-08-81.json",
+    "bytes": 148078,
+    "sha256": "3ff0f657ddc95f9a8146acb478cdfec31d0f4c5d73b8efb0e5d64b057df0f07b"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-11-81.json",
+    "bytes": 148130,
+    "sha256": "0975d4dcd7e084a1e3b9a7815912dacf1c0ef05f580d70a62dcd2e44c6217a0e"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-12-81.json",
+    "bytes": 148057,
+    "sha256": "b9419d7d4659c61c95d80000110f8b2d1d4f8c338ea4a315d3e5bca926c48e4e"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-13-81.json",
+    "bytes": 148056,
+    "sha256": "e731b0b252d4d55d8ca7c88f909524b2b68ce952da5a374cb4e4d8780825e9c6"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-14-81.json",
+    "bytes": 148057,
+    "sha256": "ecaa2898d08f497f2e833d5c55900c00c7086faffd599c1aa2ed39c422572d69"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-15-81.json",
+    "bytes": 148021,
+    "sha256": "15c31c06c3e1805b9e7b4e6df5e0bbea99b199ee3443879089de884b35d59af3"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-18-81.json",
+    "bytes": 148020,
+    "sha256": "6721e26a56bff6e15bfab6932009a6525a0859898d686233bbb699e53d6015bd"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-19-81.json",
+    "bytes": 147995,
+    "sha256": "745d40c38fd9fe6ac6844f4e91fad67209ce28d8d3bb09da3e0463f90b35e622"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-20-81.json",
+    "bytes": 147977,
+    "sha256": "db2d09a34b3eadcc129a63ca2fcc5fce080ab5c7b3899dc933227273b3779e81"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-21-81.json",
+    "bytes": 148023,
+    "sha256": "9996a81e96d31f9b0718dc4e8d5df387d1bc106ce92fd6ce7f887b8e6ba21de7"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-22-81.json",
+    "bytes": 148002,
+    "sha256": "4968bac279e3c83b27299218ba13b385d3d83e8c633dcb9407c29e0d406ad108"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-25-81.json",
+    "bytes": 147996,
+    "sha256": "f313567f86058454449dbff89ac1413fd52f8e2152b0263e0b917bc95af9bbfa"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-26-81.json",
+    "bytes": 148045,
+    "sha256": "77396a17c2cf2fd63582e8fb498eeddf2a1e6804aec518da06d5f862bdda3c65"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-27-81.json",
+    "bytes": 147940,
+    "sha256": "71db9c10a927d9d9cd3e1a5f19aecc4d1d240c1200135fb1ea028f64037e0004"
+  },
+  {
+    "path": "public/charts/mes1-2024-03-28-81.json",
+    "bytes": 147911,
+    "sha256": "ceaf2f6e8bcf4553aaa20b4e304218d996200bbd803212da96b7b187582cb61d"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-01-81.json",
+    "bytes": 147975,
+    "sha256": "4a8b12c603b74b8d49f1b80cb9d9a57fff8476252241bb91ca8fa12b611a3f90"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-02-81.json",
+    "bytes": 147890,
+    "sha256": "0c3f3eba5c9a5165043213b092f840ba40347189923033bd3ed6887f5de2ea8c"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-03-81.json",
+    "bytes": 147924,
+    "sha256": "01b88e22c3fff0cdea0bafc3c3316043a8245ada58b2037c4a6abe6cef842d54"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-04-81.json",
+    "bytes": 147982,
+    "sha256": "792fa00c242e07913d3a22437f8170e124ebc8061282dd18a01571e0a3f54909"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-05-81.json",
+    "bytes": 147992,
+    "sha256": "27fd43f041d2e3a12f8bf9e438c8d3e259267ee52ced92e640556dec058ab64f"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-08-81.json",
+    "bytes": 147974,
+    "sha256": "6efd7a458d9905bf68f46c08445ce771df983cef74aaebdf38e3a3841c7d59dd"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-09-81.json",
+    "bytes": 147985,
+    "sha256": "2f6f7e1c58932a538bf6bdba5911bf4263062991f2109ea7579b1cfe3336e3c0"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-10-81.json",
+    "bytes": 147976,
+    "sha256": "fb830d4e067f64b1902182fc59333afacd4073f65cf46debbbefed5e2e6c20cc"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-11-81.json",
+    "bytes": 147971,
+    "sha256": "bf0a493430dbab1aaab523e110f3ff741e02706b27a4ada5b97d63b487f1da4c"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-12-81.json",
+    "bytes": 148019,
+    "sha256": "e37b4d0ff9df6697bc5414eb1af3647dc2d8b9763ae18a043bbe185a48ebdaa7"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-15-81.json",
+    "bytes": 148071,
+    "sha256": "965570c7984bf70ab93ed520da3b9d10eda40d3e83a1740058e3344b05de938a"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-16-81.json",
+    "bytes": 148040,
+    "sha256": "3906468dd36ed5f16d4bba94a16156011d748cadad5aea1bb047a38b97bdff30"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-17-81.json",
+    "bytes": 148034,
+    "sha256": "b2b0105098c62523915b9679169447e76151c71b85ace6cfc8145797f8bf3007"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-18-81.json",
+    "bytes": 147984,
+    "sha256": "469c6d03c473a64714ae94b7ec7d5a91a0fd1463e449402a6a18bd5aaaabf077"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-19-81.json",
+    "bytes": 148013,
+    "sha256": "a552091078a470dc9bbc74af3b773f9c736dc81d5d4212af349d16c5f75906cb"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-22-81.json",
+    "bytes": 148038,
+    "sha256": "574d1574e3eb8a22cb6da06b8aa454d48c51b57355b6c8b420d59f819b2d26cf"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-23-81.json",
+    "bytes": 147976,
+    "sha256": "70744afc2cdf5a69e3218079f75cd2db655580845cc59ea33c93911bb59e1fd0"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-24-81.json",
+    "bytes": 147934,
+    "sha256": "854b8574b8472e4267ccf2c1b175fe19b141434b2fba1395092e3b3e8a3e3288"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-25-81.json",
+    "bytes": 147982,
+    "sha256": "e5a258a140b4150875869fd437ab49762c6d05af6c3897e886d478cd63f6df67"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-26-81.json",
+    "bytes": 148042,
+    "sha256": "5f84ce2ffe2ef8e6be314de68c717200df672176d92349cb3005b6647589b602"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-29-81.json",
+    "bytes": 147998,
+    "sha256": "611c9f5a36c62aa10138dd210052adbc709881f40dc0e923dd573b3ea03a503c"
+  },
+  {
+    "path": "public/charts/mes1-2024-04-30-81.json",
+    "bytes": 147953,
+    "sha256": "b75cf8386326665e0654c290898f91a82f75edd2e629879dbac85298a3b5c745"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-01-81.json",
+    "bytes": 147975,
+    "sha256": "aded30e15d41c8f49618488f1dad110b81b259bd785ce8011a6046c995ac7376"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-02-81.json",
+    "bytes": 148045,
+    "sha256": "2708dcd8638cbfb06b75707b2574d485c70fde5876e89437f5a0a8ecae382c65"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-03-81.json",
+    "bytes": 148065,
+    "sha256": "4600c98d9e0b2caa798bb080880da2c92356b3b975478d5d6131122dc28e38bb"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-06-81.json",
+    "bytes": 148082,
+    "sha256": "1c3432ac73028ddf05b456035f4530f14c7e31fd9e68dc7ab7af9b5ddadb0730"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-07-81.json",
+    "bytes": 148083,
+    "sha256": "c270fb573063c72e5e3f3fc87f3f2de3ea771ab2890811f349bf553538cae0a7"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-08-81.json",
+    "bytes": 148010,
+    "sha256": "e568a819fa5dbfcd74091a7a8f037672d2451f03b027a4b09ee92cf243cc8848"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-09-81.json",
+    "bytes": 147985,
+    "sha256": "1cc0b7cfddbced0ed50987f3567595789f6a614cd24e6a21625da73703f30d71"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-10-81.json",
+    "bytes": 148080,
+    "sha256": "9c651a76fc8785f2d2ca351dc1718b5fde09e1ccf1f261c7cc892320595361d0"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-13-81.json",
+    "bytes": 148001,
+    "sha256": "e444d4494612b2fa9a69cfa2abd6c7b262dfa83941ad07b5110bcc0be90fcea2"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-14-81.json",
+    "bytes": 147955,
+    "sha256": "d84d9aa7d4d5309dbb1a00ac2adedd8ecee903c631755984e43b192acb4fd7ce"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-15-81.json",
+    "bytes": 147969,
+    "sha256": "e350124f8187bae0b7170deb6543858a360e6c14303a890b23afff1406d3e239"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-16-81.json",
+    "bytes": 148029,
+    "sha256": "9bd0d8facb4ad9e54e177f09573528735d7bb1c8669b7f038e443932de5b3654"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-17-81.json",
+    "bytes": 148038,
+    "sha256": "8f78f7a5cb8528b88da3f2f75e17e9853ad25282b54f37d02ccffd9313d456e5"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-20-81.json",
+    "bytes": 148069,
+    "sha256": "0cb2e6ca378301622601ac357972563a762cc0a17fbf5e9999dec1b2c97a7c3a"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-21-81.json",
+    "bytes": 148069,
+    "sha256": "ce2bfd548d04c7b2602e44596be634637d275ce0015e0f2d93d2c642f45b0dee"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-22-81.json",
+    "bytes": 148016,
+    "sha256": "6a38e6cb6f9bd09276d1ae59795559db64081fb5870cb54aa20f1b59a7321841"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-23-81.json",
+    "bytes": 147992,
+    "sha256": "86d4b1c1e48f855dcf57b5251a3d7e6d3c3feece753d31f0cd0feab800a238df"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-24-81.json",
+    "bytes": 148042,
+    "sha256": "c7731b9d39552600c43688293c55d558c6f9c86e206b7921731be1e74bf90fb7"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-27-42.json",
+    "bytes": 143416,
+    "sha256": "12a7b8ebaf8dfadd68f3b7e768cd9661a958c71d33412951643c6ce595052894"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-28-81.json",
+    "bytes": 142824,
+    "sha256": "17addd963177892db88ddeb5bbe2648f9b3c997c79c28f7cac8ede8160c64e5e"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-29-81.json",
+    "bytes": 148022,
+    "sha256": "bd925ce468f9153e035981538af98db413fd2bc6cb827c9a166fb6239ecd1afd"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-30-81.json",
+    "bytes": 148030,
+    "sha256": "06356a79114d4c339b6087c5290939ee4fed4fc8f08e1c7613b88e82108dbe1a"
+  },
+  {
+    "path": "public/charts/mes1-2024-05-31-81.json",
+    "bytes": 148016,
+    "sha256": "953a5850969a6f9a86e94e27ba56499e7cd37ba1cc44db0e67c0c5f58884ce53"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-03-81.json",
+    "bytes": 147969,
+    "sha256": "08b73e7ca23ced8c796271656c798bb19abd5b5220e34c5b1760db41d3ead96c"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-04-81.json",
+    "bytes": 147954,
+    "sha256": "a74c8342f0c215f07952823a186b78556a2839ff42a76c0c030270971a7108f1"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-05-81.json",
+    "bytes": 148006,
+    "sha256": "bf440c2d34fcc997bab499dd1bd3c9385e4201c3042787e53a310948e6734789"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-06-81.json",
+    "bytes": 147986,
+    "sha256": "9cb9f02cd34c15c0d75f1301d3ec5d1d7e6316a8cf79e28947a4dba7f6ee9845"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-07-81.json",
+    "bytes": 147988,
+    "sha256": "cbc744145a33d6692cb5ed4103ae9dda7dc6709b5e33f07031d044c643f1c834"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-10-81.json",
+    "bytes": 148017,
+    "sha256": "83230bd900e26e755e851493a6a4137474682057700573f59041c37525e5899e"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-11-81.json",
+    "bytes": 148014,
+    "sha256": "b708558378701029f2849fa0375d28eeec1a23fa9a38811c30b63e86deb614ea"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-12-81.json",
+    "bytes": 148031,
+    "sha256": "f79499f1df64bfc5fcff7fca559610c2d6150d3b08a82f4f817665efdc071a69"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-13-81.json",
+    "bytes": 148051,
+    "sha256": "7386d6efacc1a4aeec5b155df0056f29f3d93c98f76caedd2c3efdcb61df5a50"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-14-81.json",
+    "bytes": 148025,
+    "sha256": "298fba91effc5445afbc79243c7cf0c43e5244e56134a5cd81b6dc3436d83503"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-17-81.json",
+    "bytes": 147975,
+    "sha256": "ff0a536b12bb7b602cd9b1fbb85fd3993b075c0c00837e3320b3c6d5c648d584"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-18-81.json",
+    "bytes": 147921,
+    "sha256": "490c10d0dd548977bc5d0420723afe90016a1998a176fe33d7d45f54a8c62b73"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-19-42.json",
+    "bytes": 143325,
+    "sha256": "a40aa978fa73552848825ba790b09db67670d20c86c68c07d87b99d4c63fa870"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-20-81.json",
+    "bytes": 142826,
+    "sha256": "d2503d68a9733e22b69d849176a5f42744b7eeb306b9c1c3234aaff43dcb9b66"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-21-81.json",
+    "bytes": 148026,
+    "sha256": "c500cca5fb266f5c3e5b948b816793a6d98bbd1b820755d2fc865f4873eda27b"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-24-81.json",
+    "bytes": 148008,
+    "sha256": "f5d5d36e000b6e476ea801ffe5e8c070870ad345b188f456c1b140d2173bda45"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-25-81.json",
+    "bytes": 148003,
+    "sha256": "e7954dd82a471c4b9eef64f1de338872fa5d9ad1f3b72aa61a0b5c9bae747258"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-26-81.json",
+    "bytes": 148031,
+    "sha256": "d193e828566f8d01ea65412c9ee3a003419fa5120de4c651a34b2bc262ef942c"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-27-81.json",
+    "bytes": 147963,
+    "sha256": "869ef848265d29f669bd571252274fd56b76b595527dcd3644c9716ab22e8f7d"
+  },
+  {
+    "path": "public/charts/mes1-2024-06-28-81.json",
+    "bytes": 147985,
+    "sha256": "eca831e1171c084638a4e9d6ecc7560a5152547e3e22041cdfcf8052ba1ca06c"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-01-81.json",
+    "bytes": 147963,
+    "sha256": "bcb6c0896c9186de4e000b11d8f5d0cb71a4f2d557d3b980a69715c6da6dfb1f"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-02-81.json",
+    "bytes": 147963,
+    "sha256": "3c82071264614ec3cd8fd262ba690833f88034cd065920651911a7ecaa871d15"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-03-45.json",
+    "bytes": 143689,
+    "sha256": "fa44b2cedea8520092c443f059a246ed6e22c35fcd7d69ad0370bd4140db6c88"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-04-42.json",
+    "bytes": 138536,
+    "sha256": "a87949bf26dd33d8398e9ce33f8d3e6860a804a4191a07e6007f961b15fe0984"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-05-81.json",
+    "bytes": 142781,
+    "sha256": "be8f57f864c2f224758266fb4b68191e105040a39a2e556378c900120dd1c0d4"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-08-81.json",
+    "bytes": 147944,
+    "sha256": "b31432931fc3280273d82080508a8a9a40b4794c577531d289cf2c135bc061ef"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-09-81.json",
+    "bytes": 147946,
+    "sha256": "8af554a29c669bdc37b7ddc5b3cf11a4710869d945cae51a4c9592ff561b995f"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-10-81.json",
+    "bytes": 148016,
+    "sha256": "ede3fbb76689f29966215a771aafdf244e50a3c1a0c8dc8258c7e3ae6fa8a03c"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-11-81.json",
+    "bytes": 148009,
+    "sha256": "f5ae9a9a6a227f2b320e09010f818d3a3711c63b71429a5ed72847e72e02a6a9"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-12-81.json",
+    "bytes": 147904,
+    "sha256": "97ecd4aebc65e1158ae7c76bf578ede2e16e501ab8f92e5d9faa0f9fef73b1ce"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-15-81.json",
+    "bytes": 147909,
+    "sha256": "a95f032fdae48db3f4cc0745a3a087a6a9f3ddc5dcaeab76cb5c954b9a8b4ae5"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-16-81.json",
+    "bytes": 147880,
+    "sha256": "55bf3ce4989332a46ad136224c084ee1dc12e3f34e8df4b4841b00af79846cad"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-17-81.json",
+    "bytes": 147913,
+    "sha256": "059841469effb371fd3ef635febd173068000e777fb3ab65f6968db32eca20fb"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-19-81.json",
+    "bytes": 148186,
+    "sha256": "655473c311409b72f83ad40bf4bd9b73b6fdb4876b85887bd2f660cbfbee6cbd"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-22-81.json",
+    "bytes": 148004,
+    "sha256": "50c401fb6f7aead3e52855d103c82628410f933fa782e9721e469ad399ea5981"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-23-81.json",
+    "bytes": 147948,
+    "sha256": "c362ec3630c5404593036adf7e1113058ec0f7d22647d9e48fb033cbed58d8a8"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-24-81.json",
+    "bytes": 147956,
+    "sha256": "77172b9fde862cdaecc6ea10df526f5aab3f037ef8a1506a9d74ed6989372e0d"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-25-81.json",
+    "bytes": 147931,
+    "sha256": "7a40eefb4d3b97f029c4071626b70555c6078388b1748f2bea059c32e0dbd775"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-26-81.json",
+    "bytes": 147967,
+    "sha256": "5baad847a430e25861afd1f6d0a74551cd7e18b51058f2e1e56dc157dbcc8c95"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-29-81.json",
+    "bytes": 148041,
+    "sha256": "635f590b96611c8b2dde5346e0809c8be74d880f44f75a0c2e120f672e131235"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-30-81.json",
+    "bytes": 148007,
+    "sha256": "d3841ee080399d0d66cc680c6559e641e5231cf6e76edd64f6b83424c2fafe41"
+  },
+  {
+    "path": "public/charts/mes1-2024-07-31-81.json",
+    "bytes": 147969,
+    "sha256": "c7e15b9eabe2db75e073231ba2455c86f7b0ae59f23bf5ac01ab257357379f0f"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-01-81.json",
+    "bytes": 147985,
+    "sha256": "0107f415d78877206ee286ad8f82f686adc074079b98c4aa11ed725da44db536"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-02-81.json",
+    "bytes": 147958,
+    "sha256": "e002888942495846256c31d495625052f95a4c78cac41ce6aca1a447b5db957d"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-05-81.json",
+    "bytes": 147933,
+    "sha256": "ec11731e9746af15df169560853d2a9cae8838742d1021cd86930638ab463fea"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-06-81.json",
+    "bytes": 147993,
+    "sha256": "2698ba435828dcdbf5b845cb1a173efe9f6cc59d55cb074d7bc98e0ed5abe144"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-07-81.json",
+    "bytes": 147968,
+    "sha256": "3493fbcee5dce3bada33b830130d0cec73ed3199229bda28aeda7025596198cd"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-08-81.json",
+    "bytes": 147954,
+    "sha256": "b43188de6e2463c2456efa4eccfa5d48c21e66fbe8a66a1197ece4f8201e1ae9"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-09-81.json",
+    "bytes": 148020,
+    "sha256": "30ae1f350d9e3ccece76ec0d9c74a68f6ae6aa021a227586df2a3eefe5071dab"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-12-81.json",
+    "bytes": 148049,
+    "sha256": "bc6e07c065ccdc25b646946a839f251f952c0cf605e4015dfa23cb99a87e3cb4"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-13-81.json",
+    "bytes": 148049,
+    "sha256": "fa79a8a9aa736ca5d12daabdbf816f929fa114f42d09b232578cfa7f088167d2"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-14-81.json",
+    "bytes": 148029,
+    "sha256": "d6402be8f42157371233f2684cec7457c721b38402863f7fe35e34c1d1fc192a"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-15-81.json",
+    "bytes": 147972,
+    "sha256": "b0c292e4bc3dd386303a32579afbf37e65f6733593591586be731449e2f14d69"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-16-81.json",
+    "bytes": 147966,
+    "sha256": "9b7ed035da098eceeab8bdb0c0e269ecaedb7285b4904956c9355b21c82ac2a9"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-19-81.json",
+    "bytes": 147969,
+    "sha256": "c1231ffebdf1df3c7dc1239e7b96dfcbf65a310f6125d52b9c279eb5822e26d9"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-20-81.json",
+    "bytes": 147977,
+    "sha256": "b79c1d1fead7754be85230e746f45344e838e5c49bb9fb563c8207ba21bf91f4"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-21-81.json",
+    "bytes": 147952,
+    "sha256": "9c1968b30fb85712d5fbc7d59a08627d16a462c969eedbbbbd18308a6d5edfc0"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-22-81.json",
+    "bytes": 148000,
+    "sha256": "2faf0778064a9c799d85b6bc5701665a1e08024487a504482c8f988ec27aeebc"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-23-81.json",
+    "bytes": 148018,
+    "sha256": "434d784522d283dc3689018859fad3972683f567efb407d6077ee294cd36ea70"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-26-81.json",
+    "bytes": 148065,
+    "sha256": "044a7fcf9576e919dc8b7f392875e3175046b315bd1fdfabb0b5b81f58c0a2c2"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-27-81.json",
+    "bytes": 148011,
+    "sha256": "52c9334c4c074d6b3a77ae277edd4ecc75f436e50af8c39e0cf9a85fbd081bca"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-28-81.json",
+    "bytes": 148017,
+    "sha256": "5458fd8d295492a71f5e49a2db2fef10264abb2e4623883ef512fa4760133032"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-29-81.json",
+    "bytes": 148074,
+    "sha256": "5088057d0d56b58774e4b0569fd26250fe7c2aa4dbb4cd29fdb845840b6bcad7"
+  },
+  {
+    "path": "public/charts/mes1-2024-08-30-81.json",
+    "bytes": 148015,
+    "sha256": "75d4fc05e3fa94cb7131a76918c7e18ccf786fb38b151eb5e67f712bd371f721"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-02-42.json",
+    "bytes": 143368,
+    "sha256": "b54fec2ebae3ecc189bc3fe7f5eac778696548d835aa041f6e893d61a97828ba"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-03-81.json",
+    "bytes": 142806,
+    "sha256": "3de0dab89dd883ab093f84b174df407594441b408f8518c708bff4b0389e97e5"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-04-81.json",
+    "bytes": 147967,
+    "sha256": "2c904aecd7ac923dccf3ee8096e160434e71effece814d4727ddd4807d241429"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-05-81.json",
+    "bytes": 148011,
+    "sha256": "e3dbf0748c7ab187ef3270b1b381334b5659645c89469089242e26ac1db35206"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-06-81.json",
+    "bytes": 147967,
+    "sha256": "e7637d7ece5403c9d7b017299bbd51cb8c38a7b216c3d623870f9e7f8df8ef75"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-09-81.json",
+    "bytes": 147997,
+    "sha256": "a0da846e5364a50949a55c4e452cc350ad821dff24b4469ca5685a0fe4f2f522"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-10-81.json",
+    "bytes": 147949,
+    "sha256": "60a566a4c0e7198254876d54293bf8249af1f5e7eaf5f38af08d2c92c7a2287a"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-11-81.json",
+    "bytes": 147917,
+    "sha256": "418054701aadc8f1ec610f9d74a86524e5279a7e6f15bffaa97af924cd48e36c"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-12-81.json",
+    "bytes": 147919,
+    "sha256": "12ff116f4ba2f70eb887fa3e855f3babc7b4a52f11f969c81fa61c4041c8929c"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-13-81.json",
+    "bytes": 147926,
+    "sha256": "37a2499746a6d3f46ed3433afdd98fc92181ffc3df86188e25b1bf6e2a446a27"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-16-81.json",
+    "bytes": 147983,
+    "sha256": "2f3c9bebbabf0fa93064d64619c2a66b50dff0692e22f8e823ed939e3f72e581"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-17-81.json",
+    "bytes": 148003,
+    "sha256": "9b805c3ca8b0d863c7e8acbab45302c8df6743a5e4020f9625ea5d5af7d34b72"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-18-81.json",
+    "bytes": 148032,
+    "sha256": "e59adf62aa91fb5d4b404df0f9dba3a25a3cc489e0fbdda57b913737b6568754"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-19-81.json",
+    "bytes": 148024,
+    "sha256": "ec65a30b10af48950a1c7a6eea597782ffee0911ed6778c58ce4046d4c4e1b37"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-20-81.json",
+    "bytes": 148002,
+    "sha256": "05b1cf7cc37abbf06e53c7e65d232e85bb098ef130d472262b7501e81f24291c"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-23-81.json",
+    "bytes": 147970,
+    "sha256": "f54c907fd5c9a722631b35dfdfa805f1d1e9a53af32c50a7c80939893421624d"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-24-81.json",
+    "bytes": 147977,
+    "sha256": "7b02b86b78f35eaf166f36707537739bac30d6da23eda01bba1fe914b735f5ff"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-25-81.json",
+    "bytes": 148053,
+    "sha256": "c1c4540831ea74968afaefa3edfe65e189e9153eb42e23ecfa215d8339070875"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-26-81.json",
+    "bytes": 148053,
+    "sha256": "426a886cf0f67a8ff3b04024815cc8f0695822c8f4b290c4e4262de4c8850c90"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-27-81.json",
+    "bytes": 148077,
+    "sha256": "d0fddc5f650a9155ac5082e532a43c0f1e6db58326cd8e0231f2917791be2d9b"
+  },
+  {
+    "path": "public/charts/mes1-2024-09-30-81.json",
+    "bytes": 148060,
+    "sha256": "c28be3b44e4562763e0f20e641055558ec308df4770ae8f013e4360465cd4b6c"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-01-81.json",
+    "bytes": 148019,
+    "sha256": "646d621e1e9a51b349dfcec9953576fa52ed46dc15debd8a58feaae252cf2576"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-02-81.json",
+    "bytes": 148032,
+    "sha256": "48844f3a2f3f1968b81500fd23b555876e0852e01e38efba689a173c70282fc9"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-03-81.json",
+    "bytes": 148044,
+    "sha256": "651dba315e462eee8a1a052c81b1336028b83bca22bbe432c9af2c08cab47962"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-04-81.json",
+    "bytes": 148064,
+    "sha256": "f67c8bf89a21379fdb0ecc9471f2cf22a473b2c88815b1151c5dddedbd762076"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-07-81.json",
+    "bytes": 148031,
+    "sha256": "5de2b31ee336f19ada4326fbb537380179e1048fb7cf3b85df54dd150e56b5ec"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-08-81.json",
+    "bytes": 148055,
+    "sha256": "787fb15753576a8df9baa0f35162ba93204edcf122ac52c1f75b66d820a9ab78"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-09-81.json",
+    "bytes": 148048,
+    "sha256": "698a7176ccba73eef69d0b5557886490c4c98af4245e2e43f12bda31a90e8d43"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-10-81.json",
+    "bytes": 147975,
+    "sha256": "94d0689356070fe0daa7be256cc5c6b3d3f5d3149096ae955ede9732d1b139e3"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-11-81.json",
+    "bytes": 148027,
+    "sha256": "62614cd2c859915d5cf6d8a2c1db9ef64f6555aeaff8ab1c49964d37accd81ff"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-14-81.json",
+    "bytes": 148059,
+    "sha256": "b05b1a5e827695b01b11b41ef2a014629893436ed813975bd1d6ffceaf194d45"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-15-81.json",
+    "bytes": 148049,
+    "sha256": "ce163d028f598cdcbfcfb6f24c9d9b51ece27f3158fe35e005f7cc4dbd5f9df4"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-16-81.json",
+    "bytes": 148026,
+    "sha256": "b1ce871102498af7c22f73380e824305c5ee0800cee1d2a17ac09821e28a96a2"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-17-81.json",
+    "bytes": 148030,
+    "sha256": "0cb4051fb65df38ae7a31febc2b0b129f0a8a77d6f5929d14368024f80eb6df2"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-18-81.json",
+    "bytes": 148041,
+    "sha256": "1c1c09b8c5629ba4e5c21015145ce5d3d7f3dfd1a601def3fb5bf7cfe9b05003"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-21-81.json",
+    "bytes": 147985,
+    "sha256": "10e98fc3eecbe3f54a808ea890072e56bd2196f96340a902284c348cd94ee26a"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-22-81.json",
+    "bytes": 147989,
+    "sha256": "bbb13915a472b84c0a3d7a7706a266572d198f7aea742edd1143851ce69ea01f"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-23-81.json",
+    "bytes": 148087,
+    "sha256": "e9da76755bcaa16af0228eaed6503f7ce2b9537d40adda87d3047f8e3c72527e"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-24-81.json",
+    "bytes": 148121,
+    "sha256": "f3426794ffd88be5e3eb28f65f133b89948a890c95eafbcbff8e71813f5a58e8"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-25-81.json",
+    "bytes": 148098,
+    "sha256": "06a8dca6af075c516546e63db244412d99900186ffcf3374891bb47af0d78f28"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-28-81.json",
+    "bytes": 148011,
+    "sha256": "91b9ee091615a369f456b1cade8269d2b9d835165e7f4a3d0ab58caaa52159ff"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-29-81.json",
+    "bytes": 147983,
+    "sha256": "84d79ac278b3a38e2f4489bc7e88db7090c8fabb2e6be4f11f00359c8071466b"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-30-81.json",
+    "bytes": 148064,
+    "sha256": "42598fecfce82ae5271037357ab66b2190dbc10e7358ff2c48e07b877628ee63"
+  },
+  {
+    "path": "public/charts/mes1-2024-10-31-81.json",
+    "bytes": 148115,
+    "sha256": "9d6c19f7feffc59e613b19b943ed850c1de948b7eb7a014367302e2903c25629"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-01-81.json",
+    "bytes": 148137,
+    "sha256": "5df9642e47295b72ff63f36919b700959a74a80dc5736ab6d92ff9f3d60df9da"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-04-81.json",
+    "bytes": 148115,
+    "sha256": "69f6ae50e6e17d856c8b9f521a89e60bebaea68edd8240bb6601750706942381"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-05-81.json",
+    "bytes": 148076,
+    "sha256": "4e2b798c77273efed21670b29aa8d73614d0c259bd7cd6e77325877b77e267a9"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-06-81.json",
+    "bytes": 148104,
+    "sha256": "3adbf374ceffc22d98f9c5eee8efc9a2f0b28411d0a340ccc690c60adaa824c1"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-07-81.json",
+    "bytes": 148117,
+    "sha256": "0b5ebb178624b00c710cb05c1420297b2a0b1b6498ac2da432e4419cf46d16e4"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-08-81.json",
+    "bytes": 148038,
+    "sha256": "4cf0908772d8a5d94dae91eca33ca59416f1563b00471de7d3c22ecbbd7e3678"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-11-81.json",
+    "bytes": 148029,
+    "sha256": "4f30870d1b6d1c38bfacd903422f94e67cc33772a6001cf6325c57a28474db44"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-12-81.json",
+    "bytes": 148042,
+    "sha256": "baf0f98250c2049762eca7beb2f75a4a2762825155195b8d438a4b8345f6e6da"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-13-81.json",
+    "bytes": 148116,
+    "sha256": "51d126b890ec4c7984d00503db3248e79fc3a7f6464b28ce40d2cc8de7773d6e"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-14-81.json",
+    "bytes": 148123,
+    "sha256": "d1a9da9d61447140adffe1006e6cc45f334c8ccf6834c28f47af7f7342f9700a"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-15-81.json",
+    "bytes": 148097,
+    "sha256": "25447a00f8724d6b901877fd07e9d8dda8d70d143288485acf14a5c643a54e71"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-18-81.json",
+    "bytes": 148094,
+    "sha256": "9703737efa96cf4806e2261863efa94b7ed20f4e6628d9132b2ae9966b217dcd"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-19-81.json",
+    "bytes": 148116,
+    "sha256": "29a50165f8342aa516bb7102174411dfbdf9ce8a343e03407617943191287c81"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-20-81.json",
+    "bytes": 148181,
+    "sha256": "845fd488690e7e1f9f3dc607fecd3a73423a9842c4220ae585e80d9f659630bf"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-21-81.json",
+    "bytes": 148129,
+    "sha256": "a543fa1baa490f7b400c916d27abf2a29510f432aca4e542353352d48bc8a7f2"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-22-81.json",
+    "bytes": 148070,
+    "sha256": "7dda3fc29f75eaadf1d94d255b6248d3954620e28e321e10ad1269920a325356"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-25-81.json",
+    "bytes": 148015,
+    "sha256": "91d19b641ecc8191fa42f9611e9997d131f711e87b36b2d8841ca4bf42cc86cf"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-26-81.json",
+    "bytes": 148048,
+    "sha256": "ca7af22822eb883eaef07bf40cf5635245c9f2c1509d91239956c1ea085fbc76"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-27-81.json",
+    "bytes": 148104,
+    "sha256": "f844f277495316d9dfbbc6141ad985662f48935148e8b08a49c43689ef10e366"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-28-42.json",
+    "bytes": 143457,
+    "sha256": "729eac8436b5cabf46134cd114e7124af87bc15ec13d662312eee6a56b56ef48"
+  },
+  {
+    "path": "public/charts/mes1-2024-11-29-45.json",
+    "bytes": 138617,
+    "sha256": "7c619473a7c72faacafae4e6b581a3077ea6d2e7d77a1100e149c7fd1cd8171c"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-02-81.json",
+    "bytes": 143271,
+    "sha256": "cdbaca3167c275a87c42c1576b21b103aeadca64f0fd182b475dea64bfe95956"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-03-81.json",
+    "bytes": 148082,
+    "sha256": "bd5caac490b79c134400afb78c02099194c251d38703026db04c701addc0d7b5"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-04-81.json",
+    "bytes": 148058,
+    "sha256": "b13c7d332843a69647b33bece530585a5122ec428fa221899181fbd5ecc20d65"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-05-81.json",
+    "bytes": 148086,
+    "sha256": "0ea7cbe426e235d72246de468f0adc12adc4e59d38b3eec66922cdf9c86491f4"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-06-81.json",
+    "bytes": 148105,
+    "sha256": "a2d54c2e49b4c2d00069f2feb064d1c259a2c66d1ee977c0ee6cd74bba8cb5e5"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-09-81.json",
+    "bytes": 148112,
+    "sha256": "7dd38ce9b2bb74b455fbbe45852931e5eb0e661c2d348c2316432ce6a7456235"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-10-81.json",
+    "bytes": 148089,
+    "sha256": "0d8adc49fc0e4496d679c054f86f3af437b1cbb434069e56d8787019dda5f6d3"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-11-81.json",
+    "bytes": 148059,
+    "sha256": "73adbfb4332cc1c3542aa9302364e901085d5b6ec852295690231fe253671055"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-12-81.json",
+    "bytes": 148084,
+    "sha256": "07a0f65fc51e493042448ee382495bd7e8f132960c7851ecffd0b2b13bc44cd8"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-13-81.json",
+    "bytes": 148039,
+    "sha256": "c19bde1e687ff4a27d64c413ec9a95c7817d43a25d57ce548e10ceb0b23ee45d"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-16-81.json",
+    "bytes": 148032,
+    "sha256": "7b3b972b0badb399e01fe1d1771a81541ee908456f866230319b72ca2aa45cfc"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-17-81.json",
+    "bytes": 148045,
+    "sha256": "30c0d3b0ad321c9939a30e0b28fc07f93dce42782a3d582eb270311c74cac00d"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-18-81.json",
+    "bytes": 148037,
+    "sha256": "f71f1cf339ee5223bc76279095ffea3ca67c57c48b1247510c96ff808b535bd4"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-19-81.json",
+    "bytes": 148048,
+    "sha256": "50bffa4c2372450c78aa27d88f03bffc4615afb125ff6c761dc552ac5b873397"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-20-81.json",
+    "bytes": 148085,
+    "sha256": "5280ca16e7065981ad7f7e8ec826be34e3a9892354635788fcb08f9dce7adf6e"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-23-81.json",
+    "bytes": 148084,
+    "sha256": "651fbd6cf09311113802cfaa0cf9867a8212714575533a660e154bd718974f37"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-24-45.json",
+    "bytes": 143755,
+    "sha256": "18d55ca18c6381d304494dac9b801bac942856fb9c309d494fd13ca4291263dd"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-26-81.json",
+    "bytes": 143257,
+    "sha256": "554adbe9eafcc5747877929742e855196cbb8b22b65cfae1d50bae89703ea679"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-27-81.json",
+    "bytes": 148001,
+    "sha256": "e2c66d530984deac5097356d0498cd440bd5eacbcc5960eaed1cb8c33e89590a"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-30-81.json",
+    "bytes": 147990,
+    "sha256": "ead64ceb69f74c2a98ce6d116b5880ffa31e506ad399074a1892e79f7a67169a"
+  },
+  {
+    "path": "public/charts/mes1-2024-12-31-81.json",
+    "bytes": 148011,
+    "sha256": "fd7456716a0bd9ac3f551953aec1b0eb7175d05108eb3839a7fb705a6e1393f2"
   },
   {
     "path": "public/charts/mes1-2025-01-02-81.json",
@@ -3756,8 +5106,8 @@
   },
   {
     "path": "public/editor/index.html",
-    "bytes": 274547,
-    "sha256": "79bea256809ef36a265cdd7aff00aa916cd3e8a65a971514cdd0aa13e99a7713"
+    "bytes": 274556,
+    "sha256": "6a6172e4b9f0a746e04d625ff03e5a75e17bf223fe52ceb9774788e192f00d84"
   },
   {
     "path": "public/favicon.svg",
@@ -3786,8 +5136,8 @@
   },
   {
     "path": "public/modules/chart-marker.html",
-    "bytes": 149026,
-    "sha256": "1908ece568c372fb3a3dec55297050bc9b08553f8431168b3a1de6f756b3e365"
+    "bytes": 149063,
+    "sha256": "531ae188b96de708b1afe71f56a7a09c0b6986a4772959e6bc60f06db0631ef1"
   },
   {
     "path": "public/modules/chart-match-handoff.js",
@@ -3796,8 +5146,8 @@
   },
   {
     "path": "public/modules/chart-match-index.json",
-    "bytes": 5152446,
-    "sha256": "47150212c1d95d6f415f13f6e105b609c9572b8298ee9293c8aa3992ce8cf134"
+    "bytes": 9310576,
+    "sha256": "2bc18875eb09b45a8f3e2c4b84f35f79037e31c44f267c7f8b3b471f995a1d14"
   },
   {
     "path": "public/modules/completed-trade-review.js",
@@ -3836,13 +5186,13 @@
   },
   {
     "path": "public/modules/history-candle-data.js",
-    "bytes": 8205,
-    "sha256": "8af7619b23514df987350519604ce514ec5b0fd8994abd1546b2517120eed37f"
+    "bytes": 8212,
+    "sha256": "b1947841a82ee91b8e6e856475953e20748802a9783887f48129b28c1c62332a"
   },
   {
     "path": "public/modules/history-candle-index.json",
-    "bytes": 2069645,
-    "sha256": "b4969ee7f9d601f7df6f7a3afbe817da6397db02c9b5579bba42bdf788b5065c"
+    "bytes": 3211953,
+    "sha256": "fd1057116a27bddfe10335dd41dda09233ddd7b36fcd6e38d7363a0e02d6c414"
   },
   {
     "path": "public/modules/history-candle-index/5171f568abcdbcc88852f84791eaa9dd2a3101119d0eef9df9c8067529dca68f.json",
@@ -3860,14 +5210,19 @@
     "sha256": "d5e987bca98cc2f7a313d9ca209686b0754233b35b2e8990ded44f4c68976489"
   },
   {
+    "path": "public/modules/history-candle-index/fd1057116a27bddfe10335dd41dda09233ddd7b36fcd6e38d7363a0e02d6c414.json",
+    "bytes": 3211953,
+    "sha256": "fd1057116a27bddfe10335dd41dda09233ddd7b36fcd6e38d7363a0e02d6c414"
+  },
+  {
     "path": "public/modules/history-time-buckets.js",
     "bytes": 12773,
     "sha256": "132cf1499df9180163267ca79571842ae07e03592667273e6998898eba27a4c3"
   },
   {
     "path": "public/modules/learner-account-bridge.js",
-    "bytes": 16937,
-    "sha256": "099e9e46368c0b7e4aa94a9972618b54161b4f4dd8477a8bcb0b11f7d67a243e"
+    "bytes": 16975,
+    "sha256": "f01fc81afdf3e1b9d91ae0ce0e8ee7c762b07d372105962f5bd1129a1b9ecc64"
   },
   {
     "path": "public/modules/learner-client.js",
@@ -3881,13 +5236,13 @@
   },
   {
     "path": "public/modules/learner-stats.js",
-    "bytes": 9406,
-    "sha256": "e943b84b7cfa7bd3b97198bf7d74eddd5feba2c3c90a9917b27b379239ae4636"
+    "bytes": 9443,
+    "sha256": "27ec99cd9cef461f364d6fc8623a904a9d3dfdb928c298c4703abd1d84d97b2d"
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 282904,
-    "sha256": "1844581cae09a65f69eed01e5e02a38b1b0f8ea8dd6f8d78a1c5e9706e4a6fbe"
+    "bytes": 283774,
+    "sha256": "da8319d145489e4fc6d8d25feb23118e39a8f2d05a2ddcb77df6f99f7cec701d"
   },
   {
     "path": "public/modules/practice-device.js",
@@ -3906,8 +5261,8 @@
   },
   {
     "path": "public/modules/practice-insights.js",
-    "bytes": 5724,
-    "sha256": "0ce46da23c242ff07d5f0ef5880d3be025e8ac4bf1136ea32af8eacdd110e60b"
+    "bytes": 6713,
+    "sha256": "2a8036ad1c1ab7fefb169ec6c30174ae229f36351bfd4e46310a90df04f87b8b"
   },
   {
     "path": "public/modules/teacher-lesson-navigation.js",
@@ -3921,18 +5276,18 @@
   },
   {
     "path": "scripts/build-chart-match-index.mjs",
-    "bytes": 5682,
-    "sha256": "3ee3255ba2ece29fa7eee7886c0556a0afe4bbea9922021b4e6063f2db916c69"
+    "bytes": 6192,
+    "sha256": "95b598951cba98ea0914cd3f1f3dfd943f5684fb08f0b3654c6d051a41bf13cf"
   },
   {
     "path": "scripts/build-history-candle-index.mjs",
-    "bytes": 4239,
-    "sha256": "4898948aba5bdff595e7add76247d488b45a8e86c8bff25152518174d9712a95"
+    "bytes": 4240,
+    "sha256": "ca477059fefecef87c6d4677b6f592f51a8fd246a12b1a7c835b99447659f8f6"
   },
   {
     "path": "scripts/check-release.mjs",
-    "bytes": 14898,
-    "sha256": "25826e71f800d23f2d12d425a61e0b18df972754a756ac662e24580de11a0ec6"
+    "bytes": 15237,
+    "sha256": "97b13fbeb20884df340b3767a6c49551774432a597a89938dab84e0ac09e927c"
   },
   {
     "path": "scripts/create-candle-loading.py",
@@ -3953,6 +5308,11 @@
     "path": "scripts/create-cover-artwork.mjs",
     "bytes": 9555,
     "sha256": "af66eb42aeb2918ab0eae68b4b778651320e81abac0db2cba2978b5fc2f393bb"
+  },
+  {
+    "path": "scripts/generate-tradestation-2024.py",
+    "bytes": 10413,
+    "sha256": "9c8f8c2b5d88bc9684c70ed80acbb63a6ea1d45f6bc00765bdfd4a46fe449eb7"
   },
   {
     "path": "scripts/history-candle-retention.mjs",
@@ -4018,6 +5378,11 @@
     "path": "scripts/screenshot-2026-sessions.mjs",
     "bytes": 15770,
     "sha256": "34656339e558dc976e7300de9d961f624204cac6712141ba7cf57a6d1c90c30e"
+  },
+  {
+    "path": "scripts/tradestation-2024-envelope.mjs",
+    "bytes": 11115,
+    "sha256": "b9375ea8965f0296ea68d8a4870570fadc7e7a89ae81407015dc720aa0581004"
   },
   {
     "path": "scripts/vendor-chart-match-ocr.mjs",
