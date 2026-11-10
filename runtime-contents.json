@@ -176,8 +176,8 @@
   },
   {
     "path": "components/admin-invitations.tsx",
-    "bytes": 5898,
-    "sha256": "19ba4bc9e7d75cb0f967f5a3e6da2dfaf5b7957141b7c20b51abc7ca3463abc5"
+    "bytes": 6094,
+    "sha256": "9ee3318d5f52a588e5827ba30c2b3b4c5940a5e63c3ee264da31284592b8d361"
   },
   {
     "path": "components/admin-invite-accept.tsx",
@@ -881,8 +881,8 @@
   },
   {
     "path": "lib/portal/admin-invitations.mjs",
-    "bytes": 10014,
-    "sha256": "08e3fac5457ff5e64d1ed6468b652c8f12f1bc333de372cc26bd0f2e8ca8fc8d"
+    "bytes": 10298,
+    "sha256": "0d6660c2c713172bdf0b1c072faa74be4e03ba8c76a6a78c7acab0374a419287"
   },
   {
     "path": "lib/portal/admin-trader-history.mjs",
@@ -966,8 +966,8 @@
   },
   {
     "path": "lib/portal/members.mjs",
-    "bytes": 8937,
-    "sha256": "33c95a3ea86b7750788dd7478ae76ba50d005d61a09e4d1bf42917cf3dc02ee2"
+    "bytes": 9669,
+    "sha256": "4889b2a10ac55fa806487ebbdce6fec9b671e70566b81cd1ac35832127b75b96"
   },
   {
     "path": "lib/portal/password-auth.mjs",
