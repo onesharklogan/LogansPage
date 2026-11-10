@@ -261,8 +261,8 @@
   },
   {
     "path": "components/combined-simulator-history.tsx",
-    "bytes": 5912,
-    "sha256": "96e47f796b6004e0720c8ce3d74f536b5e3f00b58c728d3240e520ecc47983d9"
+    "bytes": 6096,
+    "sha256": "2f5084e79f227b258ae5f1e20e37374b14159521f1937710899aca367b790935"
   },
   {
     "path": "components/combined-simulator.css",
@@ -273,6 +273,16 @@
     "path": "components/combined-simulator.tsx",
     "bytes": 9975,
     "sha256": "383f980e4daf1e9527e1eaf09e1bfd63256382cbca9bf3ea770855c2c658ad44"
+  },
+  {
+    "path": "components/failed-charts-book.module.css",
+    "bytes": 2129,
+    "sha256": "f0699a893d501030033d2021b83d63f42bd0719636ccb8b6b48ae7d3d4654630"
+  },
+  {
+    "path": "components/failed-charts-book.tsx",
+    "bytes": 7011,
+    "sha256": "6d9723083c3a9315105d2f02dc804edbb469f812f26dbd7304ee5844b8085918"
   },
   {
     "path": "components/guest-visit-tracker.tsx",
@@ -321,8 +331,8 @@
   },
   {
     "path": "components/learner-trader-stats.tsx",
-    "bytes": 13389,
-    "sha256": "4fec6e4bc4d5630d2c0da8c46892d505c3324ff727296c3de86ea64adc762379"
+    "bytes": 13577,
+    "sha256": "370debaac1d3f0ac6a86617e788e806a5f06d03d49d8d5bc6a9528434aeb8307"
   },
   {
     "path": "components/lesson-access-boundary.tsx",
@@ -736,13 +746,18 @@
   },
   {
     "path": "lib/combined-simulator-history.mjs",
-    "bytes": 3901,
-    "sha256": "30ea9ec3472e101c868765b94bb7b349ce9d454d5dfd647c13252453ec1eff58"
+    "bytes": 3921,
+    "sha256": "ba4c6aea5a7cbc635ee2c0b7b1cfad66e881c7bf9a0302cc29f3d71c444400d5"
   },
   {
     "path": "lib/combined-simulator.mjs",
     "bytes": 1134,
     "sha256": "af8bae23226a103f557bf9d2cd7757fc8e08bf600a2061ac6512cae14b6b0645"
+  },
+  {
+    "path": "lib/failed-charts-book.mjs",
+    "bytes": 1365,
+    "sha256": "020e41b692a5b26c15afc43635db79f71135981323b06d173df80153be5d4dea"
   },
   {
     "path": "lib/learner/attempts.mjs",
