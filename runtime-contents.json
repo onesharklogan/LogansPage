@@ -11,8 +11,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 70776,
-    "sha256": "f47ec50653efd9f7bd5ed9704aafb5bf364da59f82c07391d50f177205c7c722"
+    "bytes": 70877,
+    "sha256": "5cbbcb804fd8e7904ad2cba3c7ce930d7c40822289d7077f3862b2c46ac17a7e"
   },
   {
     "path": "app/activate/page.tsx",
@@ -406,8 +406,8 @@
   },
   {
     "path": "components/limit-trade-review.tsx",
-    "bytes": 6954,
-    "sha256": "b06a962cbd54e71042c1e567c0dfbae6c28dc2bee21b1733eddf328499587aa3"
+    "bytes": 8268,
+    "sha256": "9e2bce8f8467309419547fa1bc5ec35f54c12bda11ed30a00a4cf84971673f3d"
   },
   {
     "path": "components/loading-indicator.tsx",
@@ -567,7 +567,7 @@
   {
     "path": "data/bias-provenance.json",
     "bytes": 26064,
-    "sha256": "dd371e8aaf59c800b2f0d42830ab4fc13863f0d9386da84ce7157a8f7500856e"
+    "sha256": "1ecda8beccf809c00144a7e06e1e06c503d44a1b179d7c3a851bfc21296525cf"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -3801,8 +3801,8 @@
   },
   {
     "path": "public/modules/completed-trade-review.js",
-    "bytes": 11440,
-    "sha256": "e8b6de0b6b906e9e4fd4b0e9902ec894a21c94d0a10de6f72dcb2eb2ffe7abf5"
+    "bytes": 11886,
+    "sha256": "030ca4f58ff451d73b25c8f9a143e07aaae3b9d140c8bf733731e76d4db985b4"
   },
   {
     "path": "public/modules/direction-accuracy.js",

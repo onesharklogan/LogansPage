@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
-# Show today in the account overview, preserve all-history totals. Verify every final runtime byte.
+# Review losses only with full-session charts and isolated fills. Verify every final runtime byte.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
-echo '980fda356ecaeec1eb9dfcfcc6352f11360d2e36a2bd8fcf3cf1f894892b0707  training-center-overlay.tar.gz' | sha256sum --check --status
-echo 'e49284f92bd516e6b08ce962a824d439bdfcb13c824ab8e1a9d73ad87a5a3aac  runtime-contents.json' | sha256sum --check --status
+echo 'f6ac59ef8f1383c228662a49f6d95042295a1901e8785cce3a5c5a762bb4e88e  training-center-overlay.tar.gz' | sha256sum --check --status
+echo '0c90de2678c1c4a2606aec5746038f3c7c5b0ea329e890568567e0dd5eb6410e  runtime-contents.json' | sha256sum --check --status
 rm -rf -- training-center-app
 mkdir -p training-center-app
 tar -xzf training-center-source.tar.gz -C training-center-app --no-same-owner --no-same-permissions
