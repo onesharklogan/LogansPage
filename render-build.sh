@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
-# Publish read-only Pattern Match, verified 2024 charts and first-chart daily averages.
+# Reuse the existing session calendar for Pattern Match source selection.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
 echo '69917e260166a62a494a02c651144c26d4851bbb02dbd9668ce7d64842d38335  training-center-overlay.tar.gz' | sha256sum --check --status
-echo 'bd7b5c4727f9eab2915baccb15e081b4d11b7a2af3705c0fc95475e8fca19dbe  runtime-contents.json' | sha256sum --check --status
+echo '56d33f7e4b1d6a13ab3fb4af3d0a7135f4b05bd55a2aa84cc3cc096f483362ae  runtime-contents.json' | sha256sum --check --status
+echo 'a3b614ab06c3740c380b0f035a56d44ce2725343335409fc0c5456d350ef6b0c  training-center-calendar.tar.gz' | sha256sum --check --status
 rm -rf -- training-center-app
 mkdir -p training-center-app
 tar -xzf training-center-source.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 tar -xzf training-center-overlay.tar.gz -C training-center-app --no-same-owner --no-same-permissions
+tar -xzf training-center-calendar.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 node --input-type=module <<'VERIFY'
 import fs from 'node:fs';import crypto from 'node:crypto';
 const expected=JSON.parse(fs.readFileSync('runtime-contents.json','utf8'));

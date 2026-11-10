@@ -441,8 +441,8 @@
   },
   {
     "path": "components/pattern-match.tsx",
-    "bytes": 18184,
-    "sha256": "18360a3d62bf6ff596ed111d9506cd45ce1af0828d4e1f2fe633720da69aad05"
+    "bytes": 19679,
+    "sha256": "bae308d2dfabff92e754a075dd0e311d93345f3afc4a179937192a15650e6bbb"
   },
   {
     "path": "components/portal.tsx",
