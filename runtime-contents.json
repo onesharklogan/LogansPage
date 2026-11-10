@@ -431,18 +431,18 @@
   },
   {
     "path": "components/pattern-candles.tsx",
-    "bytes": 3115,
-    "sha256": "298ef1190feda7acae5865d3f5081ef6e4770c38abacd8407edb7a6c3fbf1f0f"
+    "bytes": 3480,
+    "sha256": "28e3323b9b65f8778a2264e47d73632d3bb0087119a820189c5516a13e3b8aeb"
   },
   {
     "path": "components/pattern-match.module.css",
-    "bytes": 6350,
-    "sha256": "8cba410694a7939651d0b333ed071410ae31458060b493ba70c6063a49a3521f"
+    "bytes": 6531,
+    "sha256": "2c77220054d2d3b9255efccdf71d7e9628bc24e6d85720b7c2c7f74e1f749ac7"
   },
   {
     "path": "components/pattern-match.tsx",
-    "bytes": 19679,
-    "sha256": "bae308d2dfabff92e754a075dd0e311d93345f3afc4a179937192a15650e6bbb"
+    "bytes": 19910,
+    "sha256": "3c9cc393be8faf85004d033e3fee12a81d569d3ee5b36c0509c8dbf7b96d1317"
   },
   {
     "path": "components/portal.tsx",
