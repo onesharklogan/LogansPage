@@ -561,8 +561,8 @@
   },
   {
     "path": "data/bias-provenance.json",
-    "bytes": 25087,
-    "sha256": "06e99c6301f1f0effd037298a60d39de39062775305a7ac00a87b1a775fd019a"
+    "bytes": 25567,
+    "sha256": "f70ff74b24cc51b8375cdbde3c35c0f81c0acbf81277c4d297673091ea6fd14f"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -761,8 +761,8 @@
   },
   {
     "path": "lib/learner/attempts.mjs",
-    "bytes": 5152,
-    "sha256": "43ce5a1733c0bb85397d12c8d1d2ec33fe3507ff84c2d72102d26c0b3c32de25"
+    "bytes": 5374,
+    "sha256": "4e587b8cb52552a375c93e6a541d61feaeb29c9c18b75e286659e17448dcba4e"
   },
   {
     "path": "lib/learner/charts.mjs",
@@ -841,13 +841,13 @@
   },
   {
     "path": "lib/learner/runtime.mjs",
-    "bytes": 2469,
-    "sha256": "e217d9437c07e93c2c3af206c0c34a27dba2e11657e8fc162e29754eab846ee1"
+    "bytes": 2984,
+    "sha256": "a504b6a0dcc9901f420cf4072de8663d14d99799b4184028d7462f24a6f9352d"
   },
   {
     "path": "lib/learner/server.mjs",
-    "bytes": 10616,
-    "sha256": "2e4723ea1871f715adb057a659a930a77f0f240b5a35da00ed6599ebb843bc98"
+    "bytes": 12247,
+    "sha256": "aaf42c32e768fb8e7307525c9da64e90c6a782a515e8b25c0e1617e3a37ff7dd"
   },
   {
     "path": "lib/learner/stats.mjs",
@@ -3861,8 +3861,8 @@
   },
   {
     "path": "public/modules/learner-account-bridge.js",
-    "bytes": 16435,
-    "sha256": "5a261d502004d01bea869179849647323e8b4237552113ecc735b16f87ed67f7"
+    "bytes": 16691,
+    "sha256": "19ed750ddb337b97da9a30630bec7e9851749ecfdf046d65a142327cf8380e2f"
   },
   {
     "path": "public/modules/learner-client.js",
