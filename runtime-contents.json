@@ -561,8 +561,8 @@
   },
   {
     "path": "data/bias-provenance.json",
-    "bytes": 25567,
-    "sha256": "f70ff74b24cc51b8375cdbde3c35c0f81c0acbf81277c4d297673091ea6fd14f"
+    "bytes": 26064,
+    "sha256": "dd371e8aaf59c800b2f0d42830ab4fc13863f0d9386da84ce7157a8f7500856e"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -3796,8 +3796,8 @@
   },
   {
     "path": "public/modules/completed-trade-review.js",
-    "bytes": 10671,
-    "sha256": "b1eba6f782502f6c245ab2c6faaada3d97884e309bd1675449bcd6b43a8b5a44"
+    "bytes": 11440,
+    "sha256": "e8b6de0b6b906e9e4fd4b0e9902ec894a21c94d0a10de6f72dcb2eb2ffe7abf5"
   },
   {
     "path": "public/modules/direction-accuracy.js",
@@ -3861,13 +3861,13 @@
   },
   {
     "path": "public/modules/learner-account-bridge.js",
-    "bytes": 16691,
-    "sha256": "19ed750ddb337b97da9a30630bec7e9851749ecfdf046d65a142327cf8380e2f"
+    "bytes": 16937,
+    "sha256": "099e9e46368c0b7e4aa94a9972618b54161b4f4dd8477a8bcb0b11f7d67a243e"
   },
   {
     "path": "public/modules/learner-client.js",
-    "bytes": 36919,
-    "sha256": "dc26d5dec0e429d7d9d8389ee4fb7f5b03bd4bf8af2415c394aaa91647070d17"
+    "bytes": 38325,
+    "sha256": "3b43d5359afe34f94b4023a7006c69178bea58df2ed4e67a53bf5f208f74c162"
   },
   {
     "path": "public/modules/learner-profiles.js",
@@ -3881,8 +3881,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 282879,
-    "sha256": "3fe671d99666170a72c425f763293c46be6ac47b923b08c922837d49ca97868e"
+    "bytes": 282904,
+    "sha256": "1844581cae09a65f69eed01e5e02a38b1b0f8ea8dd6f8d78a1c5e9706e4a6fbe"
   },
   {
     "path": "public/modules/practice-device.js",
