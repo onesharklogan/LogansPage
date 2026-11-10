@@ -3,8 +3,8 @@ set -euo pipefail
 cd "$(dirname "$0")"
 # Require each completed trade review, preserve viewport and scoring. Verify every final runtime byte.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
-echo '93455ea17b7fb466bcf89d79bd55a2331a4a8e25942dd57261ed26af740eb06c  training-center-overlay.tar.gz' | sha256sum --check --status
-echo '59a8ca5b04126fd44ad2e477f7f6782ab9a9a2916daaf21ffb5fdebef9c2c22e  runtime-contents.json' | sha256sum --check --status
+echo 'f70e7cd4a49fc67d7f06994996706322f9557d786f1188c97d41bdc3534c18ff  training-center-overlay.tar.gz' | sha256sum --check --status
+echo 'a0b1d7530fda0f999706cf097faf58cc3b4935f35beb4fa473591bb0ead55235  runtime-contents.json' | sha256sum --check --status
 rm -rf -- training-center-app
 mkdir -p training-center-app
 tar -xzf training-center-source.tar.gz -C training-center-app --no-same-owner --no-same-permissions

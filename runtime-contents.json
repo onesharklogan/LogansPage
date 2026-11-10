@@ -561,8 +561,8 @@
   },
   {
     "path": "data/bias-provenance.json",
-    "bytes": 24549,
-    "sha256": "2db8d77492e30f8f76ef51f0b1c1d6c88c422fbcb135e04f214e6f3e04528334"
+    "bytes": 25087,
+    "sha256": "06e99c6301f1f0effd037298a60d39de39062775305a7ac00a87b1a775fd019a"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -3861,8 +3861,8 @@
   },
   {
     "path": "public/modules/learner-account-bridge.js",
-    "bytes": 15193,
-    "sha256": "1a306f07ac2087175859d59e2e2d2e9c96d8e9261ccecbb170826fef5cb10266"
+    "bytes": 16435,
+    "sha256": "5a261d502004d01bea869179849647323e8b4237552113ecc735b16f87ed67f7"
   },
   {
     "path": "public/modules/learner-client.js",
@@ -3881,8 +3881,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 282848,
-    "sha256": "c71d686e1c5490db3a93d8700fd017dbcd0fe2b78c121bdfa66b47a2f375cc59"
+    "bytes": 282879,
+    "sha256": "3fe671d99666170a72c425f763293c46be6ac47b923b08c922837d49ca97868e"
   },
   {
     "path": "public/modules/practice-device.js",
