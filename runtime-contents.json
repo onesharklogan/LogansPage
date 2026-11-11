@@ -121,8 +121,18 @@
   },
   {
     "path": "app/page.tsx",
-    "bytes": 5119,
-    "sha256": "52c204a3c571013c3e325053b6789335c56e54a0928ca15d2d2b54b8616801bb"
+    "bytes": 5418,
+    "sha256": "448f260f4ad77cc982b32dfc2597c56903e2caabc0596bd8b9263861f8dbecd3"
+  },
+  {
+    "path": "app/pattern-encyclopedia/[id]/page.tsx",
+    "bytes": 285,
+    "sha256": "c83d0552673affd233a0453b9a1f26d034fee99c888056f263ff6dd8b6c22e8d"
+  },
+  {
+    "path": "app/pattern-encyclopedia/page.tsx",
+    "bytes": 311,
+    "sha256": "318c5a6c37a8e6cbd15927b58fa25cb0aeda0d67c8793a619cd503bf4844f31c"
   },
   {
     "path": "app/pattern-match/page.tsx",
@@ -201,8 +211,8 @@
   },
   {
     "path": "components/app-navigation.tsx",
-    "bytes": 2970,
-    "sha256": "2047b764ff0aeedc821e6b12bdd6da336b44cc73b082d01bd784d25434126284"
+    "bytes": 3021,
+    "sha256": "84903d42f84c57eb334d16f7977530099aa4a45e485be1a9baa68495512b4acb"
   },
   {
     "path": "components/chart-marker-workspace.tsx",
@@ -435,14 +445,24 @@
     "sha256": "28e3323b9b65f8778a2264e47d73632d3bb0087119a820189c5516a13e3b8aeb"
   },
   {
+    "path": "components/pattern-encyclopedia.module.css",
+    "bytes": 2603,
+    "sha256": "b5fb86e8e721fe026696645be7744304f6cfe5de185c7bb0785f21b8a0709210"
+  },
+  {
+    "path": "components/pattern-encyclopedia.tsx",
+    "bytes": 23973,
+    "sha256": "492a77e06611f5b30146dbf4de658df24b721c6fb14b48a4144be871c968f8b0"
+  },
+  {
     "path": "components/pattern-match.module.css",
     "bytes": 6531,
     "sha256": "2c77220054d2d3b9255efccdf71d7e9628bc24e6d85720b7c2c7f74e1f749ac7"
   },
   {
     "path": "components/pattern-match.tsx",
-    "bytes": 19910,
-    "sha256": "3c9cc393be8faf85004d033e3fee12a81d569d3ee5b36c0509c8dbf7b96d1317"
+    "bytes": 21580,
+    "sha256": "eeb02ee5f213df7d00bcade14a3e66738c491d0d217f895ca96fb6375e3558d8"
   },
   {
     "path": "components/portal.tsx",
@@ -715,6 +735,11 @@
     "sha256": "b0a6cb7769c142fcecf3bb3eb2d8c8beec82c63119c3d7dda1fc5e75f8b449de"
   },
   {
+    "path": "docs/pattern-encyclopedia-rollout.md",
+    "bytes": 11726,
+    "sha256": "c7b97e8383bf925267427eef5d818521d607949b994f52b95e251e675771315d"
+  },
+  {
     "path": "docs/point-limit-preferences.md",
     "bytes": 1895,
     "sha256": "479b93b60e165a6a5c09a09094e5484583ef66f2827f6be5e123768532d9f0c6"
@@ -875,14 +900,24 @@
     "sha256": "12c17ef511d6a2ba00b8c23d4984da8edaa357a6c565dc058fe0c4be931dc006"
   },
   {
+    "path": "lib/learner/pattern-encyclopedia.mjs",
+    "bytes": 5856,
+    "sha256": "7b0508ba7b3d809c183c76b524ff3108a947e0d1203d68f29219b13e3cb5f188"
+  },
+  {
+    "path": "lib/learner/pattern-repository.mjs",
+    "bytes": 7804,
+    "sha256": "6ee3d1b89914142215ee6389be7cd20407aedaf7a2126b10af55f70865e01b2f"
+  },
+  {
     "path": "lib/learner/practice-markups.mjs",
     "bytes": 1062,
     "sha256": "3bbad3a7f4775fc3506c5731cc694d55afd6b7e58be68143556140489628207d"
   },
   {
     "path": "lib/learner/repository.mjs",
-    "bytes": 20869,
-    "sha256": "e5624577c080b5c7b0574d8bca2eb1d48d7e26585d29ba42afcdeb5cf4aeb608"
+    "bytes": 20968,
+    "sha256": "cd972b79b3d45592fb7169c5ade4f59ae7bbafc605adaf0e7ae8e5e2405819f2"
   },
   {
     "path": "lib/learner/request-origin.mjs",
@@ -891,13 +926,13 @@
   },
   {
     "path": "lib/learner/runtime.mjs",
-    "bytes": 2984,
-    "sha256": "a504b6a0dcc9901f420cf4072de8663d14d99799b4184028d7462f24a6f9352d"
+    "bytes": 3069,
+    "sha256": "7447a8815fed2f4a34af64e660a5a2f81989ccefd58297bb9d51589dde15a94e"
   },
   {
     "path": "lib/learner/server.mjs",
-    "bytes": 12247,
-    "sha256": "aaf42c32e768fb8e7307525c9da64e90c6a782a515e8b25c0e1617e3a37ff7dd"
+    "bytes": 14156,
+    "sha256": "648933058605e5643df97cbbf5d7c8476aa3c5658ea93b7c24280e4db0a703a1"
   },
   {
     "path": "lib/learner/stats.mjs",
@@ -925,6 +960,11 @@
     "sha256": "e21c964a94c1c2fc26547d8fdfabb771bb96a5241562b4ba964d1ec11a1e6062"
   },
   {
+    "path": "lib/pattern-encyclopedia-client.mjs",
+    "bytes": 8883,
+    "sha256": "37523409a9ac482581e83b41fa4c0220f5265812c3b53f9ff6e233e009a66ea3"
+  },
+  {
     "path": "lib/pattern-match.mjs",
     "bytes": 8998,
     "sha256": "e9e046b7f61b8ddbcd05e3005433664386afe36290839cd097fe91d2cba57a37"
@@ -933,6 +973,11 @@
     "path": "lib/pattern-selection.mjs",
     "bytes": 1612,
     "sha256": "1982af9c5ea372c84d8ff5ab2aae9d4780619614df35b79d5e9161e6615e6e96"
+  },
+  {
+    "path": "lib/pattern-study-snapshot.mjs",
+    "bytes": 2274,
+    "sha256": "25ab1921bd06c34fdeb02244394a97ff152b58e58935ac8329d57ffa3e4093df"
   },
   {
     "path": "lib/portal/admin-guest-visits.mjs",
@@ -1308,6 +1353,16 @@
     "path": "migrations/024_direction_point_limit_preference.sql",
     "bytes": 540,
     "sha256": "b7f3369776ed3e2bb27b1ac0072c6e9ded8ad21ae57928d2a8d832fa9c8da58f"
+  },
+  {
+    "path": "migrations/025_pattern_encyclopedia.sql",
+    "bytes": 1400,
+    "sha256": "da91d2b2662d135f03d3443307f9de3e00deeec01d834adac89bc08dad0c4743"
+  },
+  {
+    "path": "migrations/026_pattern_encyclopedia_grants.sql",
+    "bytes": 408,
+    "sha256": "3301747f43e6eb2be38dc3b000d97a0f3f932fca55c0b87273bf0bcd6c80e53f"
   },
   {
     "path": "next-env.d.ts",
