@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
-# Rename Pattern Finder and expose its encyclopedia before any search or save.
+# Consolidate pattern tools, search before naming, and replace unchecked matches.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
 echo '69917e260166a62a494a02c651144c26d4851bbb02dbd9668ce7d64842d38335  training-center-overlay.tar.gz' | sha256sum --check --status
-echo 'bd476a13a54c43f0883530af2485232e8e9dc1cf26af319cc601921ee93d22da  runtime-contents.json' | sha256sum --check --status
+echo '1abed0dcdd5ef36f73f1778ee65aedf4ea5405f7f21f95d8353b48d814a21f3f  runtime-contents.json' | sha256sum --check --status
 echo 'a3b614ab06c3740c380b0f035a56d44ce2725343335409fc0c5456d350ef6b0c  training-center-calendar.tar.gz' | sha256sum --check --status
 echo 'f024dca3519a6e3e75f8fd693aa4569a3815b223ee05d1499216323d8c819941  training-center-full-previews.tar.gz' | sha256sum --check --status
 echo '463ef694cd9e33f56a2eecebcc0b469d4e2b1f9bf5ebb524156f905beadeed0c  training-center-encyclopedia.tar.gz' | sha256sum --check --status
@@ -12,7 +12,7 @@ echo 'ad068af2c36444279d70a975da82d3b344cb7a2e8d1d129d2cc38769342e7331  training
 echo 'b1df8426811fd498f5752b47ba756ac3fc02d773b53649fff0b1079299519d3f  training-center-pattern-detail.tar.gz' | sha256sum --check --status
 echo 'b16662999768d942080a491508a0c6304e660ba984dcd4c2dda351c8ebdb6447  training-center-pattern-workflow.tar.gz' | sha256sum --check --status
 echo 'c2385969298d032fb09c8855cd8514ac78e930a3dd8f91d89d17420da136d430  training-center-pattern-random-session.tar.gz' | sha256sum --check --status
-echo 'f6b5d0c2e7242da8d75c7b24fbd1506c5ab99bd186e0b5d45de721d079825db8  training-center-pattern-finder.tar.gz' | sha256sum --check --status
+echo '95839b592f909f09f7d76acf267231151dd7bdfda7f9165e25c75c6da46239e4  training-center-pattern-finder.tar.gz' | sha256sum --check --status
 rm -rf -- training-center-app
 mkdir -p training-center-app
 tar -xzf training-center-source.tar.gz -C training-center-app --no-same-owner --no-same-permissions
