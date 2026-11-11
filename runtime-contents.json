@@ -11,8 +11,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 72797,
-    "sha256": "c5966ba325c501088a6e55a8619ec2ca7724aae4eb295feb1c2ca2e82a580b7d"
+    "bytes": 73189,
+    "sha256": "38d2ba81e71d97ecb1df85896d400e57c84242794eda87aa1ecbff51a9e3205a"
   },
   {
     "path": "app/activate/page.tsx",
@@ -121,8 +121,8 @@
   },
   {
     "path": "app/page.tsx",
-    "bytes": 5418,
-    "sha256": "448f260f4ad77cc982b32dfc2597c56903e2caabc0596bd8b9263861f8dbecd3"
+    "bytes": 6255,
+    "sha256": "46946ac002220ff91149959444484540c036ee87c6984bdecf22cfdd3a644b88"
   },
   {
     "path": "app/pattern-encyclopedia/[id]/page.tsx",
@@ -446,13 +446,13 @@
   },
   {
     "path": "components/pattern-encyclopedia.module.css",
-    "bytes": 3958,
-    "sha256": "72130b66418e7e80168361bb528a01512dc7388887a37dea99835382b43d5f91"
+    "bytes": 4878,
+    "sha256": "e837e35c29e4f56fac6f2d6adf940c811ced7f2f5c15fdbe868f0fb52cb3fccd"
   },
   {
     "path": "components/pattern-encyclopedia.tsx",
-    "bytes": 24747,
-    "sha256": "f7aaf135f5329078e2b51e860424b5f17f9ea74a532ba785a4b3affbc0b1369a"
+    "bytes": 24355,
+    "sha256": "6e24789c9249735a019b2ffaa70855e56f5ce05975378963b530e12193070539"
   },
   {
     "path": "components/pattern-match.module.css",
@@ -736,8 +736,8 @@
   },
   {
     "path": "docs/pattern-encyclopedia-rollout.md",
-    "bytes": 12099,
-    "sha256": "883564b01f58da7c4191cb26c67b39e79818c3260ead064dd4426a223f2ad9f1"
+    "bytes": 13057,
+    "sha256": "45599f05cb5b04b070610147e6955d5485401fc3700e4bdb9e2899b199c2e570"
   },
   {
     "path": "docs/point-limit-preferences.md",
