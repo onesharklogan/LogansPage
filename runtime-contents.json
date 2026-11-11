@@ -456,13 +456,13 @@
   },
   {
     "path": "components/pattern-match.module.css",
-    "bytes": 6425,
-    "sha256": "0849c7f8d15229e1d9d803b6fc1adc79ff78259633c542fa029047966c1a3830"
+    "bytes": 6549,
+    "sha256": "2d3b6c31a362de7aef4019989596570b07093417b55c2d33182a4d8b9a555906"
   },
   {
     "path": "components/pattern-match.tsx",
-    "bytes": 22303,
-    "sha256": "16f1846f5c69ed6340b8cabad2d3abfe9de09c802e85060ee34fc289a523075f"
+    "bytes": 23786,
+    "sha256": "1a16472f04bd6d28da08f1a6faac106362ab1094fbb56559e9a773840377f36a"
   },
   {
     "path": "components/portal.tsx",
@@ -971,8 +971,8 @@
   },
   {
     "path": "lib/pattern-selection.mjs",
-    "bytes": 1690,
-    "sha256": "bd60c321fe780c090b4a8ae4dc9da97e8c5e3f89802a44e8eb8b488dd49a0c72"
+    "bytes": 2396,
+    "sha256": "95bb911919013d9af398a99e1e43cc32b3536f56795b2401759060a1ff3dafbe"
   },
   {
     "path": "lib/pattern-study-snapshot.mjs",
