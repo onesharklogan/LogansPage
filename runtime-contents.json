@@ -11,8 +11,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 73189,
-    "sha256": "38d2ba81e71d97ecb1df85896d400e57c84242794eda87aa1ecbff51a9e3205a"
+    "bytes": 73633,
+    "sha256": "8e4fbde1a4acb92bc64225c9fe4f4b670301620c3c5ae7589edd5a7b647a2002"
   },
   {
     "path": "app/activate/page.tsx",
@@ -121,8 +121,8 @@
   },
   {
     "path": "app/page.tsx",
-    "bytes": 6255,
-    "sha256": "46946ac002220ff91149959444484540c036ee87c6984bdecf22cfdd3a644b88"
+    "bytes": 6253,
+    "sha256": "1f71cc6f9e1b219360bc28dfd721a5a87cafec710df1c51d251891861a1e9da7"
   },
   {
     "path": "app/pattern-encyclopedia/[id]/page.tsx",
@@ -136,8 +136,8 @@
   },
   {
     "path": "app/pattern-match/page.tsx",
-    "bytes": 298,
-    "sha256": "2134682f4ad5137d8a3cbb9fc015d26175695e86e0a127b14d4101099d1abf8f"
+    "bytes": 297,
+    "sha256": "f92e3889034a0c720758621c9bbb79a61384a9b36fc83f474e283e4fab213959"
   },
   {
     "path": "app/speak-the-chart/page.tsx",
@@ -441,28 +441,28 @@
   },
   {
     "path": "components/pattern-candles.tsx",
-    "bytes": 3480,
-    "sha256": "28e3323b9b65f8778a2264e47d73632d3bb0087119a820189c5516a13e3b8aeb"
+    "bytes": 4591,
+    "sha256": "cae1db9bcadcac3ee361bd4acdf57b6e804de2803b155dd071b8ab34cd9e3d6e"
   },
   {
     "path": "components/pattern-encyclopedia.module.css",
-    "bytes": 4878,
-    "sha256": "e837e35c29e4f56fac6f2d6adf940c811ced7f2f5c15fdbe868f0fb52cb3fccd"
+    "bytes": 5208,
+    "sha256": "03fc46491d6294bff59eb8855edffe513e02fc0b61438185a1b82553fa302a33"
   },
   {
     "path": "components/pattern-encyclopedia.tsx",
-    "bytes": 24355,
-    "sha256": "6e24789c9249735a019b2ffaa70855e56f5ce05975378963b530e12193070539"
+    "bytes": 28581,
+    "sha256": "b707167b36726745f339f82e291c88f60c2fbe661a9313da9b1e947969f8bb0a"
   },
   {
     "path": "components/pattern-match.module.css",
-    "bytes": 5952,
-    "sha256": "d118b810b07004d15b9abe60303458a870b48de4ffa2810d7694ddf77944cd97"
+    "bytes": 6425,
+    "sha256": "0849c7f8d15229e1d9d803b6fc1adc79ff78259633c542fa029047966c1a3830"
   },
   {
     "path": "components/pattern-match.tsx",
-    "bytes": 19466,
-    "sha256": "ccf61bf5f8b313e6bbde24de9e06e153cea16f399c53d28275303965ccb9f326"
+    "bytes": 22303,
+    "sha256": "16f1846f5c69ed6340b8cabad2d3abfe9de09c802e85060ee34fc289a523075f"
   },
   {
     "path": "components/portal.tsx",
@@ -736,8 +736,8 @@
   },
   {
     "path": "docs/pattern-encyclopedia-rollout.md",
-    "bytes": 13057,
-    "sha256": "45599f05cb5b04b070610147e6955d5485401fc3700e4bdb9e2899b199c2e570"
+    "bytes": 14704,
+    "sha256": "cb645e43c9aef6bc6021fce6a80036106eb3e6772f2788622e623f930f098993"
   },
   {
     "path": "docs/point-limit-preferences.md",
@@ -816,8 +816,8 @@
   },
   {
     "path": "lib/chart-match.mjs",
-    "bytes": 46230,
-    "sha256": "186008d090e4fdd840c3581318ab9e7726a2b1cdd2638d8d5f7b12a3dc236b93"
+    "bytes": 46387,
+    "sha256": "4aef2430d17be0a03048787bcf2eefded16510f64db359a63fac4e19122dd1f7"
   },
   {
     "path": "lib/combined-simulator-history.mjs",
@@ -901,13 +901,13 @@
   },
   {
     "path": "lib/learner/pattern-encyclopedia.mjs",
-    "bytes": 5859,
-    "sha256": "a5dc00e1bfa2d848d536601420b812bab87667072f4183e0bd9f4e33740e1819"
+    "bytes": 5857,
+    "sha256": "3c57365ea9277d7acc0feb17f4f15730cf7d0bf6660d279a7cec72e366c15deb"
   },
   {
     "path": "lib/learner/pattern-repository.mjs",
-    "bytes": 7804,
-    "sha256": "6ee3d1b89914142215ee6389be7cd20407aedaf7a2126b10af55f70865e01b2f"
+    "bytes": 10363,
+    "sha256": "331703c38371d40d0e53106b681fa2489acf248ea5c9bc8ac2fa1cb5cc272600"
   },
   {
     "path": "lib/learner/practice-markups.mjs",
@@ -931,8 +931,8 @@
   },
   {
     "path": "lib/learner/server.mjs",
-    "bytes": 14156,
-    "sha256": "648933058605e5643df97cbbf5d7c8476aa3c5658ea93b7c24280e4db0a703a1"
+    "bytes": 15409,
+    "sha256": "7936bb0913db49f892553cb68aedcf306698380dfc185df705705383fc03aa91"
   },
   {
     "path": "lib/learner/stats.mjs",
@@ -961,23 +961,23 @@
   },
   {
     "path": "lib/pattern-encyclopedia-client.mjs",
-    "bytes": 8886,
-    "sha256": "88f21b7496410dc4ffddc8c4b81b4eee917e0047ebdf251a8398f4c2488a355e"
+    "bytes": 9003,
+    "sha256": "783efdb53094e00cf24c211556835ef2700401b6e4c81474a5093cd9bde91cc3"
   },
   {
     "path": "lib/pattern-match.mjs",
-    "bytes": 8998,
-    "sha256": "e9e046b7f61b8ddbcd05e3005433664386afe36290839cd097fe91d2cba57a37"
+    "bytes": 9126,
+    "sha256": "a288c3c5c2944e0da84da24539b213f1a3318943189b493d0a74b10f8cb14f69"
   },
   {
     "path": "lib/pattern-selection.mjs",
-    "bytes": 1612,
-    "sha256": "1982af9c5ea372c84d8ff5ab2aae9d4780619614df35b79d5e9161e6615e6e96"
+    "bytes": 1690,
+    "sha256": "bd60c321fe780c090b4a8ae4dc9da97e8c5e3f89802a44e8eb8b488dd49a0c72"
   },
   {
     "path": "lib/pattern-study-snapshot.mjs",
-    "bytes": 2277,
-    "sha256": "875bae7be732443756450fd92adc0597b7d2b41fb67ab197f40a9a6d28cd8d85"
+    "bytes": 2276,
+    "sha256": "b20ed81998069cfa580faa7939c5cd3cb9c186df142453d8825cbf2c8a213b4e"
   },
   {
     "path": "lib/portal/admin-guest-visits.mjs",
