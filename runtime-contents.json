@@ -436,8 +436,8 @@
   },
   {
     "path": "components/mobile-session-overview.tsx",
-    "bytes": 1354,
-    "sha256": "397620f976f0ec9a227ddf4f5299402507f3ae270dc0f86bfdcf57463fdc37ef"
+    "bytes": 1397,
+    "sha256": "30d0b1cea9d873198bdec49891c27e9295d92071f6d660985022b6ccc4944d89"
   },
   {
     "path": "components/password-sign-in.tsx",
@@ -616,8 +616,8 @@
   },
   {
     "path": "data/bias-provenance.json",
-    "bytes": 26757,
-    "sha256": "c0e141cb272e84e48e5d1fef40112e354836f2d4480b95aabebbdc7347adf4d1"
+    "bytes": 27121,
+    "sha256": "d18b80d7dc23b50100584953d240161600d1dc9189e4478721fc64f758313e2c"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -5306,8 +5306,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 289486,
-    "sha256": "a24dc9798d16753301fcbde10c6be29fa51b8757cafd0e80f44446a8d6cb544f"
+    "bytes": 289537,
+    "sha256": "86c64001b8e4cbeb4b950d73ce6e0478dd397c6d0298e651745e2428a6dc9444"
   },
   {
     "path": "public/modules/market-preview-isolation.js",
@@ -5341,8 +5341,8 @@
   },
   {
     "path": "public/modules/session-overview.css",
-    "bytes": 1947,
-    "sha256": "195a1793c1e747cc75f41c19da403a55bd8943c865143fb8c738016049ac4b77"
+    "bytes": 2832,
+    "sha256": "0887dcc15915d67890043eb8497a93b54f704c41f3d5ef8b0fdb0bf809aca101"
   },
   {
     "path": "public/modules/session-overview.js",

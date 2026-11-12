@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 # Add pattern expectations and compact verified chart archives without changing existing records.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
 echo '69917e260166a62a494a02c651144c26d4851bbb02dbd9668ce7d64842d38335  training-center-overlay.tar.gz' | sha256sum --check --status
-echo '0e903b0faeedcfdc9f6d8dd39e136fb38deedef0646338b458f670a05cf48441  runtime-contents.json' | sha256sum --check --status
+echo '5f042b26efe75ceb73316dbf88c8cc5929f0348a397f252e65a3a6a4acea8b0a  runtime-contents.json' | sha256sum --check --status
 echo 'a3b614ab06c3740c380b0f035a56d44ce2725343335409fc0c5456d350ef6b0c  training-center-calendar.tar.gz' | sha256sum --check --status
 echo 'f024dca3519a6e3e75f8fd693aa4569a3815b223ee05d1499216323d8c819941  training-center-full-previews.tar.gz' | sha256sum --check --status
 echo '463ef694cd9e33f56a2eecebcc0b469d4e2b1f9bf5ebb524156f905beadeed0c  training-center-encyclopedia.tar.gz' | sha256sum --check --status
@@ -17,6 +17,7 @@ echo '55f568f306995f4e6657944adeca474d7799e77ac4d14292bf79d4fb7fcc55dd  training
 echo '08578569a126626c29f64f287672d81ed36ca99fe7293f830d75dbb287de285c  training-center-ema10.tar.gz' | sha256sum --check --status
 rm -rf -- training-center-app
 echo '6ae28468f58f125d1761a062b81d5fb8a274bab0d6ee5152f992b2c3ed18cd10  training-center-preview-trading.tar.gz' | sha256sum --check --status
+echo '8e7b6ff10a314ac51cadf35cb81914930cd03aa42c7139bcafd471a00986adb0  training-center-portrait-overview.tar.gz' | sha256sum --check --status
 mkdir -p training-center-app
 tar -xzf training-center-source.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 tar -xzf training-center-overlay.tar.gz -C training-center-app --no-same-owner --no-same-permissions
@@ -31,6 +32,7 @@ tar -xzf training-center-pattern-finder.tar.gz -C training-center-app --no-same-
 tar -xzf training-center-pattern-storage.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 tar -xzf training-center-ema10.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 tar -xzf training-center-preview-trading.tar.gz -C training-center-app --no-same-owner --no-same-permissions
+tar -xzf training-center-portrait-overview.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 node --input-type=module <<'VERIFY'
 import fs from 'node:fs';import crypto from 'node:crypto';
 const expected=JSON.parse(fs.readFileSync('runtime-contents.json','utf8'));
