@@ -20,6 +20,7 @@ rm -rf -- training-center-app
 echo '6ae28468f58f125d1761a062b81d5fb8a274bab0d6ee5152f992b2c3ed18cd10  training-center-preview-trading.tar.gz' | sha256sum --check --status
 echo '8e7b6ff10a314ac51cadf35cb81914930cd03aa42c7139bcafd471a00986adb0  training-center-portrait-overview.tar.gz' | sha256sum --check --status
 echo 'e5aeb7a1ca314dcbdd5d6201f8c9cd064b1aeb40f9badf8c04310e54f91f059a  training-center-preview-ema.tar.gz' | sha256sum --check --status
+echo '14c2d4cd6717887471bf85d404ee9590d1d0672826bc120b0d9b6c41dae29def  training-center-cumulative-devices.tar.gz' | sha256sum --check --status
 mkdir -p training-center-app
 tar -xzf training-center-source.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 tar -xzf training-center-overlay.tar.gz -C training-center-app --no-same-owner --no-same-permissions
@@ -37,6 +38,7 @@ tar -xzf training-center-preview-trading.tar.gz -C training-center-app --no-same
 tar -xzf training-center-portrait-overview.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 tar -xzf training-center-preview-ema.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 tar -xzf training-center-completed-navigation.tar.gz -C training-center-app --no-same-owner --no-same-permissions
+tar -xzf training-center-cumulative-devices.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 node --input-type=module <<'VERIFY'
 import fs from 'node:fs';import crypto from 'node:crypto';
 const expected=JSON.parse(fs.readFileSync('runtime-contents.json','utf8'));
