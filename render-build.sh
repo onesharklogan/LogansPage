@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 # Add pattern expectations and compact verified chart archives without changing existing records.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
 echo '69917e260166a62a494a02c651144c26d4851bbb02dbd9668ce7d64842d38335  training-center-overlay.tar.gz' | sha256sum --check --status
-echo '1e44bda601c87d28acb9661af845c713dffe0051e78d73214b610ae343df30ff  runtime-contents.json' | sha256sum --check --status
+echo '725238331611f67c716c41d05211c21431162786914a3ffa6ff5284bcab8df01  runtime-contents.json' | sha256sum --check --status
 echo 'a3b614ab06c3740c380b0f035a56d44ce2725343335409fc0c5456d350ef6b0c  training-center-calendar.tar.gz' | sha256sum --check --status
 echo 'f024dca3519a6e3e75f8fd693aa4569a3815b223ee05d1499216323d8c819941  training-center-full-previews.tar.gz' | sha256sum --check --status
 echo '463ef694cd9e33f56a2eecebcc0b469d4e2b1f9bf5ebb524156f905beadeed0c  training-center-encyclopedia.tar.gz' | sha256sum --check --status
@@ -15,6 +15,7 @@ echo 'c2385969298d032fb09c8855cd8514ac78e930a3dd8f91d89d17420da136d430  training
 echo '50c4bc3e55e4f1129565df2c7bda4b1fb6de291342013dc3e6e8c9b67a9f8f51  training-center-pattern-finder.tar.gz' | sha256sum --check --status
 echo '55f568f306995f4e6657944adeca474d7799e77ac4d14292bf79d4fb7fcc55dd  training-center-pattern-storage.tar.gz' | sha256sum --check --status
 echo '08578569a126626c29f64f287672d81ed36ca99fe7293f830d75dbb287de285c  training-center-ema10.tar.gz' | sha256sum --check --status
+echo '703e27b1e6c48575c84aacb15cdeeb76d79c83eda87ce3b9ed378adb3a481f49  training-center-completed-navigation.tar.gz' | sha256sum --check --status
 rm -rf -- training-center-app
 echo '6ae28468f58f125d1761a062b81d5fb8a274bab0d6ee5152f992b2c3ed18cd10  training-center-preview-trading.tar.gz' | sha256sum --check --status
 echo '8e7b6ff10a314ac51cadf35cb81914930cd03aa42c7139bcafd471a00986adb0  training-center-portrait-overview.tar.gz' | sha256sum --check --status
@@ -35,6 +36,7 @@ tar -xzf training-center-ema10.tar.gz -C training-center-app --no-same-owner --n
 tar -xzf training-center-preview-trading.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 tar -xzf training-center-portrait-overview.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 tar -xzf training-center-preview-ema.tar.gz -C training-center-app --no-same-owner --no-same-permissions
+tar -xzf training-center-completed-navigation.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 node --input-type=module <<'VERIFY'
 import fs from 'node:fs';import crypto from 'node:crypto';
 const expected=JSON.parse(fs.readFileSync('runtime-contents.json','utf8'));

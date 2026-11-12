@@ -616,8 +616,8 @@
   },
   {
     "path": "data/bias-provenance.json",
-    "bytes": 27458,
-    "sha256": "4026e126e42f16536b73ce065c3bedd312037efc6e5fdb6423f0ce99582c774f"
+    "bytes": 27870,
+    "sha256": "536e9dc5531dbd80602b71efb71f09a1e3a571db6dea470067cf45d8a74a7c22"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -5306,8 +5306,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 289895,
-    "sha256": "facb70b2dc894559842561f3055e04f21b212093c262a68d871dc13bc906fec9"
+    "bytes": 291742,
+    "sha256": "f542ea706d3fdc2645b4023b2d20410d9562985487728e44055864ca69999e25"
   },
   {
     "path": "public/modules/market-preview-isolation.js",
@@ -5478,6 +5478,11 @@
     "path": "scripts/verify-history-source-http.mjs",
     "bytes": 1977,
     "sha256": "227a457bf68cebf140473ecbd009febd46d1b6eb4234a752d0ebef522ff81dff"
+  },
+  {
+    "path": "tests/completed-navigation.test.mjs",
+    "bytes": 3830,
+    "sha256": "59ba09bb0342a9dff2d5d25334904b8ea514b0534dc5da01a04f5472a9d9985d"
   },
   {
     "path": "tests/overview-ema.test.mjs",
