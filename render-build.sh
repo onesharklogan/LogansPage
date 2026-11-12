@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 # Add pattern expectations and compact verified chart archives without changing existing records.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
 echo '69917e260166a62a494a02c651144c26d4851bbb02dbd9668ce7d64842d38335  training-center-overlay.tar.gz' | sha256sum --check --status
-echo '725238331611f67c716c41d05211c21431162786914a3ffa6ff5284bcab8df01  runtime-contents.json' | sha256sum --check --status
+echo '7fbd2d0538e40ce10742ca831c190ff5cea0367cb5d84347db019384de4d4e96  runtime-contents.json' | sha256sum --check --status
 echo 'a3b614ab06c3740c380b0f035a56d44ce2725343335409fc0c5456d350ef6b0c  training-center-calendar.tar.gz' | sha256sum --check --status
 echo 'f024dca3519a6e3e75f8fd693aa4569a3815b223ee05d1499216323d8c819941  training-center-full-previews.tar.gz' | sha256sum --check --status
 echo '463ef694cd9e33f56a2eecebcc0b469d4e2b1f9bf5ebb524156f905beadeed0c  training-center-encyclopedia.tar.gz' | sha256sum --check --status
