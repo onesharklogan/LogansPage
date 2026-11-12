@@ -436,8 +436,8 @@
   },
   {
     "path": "components/mobile-session-overview.tsx",
-    "bytes": 1397,
-    "sha256": "30d0b1cea9d873198bdec49891c27e9295d92071f6d660985022b6ccc4944d89"
+    "bytes": 1473,
+    "sha256": "6b8232e87ca8030a4c0ce4515c3848cd0a2dc6abf7de04d3b297ae6d5bdfd2be"
   },
   {
     "path": "components/password-sign-in.tsx",
@@ -611,13 +611,13 @@
   },
   {
     "path": "components/trade-simulator.tsx",
-    "bytes": 114069,
-    "sha256": "847aab04f6c8b2c3a8d7c07ea0631b7d97b25a619ac7403cace447f9c7e30358"
+    "bytes": 114329,
+    "sha256": "7993fca957e3a4abde628fc22ac31a7d3fad0433cd9d47edbcd339df7040cf53"
   },
   {
     "path": "data/bias-provenance.json",
-    "bytes": 27121,
-    "sha256": "d18b80d7dc23b50100584953d240161600d1dc9189e4478721fc64f758313e2c"
+    "bytes": 27458,
+    "sha256": "4026e126e42f16536b73ce065c3bedd312037efc6e5fdb6423f0ce99582c774f"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -5306,8 +5306,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 289537,
-    "sha256": "86c64001b8e4cbeb4b950d73ce6e0478dd397c6d0298e651745e2428a6dc9444"
+    "bytes": 289895,
+    "sha256": "facb70b2dc894559842561f3055e04f21b212093c262a68d871dc13bc906fec9"
   },
   {
     "path": "public/modules/market-preview-isolation.js",
@@ -5346,8 +5346,8 @@
   },
   {
     "path": "public/modules/session-overview.js",
-    "bytes": 1436,
-    "sha256": "3575a74aa0b85309b8424c1f97e1b3bbf6fbecaa839548964662dfb73654e2ab"
+    "bytes": 2313,
+    "sha256": "e77e001e9f057713886f3c94406566636181e1f7fd84917478ea2fc82533d191"
   },
   {
     "path": "public/modules/teacher-lesson-navigation.js",
@@ -5478,6 +5478,11 @@
     "path": "scripts/verify-history-source-http.mjs",
     "bytes": 1977,
     "sha256": "227a457bf68cebf140473ecbd009febd46d1b6eb4234a752d0ebef522ff81dff"
+  },
+  {
+    "path": "tests/overview-ema.test.mjs",
+    "bytes": 2457,
+    "sha256": "bfbcf6d883d7d5fce51f49ec8f75d30b2a038971d0a40479ace69374b2b668c0"
   },
   {
     "path": "tests/pattern-storage-compaction.test.mjs",
