@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 # Add pattern expectations and compact verified chart archives without changing existing records.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
 echo '69917e260166a62a494a02c651144c26d4851bbb02dbd9668ce7d64842d38335  training-center-overlay.tar.gz' | sha256sum --check --status
-echo 'ba5a8be9bd14eadfb78a17fec412747e9b27de7a8e35d819d781efd10845d26d  runtime-contents.json' | sha256sum --check --status
+echo 'da36bd429adb1d1b6ee997088b68f4c5f9de503dbdb570104a7821d6bdc45860  runtime-contents.json' | sha256sum --check --status
 echo 'a3b614ab06c3740c380b0f035a56d44ce2725343335409fc0c5456d350ef6b0c  training-center-calendar.tar.gz' | sha256sum --check --status
 echo 'f024dca3519a6e3e75f8fd693aa4569a3815b223ee05d1499216323d8c819941  training-center-full-previews.tar.gz' | sha256sum --check --status
 echo '463ef694cd9e33f56a2eecebcc0b469d4e2b1f9bf5ebb524156f905beadeed0c  training-center-encyclopedia.tar.gz' | sha256sum --check --status
@@ -26,6 +26,7 @@ echo '3e99ff62c6455934a51d3e7df624dc33749e55b9288e310645826bb078074b5b  training
 echo '1b1b978e651c2d456cf3c3de8f5b974a06e5aad5144b7ff84fdb6c443263a1e8  training-center-failed-chart-review.tar.gz' | sha256sum --check --status
 echo '96fe17cf96d7e26d3a7de89dcc277c516726b836cd61da7f89351281c6970396  training-center-simulator-pattern-finder.tar.gz' | sha256sum --check --status
 echo '4222ae86e0e7e4b5c96b8909140b02a386fb2c6ac6f4dfead555bf32754a8a80  training-center-full-pattern-handoff.tar.gz' | sha256sum --check --status
+echo '3fc906c685ed19b00ad60aab59e86bceaf7f408727bef691dbbd3a76a1a44fea  training-center-remove-teacher.tar.gz' | sha256sum --check --status
 mkdir -p training-center-app
 tar -xzf training-center-source.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 tar -xzf training-center-overlay.tar.gz -C training-center-app --no-same-owner --no-same-permissions
@@ -49,6 +50,7 @@ tar -xzf training-center-recovery-save.tar.gz -C training-center-app --no-same-o
 tar -xzf training-center-failed-chart-review.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 tar -xzf training-center-simulator-pattern-finder.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 tar -xzf training-center-full-pattern-handoff.tar.gz -C training-center-app --no-same-owner --no-same-permissions
+tar -xzf training-center-remove-teacher.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 node --input-type=module <<'VERIFY'
 import fs from 'node:fs';import crypto from 'node:crypto';
 const expected=JSON.parse(fs.readFileSync('runtime-contents.json','utf8'));
