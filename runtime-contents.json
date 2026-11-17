@@ -356,8 +356,8 @@
   },
   {
     "path": "components/learner-trader-stats.tsx",
-    "bytes": 14141,
-    "sha256": "43c96b4bb2eba28c7fe98786c675b610f9e668b9d9b3b96e075b421319f59d43"
+    "bytes": 14201,
+    "sha256": "e816bf70a5a964a976b85c82fe6a93c9e29910670353a362a107cc61c753fa88"
   },
   {
     "path": "components/lesson-access-boundary.tsx",
@@ -481,8 +481,8 @@
   },
   {
     "path": "components/pattern-outcomes.tsx",
-    "bytes": 3475,
-    "sha256": "a18b49a1d7a8096ad474fa22ba7ca4013a074c8e0ee9666734e8a0f0d09cc329"
+    "bytes": 5361,
+    "sha256": "b38520d50312493f6ecf291a148908e01f3f5af23a1bbf2fa61df8387c48caa7"
   },
   {
     "path": "components/portal.tsx",
@@ -1036,8 +1036,8 @@
   },
   {
     "path": "lib/pattern-outcomes.mjs",
-    "bytes": 1471,
-    "sha256": "d86c4260a139c641ce04ada3a4a42f356ba752f90994842315fbe5f8f5243329"
+    "bytes": 2217,
+    "sha256": "a0d1ed49ee1dc14b972621285fcd5ecb1a115adf53b2eec9fd8ca47ca99bd2d8"
   },
   {
     "path": "lib/pattern-selection.mjs",
@@ -5631,8 +5631,8 @@
   },
   {
     "path": "tests/cumulative-device-chart.test.mjs",
-    "bytes": 4611,
-    "sha256": "06fd890a9563a1f2925ece550527b8ba77f7e7db738d755e9612b53d601dd601"
+    "bytes": 5758,
+    "sha256": "e8f6742bd833dc2927f8cde2f80f209cd379a53f1dc61a6e37c2aba2c2e379ca"
   },
   {
     "path": "tests/encyclopedia-navigation.test.mjs",
@@ -5670,9 +5670,14 @@
     "sha256": "e967d92b8a6b25b271440620862bf75cfa1effefcb9903cbff21c05eff8c2141"
   },
   {
+    "path": "tests/pattern-outcome-summary.test.mjs",
+    "bytes": 1125,
+    "sha256": "e95fc7fb953a0ca52148355cb2fc6529240786d3bd57e7634c4103baa95741dd"
+  },
+  {
     "path": "tests/pattern-outcomes.test.mjs",
-    "bytes": 3972,
-    "sha256": "bcf1c36891e6ed2fd1d2352c005f0fe969ba6a3727b46179243b55d654fd49af"
+    "bytes": 4669,
+    "sha256": "85ee407a135e774d30070fe7e67419797ec5a51c4b5a59950e04d014e9888fdf"
   },
   {
     "path": "tests/pattern-prior-context.test.mjs",
