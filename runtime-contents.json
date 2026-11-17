@@ -236,8 +236,8 @@
   },
   {
     "path": "components/chart-match-approximate-comparison.tsx",
-    "bytes": 6628,
-    "sha256": "9c2e5b975d65dd52a422f2952cf2feb2d17648a639ac2240b1c52467724c25ec"
+    "bytes": 6636,
+    "sha256": "8d9c0e5915625bafa70c16d70ac8dd28a7005dd8ddabeb9dc87004adf938a0df"
   },
   {
     "path": "components/chart-match-automatic.tsx",
@@ -281,8 +281,8 @@
   },
   {
     "path": "components/chart-match.tsx",
-    "bytes": 47693,
-    "sha256": "3e0e2cc399f3f8d10f5c431ecada74e6beee477a11d059cc860a13f50ee48564"
+    "bytes": 47691,
+    "sha256": "580f63598531213e79f5d783b6fae27ccfe4a4ef9e020c8ee87ae6fda214c3e9"
   },
   {
     "path": "components/combined-simulator-history.tsx",
@@ -627,7 +627,7 @@
   {
     "path": "data/bias-provenance.json",
     "bytes": 28286,
-    "sha256": "c05b9c08231231433554d62719f78a0159c84f76b652fb499732a80d90dd1099"
+    "sha256": "50794a6cecda39ded5eb873b8f89cbe31f128069c81040b881897ddfa6c6756d"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -1446,13 +1446,13 @@
   },
   {
     "path": "public/appearance-paints.js",
-    "bytes": 3463,
-    "sha256": "54bd92c3c55eae54427b889a53791fcc45d4d4202185e7f6fcf88beff052974f"
+    "bytes": 3903,
+    "sha256": "d56e1d6a08040ea7cb79b5e079eca5356d4c3ba5cb5b9367dbc55ce603765d3f"
   },
   {
     "path": "public/appearance.css",
-    "bytes": 37417,
-    "sha256": "a23a0fde8904a22726a5e2e97ffec47f11b016ee307104e0bcf7d7c6df38d2bd"
+    "bytes": 39155,
+    "sha256": "185d0aac1fc2c7a320054501c53b95b7458093d6a7fd06687f750edb76e04c90"
   },
   {
     "path": "public/artwork/breakout.svg",
@@ -5356,8 +5356,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 302546,
-    "sha256": "e9436c3340b8b8c09390ebc72250540ec44cda57f715b8770b7222642b55b38b"
+    "bytes": 302624,
+    "sha256": "6a7976ee3178cc35384e2649fbd0337c3ae6a4124b673aaf8040ea44075b820d"
   },
   {
     "path": "public/modules/market-preview-isolation.js",
@@ -5613,6 +5613,11 @@
     "path": "tests/recovery-save.test.mjs",
     "bytes": 10557,
     "sha256": "2741950e7a5930f601784b267b42711a53ac91eb2a6e3a441b636839c166aad4"
+  },
+  {
+    "path": "tests/reference-palette.test.mjs",
+    "bytes": 1608,
+    "sha256": "805ba9b0de37b3877e498a0930a6a862f7b04360bad3a6a9fa4a64b052716bf4"
   },
   {
     "path": "tests/retired-teacher.test.mjs",
