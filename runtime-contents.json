@@ -476,13 +476,13 @@
   },
   {
     "path": "components/pattern-match.tsx",
-    "bytes": 30050,
-    "sha256": "a69f268e87706193f503229f346f9161d193bb8eb3ca24e19342c1658220e427"
+    "bytes": 30258,
+    "sha256": "1f6fb8d3c9e45993678d61349d59fddf49cac782621ed3f25c47c32944c08e10"
   },
   {
     "path": "components/pattern-outcomes.tsx",
-    "bytes": 3292,
-    "sha256": "4ecd24fa3c2149b3af2325d8292dfa8e38060b005585db455ebd2ee255042f34"
+    "bytes": 3475,
+    "sha256": "a18b49a1d7a8096ad474fa22ba7ca4013a074c8e0ee9666734e8a0f0d09cc329"
   },
   {
     "path": "components/portal.tsx",
@@ -1036,8 +1036,8 @@
   },
   {
     "path": "lib/pattern-outcomes.mjs",
-    "bytes": 1393,
-    "sha256": "98d0e8a197708a29dfbc395d756728c50580da4c28b1eea23675f5a6b29b6c8b"
+    "bytes": 1471,
+    "sha256": "d86c4260a139c641ce04ada3a4a42f356ba752f90994842315fbe5f8f5243329"
   },
   {
     "path": "lib/pattern-selection.mjs",
@@ -5671,8 +5671,8 @@
   },
   {
     "path": "tests/pattern-outcomes.test.mjs",
-    "bytes": 3973,
-    "sha256": "fa8ea3b23c5c62b0f6e5ab4b7ecbe459f4271ba9464d78dbc70c898c52d9bcfb"
+    "bytes": 3972,
+    "sha256": "bcf1c36891e6ed2fd1d2352c005f0fe969ba6a3727b46179243b55d654fd49af"
   },
   {
     "path": "tests/pattern-prior-context.test.mjs",
@@ -5683,6 +5683,11 @@
     "path": "tests/pattern-storage-compaction.test.mjs",
     "bytes": 7696,
     "sha256": "1ef91c50cb51c73a22578e8c08dda16cd82146e345731cee02c8aee15f55bdc7"
+  },
+  {
+    "path": "tests/pattern-top25.test.mjs",
+    "bytes": 3181,
+    "sha256": "973cfa2b6022588a0381b811ed87dc2a5e4726ed2dddd5df9cf189410f5d8826"
   },
   {
     "path": "tests/pattern-trading-style.test.mjs",
