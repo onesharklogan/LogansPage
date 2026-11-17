@@ -456,8 +456,8 @@
   },
   {
     "path": "components/pattern-candles.tsx",
-    "bytes": 5573,
-    "sha256": "24d5fc989875653230ca2e03e8cccb37477631f70baf28c49ba760292d66b971"
+    "bytes": 6466,
+    "sha256": "960b5225f3fb6319c83640602a7f43b8782a6d8d30baa8abf9b6948cd0f61bfc"
   },
   {
     "path": "components/pattern-encyclopedia.module.css",
@@ -476,8 +476,13 @@
   },
   {
     "path": "components/pattern-match.tsx",
-    "bytes": 28981,
-    "sha256": "ceb290edb34d79182ab968fd9e7f4f494ebff2ae72439b94f509534c1517f1fd"
+    "bytes": 30050,
+    "sha256": "a69f268e87706193f503229f346f9161d193bb8eb3ca24e19342c1658220e427"
+  },
+  {
+    "path": "components/pattern-outcomes.tsx",
+    "bytes": 3292,
+    "sha256": "4ecd24fa3c2149b3af2325d8292dfa8e38060b005585db455ebd2ee255042f34"
   },
   {
     "path": "components/portal.tsx",
@@ -1021,8 +1026,8 @@
   },
   {
     "path": "lib/pattern-match.mjs",
-    "bytes": 9866,
-    "sha256": "8f31d70e5e8eb1843695226ccd2d87e4e6b2835c081b122eb597bed68eb5ca42"
+    "bytes": 10424,
+    "sha256": "796d07f2fc47988b58b085dd156ae40dbe53547be39c68cf6b86f44f651468f0"
   },
   {
     "path": "lib/pattern-open-type.mjs",
@@ -1030,9 +1035,14 @@
     "sha256": "d5fa53705e65de528f883627b7b24ac11622b9b5921e84dd8cd9859472eaa586"
   },
   {
+    "path": "lib/pattern-outcomes.mjs",
+    "bytes": 1393,
+    "sha256": "98d0e8a197708a29dfbc395d756728c50580da4c28b1eea23675f5a6b29b6c8b"
+  },
+  {
     "path": "lib/pattern-selection.mjs",
-    "bytes": 2396,
-    "sha256": "95bb911919013d9af398a99e1e43cc32b3536f56795b2401759060a1ff3dafbe"
+    "bytes": 2531,
+    "sha256": "0f58d5a4178bb7a7ef30a78e830960fcb46a008f28ca3ddaabf2c694aee5cb82"
   },
   {
     "path": "lib/pattern-study-snapshot.mjs",
@@ -5658,6 +5668,16 @@
     "path": "tests/pattern-open-type.test.mjs",
     "bytes": 2923,
     "sha256": "e967d92b8a6b25b271440620862bf75cfa1effefcb9903cbff21c05eff8c2141"
+  },
+  {
+    "path": "tests/pattern-outcomes.test.mjs",
+    "bytes": 3973,
+    "sha256": "fa8ea3b23c5c62b0f6e5ab4b7ecbe459f4271ba9464d78dbc70c898c52d9bcfb"
+  },
+  {
+    "path": "tests/pattern-prior-context.test.mjs",
+    "bytes": 2935,
+    "sha256": "1a8bda395dce6f75f355475d9608aca7f8eea4d12737b3430fd083ea6d43510a"
   },
   {
     "path": "tests/pattern-storage-compaction.test.mjs",
