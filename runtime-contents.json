@@ -461,23 +461,23 @@
   },
   {
     "path": "components/pattern-encyclopedia.module.css",
-    "bytes": 7331,
-    "sha256": "5e859b6cf91d3ea372e382e38a5a20accf7bd4f52efe625f818c4eb5c8ff0944"
+    "bytes": 7373,
+    "sha256": "1c29c0169b00b9013cb6373e7260be9fe18586deaceff409c0fa07e7d2d0dda6"
   },
   {
     "path": "components/pattern-encyclopedia.tsx",
-    "bytes": 30781,
-    "sha256": "45bd608d992bfaa7393363c2e7de0112901ae527680ed3ff77996e227ea5c0f0"
+    "bytes": 30740,
+    "sha256": "7a26c8d0e8698a2aba2b959765018e1335cec9400e0ef21f30aa0fa27145f8d4"
   },
   {
     "path": "components/pattern-match.module.css",
-    "bytes": 8819,
-    "sha256": "00bb5e452d7a90f66e62c29a05021fa958c24926fd178b85a78fdea6a0796da6"
+    "bytes": 9862,
+    "sha256": "b31964f3e60c3fc3ee82c62be2045887122bbdbcb295cba79f7df07630a8000d"
   },
   {
     "path": "components/pattern-match.tsx",
-    "bytes": 27738,
-    "sha256": "c09a454d52303c9021948fc23a2ca43d0f3784e31acd969147c22e4286006fa6"
+    "bytes": 28981,
+    "sha256": "ceb290edb34d79182ab968fd9e7f4f494ebff2ae72439b94f509534c1517f1fd"
   },
   {
     "path": "components/portal.tsx",
@@ -623,6 +623,11 @@
     "path": "components/trade-simulator.tsx",
     "bytes": 116781,
     "sha256": "4a19b9e5bcb41cbfa4a5c45746587065290c1d2f85925c99c3a493a7f43b126a"
+  },
+  {
+    "path": "components/trading-style-select.tsx",
+    "bytes": 1141,
+    "sha256": "d521e4ad562c549d2bf676679b259402b8bd357036c854f4ffa9cb926cd48a83"
   },
   {
     "path": "data/bias-provenance.json",
@@ -1018,6 +1023,11 @@
     "path": "lib/pattern-match.mjs",
     "bytes": 9866,
     "sha256": "8f31d70e5e8eb1843695226ccd2d87e4e6b2835c081b122eb597bed68eb5ca42"
+  },
+  {
+    "path": "lib/pattern-open-type.mjs",
+    "bytes": 1202,
+    "sha256": "d5fa53705e65de528f883627b7b24ac11622b9b5921e84dd8cd9859472eaa586"
   },
   {
     "path": "lib/pattern-selection.mjs",
@@ -1466,8 +1476,8 @@
   },
   {
     "path": "public/appearance.css",
-    "bytes": 39155,
-    "sha256": "185d0aac1fc2c7a320054501c53b95b7458093d6a7fd06687f750edb76e04c90"
+    "bytes": 39895,
+    "sha256": "1137e47a47e59836173a1d36ed736d85142e6801f624096af53da544d9baf24b"
   },
   {
     "path": "public/artwork/breakout.svg",
@@ -5645,6 +5655,11 @@
     "sha256": "ce9e53c17884de297b191da90b8604d717cdda959fe2f4e3a99215994aa952c6"
   },
   {
+    "path": "tests/pattern-open-type.test.mjs",
+    "bytes": 2923,
+    "sha256": "e967d92b8a6b25b271440620862bf75cfa1effefcb9903cbff21c05eff8c2141"
+  },
+  {
     "path": "tests/pattern-storage-compaction.test.mjs",
     "bytes": 7696,
     "sha256": "1ef91c50cb51c73a22578e8c08dda16cd82146e345731cee02c8aee15f55bdc7"
@@ -5683,6 +5698,11 @@
     "path": "tests/trade-simulator-interaction-geometry.test.mjs",
     "bytes": 3865,
     "sha256": "72e06b7e837a965894d3f047e1c5c5a560d684fc4623aff79a1dc06b624b5368"
+  },
+  {
+    "path": "tests/trading-style-select.test.mjs",
+    "bytes": 2378,
+    "sha256": "d453d82f3bc4da09c869c16528151e321ead819d58d533164f2b38e184634331"
   },
   {
     "path": "tsconfig.json",
