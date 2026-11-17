@@ -636,8 +636,8 @@
   },
   {
     "path": "components/trading-style-select.tsx",
-    "bytes": 1141,
-    "sha256": "d521e4ad562c549d2bf676679b259402b8bd357036c854f4ffa9cb926cd48a83"
+    "bytes": 1154,
+    "sha256": "e9cb6f63a8fee07303478d9b0429c21a395ddc512d1080ae90e4bd3a2d3aed24"
   },
   {
     "path": "data/bias-provenance.json",
@@ -5751,8 +5751,8 @@
   },
   {
     "path": "tests/trading-style-select.test.mjs",
-    "bytes": 2378,
-    "sha256": "d453d82f3bc4da09c869c16528151e321ead819d58d533164f2b38e184634331"
+    "bytes": 2392,
+    "sha256": "b5f4d0d6a3012ef53c1767e42cb6f636779a3c607a38a0ee2a419742ea3910c1"
   },
   {
     "path": "tsconfig.json",
