@@ -621,13 +621,13 @@
   },
   {
     "path": "components/trade-simulator.tsx",
-    "bytes": 116984,
-    "sha256": "d923b5f507ba5429d6268fa81415aed74bb198620ef7efd71f0a3faf8fdbbbf3"
+    "bytes": 116781,
+    "sha256": "4a19b9e5bcb41cbfa4a5c45746587065290c1d2f85925c99c3a493a7f43b126a"
   },
   {
     "path": "data/bias-provenance.json",
     "bytes": 28286,
-    "sha256": "50794a6cecda39ded5eb873b8f89cbe31f128069c81040b881897ddfa6c6756d"
+    "sha256": "f8f04ae35081d9a48ca48fd65e8e436d888915f158ad100faa1281b447b98461"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -5356,8 +5356,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 302624,
-    "sha256": "6a7976ee3178cc35384e2649fbd0337c3ae6a4124b673aaf8040ea44075b820d"
+    "bytes": 301895,
+    "sha256": "802e8959bed9a252aa0e8752c29162c3cfd7ee021fe99d49265426dd543d9910"
   },
   {
     "path": "public/modules/market-preview-isolation.js",
