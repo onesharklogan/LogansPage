@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 # Add pattern expectations and compact verified chart archives without changing existing records.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
 echo '69917e260166a62a494a02c651144c26d4851bbb02dbd9668ce7d64842d38335  training-center-overlay.tar.gz' | sha256sum --check --status
-echo 'd513859d1561435f832f97b8736b50cec073cb0cba9364fa7d6ea9eab49c04bf  runtime-contents.json' | sha256sum --check --status
+echo 'f6db7dab7f9d2eccf1dd46db8fd9b8c41051498fb845518c0f86d275ae372dd9  runtime-contents.json' | sha256sum --check --status
 echo 'a3b614ab06c3740c380b0f035a56d44ce2725343335409fc0c5456d350ef6b0c  training-center-calendar.tar.gz' | sha256sum --check --status
 echo 'f024dca3519a6e3e75f8fd693aa4569a3815b223ee05d1499216323d8c819941  training-center-full-previews.tar.gz' | sha256sum --check --status
 echo '463ef694cd9e33f56a2eecebcc0b469d4e2b1f9bf5ebb524156f905beadeed0c  training-center-encyclopedia.tar.gz' | sha256sum --check --status
@@ -57,6 +57,8 @@ echo '3bc3164cafa29e78b55868a32e84ccab2fc27448549abd5a2f96bcb7efbcce03  training
 tar -xzf training-center-reference-palette.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 echo 'c8c50045c05fe8f6ec3ee993070d9b7c3f9f6085a485c61d5382ace14c893b27  training-center-controls-cleanup.tar.gz' | sha256sum --check --status
 tar -xzf training-center-controls-cleanup.tar.gz -C training-center-app --no-same-owner --no-same-permissions
+echo '3de6f8b5a743d55fe977f4d53460f0d803fe264a3590254ae042b9fe0e9a704d  training-center-catalog-light.tar.gz' | sha256sum --check --status
+tar -xzf training-center-catalog-light.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 node --input-type=module <<'VERIFY'
 import fs from 'node:fs';import crypto from 'node:crypto';
 const expected=JSON.parse(fs.readFileSync('runtime-contents.json','utf8'));

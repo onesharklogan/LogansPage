@@ -91,8 +91,8 @@
   },
   {
     "path": "app/layout.tsx",
-    "bytes": 671,
-    "sha256": "87a6ec24582f7a8545d277c1dd5d1d19730dc6bc0f8f9628c4027f0835ec5928"
+    "bytes": 1162,
+    "sha256": "c5c6535e6a5091e97c0ee4cbf70a606cbd829ef36274bfbe3afc2dd0813bd6ee"
   },
   {
     "path": "app/learner/local-history/page.tsx",
@@ -121,8 +121,8 @@
   },
   {
     "path": "app/page.tsx",
-    "bytes": 5714,
-    "sha256": "c47342ba2da7921907cda51c708f465c474544b654721fed77dca79168282a57"
+    "bytes": 6334,
+    "sha256": "0e3662d6c112de6d65e4c8aaa56027c26669500e600be74028a4e8e1d11e8769"
   },
   {
     "path": "app/pattern-encyclopedia/[id]/page.tsx",
@@ -221,8 +221,8 @@
   },
   {
     "path": "components/appearance-provider.tsx",
-    "bytes": 1495,
-    "sha256": "155f387f739e2616c4365dc3eef954d32dec120f2c4a13a212ada157f6cfa38e"
+    "bytes": 1767,
+    "sha256": "8bcd0d01e86e1a73d472b6120dda118e04a9744095dfe95c77f5eda841c24e5b"
   },
   {
     "path": "components/chart-marker-workspace.tsx",
@@ -431,8 +431,8 @@
   },
   {
     "path": "components/limit-trade-review.tsx",
-    "bytes": 10940,
-    "sha256": "79e43d2c72791f5355818a71a477290b5da92504f14afde571d826a22c5e2b9f"
+    "bytes": 10511,
+    "sha256": "ace110627db68d7f74a2b668a1560187656865a256429969fc274a30962e4249"
   },
   {
     "path": "components/loading-indicator.tsx",
@@ -461,13 +461,13 @@
   },
   {
     "path": "components/pattern-encyclopedia.module.css",
-    "bytes": 7212,
-    "sha256": "fa61fae1d014b4f809da9c92d54d882a3345a88852508986a9313c54891c4d30"
+    "bytes": 7331,
+    "sha256": "5e859b6cf91d3ea372e382e38a5a20accf7bd4f52efe625f818c4eb5c8ff0944"
   },
   {
     "path": "components/pattern-encyclopedia.tsx",
-    "bytes": 29192,
-    "sha256": "0d98df91691053f65ff1bff1cfa6d846f520376d8c6c846cd6ca0d8c5d142063"
+    "bytes": 30781,
+    "sha256": "45bd608d992bfaa7393363c2e7de0112901ae527680ed3ff77996e227ea5c0f0"
   },
   {
     "path": "components/pattern-match.module.css",
@@ -476,8 +476,8 @@
   },
   {
     "path": "components/pattern-match.tsx",
-    "bytes": 27452,
-    "sha256": "93fb5fe4d80231de07db9493b3bb8e4ed578bed658716b0111ed29825c596b12"
+    "bytes": 27738,
+    "sha256": "c09a454d52303c9021948fc23a2ca43d0f3784e31acd969147c22e4286006fa6"
   },
   {
     "path": "components/portal.tsx",
@@ -627,7 +627,7 @@
   {
     "path": "data/bias-provenance.json",
     "bytes": 28286,
-    "sha256": "f8f04ae35081d9a48ca48fd65e8e436d888915f158ad100faa1281b447b98461"
+    "sha256": "ad84f2bb23807a52879a0b3640e72a72ac9437bf9610f512d3a2cc15551c049c"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -761,8 +761,8 @@
   },
   {
     "path": "docs/pattern-encyclopedia-rollout.md",
-    "bytes": 14704,
-    "sha256": "cb645e43c9aef6bc6021fce6a80036106eb3e6772f2788622e623f930f098993"
+    "bytes": 15419,
+    "sha256": "3a3edb1179a61f0d15a5cdbdf614f07194c407f27e3f6262b2aefd3fb72323dd"
   },
   {
     "path": "docs/point-limit-preferences.md",
@@ -798,6 +798,21 @@
     "path": "docs/tradestation-2024-rollout.md",
     "bytes": 3755,
     "sha256": "98c6854034ff01757932d3bfcb246b0008fcdc0d6004b4bbc10c8a4c473714ae"
+  },
+  {
+    "path": "lib/appearance-server.mjs",
+    "bytes": 874,
+    "sha256": "93a5f7a0aacdb0dbf672170f22b683b8b4270c4355096299381c169228943c5a"
+  },
+  {
+    "path": "lib/catalog-account-ready.mjs",
+    "bytes": 1098,
+    "sha256": "827608bd45f946c2b22042fdcd116c8576c0e064dcc9189540ff2e18145d5047"
+  },
+  {
+    "path": "lib/catalog-empty-retry.mjs",
+    "bytes": 367,
+    "sha256": "1f0f7d9f50f33f50fa08b4e37244dfc2566d2df055e48b45749af689217d6ae8"
   },
   {
     "path": "lib/chart-match-auto.mjs",
@@ -936,13 +951,13 @@
   },
   {
     "path": "lib/learner/pattern-encyclopedia.mjs",
-    "bytes": 7315,
-    "sha256": "5beb1c70d9145222052629db374d6cb02c5d856b87694a2eb7b8e2ac43487416"
+    "bytes": 7415,
+    "sha256": "25ad2c44ad447e292d56ccf047177f9693bf159c4a23712f0ea1e858c8a36522"
   },
   {
     "path": "lib/learner/pattern-repository.mjs",
-    "bytes": 10363,
-    "sha256": "331703c38371d40d0e53106b681fa2489acf248ea5c9bc8ac2fa1cb5cc272600"
+    "bytes": 10826,
+    "sha256": "e9fdbd051b47bc7a68c3da96a6245200bfb7e708668c11ced63b9eab5cc001f2"
   },
   {
     "path": "lib/learner/practice-markups.mjs",
@@ -996,8 +1011,8 @@
   },
   {
     "path": "lib/pattern-encyclopedia-client.mjs",
-    "bytes": 9003,
-    "sha256": "783efdb53094e00cf24c211556835ef2700401b6e4c81474a5093cd9bde91cc3"
+    "bytes": 9354,
+    "sha256": "3bf02a732c78b108ea2c914b671eb3acac8c8511419d7e7557ed1aa4ed1cac82"
   },
   {
     "path": "lib/pattern-match.mjs",
@@ -5240,6 +5255,11 @@
     "sha256": "2b3fa17194641478ecf1530d254e43b0df8e5ca3b6dbd32e6c9a752e3c775c23"
   },
   {
+    "path": "public/modules/biggest-loss.mjs",
+    "bytes": 455,
+    "sha256": "24edb40e2c592adf32f2bad814e4fffb9eec8243839424e70507a49264426eda"
+  },
+  {
     "path": "public/modules/candidate-highlights-ui.js",
     "bytes": 3212,
     "sha256": "6987a5f90551f1d5ea243350f9d5988e609a80a0bcfc296dcb8013b4b86fb308"
@@ -5266,8 +5286,8 @@
   },
   {
     "path": "public/modules/completed-trade-review.js",
-    "bytes": 14042,
-    "sha256": "a3792c26064006ff5d253810208555ca47aaee09c7354a607b04ae013f39a167"
+    "bytes": 13824,
+    "sha256": "3de74eb1dc31d35bef75dbc8114081e495c8b4380af78dd88f723f63774de935"
   },
   {
     "path": "public/modules/direction-accuracy.js",
@@ -5540,6 +5560,11 @@
     "sha256": "49b117daa249a3437ebc71aff790f2ff1c40ddd0afc5a298641c99e2742bd589"
   },
   {
+    "path": "tests/appearance-first-paint.test.mjs",
+    "bytes": 2525,
+    "sha256": "614330d4b47c4874cfc816eb622227f8851a7f02d3808bcdd25db60408e7aeb8"
+  },
+  {
     "path": "tests/appearance-fixture.mjs",
     "bytes": 1778,
     "sha256": "28ded1435f42940348c56592a33c78414b466871372bc816f9d9e8d383970517"
@@ -5550,9 +5575,24 @@
     "sha256": "78eeeb27738c6071d2b94d74f3ca45645149359b8b838b7a225cdbab50f7b5ec"
   },
   {
+    "path": "tests/biggest-loss-review.test.mjs",
+    "bytes": 3505,
+    "sha256": "1cac3a7158d3dec2d64f61c8458d1bed2e35054bf09364e8138364bd62f2b98f"
+  },
+  {
     "path": "tests/calendar-year.test.mjs",
     "bytes": 2013,
     "sha256": "6c69ba3e01483a6902b6929ca7888475f9126f776ef83464342340fa38cd2d40"
+  },
+  {
+    "path": "tests/catalog-account-ready.test.mjs",
+    "bytes": 2349,
+    "sha256": "b6f52471a5c86465935467d1ef562d86757d9f244fa5582962444c1d30e46746"
+  },
+  {
+    "path": "tests/catalog-empty-retry.test.mjs",
+    "bytes": 3445,
+    "sha256": "2d23a38f9b01c1fcd443b0f1163dfb05e2fc6d782f1da5e0d4b922bb9c65f09c"
   },
   {
     "path": "tests/chart-match-automatic-algorithm-independent.test.mjs",
@@ -5608,6 +5648,11 @@
     "path": "tests/pattern-storage-compaction.test.mjs",
     "bytes": 7696,
     "sha256": "1ef91c50cb51c73a22578e8c08dda16cd82146e345731cee02c8aee15f55bdc7"
+  },
+  {
+    "path": "tests/pattern-trading-style.test.mjs",
+    "bytes": 5324,
+    "sha256": "44a7e95e9aff915ad6facbffe086d2b0d42c6ad33a8d9a8a4ae1bf98074e0e43"
   },
   {
     "path": "tests/recovery-save.test.mjs",
