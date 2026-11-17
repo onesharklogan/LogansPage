@@ -461,13 +461,13 @@
   },
   {
     "path": "components/pattern-encyclopedia.module.css",
-    "bytes": 7373,
-    "sha256": "1c29c0169b00b9013cb6373e7260be9fe18586deaceff409c0fa07e7d2d0dda6"
+    "bytes": 7994,
+    "sha256": "8e5a928efa5b1f5717fe4a73317df98ce4e8d89bcac2779e84fa4648edb89687"
   },
   {
     "path": "components/pattern-encyclopedia.tsx",
-    "bytes": 30740,
-    "sha256": "7a26c8d0e8698a2aba2b959765018e1335cec9400e0ef21f30aa0fa27145f8d4"
+    "bytes": 30917,
+    "sha256": "3a9f6a636574df6b9fc9a7a502d091b0064142656069f2e8d2bb1d1bc7fcf63f"
   },
   {
     "path": "components/pattern-match.module.css",
@@ -481,8 +481,8 @@
   },
   {
     "path": "components/pattern-outcomes.tsx",
-    "bytes": 5330,
-    "sha256": "bfdca6382e13784b189d1c04cf7e751b17b2b37ed79885e89604ebc349d2d214"
+    "bytes": 5539,
+    "sha256": "3b17996bcc6bdbf4a12117b5e59b168da96063f92561d125bc5966495c427b1b"
   },
   {
     "path": "components/portal.tsx",
@@ -518,6 +518,11 @@
     "path": "components/public-library.tsx",
     "bytes": 318,
     "sha256": "621d7c79901540f82a4756ebf7fc866ceff28e0af53810bda9ab9efbf2017b9d"
+  },
+  {
+    "path": "components/saved-pattern-outcomes.tsx",
+    "bytes": 2373,
+    "sha256": "640d314cd8a07e949a9af5b81030dd25f1a0995b219e1c71b4f007667c043be8"
   },
   {
     "path": "components/simulator-profile-gate.tsx",
@@ -1041,8 +1046,8 @@
   },
   {
     "path": "lib/pattern-outcomes.mjs",
-    "bytes": 2217,
-    "sha256": "a0d1ed49ee1dc14b972621285fcd5ecb1a115adf53b2eec9fd8ca47ca99bd2d8"
+    "bytes": 2281,
+    "sha256": "15b2b68424a19342f8e8aa147f5bb60b4a8051d233389a3b67fec68953c39847"
   },
   {
     "path": "lib/pattern-selection.mjs",
@@ -1248,6 +1253,11 @@
     "path": "lib/portal/validation.mjs",
     "bytes": 3207,
     "sha256": "dcedd42080a2defa51826b45de76a693721e7259c817f362c1a19f65ad17ce11"
+  },
+  {
+    "path": "lib/saved-pattern-outcomes.mjs",
+    "bytes": 1140,
+    "sha256": "1e61095516f37f0ba68981e78c2b327d3e84a1758363ef91404c1532be848552"
   },
   {
     "path": "lib/session-calendar.mjs",
@@ -5691,8 +5701,8 @@
   },
   {
     "path": "tests/pattern-outcomes.test.mjs",
-    "bytes": 4848,
-    "sha256": "736ed55cdf759d4f30dfbd0a5dfde7b8a855ce143d6e3d715acb705a12e12beb"
+    "bytes": 4958,
+    "sha256": "1854deef790021bf908f12d9107429527d0d19d571d71e6d829749c5830d9526"
   },
   {
     "path": "tests/pattern-prior-context.test.mjs",
@@ -5733,6 +5743,11 @@
     "path": "tests/retired-teacher.test.mjs",
     "bytes": 1893,
     "sha256": "486633f285db00b8e636f494fae2dcea1465ac257be67632436d981a9b3ba9ec"
+  },
+  {
+    "path": "tests/saved-pattern-outcomes.test.mjs",
+    "bytes": 3518,
+    "sha256": "048f8877cdaf69347ed5a719a65e2c4012b32780667ef86cb74f061618a36cbb"
   },
   {
     "path": "tests/trade-simulator-engine-audit.test.mjs",
