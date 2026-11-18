@@ -51,8 +51,8 @@
   },
   {
     "path": "app/api/[...path]/route.ts",
-    "bytes": 370,
-    "sha256": "cbbf7f9561199772f829ab0114a2cd6c5ee62059f9d1b1c98789a98c4436d690"
+    "bytes": 726,
+    "sha256": "040b528d7a55b48831a2ef23b9c0741346cd65d14da8196eb76be3b65adab704"
   },
   {
     "path": "app/api/learner-auth/[...path]/route.ts",
@@ -91,8 +91,8 @@
   },
   {
     "path": "app/layout.tsx",
-    "bytes": 1169,
-    "sha256": "50c5bd66250d8497881a43efe095dbf4ac566a2a2c197e5847415592326f1c7b"
+    "bytes": 1082,
+    "sha256": "4b43082289f33b6293f314b32662343be2f4ab850633e0204b75d2cdc77a10fd"
   },
   {
     "path": "app/learner/local-history/page.tsx",
@@ -101,8 +101,8 @@
   },
   {
     "path": "app/learner/sign-in/page.tsx",
-    "bytes": 673,
-    "sha256": "95f9f0dac9d4ecfcb61b5b54573d390b27e49aeac302f1808b4efacaf973742e"
+    "bytes": 631,
+    "sha256": "04011016294ff9c0488fe4adde1a6ba90932ba3d5b6d6b65d07ea7f4b28ba2d0"
   },
   {
     "path": "app/library/page.tsx",
@@ -121,8 +121,8 @@
   },
   {
     "path": "app/page.tsx",
-    "bytes": 6304,
-    "sha256": "00bb89862efb65230c687d40c09e9941670865ebefeaa35a4e4f1cf5f4e9362c"
+    "bytes": 264,
+    "sha256": "253ae006cd26b3e2402a5e10f0993372c5057a2587f185290a08a9bf937056c1"
   },
   {
     "path": "app/pattern-encyclopedia/[id]/page.tsx",
@@ -138,6 +138,11 @@
     "path": "app/pattern-match/page.tsx",
     "bytes": 298,
     "sha256": "74a2aa150660771246734c9dee1b1efa57cac96d76c4a1ccd87e0fa71f33afd3"
+  },
+  {
+    "path": "app/sign-in/page.tsx",
+    "bytes": 283,
+    "sha256": "a9905615dc726ae1a9b1eedb423baa71ca01b32fa2dade2bc93d9f8147dbeb74"
   },
   {
     "path": "app/speak-the-chart/page.tsx",
@@ -163,6 +168,11 @@
     "path": "app/trade-simulator/simulator.css",
     "bytes": 18479,
     "sha256": "d112f962e57882ecec6665371fb206ec96856fd2004e402956298f4d4cccef23"
+  },
+  {
+    "path": "app/training/page.tsx",
+    "bytes": 6321,
+    "sha256": "70c5f868876b2714e855be4cc4d0467b3fb7a01260b846db4c3e87076a935ca4"
   },
   {
     "path": "components/account-market-direction.tsx",
@@ -211,8 +221,8 @@
   },
   {
     "path": "components/app-navigation.tsx",
-    "bytes": 2928,
-    "sha256": "6a2fdf17ee5b1cc95bfce13c2b0723d7cf57f5d02cd6eeda1153f5c963b431cc"
+    "bytes": 2971,
+    "sha256": "58c352ff8ba7ee8d2d49b722f5f9ec12f7f8c80a941c887780c65ab8abb59b6b"
   },
   {
     "path": "components/appearance-option.tsx",
@@ -300,6 +310,16 @@
     "sha256": "9c787c20e3f8a9fb9065141844612a0efe5b9f3785ab62f8f4eb9fc697f2cad4"
   },
   {
+    "path": "components/daily-dashboard.module.css",
+    "bytes": 7589,
+    "sha256": "5cc2837c820f40e4f716c88a984375397b0585668a22705845fc5c20b8684ead"
+  },
+  {
+    "path": "components/daily-dashboard.tsx",
+    "bytes": 10993,
+    "sha256": "c2c8d94c1df6cfb1d255023721013eb67dd1d1db72b7eda9262a599840a33271"
+  },
+  {
     "path": "components/failed-charts-book.module.css",
     "bytes": 3170,
     "sha256": "9f6be3e2fa0cd8dd4649c27f7505af9f9eb3d629519143bca152dd916a2b95fe"
@@ -346,8 +366,8 @@
   },
   {
     "path": "components/learner-sign-in-return.tsx",
-    "bytes": 1243,
-    "sha256": "ec3937c72bb4f895d90685ab61489595fba0a271e4c115b93b4a32397b134f18"
+    "bytes": 1242,
+    "sha256": "f9ba3ca91d0f91dfdd7b396c10fa2e936a893a0c82c4b3f8a9fb3626a0a46f3d"
   },
   {
     "path": "components/learner-trader-stats.module.css",
@@ -505,6 +525,11 @@
     "sha256": "cdc6f74fce3c9b6ca287ce441a3b30eb71047b2ae585d1ed4f46b998484a3c7d"
   },
   {
+    "path": "components/private-sign-in.tsx",
+    "bytes": 1681,
+    "sha256": "633f8173ba725be559e002413cfd355d4d7c3d06432380afe0dc3963ee50c2a1"
+  },
+  {
     "path": "components/profile-companion.tsx",
     "bytes": 532,
     "sha256": "c8e012478fe3e813590cb7462e5117379dd41bcd115238a0542430738f6ab5f2"
@@ -646,8 +671,8 @@
   },
   {
     "path": "data/bias-provenance.json",
-    "bytes": 28614,
-    "sha256": "b6a84567072c1d8c16f4ec12e28632203d670af878a97ecf19e980e500dd6d26"
+    "bytes": 28843,
+    "sha256": "e1348a1c73c418838ca92656d121b5eb46bd0925dc994063c9d9ea322b5a6a66"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -656,8 +681,8 @@
   },
   {
     "path": "data/chart-marker-provenance.json",
-    "bytes": 13261,
-    "sha256": "0ccd4f2be7cc95d257da3babd7ef71eafdb24a68a0067c5de73617690f8045dc"
+    "bytes": 13490,
+    "sha256": "71e4d63b1dcfccda5c1e6f1b1d60fa16f3a66920499cdf2221b8498473453921"
   },
   {
     "path": "data/chart-references.json",
@@ -778,6 +803,11 @@
     "path": "docs/candidate-highlights.md",
     "bytes": 3403,
     "sha256": "848e3a3b172d4f1469f4bec7fab36af9adb0fcc223f6f706740f7fdb0f64029e"
+  },
+  {
+    "path": "docs/daily-dashboard-deployment.md",
+    "bytes": 2151,
+    "sha256": "b8458656d47b07448fd681a83f5064ca3dbc28db47451e79ee6dc4d6c6a37a45"
   },
   {
     "path": "docs/guest-visit-counts-rollout.md",
@@ -930,6 +960,16 @@
     "sha256": "07da608cd8448f32251e6cd4c6bcea4df67f141b8a52f1609b9feb5729367ed5"
   },
   {
+    "path": "lib/learner/daily-model.mjs",
+    "bytes": 299,
+    "sha256": "4c26790f090b82a0af88460ee5e02c29839dcfdc14e4391ec12546852f422b3d"
+  },
+  {
+    "path": "lib/learner/daily.mjs",
+    "bytes": 8038,
+    "sha256": "15b419b03ee05ade36c27e40a2d0e8349cfdd5e9a95f1f9c79d50c6c3a53e54c"
+  },
+  {
     "path": "lib/learner/direction-points.mjs",
     "bytes": 2756,
     "sha256": "fdf347e8089d01a983fa98ce96b2755eeb5e21338ac06ad1cb046f9472c9b10d"
@@ -995,6 +1035,11 @@
     "sha256": "3bbad3a7f4775fc3506c5731cc694d55afd6b7e58be68143556140489628207d"
   },
   {
+    "path": "lib/learner/private-owner.mjs",
+    "bytes": 2046,
+    "sha256": "f4f6b8c1cd2c9d634e174aa7c04c56dabe98b7c12d19546f13804bd7539405e5"
+  },
+  {
     "path": "lib/learner/repository.mjs",
     "bytes": 21569,
     "sha256": "bfbb3ed71f8ffb647c10708e2a41c780aac02f6460cfc828f61a4621c8f1c476"
@@ -1006,13 +1051,13 @@
   },
   {
     "path": "lib/learner/runtime.mjs",
-    "bytes": 3069,
-    "sha256": "7447a8815fed2f4a34af64e660a5a2f81989ccefd58297bb9d51589dde15a94e"
+    "bytes": 3912,
+    "sha256": "f24ae60e044a0d8f388a458d500058abcaacc53ab1160cfa1696e599ba6b8afe"
   },
   {
     "path": "lib/learner/server.mjs",
-    "bytes": 15723,
-    "sha256": "31f043808cbfbc42457dc53ef306135f1818e1ed3e95d84c64d751a13abfd7d9"
+    "bytes": 16385,
+    "sha256": "53dfe0df8f0bb4f52ebcea498a61d1a816403c903f7fc2666bc2c990a2726e00"
   },
   {
     "path": "lib/learner/stats.mjs",
@@ -1470,6 +1515,21 @@
     "sha256": "c0f8e4f189efcd3dd2f985728fe66a3045a2e917c5388f018287efcfe08ca533"
   },
   {
+    "path": "migrations/028_daily_dashboard.sql",
+    "bytes": 1343,
+    "sha256": "6138de908c0e5f530cf655b84aab1912d35ee3477fe999dcbdba39ef1c1c93ad"
+  },
+  {
+    "path": "migrations/029_daily_dashboard_grants.sql",
+    "bytes": 431,
+    "sha256": "09c85ec8a8334954e31e47642b82a60c353a645acbb094c04c2ce0b38c25ba37"
+  },
+  {
+    "path": "migrations/030_daily_dashboard_points.sql",
+    "bytes": 439,
+    "sha256": "7fc24486b96381bc75377d998295f18debd5eba4ece9524fbd164ddcc041f66a"
+  },
+  {
     "path": "next-env.d.ts",
     "bytes": 288,
     "sha256": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b"
@@ -1496,8 +1556,8 @@
   },
   {
     "path": "proxy.ts",
-    "bytes": 1385,
-    "sha256": "d13c23d925eb2d9a09cfd635089c74fe1dcbe13101b43679948a2919bb236151"
+    "bytes": 2991,
+    "sha256": "6b91d6ee89cddd42a23ab649c70dd118b489a0c07d266d08da2af828be433a1a"
   },
   {
     "path": "public/appearance-frame.js",
@@ -5351,8 +5411,8 @@
   },
   {
     "path": "public/modules/chart-marker.html",
-    "bytes": 152261,
-    "sha256": "bfb957343edf01563037d044fbdc837542837a4ae900eb8e71014bb45a1682f3"
+    "bytes": 152307,
+    "sha256": "3c30c26bd24929aabe0029bce775bd6aae9a06aa363b7a4fb1315b0078837bef"
   },
   {
     "path": "public/modules/chart-match-handoff.js",
@@ -5461,8 +5521,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 300983,
-    "sha256": "925fc7c13c3f3cfc72d9da705e83a46f9742ce3221ce87d7dfbc49259966d7dc"
+    "bytes": 301043,
+    "sha256": "7ff9f5976e1348d952329c59809ea3d1746865643a03ce2a3ee6076d00c76bb5"
   },
   {
     "path": "public/modules/market-preview-isolation.js",
@@ -5686,8 +5746,8 @@
   },
   {
     "path": "tests/catalog-empty-retry.test.mjs",
-    "bytes": 3445,
-    "sha256": "2d23a38f9b01c1fcd443b0f1163dfb05e2fc6d782f1da5e0d4b922bb9c65f09c"
+    "bytes": 3463,
+    "sha256": "e942218957ec5c914ad6ec99ea934b1956cd1be3da492227d238a193d1a3a9af"
   },
   {
     "path": "tests/chart-match-automatic-algorithm-independent.test.mjs",
@@ -5710,6 +5770,16 @@
     "sha256": "e8f6742bd833dc2927f8cde2f80f209cd379a53f1dc61a6e37c2aba2c2e379ca"
   },
   {
+    "path": "tests/daily-dashboard.test.mjs",
+    "bytes": 8054,
+    "sha256": "643cfc77ab41525b671096392bc3dab5ae498569bc084b422c12eebc16ae6d12"
+  },
+  {
+    "path": "tests/daily-midnight.test.mjs",
+    "bytes": 3733,
+    "sha256": "8f422b46dce5b91fcf729d0a6641234e875a2eec1c61cd47a66409cfd103df11"
+  },
+  {
     "path": "tests/encyclopedia-navigation.test.mjs",
     "bytes": 1999,
     "sha256": "5ba3a1f17ed55dc9d935757e98944f0f577cd458dc3702423c24fa2cfcf472be"
@@ -5728,6 +5798,11 @@
     "path": "tests/history-navigation.test.mjs",
     "bytes": 1573,
     "sha256": "0b9493a4dafb6d40ef1d8bb8a16991174ee049565d318fe8ee84b3fa3504535d"
+  },
+  {
+    "path": "tests/hub-navigation.test.mjs",
+    "bytes": 537,
+    "sha256": "5d9c361a96a557c8c74d51895401949de2956a7174af1b351607e41aa9b34252"
   },
   {
     "path": "tests/learner-account-server.test.mjs",
@@ -5795,6 +5870,11 @@
     "sha256": "8b642f3eef681850bcee11ba0a65f380142b9d3c9c7dad9fa1b7ac390984a32a"
   },
   {
+    "path": "tests/private-owner.test.mjs",
+    "bytes": 5392,
+    "sha256": "dee70a07b08e94418b7a4fb8068fe8332fc0a463d0f3b28fd6c808ac6e4d97bf"
+  },
+  {
     "path": "tests/recovery-save.test.mjs",
     "bytes": 10557,
     "sha256": "2741950e7a5930f601784b267b42711a53ac91eb2a6e3a441b636839c166aad4"
@@ -5806,8 +5886,8 @@
   },
   {
     "path": "tests/retired-teacher.test.mjs",
-    "bytes": 1893,
-    "sha256": "486633f285db00b8e636f494fae2dcea1465ac257be67632436d981a9b3ba9ec"
+    "bytes": 1902,
+    "sha256": "ad1605b4dfebef8760da080575e2d5eba31b1e20562ae4879d586bbb406f7614"
   },
   {
     "path": "tests/saved-pattern-outcomes.test.mjs",
