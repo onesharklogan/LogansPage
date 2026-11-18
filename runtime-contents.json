@@ -326,8 +326,8 @@
   },
   {
     "path": "components/failed-charts-book.tsx",
-    "bytes": 11020,
-    "sha256": "c79d33f139aab7fe86d5c422f7263a53ec602c36794a416b429c20ec345760cd"
+    "bytes": 11027,
+    "sha256": "7a550802f335711e745465c20af61c2c55292fde0e997938414abe15d1a45dbb"
   },
   {
     "path": "components/guest-visit-tracker.tsx",
@@ -682,7 +682,7 @@
   {
     "path": "data/bias-provenance.json",
     "bytes": 29015,
-    "sha256": "9969fb072033f33b86e3db160687f465f110637ad6259a1a4d1e73a3df97e9e0"
+    "sha256": "75587ed25ba154434209594aafcb0bcd938a2a066cd53fd6e6b3f6b416804213"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -5486,8 +5486,8 @@
   },
   {
     "path": "public/modules/history-candle-data.js",
-    "bytes": 8212,
-    "sha256": "f726620f8aa2e6c83a0ab01c2f66bc0b1307ab652594fc04aff1ac1644680d9a"
+    "bytes": 8219,
+    "sha256": "dc0539093ee8a070902aa5d33a9e6617d011a6cad7acdb81cf6633b85c3d1ae3"
   },
   {
     "path": "public/modules/history-candle-index.json",
@@ -5546,8 +5546,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 300407,
-    "sha256": "09bb88d265036c81384bd0da69ee28c3bd8386b3b9a003166782f4e0213651fe"
+    "bytes": 300414,
+    "sha256": "02e07e1814eaf25e0f7051ba13073e63d45c2251097999b57d50d7d204a0531e"
   },
   {
     "path": "public/modules/market-preview-isolation.js",
@@ -5918,6 +5918,11 @@
     "path": "tests/preview-retirement.test.mjs",
     "bytes": 2847,
     "sha256": "8b642f3eef681850bcee11ba0a65f380142b9d3c9c7dad9fa1b7ac390984a32a"
+  },
+  {
+    "path": "tests/private-chart-fetch.test.mjs",
+    "bytes": 2886,
+    "sha256": "1966b07806b95d140b53030e5110df2966b089ced0f006c5ee49cef0562a9ebd"
   },
   {
     "path": "tests/private-owner.test.mjs",
