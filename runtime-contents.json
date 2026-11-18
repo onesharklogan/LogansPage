@@ -91,8 +91,8 @@
   },
   {
     "path": "app/layout.tsx",
-    "bytes": 1082,
-    "sha256": "4b43082289f33b6293f314b32662343be2f4ab850633e0204b75d2cdc77a10fd"
+    "bytes": 1087,
+    "sha256": "a9a72222bb99d9eaab7849f1fdefb17568b19494ffabf98524ec26a603d6a6d4"
   },
   {
     "path": "app/learner/local-history/page.tsx",
@@ -121,8 +121,8 @@
   },
   {
     "path": "app/page.tsx",
-    "bytes": 264,
-    "sha256": "253ae006cd26b3e2402a5e10f0993372c5057a2587f185290a08a9bf937056c1"
+    "bytes": 236,
+    "sha256": "8e9ce86a854455f2650be204ba0bfa5b0984fd6fec1773a7ce5ccdd5da2e4109"
   },
   {
     "path": "app/pattern-encyclopedia/[id]/page.tsx",
@@ -141,8 +141,8 @@
   },
   {
     "path": "app/sign-in/page.tsx",
-    "bytes": 283,
-    "sha256": "a9905615dc726ae1a9b1eedb423baa71ca01b32fa2dade2bc93d9f8147dbeb74"
+    "bytes": 281,
+    "sha256": "af0ca7ca94d0a791b0eb93bbd2d18363418d927b4a4b77c35bd6e07c5fe4e611"
   },
   {
     "path": "app/speak-the-chart/page.tsx",
@@ -221,8 +221,8 @@
   },
   {
     "path": "components/app-navigation.tsx",
-    "bytes": 2971,
-    "sha256": "58c352ff8ba7ee8d2d49b722f5f9ec12f7f8c80a941c887780c65ab8abb59b6b"
+    "bytes": 2779,
+    "sha256": "b5af20b018367abc0ab055fedd76c9407176dd9138c8879fc13d40f2e819a590"
   },
   {
     "path": "components/appearance-option.tsx",
@@ -311,13 +311,13 @@
   },
   {
     "path": "components/daily-dashboard.module.css",
-    "bytes": 7589,
-    "sha256": "5cc2837c820f40e4f716c88a984375397b0585668a22705845fc5c20b8684ead"
+    "bytes": 8747,
+    "sha256": "0cb29e0dc27af1b112b668093cd2d8d2ec45e2b0b7d31e9e7f7b935213725784"
   },
   {
     "path": "components/daily-dashboard.tsx",
-    "bytes": 11069,
-    "sha256": "567f5480fbea67bdcc220a236d74a08c1f4a594fb1264a6556a92d4730f7210f"
+    "bytes": 13234,
+    "sha256": "0472ab3d53a13342d2e79dd2e8870e524037353625f4943e351e292f6ba35a61"
   },
   {
     "path": "components/failed-charts-book.module.css",
@@ -681,8 +681,8 @@
   },
   {
     "path": "data/bias-provenance.json",
-    "bytes": 28843,
-    "sha256": "e1348a1c73c418838ca92656d121b5eb46bd0925dc994063c9d9ea322b5a6a66"
+    "bytes": 29015,
+    "sha256": "9969fb072033f33b86e3db160687f465f110637ad6259a1a4d1e73a3df97e9e0"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -691,8 +691,8 @@
   },
   {
     "path": "data/chart-marker-provenance.json",
-    "bytes": 13490,
-    "sha256": "71e4d63b1dcfccda5c1e6f1b1d60fa16f3a66920499cdf2221b8498473453921"
+    "bytes": 13662,
+    "sha256": "84d7ceb6b9c199d7f2d0cc842583dc7c8a06793e77bfb237a7bc711fee98b56d"
   },
   {
     "path": "data/chart-references.json",
@@ -813,6 +813,11 @@
     "path": "docs/candidate-highlights.md",
     "bytes": 3403,
     "sha256": "848e3a3b172d4f1469f4bec7fab36af9adb0fcc223f6f706740f7fdb0f64029e"
+  },
+  {
+    "path": "docs/daily-balance-domain-plan.md",
+    "bytes": 2160,
+    "sha256": "720f43640052ab36b44b28e459124e233847873a4818b4b2909e8784ddc2d2c6"
   },
   {
     "path": "docs/daily-dashboard-deployment.md",
@@ -5401,8 +5406,8 @@
   },
   {
     "path": "public/favicon.svg",
-    "bytes": 712,
-    "sha256": "e6d2e59b7b5bbb0342e0fb496dfc262decbfe4426bbb7b047aec8d467d1dc6f7"
+    "bytes": 244,
+    "sha256": "712cd258c52ad407d0242006887f963ba104c3f44cff213a58ca739b33bee4a9"
   },
   {
     "path": "public/loading-indicator.css",
@@ -5431,8 +5436,8 @@
   },
   {
     "path": "public/modules/chart-marker.html",
-    "bytes": 152307,
-    "sha256": "3c30c26bd24929aabe0029bce775bd6aae9a06aa363b7a4fb1315b0078837bef"
+    "bytes": 152255,
+    "sha256": "2df3ad2943422640c0bad774dca228019890e1019ecfe1084c953381940eee50"
   },
   {
     "path": "public/modules/chart-match-handoff.js",
@@ -5541,8 +5546,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 301043,
-    "sha256": "7ff9f5976e1348d952329c59809ea3d1746865643a03ce2a3ee6076d00c76bb5"
+    "bytes": 300407,
+    "sha256": "09bb88d265036c81384bd0da69ee28c3bd8386b3b9a003166782f4e0213651fe"
   },
   {
     "path": "public/modules/market-preview-isolation.js",
@@ -5790,9 +5795,19 @@
     "sha256": "e8f6742bd833dc2927f8cde2f80f209cd379a53f1dc61a6e37c2aba2c2e379ca"
   },
   {
+    "path": "tests/daily-brand.test.mjs",
+    "bytes": 790,
+    "sha256": "b3888b27c47a6369eb25bc5164ca172cdce65e9aab420c145210f5d6774a72de"
+  },
+  {
     "path": "tests/daily-dashboard.test.mjs",
     "bytes": 8054,
     "sha256": "643cfc77ab41525b671096392bc3dab5ae498569bc084b422c12eebc16ae6d12"
+  },
+  {
+    "path": "tests/daily-delete-ui.test.mjs",
+    "bytes": 3155,
+    "sha256": "dfc2ee80f9d82684a18dce0f4d16a78af73637da08aeb8bdf511c3f39856e646"
   },
   {
     "path": "tests/daily-midnight.test.mjs",
