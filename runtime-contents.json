@@ -646,8 +646,8 @@
   },
   {
     "path": "data/bias-provenance.json",
-    "bytes": 28286,
-    "sha256": "8c14e9095aefa3305567a67cc5353483602ecc540fbad9ce0205d843108b9aa3"
+    "bytes": 28614,
+    "sha256": "b6a84567072c1d8c16f4ec12e28632203d670af878a97ecf19e980e500dd6d26"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -5461,8 +5461,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 300943,
-    "sha256": "b099e70667db6a3b0b1d673940102860fee83c441922c8d0c102f59814c38fd8"
+    "bytes": 300983,
+    "sha256": "925fc7c13c3f3cfc72d9da705e83a46f9742ce3221ce87d7dfbc49259966d7dc"
   },
   {
     "path": "public/modules/market-preview-isolation.js",
@@ -5667,7 +5667,7 @@
   {
     "path": "tests/appearance.test.mjs",
     "bytes": 7775,
-    "sha256": "78eeeb27738c6071d2b94d74f3ca45645149359b8b838b7a225cdbab50f7b5ec"
+    "sha256": "9c4dd4bff6b80033fd9b0ce900ba665d0f2cbf599deafb84c4a28560684b2c65"
   },
   {
     "path": "tests/biggest-loss-review.test.mjs",
@@ -5738,6 +5738,11 @@
     "path": "tests/learner-account-ui-client.test.mjs",
     "bytes": 13693,
     "sha256": "030051be7a5cda5ed4d24a37fec979b34a02b36ce71b984fc29d737be9dbb534"
+  },
+  {
+    "path": "tests/legacy-simulator-catalog.test.mjs",
+    "bytes": 1670,
+    "sha256": "3c37eb6ad722ce835ba1808a280151dda18feadef0f8820e1f081453ec9cf08a"
   },
   {
     "path": "tests/overview-ema.test.mjs",
