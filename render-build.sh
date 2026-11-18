@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 # Add pattern expectations and compact verified chart archives without changing existing records.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
 echo '69917e260166a62a494a02c651144c26d4851bbb02dbd9668ce7d64842d38335  training-center-overlay.tar.gz' | sha256sum --check --status
-echo 'e302720cd6d7e6b3a6e1b866e51cdd375cdb44d4a04e0b4c11a022706ea9eab0  runtime-contents.json' | sha256sum --check --status
+echo 'ee6d16729e70612f07317c2ebef5405a569aeb91fd239a9087a3defd78b2e61e  runtime-contents.json' | sha256sum --check --status
 echo 'a3b614ab06c3740c380b0f035a56d44ce2725343335409fc0c5456d350ef6b0c  training-center-calendar.tar.gz' | sha256sum --check --status
 echo 'f024dca3519a6e3e75f8fd693aa4569a3815b223ee05d1499216323d8c819941  training-center-full-previews.tar.gz' | sha256sum --check --status
 echo '463ef694cd9e33f56a2eecebcc0b469d4e2b1f9bf5ebb524156f905beadeed0c  training-center-encyclopedia.tar.gz' | sha256sum --check --status
@@ -73,6 +73,9 @@ echo 'bc7b5931cf7fa4df453f258f842de175928b75ab347b5496629192ae0c2ce28e  training
 tar -xzf training-center-blsh-style.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 echo '3510369179dbf0385744cf3d20dc23a36722e208af5b2f5868903d140d79ed86  training-center-saved-outcomes.tar.gz' | sha256sum --check --status
 tar -xzf training-center-saved-outcomes.tar.gz -C training-center-app --no-same-owner --no-same-permissions
+cat training-center-november-es-ui.tar.gz.part000 training-center-november-es-ui.tar.gz.part001 training-center-november-es-ui.tar.gz.part002 training-center-november-es-ui.tar.gz.part003 training-center-november-es-ui.tar.gz.part004 training-center-november-es-ui.tar.gz.part005 training-center-november-es-ui.tar.gz.part006 training-center-november-es-ui.tar.gz.part007 training-center-november-es-ui.tar.gz.part008 training-center-november-es-ui.tar.gz.part009 training-center-november-es-ui.tar.gz.part010 training-center-november-es-ui.tar.gz.part011 training-center-november-es-ui.tar.gz.part012 training-center-november-es-ui.tar.gz.part013 training-center-november-es-ui.tar.gz.part014 training-center-november-es-ui.tar.gz.part015 training-center-november-es-ui.tar.gz.part016 training-center-november-es-ui.tar.gz.part017 training-center-november-es-ui.tar.gz.part018 training-center-november-es-ui.tar.gz.part019 training-center-november-es-ui.tar.gz.part020 training-center-november-es-ui.tar.gz.part021 training-center-november-es-ui.tar.gz.part022 training-center-november-es-ui.tar.gz.part023 training-center-november-es-ui.tar.gz.part024 training-center-november-es-ui.tar.gz.part025 training-center-november-es-ui.tar.gz.part026 training-center-november-es-ui.tar.gz.part027 training-center-november-es-ui.tar.gz.part028 training-center-november-es-ui.tar.gz.part029 training-center-november-es-ui.tar.gz.part030 training-center-november-es-ui.tar.gz.part031 training-center-november-es-ui.tar.gz.part032 training-center-november-es-ui.tar.gz.part033 training-center-november-es-ui.tar.gz.part034 training-center-november-es-ui.tar.gz.part035 training-center-november-es-ui.tar.gz.part036 training-center-november-es-ui.tar.gz.part037 training-center-november-es-ui.tar.gz.part038 > training-center-november-es-ui.tar.gz
+echo '15155672937ccb2b01531b715c4915b5e17779d7553cd563c68ea97ec579fd27  training-center-november-es-ui.tar.gz' | sha256sum --check --status
+tar -xzf training-center-november-es-ui.tar.gz -C training-center-app --no-same-owner --no-same-permissions
 node --input-type=module <<'VERIFY'
 import fs from 'node:fs';import crypto from 'node:crypto';
 const expected=JSON.parse(fs.readFileSync('runtime-contents.json','utf8'));
