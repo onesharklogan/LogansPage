@@ -316,8 +316,8 @@
   },
   {
     "path": "components/daily-dashboard.tsx",
-    "bytes": 10993,
-    "sha256": "c2c8d94c1df6cfb1d255023721013eb67dd1d1db72b7eda9262a599840a33271"
+    "bytes": 11069,
+    "sha256": "567f5480fbea67bdcc220a236d74a08c1f4a594fb1264a6556a92d4730f7210f"
   },
   {
     "path": "components/failed-charts-book.module.css",
@@ -348,6 +348,16 @@
     "path": "components/home-teacher-studio-card.tsx",
     "bytes": 2108,
     "sha256": "26dc2abaca26bc86a9a15c7834020e5cfd87d1d3cd8f63cc37a7cdec673fb44f"
+  },
+  {
+    "path": "components/improvements-notes.module.css",
+    "bytes": 1785,
+    "sha256": "11943564219616380d886e1ed553f0f9640e83e1bd595f50f898e23b731cde8b"
+  },
+  {
+    "path": "components/improvements-notes.tsx",
+    "bytes": 4550,
+    "sha256": "bb421abce9e8ca143cb1b8c91f9c0d574f5455730e3320eefc5dd02e62e08bb4"
   },
   {
     "path": "components/learner-account-control.tsx",
@@ -806,8 +816,8 @@
   },
   {
     "path": "docs/daily-dashboard-deployment.md",
-    "bytes": 2151,
-    "sha256": "b8458656d47b07448fd681a83f5064ca3dbc28db47451e79ee6dc4d6c6a37a45"
+    "bytes": 3311,
+    "sha256": "76b8f0b97972567d06ad0869814243c3fc51a9ef32cd83fe4a0ec7b258863cb1"
   },
   {
     "path": "docs/guest-visit-counts-rollout.md",
@@ -1010,6 +1020,11 @@
     "sha256": "b00b762149d451b02a39e18724059b7f29e169e4a83ac1b3b8c41cf64ceb6d7f"
   },
   {
+    "path": "lib/learner/improvements.mjs",
+    "bytes": 1775,
+    "sha256": "9476ebce8182d5b72e751232aeb7397fd80118df4791830791d54b41e5382d09"
+  },
+  {
     "path": "lib/learner/lesson-completion.mjs",
     "bytes": 1576,
     "sha256": "fc2cc44c3070131ad7011d68a23addc3b2806108ca972b5899f10c2873004449"
@@ -1056,8 +1071,8 @@
   },
   {
     "path": "lib/learner/server.mjs",
-    "bytes": 16385,
-    "sha256": "53dfe0df8f0bb4f52ebcea498a61d1a816403c903f7fc2666bc2c990a2726e00"
+    "bytes": 16743,
+    "sha256": "c92ca59e90479b3584ffb74edeaa8ae6d523deb3636fdd384a3e11ebffa7ba11"
   },
   {
     "path": "lib/learner/stats.mjs",
@@ -1528,6 +1543,11 @@
     "path": "migrations/030_daily_dashboard_points.sql",
     "bytes": 439,
     "sha256": "7fc24486b96381bc75377d998295f18debd5eba4ece9524fbd164ddcc041f66a"
+  },
+  {
+    "path": "migrations/031_improvement_notes.sql",
+    "bytes": 759,
+    "sha256": "9cf5d8f56821d17e1c8861fd1db6a1f6670753facdcfd0ed51c176090740091a"
   },
   {
     "path": "next-env.d.ts",
@@ -5805,6 +5825,16 @@
     "sha256": "5d9c361a96a557c8c74d51895401949de2956a7174af1b351607e41aa9b34252"
   },
   {
+    "path": "tests/improvements-ui.test.mjs",
+    "bytes": 1464,
+    "sha256": "8a8412eddcf44fa57446a6cc3cba8c25c5fcf2f735ee55d11c9311169911ffe6"
+  },
+  {
+    "path": "tests/improvements.test.mjs",
+    "bytes": 2426,
+    "sha256": "e7c398e5c952ec3fd0c2ef4610eb1525f47edd9562f341462a9f14ede90c122e"
+  },
+  {
     "path": "tests/learner-account-server.test.mjs",
     "bytes": 20740,
     "sha256": "56a0ac90441665bc3335adc5621ea0728b43448dbe827ad71ebeb3b2b06adc98"
@@ -5871,8 +5901,8 @@
   },
   {
     "path": "tests/private-owner.test.mjs",
-    "bytes": 5392,
-    "sha256": "dee70a07b08e94418b7a4fb8068fe8332fc0a463d0f3b28fd6c808ac6e4d97bf"
+    "bytes": 5420,
+    "sha256": "4e793aadcf9dfd892c58d709a2ec677a1a2c604e6a70266720029216936cf98f"
   },
   {
     "path": "tests/recovery-save.test.mjs",
