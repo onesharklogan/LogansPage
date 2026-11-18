@@ -311,13 +311,13 @@
   },
   {
     "path": "components/daily-dashboard.module.css",
-    "bytes": 8747,
-    "sha256": "0cb29e0dc27af1b112b668093cd2d8d2ec45e2b0b7d31e9e7f7b935213725784"
+    "bytes": 9505,
+    "sha256": "178c198352355beb1547b863e9b6555d250882a0af2730412a246f0108792592"
   },
   {
     "path": "components/daily-dashboard.tsx",
-    "bytes": 13234,
-    "sha256": "0472ab3d53a13342d2e79dd2e8870e524037353625f4943e351e292f6ba35a61"
+    "bytes": 14751,
+    "sha256": "f42bcec3836289ddbd0afd0875259c03d7706db1ea358f4dc9c2b9e004019629"
   },
   {
     "path": "components/failed-charts-book.module.css",
@@ -981,8 +981,8 @@
   },
   {
     "path": "lib/learner/daily.mjs",
-    "bytes": 8038,
-    "sha256": "15b419b03ee05ade36c27e40a2d0e8349cfdd5e9a95f1f9c79d50c6c3a53e54c"
+    "bytes": 11567,
+    "sha256": "8d1c2402ae7083196c22c927d51f5de5871fbb5009f2890a5b08ee29eb46044e"
   },
   {
     "path": "lib/learner/direction-points.mjs",
@@ -1553,6 +1553,11 @@
     "path": "migrations/031_improvement_notes.sql",
     "bytes": 759,
     "sha256": "9cf5d8f56821d17e1c8861fd1db6a1f6670753facdcfd0ed51c176090740091a"
+  },
+  {
+    "path": "migrations/032_daily_categories_order.sql",
+    "bytes": 1635,
+    "sha256": "70180323389f45c672e5d29facfac56dd800bd578b0843483d8a5327b26f0291"
   },
   {
     "path": "next-env.d.ts",
@@ -5801,8 +5806,8 @@
   },
   {
     "path": "tests/daily-dashboard.test.mjs",
-    "bytes": 8054,
-    "sha256": "643cfc77ab41525b671096392bc3dab5ae498569bc084b422c12eebc16ae6d12"
+    "bytes": 11492,
+    "sha256": "8c6290a066d6049223d0a19ac4ebada3bc195a46230f0d6734b2eebc423e9acc"
   },
   {
     "path": "tests/daily-delete-ui.test.mjs",
@@ -5811,8 +5816,13 @@
   },
   {
     "path": "tests/daily-midnight.test.mjs",
-    "bytes": 3733,
-    "sha256": "8f422b46dce5b91fcf729d0a6641234e875a2eec1c61cd47a66409cfd103df11"
+    "bytes": 3873,
+    "sha256": "db560bc52e07dadd62ab3b1db1880b0bda2f2369b97b59aad1f15f9f482be082"
+  },
+  {
+    "path": "tests/daily-revision11-ui.test.mjs",
+    "bytes": 1733,
+    "sha256": "b49469635a0b844a55c8995eab5412002f3513ed8e89599f2ee03f374a49faea"
   },
   {
     "path": "tests/encyclopedia-navigation.test.mjs",
