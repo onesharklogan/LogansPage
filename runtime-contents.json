@@ -461,8 +461,8 @@
   },
   {
     "path": "components/limit-trade-review.tsx",
-    "bytes": 10499,
-    "sha256": "c5b4fac30f1e46251b7ecc8a3d23bcfc95eae98dc00d4cea4e9e9f2c74b33e6a"
+    "bytes": 10936,
+    "sha256": "b9170486865ab90ee770dbca8940d2ea9039cbed2ab2ec3896177fbf9e42c456"
   },
   {
     "path": "components/loading-indicator.tsx",
@@ -671,8 +671,8 @@
   },
   {
     "path": "components/trade-simulator.tsx",
-    "bytes": 116755,
-    "sha256": "afd5e665ac85f8c6aa27f1f5cc0d7d5e4511a43d47a201a0e745b5e302fcbeee"
+    "bytes": 116891,
+    "sha256": "aca96df2656c6bb7c8f3a1ce45adf90dba7eb7a3a5850e3b8977f1d13088533a"
   },
   {
     "path": "components/trading-style-select.tsx",
@@ -681,8 +681,8 @@
   },
   {
     "path": "data/bias-provenance.json",
-    "bytes": 29015,
-    "sha256": "75587ed25ba154434209594aafcb0bcd938a2a066cd53fd6e6b3f6b416804213"
+    "bytes": 29305,
+    "sha256": "67f6717b3bca02276184d7809ca75b93cbbd07dbbbe7cacd5dcd5f7274f0b5d0"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -5466,8 +5466,8 @@
   },
   {
     "path": "public/modules/completed-trade-review.js",
-    "bytes": 13824,
-    "sha256": "3de74eb1dc31d35bef75dbc8114081e495c8b4380af78dd88f723f63774de935"
+    "bytes": 14721,
+    "sha256": "ef0e9d7dae439baf4a5412801dccfe2ce289ad52275c529f707772949fe4c1f3"
   },
   {
     "path": "public/modules/direction-accuracy.js",
@@ -5561,8 +5561,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 300414,
-    "sha256": "02e07e1814eaf25e0f7051ba13073e63d45c2251097999b57d50d7d204a0531e"
+    "bytes": 300683,
+    "sha256": "0df368746441b2f175474f1505cbff7d2570c37acc556a59ffd816020e361a2e"
   },
   {
     "path": "public/modules/market-preview-isolation.js",
@@ -5771,8 +5771,8 @@
   },
   {
     "path": "tests/biggest-loss-review.test.mjs",
-    "bytes": 3505,
-    "sha256": "1cac3a7158d3dec2d64f61c8458d1bed2e35054bf09364e8138364bd62f2b98f"
+    "bytes": 5676,
+    "sha256": "339f01aab115fb499ca1b1559399c4f81763395c95118ebc1dd3572e5cc6fb39"
   },
   {
     "path": "tests/calendar-year.test.mjs",
