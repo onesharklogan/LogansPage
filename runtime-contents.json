@@ -121,8 +121,8 @@
   },
   {
     "path": "app/page.tsx",
-    "bytes": 382,
-    "sha256": "f9059defb33d444d6282cfb4dc40d8a58326aa82f19c35841bf902090c90aefe"
+    "bytes": 452,
+    "sha256": "f58b3ce8929c0ee4f868dddc9360ead5f27d7c7b9bb6161a02d088fd33a87ad0"
   },
   {
     "path": "app/pattern-encyclopedia/[id]/page.tsx",
@@ -311,13 +311,23 @@
   },
   {
     "path": "components/daily-dashboard.module.css",
-    "bytes": 13225,
-    "sha256": "62547b3abc2d3636e9617d41f3f993671091ec4bedc5f6164b9605028ffb5224"
+    "bytes": 14795,
+    "sha256": "50654f3ae4246c976c914a8252e6569f1c417dc24a0df803749e89d4fd15033b"
   },
   {
     "path": "components/daily-dashboard.tsx",
-    "bytes": 19787,
-    "sha256": "42b55c5b7d09cfdad840f422dad720f055ea1169884564b7e246019858ef8743"
+    "bytes": 20834,
+    "sha256": "eee26cc8ca2c7c2689f7c19ee88dcd48bafaf8ae7d526e4b4692ee683bb746a7"
+  },
+  {
+    "path": "components/daily-weight.module.css",
+    "bytes": 1243,
+    "sha256": "99664dd3d7afb41f5850b0f3d2af5471a54021cacebdc40950978d8fe26717c0"
+  },
+  {
+    "path": "components/daily-weight.tsx",
+    "bytes": 7536,
+    "sha256": "7bac02beed2d607b927066174ecfacd5eef31f87ba00e9d82e9654c13edaa0a5"
   },
   {
     "path": "components/failed-charts-book.module.css",
@@ -511,13 +521,13 @@
   },
   {
     "path": "components/pattern-encyclopedia.module.css",
-    "bytes": 8204,
-    "sha256": "b8e6d0df52f445d5f0f862db0122569131ec7658f748c79c82cf34b4c6f12dfd"
+    "bytes": 8419,
+    "sha256": "fe2a08dbfea381a92e4b49e46b30b20e2dd59786e99e036fb930af2958a42fe6"
   },
   {
     "path": "components/pattern-encyclopedia.tsx",
-    "bytes": 31288,
-    "sha256": "ce6181ddca187639e962b0c8c5ea5bd821c1de17a66cc68d75730f8a6ee3900e"
+    "bytes": 33520,
+    "sha256": "10917c9e50e08d2d43b878a0038db3356620d8f69d6d2a4445f987077a586275"
   },
   {
     "path": "components/pattern-match.module.css",
@@ -1010,9 +1020,14 @@
     "sha256": "4c26790f090b82a0af88460ee5e02c29839dcfdc14e4391ec12546852f422b3d"
   },
   {
+    "path": "lib/learner/daily-weight.mjs",
+    "bytes": 2389,
+    "sha256": "eeacecb9020f50b2a887fa007eacc75a2f167af4329e64c4b963ea5ff631b537"
+  },
+  {
     "path": "lib/learner/daily.mjs",
-    "bytes": 12520,
-    "sha256": "63bc6b32b57f87c4d23718a4a44c5b6991f01594192af0a719f770b99aa2d807"
+    "bytes": 13474,
+    "sha256": "ee5738f00851b24a68b2f3234f4a0dc547a0f83d395586c3721598746ca5f88e"
   },
   {
     "path": "lib/learner/direction-points.mjs",
@@ -1086,8 +1101,8 @@
   },
   {
     "path": "lib/learner/pattern-repository.mjs",
-    "bytes": 10826,
-    "sha256": "e9fdbd051b47bc7a68c3da96a6245200bfb7e708668c11ced63b9eab5cc001f2"
+    "bytes": 13343,
+    "sha256": "3b6bfca8093416bb66b5600b5bf64a2bb3dab163d3a75124135f646ab347c1a3"
   },
   {
     "path": "lib/learner/practice-markups.mjs",
@@ -1116,8 +1131,8 @@
   },
   {
     "path": "lib/learner/server.mjs",
-    "bytes": 18070,
-    "sha256": "88e599aa238b0743029444fc124d92d11a4e9c7cd4c8dda4904bbe85123a2691"
+    "bytes": 19227,
+    "sha256": "e8166e80996525f6356f27226bf74dc1fa7d7501991c3e46ae0aa58aedbf9454"
   },
   {
     "path": "lib/learner/stats.mjs",
@@ -1146,8 +1161,8 @@
   },
   {
     "path": "lib/pattern-encyclopedia-client.mjs",
-    "bytes": 9374,
-    "sha256": "6502c3e5298ad60a35055e61e5b71251a3bb6cf67baa450d3313bd5212b666ba"
+    "bytes": 9930,
+    "sha256": "3c52dbe718fa8029b52cbf8fcb9e0271267d5cf0a15425e065d4a4793f20b505"
   },
   {
     "path": "lib/pattern-match.mjs",
@@ -1613,6 +1628,16 @@
     "path": "migrations/035_life_lessons.sql",
     "bytes": 682,
     "sha256": "db308345e5e60b8cc91801cb41a3a8a90d4a3f77e6f49a1bae3094d46cc55a93"
+  },
+  {
+    "path": "migrations/036_pattern_study_days.sql",
+    "bytes": 699,
+    "sha256": "8602917f12ec82a9746b389ef9a356e583e0f7be340b44bbd10b4e2938ba973b"
+  },
+  {
+    "path": "migrations/037_daily_weights.sql",
+    "bytes": 848,
+    "sha256": "a2f83b6984c19a0432d1f5696199038535badafc42a2dfc98186e215e0a22e95"
   },
   {
     "path": "next-env.d.ts",
@@ -5881,8 +5906,8 @@
   },
   {
     "path": "tests/daily-r28-loading-cards.test.mjs",
-    "bytes": 1808,
-    "sha256": "5ecfd00d8a9b769ed2354fb982a6d0d5bdce07626fe57bbbae0ed8f700c57ab9"
+    "bytes": 1835,
+    "sha256": "f36624b2e8b3c46b86e380e185bc062474122f12575689e489d2675e61d65749"
   },
   {
     "path": "tests/daily-revision11-ui.test.mjs",
@@ -5895,9 +5920,24 @@
     "sha256": "a03267768102022c2c64849b33ac54a0646ce7559689542adf3d785cee88b342"
   },
   {
+    "path": "tests/daily-trading-slide.test.mjs",
+    "bytes": 7822,
+    "sha256": "4b5878828aeadba22cfd1509895161df8189b847da52ec02834e8cb40a3ac149"
+  },
+  {
     "path": "tests/daily-unified-navigation.test.mjs",
     "bytes": 3259,
     "sha256": "10a0936b8205b95510845546fc883d2b4e5b2bd35b9bf186848cc6968dc11f4c"
+  },
+  {
+    "path": "tests/daily-weight-ui.test.mjs",
+    "bytes": 5001,
+    "sha256": "1dcd234a9a65456230e9a4d01ee424750238ba38699c8e26d855adedffc4cca6"
+  },
+  {
+    "path": "tests/daily-weight.test.mjs",
+    "bytes": 5344,
+    "sha256": "11ada3e58a178aadc51698b6c2904960001634fbd2c7884924b8f2d47bbcbe1c"
   },
   {
     "path": "tests/encyclopedia-navigation.test.mjs",
