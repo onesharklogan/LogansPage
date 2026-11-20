@@ -121,8 +121,8 @@
   },
   {
     "path": "app/page.tsx",
-    "bytes": 236,
-    "sha256": "8e9ce86a854455f2650be204ba0bfa5b0984fd6fec1773a7ce5ccdd5da2e4109"
+    "bytes": 382,
+    "sha256": "f9059defb33d444d6282cfb4dc40d8a58326aa82f19c35841bf902090c90aefe"
   },
   {
     "path": "app/pattern-encyclopedia/[id]/page.tsx",
@@ -316,8 +316,8 @@
   },
   {
     "path": "components/daily-dashboard.tsx",
-    "bytes": 19628,
-    "sha256": "5cbe65576199955373dfd239f00d0e0d81b61c3daf668711e3c969755d76a712"
+    "bytes": 19787,
+    "sha256": "42b55c5b7d09cfdad840f422dad720f055ea1169884564b7e246019858ef8743"
   },
   {
     "path": "components/failed-charts-book.module.css",
@@ -470,6 +470,16 @@
     "sha256": "3a686dcce85c701ebc5bc90fcae72e119492eaa23de442b4f1f14f2ab00a737b"
   },
   {
+    "path": "components/life-lessons.module.css",
+    "bytes": 977,
+    "sha256": "c9177fa840294bdd4ea4916e1cbc68cc5d2c75870fc26efca900c5ddd4cb88e4"
+  },
+  {
+    "path": "components/life-lessons.tsx",
+    "bytes": 5778,
+    "sha256": "2898c00511e25094c5da1d447e0fef90a5bc6241131e551fc54519a0dffed5ef"
+  },
+  {
     "path": "components/limit-trade-review.tsx",
     "bytes": 10936,
     "sha256": "b9170486865ab90ee770dbca8940d2ea9039cbed2ab2ec3896177fbf9e42c456"
@@ -501,13 +511,13 @@
   },
   {
     "path": "components/pattern-encyclopedia.module.css",
-    "bytes": 7994,
-    "sha256": "8e5a928efa5b1f5717fe4a73317df98ce4e8d89bcac2779e84fa4648edb89687"
+    "bytes": 8204,
+    "sha256": "b8e6d0df52f445d5f0f862db0122569131ec7658f748c79c82cf34b4c6f12dfd"
   },
   {
     "path": "components/pattern-encyclopedia.tsx",
-    "bytes": 30917,
-    "sha256": "3a9f6a636574df6b9fc9a7a502d091b0064142656069f2e8d2bb1d1bc7fcf63f"
+    "bytes": 31288,
+    "sha256": "ce6181ddca187639e962b0c8c5ea5bd821c1de17a66cc68d75730f8a6ee3900e"
   },
   {
     "path": "components/pattern-match.module.css",
@@ -1060,6 +1070,11 @@
     "sha256": "fc2cc44c3070131ad7011d68a23addc3b2806108ca972b5899f10c2873004449"
   },
   {
+    "path": "lib/learner/life-lessons.mjs",
+    "bytes": 2566,
+    "sha256": "af325f9d4baa4d45ef9ae69a05511ddf6dfd5e77f19e17db9ae6c0590c315658"
+  },
+  {
     "path": "lib/learner/local-history-reader.mjs",
     "bytes": 1532,
     "sha256": "12c17ef511d6a2ba00b8c23d4984da8edaa357a6c565dc058fe0c4be931dc006"
@@ -1101,8 +1116,8 @@
   },
   {
     "path": "lib/learner/server.mjs",
-    "bytes": 17394,
-    "sha256": "cd307331858148c5656f1ae0e0eb3a32907fe7249c13a9c87f9533e813482773"
+    "bytes": 18070,
+    "sha256": "88e599aa238b0743029444fc124d92d11a4e9c7cd4c8dda4904bbe85123a2691"
   },
   {
     "path": "lib/learner/stats.mjs",
@@ -1593,6 +1608,11 @@
     "path": "migrations/034_hourly_reminders.sql",
     "bytes": 747,
     "sha256": "cbf6437a9c39cf62ec0a55d6b633d43132418823f376ec565388a66f5f37925b"
+  },
+  {
+    "path": "migrations/035_life_lessons.sql",
+    "bytes": 682,
+    "sha256": "db308345e5e60b8cc91801cb41a3a8a90d4a3f77e6f49a1bae3094d46cc55a93"
   },
   {
     "path": "next-env.d.ts",
@@ -5861,8 +5881,8 @@
   },
   {
     "path": "tests/daily-r28-loading-cards.test.mjs",
-    "bytes": 1743,
-    "sha256": "32809c3770335c6eae5a0cb096d4edb56af5c6d29eca4442723691b9566ab73b"
+    "bytes": 1808,
+    "sha256": "5ecfd00d8a9b769ed2354fb982a6d0d5bdce07626fe57bbbae0ed8f700c57ab9"
   },
   {
     "path": "tests/daily-revision11-ui.test.mjs",
@@ -5948,6 +5968,11 @@
     "path": "tests/legacy-simulator-catalog.test.mjs",
     "bytes": 1670,
     "sha256": "3c37eb6ad722ce835ba1808a280151dda18feadef0f8820e1f081453ec9cf08a"
+  },
+  {
+    "path": "tests/life-lessons.test.mjs",
+    "bytes": 6641,
+    "sha256": "217aa824f020387ebee711d0123126b2efa215ec9b212d0c5f5c388ff78f6663"
   },
   {
     "path": "tests/overview-ema.test.mjs",
