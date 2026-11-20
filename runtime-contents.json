@@ -121,8 +121,8 @@
   },
   {
     "path": "app/page.tsx",
-    "bytes": 452,
-    "sha256": "f58b3ce8929c0ee4f868dddc9360ead5f27d7c7b9bb6161a02d088fd33a87ad0"
+    "bytes": 526,
+    "sha256": "bf9d56eb526b24c33cfc0bae4934ab5b4c7eaf6f3a4871fefc604bcf9c09ed20"
   },
   {
     "path": "app/pattern-encyclopedia/[id]/page.tsx",
@@ -316,8 +316,18 @@
   },
   {
     "path": "components/daily-dashboard.tsx",
-    "bytes": 20834,
-    "sha256": "eee26cc8ca2c7c2689f7c19ee88dcd48bafaf8ae7d526e4b4692ee683bb746a7"
+    "bytes": 21135,
+    "sha256": "d76e2415214245e4a897d662aee5c28569125755701c06332091c8cf651509f4"
+  },
+  {
+    "path": "components/daily-positivity.module.css",
+    "bytes": 1198,
+    "sha256": "75c87f3502f500e01f92892e0eb18bb491ca22db42d0f96f906454526b317c81"
+  },
+  {
+    "path": "components/daily-positivity.tsx",
+    "bytes": 5442,
+    "sha256": "736169ce52273909cc084a508a3d10835cedbe4d6414cb1b0bfe7941e63d25be"
   },
   {
     "path": "components/daily-weight.module.css",
@@ -366,8 +376,8 @@
   },
   {
     "path": "components/hourly-reminders.tsx",
-    "bytes": 6105,
-    "sha256": "0ab744834ddff34c4154a9319e7814ebc5c2ff0156f55743685eeaa4bd359b32"
+    "bytes": 6223,
+    "sha256": "f5dccea6ddf6ec2bd8e3ca18572f835598e7c61976f79b41f1446d010ac08078"
   },
   {
     "path": "components/improvements-notes.module.css",
@@ -481,13 +491,13 @@
   },
   {
     "path": "components/life-lessons.module.css",
-    "bytes": 977,
-    "sha256": "c9177fa840294bdd4ea4916e1cbc68cc5d2c75870fc26efca900c5ddd4cb88e4"
+    "bytes": 1052,
+    "sha256": "736476b1a5428b76ca62a8eab86fbbe45aaa28453e487b478441be87a454028a"
   },
   {
     "path": "components/life-lessons.tsx",
-    "bytes": 5778,
-    "sha256": "2898c00511e25094c5da1d447e0fef90a5bc6241131e551fc54519a0dffed5ef"
+    "bytes": 8670,
+    "sha256": "3bc9187b18618adc039b6a215c51c051c247af68c84f0f4420741f6c8da8d752"
   },
   {
     "path": "components/limit-trade-review.tsx",
@@ -1020,6 +1030,11 @@
     "sha256": "4c26790f090b82a0af88460ee5e02c29839dcfdc14e4391ec12546852f422b3d"
   },
   {
+    "path": "lib/learner/daily-positivity.mjs",
+    "bytes": 2243,
+    "sha256": "dd4d0e3dc5688f7ccfb9bb953380a949d16facf15f3e5bae6990f9ce1dd8f26a"
+  },
+  {
     "path": "lib/learner/daily-weight.mjs",
     "bytes": 2389,
     "sha256": "eeacecb9020f50b2a887fa007eacc75a2f167af4329e64c4b963ea5ff631b537"
@@ -1086,8 +1101,8 @@
   },
   {
     "path": "lib/learner/life-lessons.mjs",
-    "bytes": 2566,
-    "sha256": "af325f9d4baa4d45ef9ae69a05511ddf6dfd5e77f19e17db9ae6c0590c315658"
+    "bytes": 4784,
+    "sha256": "e0b672ae9348bcf062ece5ebb22866100f2be2a73ce362a63408ca9b616922d9"
   },
   {
     "path": "lib/learner/local-history-reader.mjs",
@@ -1131,8 +1146,8 @@
   },
   {
     "path": "lib/learner/server.mjs",
-    "bytes": 19227,
-    "sha256": "e8166e80996525f6356f27226bf74dc1fa7d7501991c3e46ae0aa58aedbf9454"
+    "bytes": 19928,
+    "sha256": "8d8c8098cfaff9177d1b0dcdd511edb807c2e0f1ae20f435380cdea1a76808e9"
   },
   {
     "path": "lib/learner/stats.mjs",
@@ -1638,6 +1653,16 @@
     "path": "migrations/037_daily_weights.sql",
     "bytes": 848,
     "sha256": "a2f83b6984c19a0432d1f5696199038535badafc42a2dfc98186e215e0a22e95"
+  },
+  {
+    "path": "migrations/038_daily_positivity.sql",
+    "bytes": 738,
+    "sha256": "ecea7cc0764c15af33ca563956149971aa693a755e95ec22a0bd09611ca2ddd4"
+  },
+  {
+    "path": "migrations/039_life_lesson_edit_trash.sql",
+    "bytes": 385,
+    "sha256": "fdd7e28cc07f7141617b24303c15587868b9ecfbd6b73a63db9d63c791e616e9"
   },
   {
     "path": "next-env.d.ts",
@@ -5905,6 +5930,16 @@
     "sha256": "f525c36591a1eda5b7cbaeffa1f3a3350c6303a500c0efdfe9d1eac407aa8440"
   },
   {
+    "path": "tests/daily-positivity-ui.test.mjs",
+    "bytes": 4746,
+    "sha256": "35a816ec3bbd67514fe959529d06e43be98f99d1d0e0101f169d3fb64e44795b"
+  },
+  {
+    "path": "tests/daily-positivity.test.mjs",
+    "bytes": 4858,
+    "sha256": "441bdbc9faba8366befdfd69a6adcded704e2748764cfb7d2bfd50c9e2bc2919"
+  },
+  {
     "path": "tests/daily-r28-loading-cards.test.mjs",
     "bytes": 1835,
     "sha256": "f36624b2e8b3c46b86e380e185bc062474122f12575689e489d2675e61d65749"
@@ -5966,8 +6001,8 @@
   },
   {
     "path": "tests/hourly-reminders-ui.test.mjs",
-    "bytes": 5902,
-    "sha256": "1af8fd1d3a456cfced749fe2fa2a9360789d112ef1c38214f74af0fb46a90489"
+    "bytes": 6620,
+    "sha256": "291e728971d3708e5fd9fb86bfee3772ce5e48a1e8082f1a218fbcaae6b339da"
   },
   {
     "path": "tests/hourly-reminders.test.mjs",
@@ -6011,8 +6046,8 @@
   },
   {
     "path": "tests/life-lessons.test.mjs",
-    "bytes": 6641,
-    "sha256": "217aa824f020387ebee711d0123126b2efa215ec9b212d0c5f5c388ff78f6663"
+    "bytes": 9610,
+    "sha256": "9a4101a5d1b7988e572961430abbf63386163b3a0c3750d51a6b2a2cdb71418f"
   },
   {
     "path": "tests/overview-ema.test.mjs",
