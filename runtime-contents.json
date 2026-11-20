@@ -311,13 +311,13 @@
   },
   {
     "path": "components/daily-dashboard.module.css",
-    "bytes": 12455,
-    "sha256": "db250573dd82062ada488d45caf583f09e1be0135eadec4b253a8194b6bbb2bf"
+    "bytes": 13225,
+    "sha256": "62547b3abc2d3636e9617d41f3f993671091ec4bedc5f6164b9605028ffb5224"
   },
   {
     "path": "components/daily-dashboard.tsx",
-    "bytes": 18855,
-    "sha256": "427f368e5ec81a6cd4bccf4b5c18cea77d4e7628d34dbec37b6bb164cfc06694"
+    "bytes": 19628,
+    "sha256": "5cbe65576199955373dfd239f00d0e0d81b61c3daf668711e3c969755d76a712"
   },
   {
     "path": "components/failed-charts-book.module.css",
@@ -356,8 +356,8 @@
   },
   {
     "path": "components/hourly-reminders.tsx",
-    "bytes": 5747,
-    "sha256": "70dee176c12e49ecf32e5b1039fdab8c4f849fee088ad354dc223ef4f07c58a3"
+    "bytes": 6105,
+    "sha256": "0ab744834ddff34c4154a9319e7814ebc5c2ff0156f55743685eeaa4bd359b32"
   },
   {
     "path": "components/improvements-notes.module.css",
@@ -366,8 +366,8 @@
   },
   {
     "path": "components/improvements-notes.tsx",
-    "bytes": 4550,
-    "sha256": "bb421abce9e8ca143cb1b8c91f9c0d574f5455730e3320eefc5dd02e62e08bb4"
+    "bytes": 4962,
+    "sha256": "44d51d262a69b232d5bd64c5680e2b97624e34ce180e2c7ac685f8a7cb2504cc"
   },
   {
     "path": "components/learner-account-control.tsx",
@@ -5858,6 +5858,11 @@
     "path": "tests/daily-midnight.test.mjs",
     "bytes": 4012,
     "sha256": "f525c36591a1eda5b7cbaeffa1f3a3350c6303a500c0efdfe9d1eac407aa8440"
+  },
+  {
+    "path": "tests/daily-r28-loading-cards.test.mjs",
+    "bytes": 1743,
+    "sha256": "32809c3770335c6eae5a0cb096d4edb56af5c6d29eca4442723691b9566ab73b"
   },
   {
     "path": "tests/daily-revision11-ui.test.mjs",
