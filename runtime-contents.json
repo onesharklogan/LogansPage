@@ -491,13 +491,13 @@
   },
   {
     "path": "components/life-lessons.module.css",
-    "bytes": 1052,
-    "sha256": "736476b1a5428b76ca62a8eab86fbbe45aaa28453e487b478441be87a454028a"
+    "bytes": 1351,
+    "sha256": "75f72b44bab0b71465a780de74a491b193fc378f9b91c68ec70db4e655146159"
   },
   {
     "path": "components/life-lessons.tsx",
-    "bytes": 8670,
-    "sha256": "3bc9187b18618adc039b6a215c51c051c247af68c84f0f4420741f6c8da8d752"
+    "bytes": 9181,
+    "sha256": "c3f64c401a5d008b773029d06ae6cfdf066b65b7e5298ad06f4e7a23eb4a461d"
   },
   {
     "path": "components/limit-trade-review.tsx",
@@ -711,8 +711,8 @@
   },
   {
     "path": "components/trade-simulator.tsx",
-    "bytes": 117271,
-    "sha256": "eb22db65d29885a5a300ce9605259b6d945010dcf264e7be2d629df66804922c"
+    "bytes": 119721,
+    "sha256": "d16a4c0e2b7d4feb8dfc5670ce44bef014c4a68f5a08ba28da5a6e83525d2a2a"
   },
   {
     "path": "components/trading-style-select.tsx",
@@ -722,7 +722,7 @@
   {
     "path": "data/bias-provenance.json",
     "bytes": 29693,
-    "sha256": "257029a29521300a85c5df2b52c074dfe1656b4434b17dd3a8b2c3569d85d79b"
+    "sha256": "8ac9b3b53823ad998e294bd006e34a04c74fff94680123c051150a68c1d0b46c"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -1131,8 +1131,8 @@
   },
   {
     "path": "lib/learner/repository.mjs",
-    "bytes": 21569,
-    "sha256": "bfbb3ed71f8ffb647c10708e2a41c780aac02f6460cfc828f61a4621c8f1c476"
+    "bytes": 22416,
+    "sha256": "9abf3ad62db112a3f28c5495978a87e60b2e515a94092288c7ac865038e3386b"
   },
   {
     "path": "lib/learner/request-origin.mjs",
@@ -1146,8 +1146,8 @@
   },
   {
     "path": "lib/learner/server.mjs",
-    "bytes": 19928,
-    "sha256": "8d8c8098cfaff9177d1b0dcdd511edb807c2e0f1ae20f435380cdea1a76808e9"
+    "bytes": 20775,
+    "sha256": "3673b66f172cb450249e1f7ecd1699dd521cab6848ff6de6c1e0cea5c2b09194"
   },
   {
     "path": "lib/learner/stats.mjs",
@@ -1156,8 +1156,8 @@
   },
   {
     "path": "lib/learner/trade-adapter.mjs",
-    "bytes": 9129,
-    "sha256": "9455d04de8f31d024b9d5f2bd08d213c7ea0d3f8e4dd362ec3803f158d35efd9"
+    "bytes": 9961,
+    "sha256": "6afbbff6435682a506e0ebea302a83bfb83c9d06d0205e4ac5b36678db6801d1"
   },
   {
     "path": "lib/learner/validation.mjs",
@@ -1461,8 +1461,8 @@
   },
   {
     "path": "lib/trade-simulator-view.mjs",
-    "bytes": 20490,
-    "sha256": "20d78e9e36c8d447781e7496e35cdca05192d6d69d52c0c0c7d0eb63d012ad01"
+    "bytes": 20789,
+    "sha256": "fce6e18fa1353f5bd910ff51cca639f7768d44515b221c3901db535ab4b660e4"
   },
   {
     "path": "lib/trade-simulator.mjs",
@@ -1663,6 +1663,11 @@
     "path": "migrations/039_life_lesson_edit_trash.sql",
     "bytes": 385,
     "sha256": "fdd7e28cc07f7141617b24303c15587868b9ecfbd6b73a63db9d63c791e616e9"
+  },
+  {
+    "path": "migrations/040_favorite_trade_scale.sql",
+    "bytes": 416,
+    "sha256": "bed52664a028a7915326a3f138035f58b1e415334621449022103aaac7af0e22"
   },
   {
     "path": "next-env.d.ts",
@@ -5641,8 +5646,8 @@
   },
   {
     "path": "public/modules/learner-client.js",
-    "bytes": 39454,
-    "sha256": "30eea31719bbfbb04b8001ae04768cb519b5d9d77c2614e4614892b2808e3bfe"
+    "bytes": 40808,
+    "sha256": "8b37d349a2e28afeb583c1a9f7da891654c3e94317dc56e2171e5f6e48a34b2d"
   },
   {
     "path": "public/modules/learner-profiles.js",
@@ -5708,6 +5713,11 @@
     "path": "public/modules/teacher-lesson-navigation.js",
     "bytes": 866,
     "sha256": "04ccea02a966b07fce0c51f1434efbe41cc5dd969d3cc5a8aaa47fbc3e7cc60d"
+  },
+  {
+    "path": "public/modules/trade-scale.js",
+    "bytes": 174,
+    "sha256": "b11942ada5a9b7c32d92cf4d58ca5f2e06363f280356982de691140d9ee070f7"
   },
   {
     "path": "public/profile-companion.css",
@@ -5990,6 +6000,11 @@
     "sha256": "fb90ee0fe81725a93fcd23e5055f1f552ec5fe59c4a67e07dc1aa27135a934aa"
   },
   {
+    "path": "tests/favorite-trade-scale.test.mjs",
+    "bytes": 5398,
+    "sha256": "a8009e48c1c6e3baa5255cad200dd25e3a2cc1bbe3c0a5cfa799fe9c0384041c"
+  },
+  {
     "path": "tests/history-load.test.mjs",
     "bytes": 2027,
     "sha256": "c45f143db67661860a6a8fa44060d19b94075cf710c7a73befb0f450496a6145"
@@ -6046,8 +6061,8 @@
   },
   {
     "path": "tests/life-lessons.test.mjs",
-    "bytes": 9610,
-    "sha256": "9a4101a5d1b7988e572961430abbf63386163b3a0c3750d51a6b2a2cdb71418f"
+    "bytes": 10494,
+    "sha256": "925318a3bd205326286e2e929bd5adcb9c7964c714d79c5b3b8c19a9570d3a13"
   },
   {
     "path": "tests/overview-ema.test.mjs",
@@ -6138,6 +6153,11 @@
     "path": "tests/saved-pattern-outcomes.test.mjs",
     "bytes": 3518,
     "sha256": "048f8877cdaf69347ed5a719a65e2c4012b32780667ef86cb74f061618a36cbb"
+  },
+  {
+    "path": "tests/trade-favorite-view.test.mjs",
+    "bytes": 1802,
+    "sha256": "2ad78d4f632a1d1c49c25dda27b91a71497173862b9a5c73f55f47fd292a7b71"
   },
   {
     "path": "tests/trade-simulator-engine-audit.test.mjs",
