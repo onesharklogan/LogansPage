@@ -86,8 +86,8 @@
   },
   {
     "path": "app/globals.css",
-    "bytes": 86903,
-    "sha256": "c58e421e55b840836ab062cc092aefadba4d919d98317100cc3d0af50390c422"
+    "bytes": 87122,
+    "sha256": "010afaa0afd23ed152de0e3733ed1151bc4cc0dea1ffb9af4eaa2b51649bc867"
   },
   {
     "path": "app/layout.tsx",
@@ -116,8 +116,8 @@
   },
   {
     "path": "app/market-direction/page.tsx",
-    "bytes": 1113,
-    "sha256": "cd13f9734d7986330c427685414b2385a335423928e8e3c30e205b8641ccf1d2"
+    "bytes": 1552,
+    "sha256": "30b574b6b900ff01c41c865c9fb71a7823807ce70441ed1f9a21fa496cf89dc5"
   },
   {
     "path": "app/page.tsx",
@@ -151,8 +151,8 @@
   },
   {
     "path": "app/speak-the-chart/workspace/route.ts",
-    "bytes": 977,
-    "sha256": "1b904618a97a247ab09accbc7efa14c1845fc9d275829fc85efee27ccf0e6e60"
+    "bytes": 1328,
+    "sha256": "c5b20a2927d501198fe7ce13495c22f565494ea1ad733faeacfaca9a9b51f333"
   },
   {
     "path": "app/studio/page.tsx",
@@ -161,8 +161,8 @@
   },
   {
     "path": "app/trade-simulator/page.tsx",
-    "bytes": 748,
-    "sha256": "0b375815104e9f59dd2c0f70d3a52cdbf74d81eebf506f9257ece0eb7c2d823d"
+    "bytes": 980,
+    "sha256": "7a891d895189063e907855a0b13d26d1598a89d16eb6375d08f2269a35eaa967"
   },
   {
     "path": "app/trade-simulator/simulator.css",
@@ -171,8 +171,8 @@
   },
   {
     "path": "app/training/page.tsx",
-    "bytes": 6321,
-    "sha256": "70c5f868876b2714e855be4cc4d0467b3fb7a01260b846db4c3e87076a935ca4"
+    "bytes": 6552,
+    "sha256": "9b3c4bb5fc72d0ea96cdbb3b8f6661ae66212fc0e0267986b8a8bdf839da33ce"
   },
   {
     "path": "components/account-market-direction.tsx",
@@ -221,8 +221,8 @@
   },
   {
     "path": "components/app-navigation.tsx",
-    "bytes": 3264,
-    "sha256": "8b2fa6b65eb3285711d15b9f39b7194f290c724a6fa411c60c3e33e4b39b67f4"
+    "bytes": 3415,
+    "sha256": "cf343659e70d1e5a450d531e9590bee8bf97e83bdc0a2b2d1ad2b0fe5b5e9c12"
   },
   {
     "path": "components/appearance-option.tsx",
@@ -236,8 +236,8 @@
   },
   {
     "path": "components/chart-marker-workspace.tsx",
-    "bytes": 15938,
-    "sha256": "2b3d34e2bb462350500e5c223b0b86d89a64de0f1b3618ddc660b21a77226094"
+    "bytes": 16111,
+    "sha256": "d24afb0449a7770a3d7a250840cad47f7a318205e16e274bda732ca6d33390a8"
   },
   {
     "path": "components/chart-marker.module.css",
@@ -296,8 +296,8 @@
   },
   {
     "path": "components/combined-simulator-history.tsx",
-    "bytes": 6234,
-    "sha256": "e4372a415110c404e9817191a4d5414aa3de23fb3a81ee6228c3af8053b3387f"
+    "bytes": 6870,
+    "sha256": "056264d7515f03a7deb80cc6fdbbd0527e220afd3aa7b5b785144adce3d19802"
   },
   {
     "path": "components/combined-simulator.css",
@@ -306,8 +306,8 @@
   },
   {
     "path": "components/combined-simulator.tsx",
-    "bytes": 11641,
-    "sha256": "c44613dd374cb17b877e88fcc38423feb94b227a400e9b98aa85975e5e0806b5"
+    "bytes": 12799,
+    "sha256": "32b205693c2b6890b57831b02c1f908476b59b75455ff62168b08798672a8130"
   },
   {
     "path": "components/daily-dashboard.module.css",
@@ -346,8 +346,8 @@
   },
   {
     "path": "components/failed-charts-book.tsx",
-    "bytes": 11103,
-    "sha256": "1a2f54db3433225fd11ccf4bdeafda7e3fb62e95d7b64a57b40a57c002e69f10"
+    "bytes": 11263,
+    "sha256": "88bb202b738885658af7abaeb71f3bffe869550ef9ec184918a92e02b556a851"
   },
   {
     "path": "components/guest-visit-tracker.tsx",
@@ -416,8 +416,8 @@
   },
   {
     "path": "components/learner-trader-stats.tsx",
-    "bytes": 14343,
-    "sha256": "caee8aabff94edc7fcc168147be379974f8fe35dc55735c2f2a1b18a6647fe9c"
+    "bytes": 14722,
+    "sha256": "0830ac75597afa68e2971d68601cbc3543e78f8169c1477615d59390ac763403"
   },
   {
     "path": "components/lesson-access-boundary.tsx",
@@ -611,8 +611,8 @@
   },
   {
     "path": "components/speak-chart-workspace.tsx",
-    "bytes": 15457,
-    "sha256": "935787c692f8db888df7628622e7ee57cda780bdd50e74778cc7225f33273f48"
+    "bytes": 15630,
+    "sha256": "b40296f88b5fdadd71ca3f69a67bc2b770ba1a43253932993bb3538222c7e1c7"
   },
   {
     "path": "components/studio.tsx",
@@ -727,7 +727,7 @@
   {
     "path": "data/bias-provenance.json",
     "bytes": 29693,
-    "sha256": "0966e9b679afec28cc66d0a64be1692f33bc5dcb628c705c06e028f999c24e12"
+    "sha256": "39eba0b282ffe862c473ed876c08725b8bc6000cf7dbaeaa7ce70f4e5898d85b"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -1471,13 +1471,13 @@
   },
   {
     "path": "lib/trade-simulator-preferences.mjs",
-    "bytes": 7150,
-    "sha256": "6302212763b45a466a770da0dd0855460af1e2af74e46ee35aa3e19259892c19"
+    "bytes": 6118,
+    "sha256": "bfb897c17a6f0c59ae01ee765a3f62a6129aead37cafccf0bcad564cbdd3937d"
   },
   {
     "path": "lib/trade-simulator-view.mjs",
-    "bytes": 21600,
-    "sha256": "fb34a33a497dac98cd3c6c784bb5731ec637d04ffdc0d2657b2148b2543da71a"
+    "bytes": 21454,
+    "sha256": "535cd8bbd252ab008aac827b42fc71c592ff529e5805faa5c1a9cb21f09aeb64"
   },
   {
     "path": "lib/trade-simulator.mjs",
@@ -5661,8 +5661,8 @@
   },
   {
     "path": "public/modules/learner-account-bridge.js",
-    "bytes": 22336,
-    "sha256": "d895538026ba10cdfe66b168742a02b1e14f57a8c004fbc66dea70a161960a9c"
+    "bytes": 22612,
+    "sha256": "de2a7d4bcaeac27f11d003775450b5d5dbd0376c24b086201f535dea28d74047"
   },
   {
     "path": "public/modules/learner-client.js",
@@ -5681,8 +5681,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 304488,
-    "sha256": "5376f792ac90cd47f1258933642999617ea4f847e9461a87ee5a4bb140f5ec81"
+    "bytes": 308077,
+    "sha256": "e129bc60f7e0f3e27e6914759a1c46c3dead9ebbefbde132c7e7d29ec0e94fa2"
   },
   {
     "path": "public/modules/market-preview-isolation.js",
@@ -5741,8 +5741,8 @@
   },
   {
     "path": "public/modules/trade-scale.js",
-    "bytes": 174,
-    "sha256": "b11942ada5a9b7c32d92cf4d58ca5f2e06363f280356982de691140d9ee070f7"
+    "bytes": 2053,
+    "sha256": "3f8c5abad165862535462d4d47779f6865aa5a3350ae7943f0dab05d818fc29a"
   },
   {
     "path": "public/profile-companion.css",
@@ -5996,8 +5996,8 @@
   },
   {
     "path": "tests/daily-unified-navigation.test.mjs",
-    "bytes": 3259,
-    "sha256": "10a0936b8205b95510845546fc883d2b4e5b2bd35b9bf186848cc6968dc11f4c"
+    "bytes": 3362,
+    "sha256": "8973d18a217c962a8cb7a6761a01a40de2125abfb2fc8bdee1fceebbcc4f7931"
   },
   {
     "path": "tests/daily-weight-ui.test.mjs",
@@ -6228,5 +6228,15 @@
     "path": "tests/daily-trading-profit-factor.test.mjs",
     "bytes": 6339,
     "sha256": "3bc22994efea7b1ae6fa9fca9805d4e168e9a044bd83c4e00c163cd0bdf2b0a7"
+  },
+  {
+    "path": "components/legacy-trade-review.tsx",
+    "bytes": 2949,
+    "sha256": "8d68a5e407e3b9d5f53cc5f60c047edf7c964be348495104d7e976356a9b01ee"
+  },
+  {
+    "path": "tests/daily-market-only-simulator.test.mjs",
+    "bytes": 6275,
+    "sha256": "c4459af526a6f0b870993a25bbbc0b412ac17553f0e8900687f3c43a1f761bd5"
   }
 ]
