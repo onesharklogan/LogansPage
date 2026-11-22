@@ -1,0 +1,639 @@
+--- a/components/pattern-match.module.css
++++ b/components/pattern-match.module.css
+@@ -1,10 +1,10 @@
+-.page{min-height:100vh;background:var(--appearance-surface-08131f, #08131f);color:var(--appearance-ink-e6eef5, #e6eef5)}.main{max-width:1500px;margin:auto;padding:32px 28px 64px}.main *{box-sizing:border-box}.intro{display:flex;justify-content:space-between;align-items:flex-end;gap:22px;margin-bottom:28px}.eyebrow{font-size:11px;letter-spacing:.18em;color:var(--appearance-ink-9cddc7, #9cddc7);font-weight:700}.intro h1{font-size:clamp(32px,4vw,48px);letter-spacing:-.035em;margin:7px 0 9px}.intro p{max-width:670px;line-height:1.65;color:var(--appearance-ink-adc0d2, #adc0d2)}.intro a{font-size:13px;color:var(--appearance-ink-a8d9ef, #a8d9ef);white-space:nowrap;padding-bottom:16px}.panel,.queryPreview,.searchPanel{border:1px solid var(--appearance-line-294355, #294355);border-radius:16px;background:var(--appearance-surface-0e1e2d, #0e1e2d);padding:20px}.sectionHeader{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.main h2{font-size:19px;margin:0 0 12px;letter-spacing:-.015em}.sectionHeader h2 span,.searchPanel h2>span{display:inline-flex;align-items:center;justify-content:center;width:25px;height:25px;border-radius:7px;background:var(--appearance-surface-25483e, #25483e);color:var(--appearance-ink-a9ead4, #a9ead4);font-size:12px;margin-right:8px}.sectionHeader>span,.instrument{font-size:12px;color:var(--appearance-ink-9ab1c7, #9ab1c7)}.controls{display:flex;align-items:flex-end;flex-wrap:wrap;gap:12px;margin-top:8px}.main label{font-size:12px;color:var(--appearance-ink-b6cadd, #b6cadd);display:flex;flex-direction:column;gap:7px}.main input[type=number]{min-height:44px;border:1px solid var(--appearance-line-36536b, #36536b);border-radius:8px;background:var(--appearance-surface-091725, #091725);color:var(--appearance-ink-e6eef5, #e6eef5);padding:8px 12px;font:inherit;font-size:14px}.main input[type=number]{width:100px}.main button{border:1px solid var(--appearance-line-3c566b, #3c566b);border-radius:8px;background:var(--appearance-surface-152b3c, #152b3c);color:var(--appearance-ink-deebf7, #deebf7);min-height:44px;padding:8px 13px;font:inherit;font-size:13px;cursor:pointer}.main button:hover{background:var(--appearance-surface-203c50, #203c50)}.main button:disabled{opacity:.5;cursor:not-allowed}.main:is(button,input,a,summary,svg):focus-visible{outline:2px solid var(--appearance-line-f6c760, #f6c760);outline-offset:3px}.lengths{display:flex;gap:6px;margin-left:auto}.lengths button[aria-pressed=true]{background:var(--appearance-surface-285343, #285343);border-color:var(--appearance-line-77cbae, #77cbae);color:var(--appearance-ink-dcfff1, #dcfff1)}.help{color:var(--appearance-ink-99afc4, #99afc4);font-size:13px;line-height:1.65;margin:14px 0}.sourceChart{border:1px solid var(--appearance-line-253d50, #253d50);border-radius:10px;overflow:hidden;background:var(--appearance-surface-08131f, #08131f)}.sourceChart svg{display:block;cursor:crosshair;touch-action:pan-y;user-select:none}.slider{display:flex!important;flex-direction:row!important;align-items:center;gap:14px!important;margin-top:16px;white-space:nowrap}.slider input{flex:1;min-width:60px;accent-color:var(--appearance-ink-8bdcc0, #8bdcc0);height:32px}.slider span{min-width:85px;text-align:right}.queryRow{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.8fr);gap:18px;margin:18px 0}.queryPreview{min-width:0}.queryPreview svg{max-height:290px;display:block}.searchPanel p{font-size:13px;line-height:1.6;color:var(--appearance-ink-b0c3d4, #b0c3d4)}.actions{display:flex;flex-wrap:wrap;gap:9px}.main .primary{background:var(--appearance-surface-9ddfc6, #9ddfc6);color:var(--appearance-ink-0c2822, #0c2822);font-weight:750;border-color:var(--appearance-line-9ddfc6, #9ddfc6);padding:11px 20px}.main .primary:hover{background:var(--appearance-surface-b7efdb, #b7efdb)}.main .small{font-size:11px;color:var(--appearance-ink-8ea5bb, #8ea5bb);line-height:1.5}.status{font-size:13px;color:var(--appearance-ink-b1d7c9, #b1d7c9);min-height:20px;margin:22px 0 12px}.notice{border:1px solid var(--appearance-line-35556b, #35556b);border-radius:12px;padding:18px;color:var(--appearance-ink-b9cfe1, #b9cfe1);line-height:1.6}.error{color:var(--appearance-ink-ffbbc5, #ffbbc5);background:var(--appearance-surface-351c29, #351c29);border:1px solid var(--appearance-line-754356, #754356);border-radius:8px;padding:12px;font-size:13px}.warning{color:var(--appearance-ink-f2cb8c, #f2cb8c)!important}.resultsHeading{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}.resultsHeading>span{color:var(--appearance-ink-94acbf, #94acbf);font-size:12px}.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}.card{min-width:0;background:var(--appearance-surface-0e1e2d, #0e1e2d);border:1px solid var(--appearance-line-294355, #294355);border-radius:13px;overflow:hidden}.cardHeading{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:16px 14px 10px;font-size:14px}.rank{color:var(--appearance-ink-8caa9d, #8caa9d);font-size:12px;margin-right:5px}.score{color:var(--appearance-ink-b2ecd8, #b2ecd8);font-weight:700;font-variant-numeric:tabular-nums}.score small{display:block;font-weight:400;font-size:10px;color:var(--appearance-ink-92b4a8, #92b4a8);text-align:right}.card>svg{display:block;width:100%}.cardFooter{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:10px 12px}.cardFooter>span{color:var(--appearance-ink-9fb6ca, #9fb6ca);font-size:11px;line-height:1.5}.breakdown{border-top:1px solid var(--appearance-line-263e51, #263e51);padding:11px 14px;font-size:11px;color:var(--appearance-ink-94aebf, #94aebf)}.breakdown summary{cursor:pointer;min-height:24px;display:flex;align-items:center}.breakdown ul{display:grid;grid-template-columns:1fr 1fr;padding-left:16px;gap:6px}.breakdown p{line-height:1.5}.method{margin-top:24px;font-size:12px;color:var(--appearance-ink-96afc3, #96afc3);line-height:1.7}.method summary{font-size:14px;cursor:pointer;min-height:44px;padding:10px 0}.method p{max-width:1000px}@media(min-width:1600px){.grid{grid-template-columns:minmax(0,1fr)}}@media(max-width:1050px){.grid{grid-template-columns:minmax(0,1fr)}.intro{display:block}.intro a{display:inline-block;padding:0}.queryRow{grid-template-columns:1fr 1fr}.lengths{margin-left:0}}@media(max-width:700px){.main{padding:22px 12px 40px}.panel,.queryPreview,.searchPanel{padding:14px;border-radius:12px}.queryRow{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.sourceChart svg{min-height:190px}.controls{gap:9px}.controls>label:first-child{width:100%}.controls input[type=number]{width:84px}.lengths{gap:4px}.lengths button{font-size:12px;padding:6px 9px}.slider{gap:8px!important;font-size:11px!important}.intro h1{font-size:34px}.intro p{font-size:14px}.queryPreview svg{max-height:250px}.sectionHeader{align-items:baseline}.sectionHeader h2{font-size:17px}.cardFooter>span{font-size:12px}}
++.page{min-height:100vh;background:var(--appearance-surface-08131f, #08131f);color:var(--appearance-ink-e6eef5, #e6eef5)}.main{max-width:1500px;margin:auto;padding:32px 28px 64px}.main *{box-sizing:border-box}.intro{display:flex;justify-content:space-between;align-items:flex-end;gap:22px;margin-bottom:28px}.eyebrow{font-size:11px;letter-spacing:.18em;color:var(--appearance-ink-9cddc7, #9cddc7);font-weight:700}.intro h1{font-size:clamp(32px,4vw,48px);letter-spacing:-.035em;margin:7px 0 9px}.intro p{max-width:670px;line-height:1.65;color:var(--appearance-ink-adc0d2, #adc0d2)}.intro a{font-size:13px;color:var(--appearance-ink-a8d9ef, #a8d9ef);white-space:nowrap;padding-bottom:16px}.panel,.queryPreview,.searchPanel{border:1px solid var(--appearance-line-294355, #294355);border-radius:16px;background:var(--appearance-surface-0e1e2d, #0e1e2d);padding:20px}.sectionHeader{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.main h2{font-size:19px;margin:0 0 12px;letter-spacing:-.015em}.sectionHeader h2 span,.searchPanel h2>span{display:inline-flex;align-items:center;justify-content:center;width:25px;height:25px;border-radius:7px;background:var(--appearance-surface-25483e, #25483e);color:var(--appearance-ink-a9ead4, #a9ead4);font-size:12px;margin-right:8px}.sectionHeader>span,.instrument{font-size:12px;color:var(--appearance-ink-9ab1c7, #9ab1c7)}.controls{display:flex;align-items:flex-end;flex-wrap:wrap;gap:12px;margin-top:8px}.main label{font-size:12px;color:var(--appearance-ink-b6cadd, #b6cadd);display:flex;flex-direction:column;gap:7px}.main input[type=number]{min-height:44px;border:1px solid var(--appearance-line-36536b, #36536b);border-radius:8px;background:var(--appearance-surface-091725, #091725);color:var(--appearance-ink-e6eef5, #e6eef5);padding:8px 12px;font:inherit;font-size:14px}.main input[type=number]{width:100px}.main button{border:1px solid var(--appearance-line-3c566b, #3c566b);border-radius:8px;background:var(--appearance-surface-152b3c, #152b3c);color:var(--appearance-ink-deebf7, #deebf7);min-height:44px;padding:8px 13px;font:inherit;font-size:13px;cursor:pointer}.main button:hover{background:var(--appearance-surface-203c50, #203c50)}.main button:disabled{opacity:.5;cursor:not-allowed}.main:is(button,input,a,summary,svg):focus-visible{outline:2px solid var(--appearance-line-f6c760, #f6c760);outline-offset:3px}.help{color:var(--appearance-ink-99afc4, #99afc4);font-size:13px;line-height:1.65;margin:14px 0}.sourceChart{border:1px solid var(--appearance-line-253d50, #253d50);border-radius:10px;overflow:hidden;background:var(--appearance-surface-08131f, #08131f)}.sourceChart svg{display:block;cursor:crosshair;touch-action:pan-y;user-select:none}.slider{display:flex!important;flex-direction:row!important;align-items:center;gap:14px!important;margin-top:16px;white-space:nowrap}.slider input{flex:1;min-width:60px;accent-color:var(--appearance-ink-8bdcc0, #8bdcc0);height:32px}.slider span{min-width:85px;text-align:right}.queryRow{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.8fr);gap:18px;margin:18px 0}.queryPreview{min-width:0}.queryPreview svg{max-height:290px;display:block}.searchPanel p{font-size:13px;line-height:1.6;color:var(--appearance-ink-b0c3d4, #b0c3d4)}.actions{display:flex;flex-wrap:wrap;gap:9px}.main .primary{background:var(--appearance-surface-9ddfc6, #9ddfc6);color:var(--appearance-ink-0c2822, #0c2822);font-weight:750;border-color:var(--appearance-line-9ddfc6, #9ddfc6);padding:11px 20px}.main .primary:hover{background:var(--appearance-surface-b7efdb, #b7efdb)}.main .small{font-size:11px;color:var(--appearance-ink-8ea5bb, #8ea5bb);line-height:1.5}.status{font-size:13px;color:var(--appearance-ink-b1d7c9, #b1d7c9);min-height:20px;margin:22px 0 12px}.notice{border:1px solid var(--appearance-line-35556b, #35556b);border-radius:12px;padding:18px;color:var(--appearance-ink-b9cfe1, #b9cfe1);line-height:1.6}.error{color:var(--appearance-ink-ffbbc5, #ffbbc5);background:var(--appearance-surface-351c29, #351c29);border:1px solid var(--appearance-line-754356, #754356);border-radius:8px;padding:12px;font-size:13px}.warning{color:var(--appearance-ink-f2cb8c, #f2cb8c)!important}.resultsHeading{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}.resultsHeading>span{color:var(--appearance-ink-94acbf, #94acbf);font-size:12px}.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}.card{min-width:0;background:var(--appearance-surface-0e1e2d, #0e1e2d);border:1px solid var(--appearance-line-294355, #294355);border-radius:13px;overflow:hidden}.cardHeading{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:16px 14px 10px;font-size:14px}.rank{color:var(--appearance-ink-8caa9d, #8caa9d);font-size:12px;margin-right:5px}.score{color:var(--appearance-ink-b2ecd8, #b2ecd8);font-weight:700;font-variant-numeric:tabular-nums}.score small{display:block;font-weight:400;font-size:10px;color:var(--appearance-ink-92b4a8, #92b4a8);text-align:right}.card>svg{display:block;width:100%}.cardFooter{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:10px 12px}.cardFooter>span{color:var(--appearance-ink-9fb6ca, #9fb6ca);font-size:11px;line-height:1.5}.breakdown{border-top:1px solid var(--appearance-line-263e51, #263e51);padding:11px 14px;font-size:11px;color:var(--appearance-ink-94aebf, #94aebf)}.breakdown summary{cursor:pointer;min-height:24px;display:flex;align-items:center}.breakdown ul{display:grid;grid-template-columns:1fr 1fr;padding-left:16px;gap:6px}.breakdown p{line-height:1.5}.method{margin-top:24px;font-size:12px;color:var(--appearance-ink-96afc3, #96afc3);line-height:1.7}.method summary{font-size:14px;cursor:pointer;min-height:44px;padding:10px 0}.method p{max-width:1000px}@media(min-width:1600px){.grid{grid-template-columns:minmax(0,1fr)}}@media(max-width:1050px){.grid{grid-template-columns:minmax(0,1fr)}.intro{display:block}.intro a{display:inline-block;padding:0}.queryRow{grid-template-columns:1fr 1fr}}@media(max-width:700px){.main{padding:22px 12px 40px}.panel,.queryPreview,.searchPanel{padding:14px;border-radius:12px}.queryRow{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.sourceChart svg{min-height:190px}.controls{gap:9px}.controls>label:first-child{width:100%}.controls input[type=number]{width:84px}.slider{gap:8px!important;font-size:11px!important}.intro h1{font-size:34px}.intro p{font-size:14px}.queryPreview svg{max-height:250px}.sectionHeader{align-items:baseline}.sectionHeader h2{font-size:17px}.cardFooter>span{font-size:12px}}
+ 
+ .main .include{display:flex;flex-direction:row;align-items:center;gap:9px;padding:0 14px;min-height:44px;font-size:12px;color:var(--appearance-ink-b1c7d7, #b1c7d7)}.include input{width:18px;height:18px;accent-color:var(--appearance-ink-9ddfc6, #9ddfc6)}
+ 
+ .fullChart{width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;background:var(--appearance-surface-08131f, #08131f)}.fullChart svg{display:block;width:100%;min-width:900px;height:auto}.cardHeading{font-size:17px;padding:18px 20px 12px}.cardFooter{padding:14px 20px;flex-wrap:wrap;gap:12px}.cardFooter>span{font-size:14px}.score small{font-size:12px}.breakdown{font-size:13px}
+ 
+-.controls{border:0;padding:0;min-width:0}.lengths{flex-wrap:wrap}.metadata{display:grid;gap:12px;margin:8px 0 24px}.metadata input,.metadata textarea{width:100%;min-width:0;min-height:44px;border:1px solid var(--appearance-line-36536b, #36536b);border-radius:8px;background:var(--appearance-surface-091725, #091725);color:var(--appearance-ink-e6eef5, #e6eef5);padding:10px 12px;font:inherit;font-size:14px}.metadata textarea{resize:vertical}.main textarea:focus-visible{outline:2px solid var(--appearance-line-f6c760, #f6c760);outline-offset:3px}
++.controls{border:0;padding:0;min-width:0}.metadata{display:grid;gap:12px;margin:8px 0 24px}.metadata input,.metadata textarea{width:100%;min-width:0;min-height:44px;border:1px solid var(--appearance-line-36536b, #36536b);border-radius:8px;background:var(--appearance-surface-091725, #091725);color:var(--appearance-ink-e6eef5, #e6eef5);padding:10px 12px;font:inherit;font-size:14px}.metadata textarea{resize:vertical}.main textarea:focus-visible{outline:2px solid var(--appearance-line-f6c760, #f6c760);outline-offset:3px}
+ 
+ .queryPreview svg{margin-inline:auto;height:auto}
+ 
+--- a/components/pattern-match.tsx
++++ b/components/pattern-match.tsx
+@@ -59,7 +59,10 @@
+  const sourceBars=useMemo(()=>source?visibleCandles(source,total):[],[source,total]);
+  useEffect(()=>{const node=svg.current;if(!node)return;const measure=()=>{const width=node.getBoundingClientRect?.().width;if(width&&Number.isFinite(width))setSourceChartWidth(width);};measure();if(typeof ResizeObserver==='undefined')return;const observer=new ResizeObserver(measure);observer.observe(node);return()=>observer.disconnect();},[source?.reference.id]);
+  const displaySourceBars=useMemo(()=>[...priorBars,...sourceBars],[priorBars,sourceBars]);
+- const resultSessions=useMemo(()=>new Map(matches.map(match=>{const candidate=sessions.find(s=>s.reference.id===match.id);return [match.id,candidate?visibleCandles(candidate,candidate.chart.current.length):[]];})),[sessions,matches]);
++ const resultSessions=useMemo(()=>new Map(matches.map(match=>{
++  const candidate=sessions.find(s=>s.reference.id===match.id);
++  return [match.id,{current:candidate?visibleCandles(candidate,candidate.chart.current.length):[],prior:candidate?.chart.prior??[]}];
++ })),[sessions,matches]);
+  function releaseGesture(){const g=gesture.current;gesture.current=null;if(g&&svg.current?.hasPointerCapture?.(g.pointer))svg.current.releasePointerCapture(g.pointer);}
+  function cancelGesture(){const g=gesture.current;releaseGesture();if(g&&g.source===latestSource.current)setRange(g.original);}
+  function stop(){epoch.current++;job.current?.abort();job.current=null;setBusy(false);}
+@@ -169,7 +172,7 @@
+   {privateWarning&&<p role="status" className={styles.notice}>{privateWarning}</p>}{loadState&&<p role="status" className={styles.notice}>{loadState}</p>}{loadError&&<div role="alert" className={styles.error}><p>{loadError}</p><button onClick={()=>setRetry(n=>n+1)}>Retry charts</button></div>}
+   {source&&<>
+    <section className={styles.panel} aria-labelledby="pattern-select-title"><div className={styles.sectionHeader}><h2 id="pattern-select-title"><span>1</span> Select your pattern</h2><span className={styles.instrument}>{source.chart.instrument??'MES'} · 5 minute · EMA20</span></div>
+-    <fieldset disabled={saving} className={styles.controls}><label>Source session<button disabled={limited} ref={calendarTrigger} type="button" aria-haspopup="dialog" aria-expanded={calendar!==null} onClick={openCalendar}>{source.reference.date} · Choose date</button></label><button type="button" disabled={saving||limited||!randomSessions.length} onClick={randomSource}><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h3c5 0 7 12 12 12h3m-4-4 4 4-4 4M3 18h3c2 0 4-3 6-6s4-6 6-6h3m-4-4 4 4-4 4"/></svg> Random Session</button><label>Start bar<input type="number" min="1" max={total-1} step="1" value={range.start} onChange={event=>{cancelGesture();invalidate();setRange(r=>({...r,start:event.target.value}));}}/></label><label>End bar<input type="number" min="2" max={total} step="1" value={range.end} onChange={event=>{cancelGesture();invalidate();setRange(r=>({...r,end:event.target.value}));}}/></label><div className={styles.lengths} aria-label="Pattern length">{[2,10,15,20,25].map(n=><button key={n} aria-pressed={valid&&end-start+1===n} onClick={()=>{cancelGesture();setSelection(placePatternSelection(Number.isFinite(start)?start:1,n,total));}}>{n} bars</button>)}</div></fieldset>
++    <fieldset disabled={saving} className={styles.controls}><label>Source session<button disabled={limited} ref={calendarTrigger} type="button" aria-haspopup="dialog" aria-expanded={calendar!==null} onClick={openCalendar}>{source.reference.date} · Choose date</button></label><button type="button" disabled={saving||limited||!randomSessions.length} onClick={randomSource}><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h3c5 0 7 12 12 12h3m-4-4 4 4-4 4M3 18h3c2 0 4-3 6-6s4-6 6-6h3m-4-4 4 4-4 4"/></svg> Random Session</button><label>Start bar<input type="number" min="1" max={total-1} step="1" value={range.start} onChange={event=>{cancelGesture();invalidate();setRange(r=>({...r,start:event.target.value}));}}/></label><label>End bar<input type="number" min="2" max={total} step="1" value={range.end} onChange={event=>{cancelGesture();invalidate();setRange(r=>({...r,end:event.target.value}));}}/></label></fieldset>
+     <fieldset className={styles.openFilters} disabled={saving||limited} aria-describedby="open-type-help"><legend>Open Type · Random Session</legend><label>Opening gap<select value={openGap} onChange={e=>setOpenGap(e.target.value)}><option value="">Any gap</option><option value="up">Gap Up</option><option value="down">Gap Down</option></select></label><label>Opening EMA<select value={openEma} onChange={e=>setOpenEma(e.target.value)}><option value="">Any EMA position</option><option value="above">Mostly Above EMA</option><option value="below">Mostly Below EMA</option></select></label><p id="open-type-help">Gap: 08:30 open versus the previous recorded session’s final close. EMA: at least 4 of the first 6 five-minute closes above or below EMA20. Filters apply only to Random Session.</p><p role="status">{randomSessions.length?`${randomSessions.length} matching sessions`:'No sessions match. Change or clear a filter; your current chart is unchanged.'}</p></fieldset>
+     <p className={styles.small}>{source.reference.title}</p>
+     {priorBars.length>0&&<p className={styles.small}>{priorBars.length} prior-session bars shown for context only.{openingGap!==null?` Opening gap: ${openingGap>0?'+':''}${openingGap.toFixed(2)} points.`:''} Current-session selection starts at bar 1.</p>}
+@@ -182,7 +185,7 @@
+    <PatternOutcomes matches={outcomeMatches} sessions={sessions} ready={searched} sourceEndBar={valid?end:undefined}/>
+    <p className={styles.status} role="status" aria-live="polite">{status}</p>{(error||prepared.error)&&<p role="alert" className={styles.error}>{error||prepared.error}</p>}
+    {searched&&<section aria-labelledby="pattern-results-title"><div className={styles.resultsHeading}><h2 id="pattern-results-title">Closest patterns</h2><span>Distance ↓ lower is closer · 0 = identical features</span></div>{matches.length===0&&<div className={styles.notice}>No eligible patterns were found. Try another range or source session.</div>}
+-    <p>Uncheck examples you do not want, then re-check for more matches. Checked examples stay; omitted examples will not return until you start a new search or change the selection.</p><div className={styles.actions}><button disabled={busy||saving||savedDraft||!matches.some(match=>!selected.includes(matchKey(match)))} onClick={()=>void replaceUnchecked()}>Re-check for more matches</button>{!limited&&<a href="/pattern-encyclopedia">Open encyclopedia</a>}</div><div className={styles.grid}>{matches.map((match,index)=><article className={styles.card} key={`${match.id}:${match.startBar}`}><label className={styles.checkbox}><input type="checkbox" disabled={busy||saving||savedDraft} checked={selected.includes(`${match.id}:${match.startBar}`)} onChange={e=>{setSelected(old=>e.target.checked?[...old,`${match.id}:${match.startBar}`]:old.filter(key=>key!==`${match.id}:${match.startBar}`));}}/>Include in saved study</label><div className={styles.cardHeading}><div><span className={styles.rank}>#{index+1}</span> <time dateTime={match.date}>{match.date}</time></div></div><div className={styles.fullChart} tabIndex={0} role="region" aria-label={`${match.date} full session chart; scroll horizontally on smaller screens`}><PatternCandles candles={resultSessions.get(match.id)??[]} startBar={1} selection={{start:match.startBar,end:match.endBar}} label={`Historical match ${index+1}, ${match.date}. Full historical session, ${resultSessions.get(match.id)?.length??0} observed bars. Box: bars ${match.startBar} to ${match.endBar}.`} fullSession/></div><div className={styles.cardFooter}><span>Bars {match.startBar}–{match.endBar} · {match.startTime.slice(11,16)}–{match.endTime.slice(11,16)}</span></div><details className={styles.breakdown}><summary>Why this match?</summary><p>Distance by feature, lower is closer. Features use only the pattern and preceding context.</p><ul>{Object.entries(match.components).filter(([,value])=>typeof value==='number').map(([name,value])=><li key={name}>{name}: {(value as number).toFixed(3)}</li>)}</ul></details></article>)}</div>
++    <p>Uncheck examples you do not want, then re-check for more matches. Checked examples stay; omitted examples will not return until you start a new search or change the selection.</p><div className={styles.actions}><button disabled={busy||saving||savedDraft||!matches.some(match=>!selected.includes(matchKey(match)))} onClick={()=>void replaceUnchecked()}>Re-check for more matches</button>{!limited&&<a href="/pattern-encyclopedia">Open encyclopedia</a>}</div><div className={styles.grid}>{matches.map((match,index)=><article className={styles.card} key={`${match.id}:${match.startBar}`}><label className={styles.checkbox}><input type="checkbox" disabled={busy||saving||savedDraft} checked={selected.includes(`${match.id}:${match.startBar}`)} onChange={e=>{setSelected(old=>e.target.checked?[...old,`${match.id}:${match.startBar}`]:old.filter(key=>key!==`${match.id}:${match.startBar}`));}}/>Include in saved study</label><div className={styles.cardHeading}><div><span className={styles.rank}>#{index+1}</span> <time dateTime={match.date}>{match.date}</time></div></div><div className={styles.fullChart} tabIndex={0} role="region" aria-label={`${match.date} full session chart; scroll horizontally on smaller screens`}><PatternCandles candles={resultSessions.get(match.id)?.current??[]} priorCandles={resultSessions.get(match.id)?.prior} startBar={1} selection={{start:match.startBar,end:match.endBar}} label={`Historical match ${index+1}, ${match.date}. Full historical session, ${resultSessions.get(match.id)?.current.length??0} observed bars${resultSessions.get(match.id)?.prior.length?` with ${resultSessions.get(match.id)?.prior.length} prior-session context bars`:""}. Box: bars ${match.startBar} to ${match.endBar}.`} fullSession/></div><div className={styles.cardFooter}><span>Bars {match.startBar}–{match.endBar} · {match.startTime.slice(11,16)}–{match.endTime.slice(11,16)}</span></div><details className={styles.breakdown}><summary>Why this match?</summary><p>Distance by feature, lower is closer. Features use only the pattern and preceding context.</p><ul>{Object.entries(match.components).filter(([,value])=>typeof value==='number').map(([name,value])=><li key={name}>{name}: {(value as number).toFixed(3)}</li>)}</ul></details></article>)}</div>
+    </section>}
+ 
+    {candidate&&<section className={styles.panel} aria-labelledby="pattern-save-title"><h2 id="pattern-save-title"><span>3</span> Save your pattern</h2><p>Add a title to save these results. Description, expectation and trading style are optional.</p><div className={styles.metadata}><label htmlFor="pattern-title">Title<input id="pattern-title" type="text" maxLength={120} disabled={saving||savedDraft} value={title} onChange={event=>{setTitle(event.target.value);}} placeholder="e.g. Two-bar reversal"/></label><label htmlFor="pattern-description">Description<textarea id="pattern-description" maxLength={10000} rows={3} disabled={saving||savedDraft} value={description} onChange={event=>{setDescription(event.target.value);}} placeholder="What defines this pattern?"/></label><label htmlFor="pattern-expectation">Expectation<textarea id="pattern-expectation" maxLength={10000} rows={3} disabled={saving||savedDraft} value={expectation} onChange={event=>{setExpectation(event.target.value);}} placeholder="What do you expect price to do after this pattern?"/></label><TradingStyleSelect id="pattern-trading-style" disabled={saving||savedDraft} value={tradingStyle} onChange={setTradingStyle}/>{savedDraft&&<p className={styles.small}>Pattern saved. Find matches again to start another study, or open the saved pattern to edit it.</p>}</div><div className={styles.actions}><PatternSavePanel hideNavigation={limited} key={`${epoch.current}:${selected.join(',')}`} creationAction initialTitle={title} initialDescription={description} initialExpectation={expectation} initialTradingStyle={tradingStyle} onSaved={entry=>{setSavedDraft(true);setTitle(entry.title);setDescription(entry.description);setExpectation(entry.expectation);setTradingStyle(entry.tradingStyle??'');savedMetadata.current=JSON.stringify([entry.title,entry.description,entry.expectation,entry.tradingStyle??'']);metadataDirty.current=false;}} candidateSnapshot={candidate} previewCharts={previewCharts} onDirtyChange={value=>{dirtyDraft.current=value;}} onPendingChange={value=>{pendingSave.current=value;setSaving(value);}}/></div></section>}
+--- a/components/pattern-outcomes.tsx
++++ b/components/pattern-outcomes.tsx
+@@ -29,6 +29,6 @@
+  {summary.median.map(p=><circle key={p.bar} cx={x(p.bar)} cy={y(p.value)} r="4" fill="var(--gold, #e6bf66)" fillOpacity="0"><title>{`+${p.bar} bars · median ${p.value.toFixed(2)}% · ${p.count} paths`}</title></circle>)}
+  <text x="58" y="327" fontSize="12" fill="var(--appearance-ink-8ba1b6, #8ba1b6)">Pattern end · 0</text><text x="928" y="327" textAnchor="end" fontSize="12" fill="var(--appearance-ink-8ba1b6, #8ba1b6)">{longest} bars later · 5 minutes/bar</text>
+  </svg>:<p>No valid continuation data for these matches.</p>}
+- <details><summary>About this chart</summary><p>{summary.horizon.count} eligible historical paths at exactly +15 bars; {summary.horizon.excluded} shorter paths excluded. Closing lower = lower count divided by all eligible paths, including unchanged closes.</p><p>Final available close: green above · red below · gray flat. Bold gold: median (n={summary.median[0]?.count??0} at start → {summary.median.at(-1)?.count??0} at end).</p><p>Colors use each path’s last available close, which may occur before session end; they are retrospective, not a signal known at pattern end. The +15-bar count uses only the close exactly 15 bars after the pattern, irrespective of final color. Flat means exactly unchanged. The median uses available paths at each bar; its composition changes as shorter paths end, and it is not one observed trading path.</p><p>Up to 25 closest windows use the same ranking as the 10 previews, with no similarity cutoff or guarantee of a good match. Up to two nonoverlapping windows can come from one session; these are not independent days.</p><p>Each line starts at 0% at the matched pattern’s final close and stops at its last available close. Shorter paths are not extended. Horizontal alignment is elapsed bars, not clock time. Windows without later closes are counted but not replaced.</p><p>Re-checking keeps checked previews and replaces unchecked windows in both previews and this chart. Checkboxes alone control saving.</p></details></>}
++</>}
+  </section>;
+ }
+--- a/tests/pattern-outcomes.test.mjs
++++ b/tests/pattern-outcomes.test.mjs
+@@ -23,7 +23,7 @@
+  const src=fs.readFileSync(new URL('../components/pattern-outcomes.tsx',import.meta.url),'utf8'),js=ts.transpileModule(src,{compilerOptions:{module:ts.ModuleKind.CommonJS,jsx:ts.JsxEmit.ReactJSX}}).outputText,m={exports:{}};
+  new Function('require','module','exports',js)(createRequire(new URL('../components/pattern-outcomes.tsx',import.meta.url)),m,m.exports);
+  const sessions=['a','b'].map(id=>session(id,[100,101])),matches=sessions.map(s=>({id:s.reference.id,date:'2025-01-02',startBar:1,endBar:1,distance:0}));
+- const html=renderToStaticMarkup(React.createElement(m.exports.default,{sessions,matches,ready:true}));const withEnd=renderToStaticMarkup(React.createElement(m.exports.default,{sessions,matches,ready:true,sourceEndBar:6}));assert.match(withEnd,/After 15 bars \(ending at bar 21\):/);assert.doesNotMatch(html,/ending at bar/);assert.equal((html.match(/<svg/g)||[]).length,1);assert.equal((html.match(/data-outcome-session=/g)||[]).length,2);assert.equal((html.match(/data-outcome-median=/g)||[]).length,1);assert.doesNotMatch(html,/selected patterns plotted|Historical paths · not a forecast|Historical outcomes/);assert.match(html,/>25 closest patterns<\/h3>/);assert.match(html,/<p>Change \(%\) from pattern end<\/p>/);assert.match(html,/<p>After 15 bars:<\/p>/);assert.match(html,/N\/A closing lower/);assert.match(html,/0 closed higher than the end of the pattern/);assert.match(html,/0 closed lower than the end of the pattern/);assert.match(html,/No historical paths have a close exactly 15 bars later/);assert.match(html,/color:var\(--red, #f28ba8\)/);assert.match(html,/Bold gold: median/);assert.match(html,/<details><summary>About this chart<\/summary>/);assert.doesNotMatch(html,/<details open/);assert.doesNotMatch(html,/0 unavailable|0 stopped at missing data|0 without later closes/);
++ const html=renderToStaticMarkup(React.createElement(m.exports.default,{sessions,matches,ready:true}));const withEnd=renderToStaticMarkup(React.createElement(m.exports.default,{sessions,matches,ready:true,sourceEndBar:6}));assert.match(withEnd,/After 15 bars \(ending at bar 21\):/);assert.doesNotMatch(html,/ending at bar/);assert.equal((html.match(/<svg/g)||[]).length,1);assert.equal((html.match(/data-outcome-session=/g)||[]).length,2);assert.equal((html.match(/data-outcome-median=/g)||[]).length,1);assert.doesNotMatch(html,/selected patterns plotted|Historical paths · not a forecast|Historical outcomes/);assert.match(html,/>25 closest patterns<\/h3>/);assert.match(html,/<p>Change \(%\) from pattern end<\/p>/);assert.match(html,/<p>After 15 bars:<\/p>/);assert.match(html,/N\/A closing lower/);assert.match(html,/0 closed higher than the end of the pattern/);assert.match(html,/0 closed lower than the end of the pattern/);assert.match(html,/No historical paths have a close exactly 15 bars later/);assert.match(html,/color:var\(--red, #f28ba8\)/);assert.doesNotMatch(html,/About this chart|<details|Bold gold: median/);assert.doesNotMatch(html,/0 unavailable|0 stopped at missing data|0 without later closes/);
+  const missingHtml=renderToStaticMarkup(React.createElement(m.exports.default,{sessions:[session('a',[100])],matches:[{id:'a',date:'2025-01-02',startBar:1,endBar:1,distance:0},{id:'missing',date:'2025-01-02',startBar:1,endBar:1,distance:0}],ready:true}));assert.match(missingHtml,/1 without later closes/);assert.match(missingHtml,/1 unavailable/);
+  assert.match(renderToStaticMarkup(React.createElement(m.exports.default,{sessions:[],matches:[],ready:true})),/No valid continuation data/);
+ });
+--- a/tests/pattern-source-ui.test.mjs
++++ b/tests/pattern-source-ui.test.mjs
+@@ -1,17 +1,22 @@
+ import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';import ts from 'typescript';
++import {createRequire} from 'node:module';import React from 'react';import {renderToStaticMarkup} from 'react-dom/server';
+ import * as selection from '../lib/pattern-selection.mjs';import * as links from '../public/modules/pattern-finder-link.js';
+ const source=fs.readFileSync(new URL('../components/pattern-match.tsx',import.meta.url),'utf8');
+ const code=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.CommonJS,jsx:ts.JsxEmit.ReactJSX}}).outputText;
++const candleModule={exports:{}};
++const candleCode=ts.transpileModule(fs.readFileSync(new URL('../components/pattern-candles.tsx',import.meta.url),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,jsx:ts.JsxEmit.ReactJSX}}).outputText;
++new Function('require','module','exports',candleCode)(createRequire(import.meta.url),candleModule,candleModule.exports);
++const Chart=candleModule.exports.default;
+ const make=(id,date,total)=>({reference:{id,title:date,date,sha256:'a'.repeat(64)},chart:{id,current:Array.from({length:total},()=>({t:date+' 08:30',o:1,h:2,l:1,c:2}))}}),base=make('mes1-2026-11-13-81','2026-11-13',81),extra=make('mesmock1-2026-11-20-78','2026-11-20',78);
+ const walk=(node,f)=>!node||typeof node!=='object'?[]:Array.isArray(node)?node.flatMap(n=>walk(n,f)):[...(f(node)?[node]:[]),...walk(node.props?.children,f)];
+ const text=node=>Array.isArray(node)?node.map(text).join(''):node&&typeof node==='object'?text(node.props?.children):String(node??'');
+-function harness({search='',hasOwner=true}={}){
++function harness({search='',hasOwner=true,comparisonSessions=[base],matches=[]}={}){
+  let position=0,dirty=true,tree,owner=hasOwner?{mode:'account',epoch:1}:null,pending=[],resolve,listener;const states=[],refs=[],effects=[],memos=[],timers=new Map();
+  const jsx=(type,props)=>({type,props});const changed=(a,b)=>!a||a.length!==b.length||b.some((x,i)=>x!==a[i]);
+  const hooks={useState(v){const i=position++;if(!(i in states))states[i]=typeof v==='function'?v():v;return[states[i],value=>{const next=typeof value==='function'?value(states[i]):value;if(!Object.is(next,states[i])){states[i]=next;dirty=true;}}];},useRef(v){const i=position++;return refs[i]??={current:v};},useMemo(f,deps){const i=position++;if(changed(memos[i]?.deps,deps))memos[i]={deps,value:f()};return memos[i].value;},useEffect(f,deps){const i=position++;if(changed(effects[i]?.deps,deps))pending.push(()=>{effects[i]?.clean?.();effects[i]={deps,clean:f()};});}};
+  const ownerPromise=new Promise(r=>{resolve=r}),archiveSignals=[];
+  const client={captureContext:()=>owner,ownsCapture:x=>x===owner,guard:x=>x===owner,getSnapshot:()=>({revalidating:false}),refresh:async()=>{},subscribe:f=>{listener=f;return()=>{};}};
+- const calendar=()=>null,action=()=>null;const deps={react:hooks,'react/jsx-runtime':{jsx,jsxs:jsx,Fragment:'fragment'},'./chart-match-data.mjs':{loadChartMatchSessions:async()=>[base]},'./pattern-source-data.mjs':{loadOwnerPatternSources:({signal})=>{archiveSignals.push(signal);return ownerPromise;}},'../lib/learner/client.mjs':{learnerClient:client},'../lib/chart-catalog.mjs':{mockBrowser:()=>true,isMockChartId:id=>id.startsWith('mesmock1-')},'../lib/chart-match.mjs':{historicalPrefix:(c,n)=>c.current.slice(0,n),historicalGap:()=>({gapPoints:1})},'../lib/pattern-match.mjs':{buildPatternWindow:()=>null},'../lib/pattern-selection.mjs':selection,'../lib/pattern-open-type.mjs':{filterOpenSessions:s=>s},'../public/modules/pattern-finder-link.js':links,'./trade-session-calendar':{default:calendar},'./pattern-match.module.css':{default:{}},'./pattern-encyclopedia':{PatternSavePanel:action}};
++ const calendar=()=>null,action=()=>null;const deps={react:hooks,'react/jsx-runtime':{jsx,jsxs:jsx,Fragment:'fragment'},'./chart-match-data.mjs':{loadChartMatchSessions:async()=>comparisonSessions},'./pattern-source-data.mjs':{loadOwnerPatternSources:({signal})=>{archiveSignals.push(signal);return ownerPromise;}},'../lib/learner/client.mjs':{learnerClient:client},'../lib/chart-catalog.mjs':{mockBrowser:()=>true,isMockChartId:id=>id.startsWith('mesmock1-')},'../lib/chart-match.mjs':{historicalPrefix:(c,n)=>c.current.slice(0,n),historicalGap:()=>({gapPoints:1})},'../lib/pattern-match.mjs':{buildPatternWindow:()=>matches.length?{}:null,rankPatternMatches:async()=>({matches,eligibleSessions:comparisonSessions.length,scanned:100})},'../lib/pattern-study-snapshot.mjs':{patternStudySnapshot:()=>null},'./pattern-candles':{default:Chart},'../lib/pattern-selection.mjs':selection,'../lib/pattern-open-type.mjs':{filterOpenSessions:s=>s},'../public/modules/pattern-finder-link.js':links,'./trade-session-calendar':{default:calendar},'./pattern-match.module.css':{default:{}},'./pattern-encyclopedia':{PatternSavePanel:action}};
+  const events={addEventListener(){},removeEventListener(){}};const exports={};vm.runInNewContext(code,{exports,require:n=>deps[n]??{default:action},window:{location:{search},...events},document:{...events},AbortController,Error,Math,Object,Map,Set,Array,JSON,setTimeout:(f,ms)=>{const id=Symbol();timers.set(id,{f,ms});return id;},clearTimeout:id=>timers.delete(id)});
+  const flush=()=>{let rounds=0;while(dirty){if(++rounds>20)throw Error('hook loop');dirty=false;position=0;tree=exports.default();const callbacks=pending;pending=[];callbacks.forEach(f=>f());}return tree;};
+  const tick=async()=>{for(let i=0;i<12;i++){flush();await Promise.resolve();}return flush();};
+@@ -20,3 +25,29 @@
+ test('historical chart is usable during a hung owner source request, timeout leaves selection intact',async()=>{const h=harness(),tree=await h.tick();assert(text(tree).includes(base.reference.date+' · Choose date'));const range=()=>walk(h.flush(),n=>n.type==='input'&&n.props.type==='number')[0];range().props.onChange({target:{value:'5'}});h.timeout(6000);const after=await h.tick();assert.equal(h.archiveSignals.at(-1).aborted,true);assert.equal(range().props.value,'5');assert(text(after).includes('Historical dates are still available'));});
+ test('late owner source joins calendar and Random without overwriting an edited historical selection',async()=>{const h=harness();await h.tick();const range=()=>walk(h.flush(),n=>n.type==='input'&&n.props.type==='number')[0];range().props.onChange({target:{value:'4'}});h.resolve();await h.tick();assert.equal(range().props.value,'4');const buttons=()=>walk(h.flush(),n=>n.type==='button');buttons().find(n=>text(n).includes('Choose date')).props.onClick();const picker=walk(h.flush(),n=>n.type===h.calendar)[0];assert.equal(picker.props.entries.length,2);assert(picker.props.entries.some(x=>x.id===extra.reference.id));picker.props.onClose();buttons().find(n=>text(n).includes('Random Session')).props.onClick({detail:1});assert(text(h.flush()).includes(extra.reference.date+' · Choose date'));h.signOut();assert(!text(await h.tick()).includes(extra.reference.date+' · Choose date'));});
+ test('private handoff resolves when owner chart arrives; unavailable signed-out handoff ends loading',async()=>{const search=patternFinderUrl();function patternFinderUrl(){return '?'+links.patternFinderUrl({...extra.reference,revealed:2,total:78}).split('?')[1];}const h=harness({search});await h.tick();h.resolve();assert(text(await h.tick()).includes(extra.reference.date+' · Choose date'));const guest=harness({search,hasOwner:false});const tree=await guest.tick();assert(!text(tree).includes('Loading and verifying historical charts'));assert(text(tree).includes('exact simulator chart is unavailable'));});
++
++test('match cards render only their own prior context and keep the full chart and selection aligned',async()=>{
++ const withContext=make('mes1-2026-11-12-81','2026-11-12',81);
++ withContext.chart.prior=[{t:'2026-11-11 14:55',o:3,h:4,l:2,c:3},{t:'2026-11-11 15:00',o:3,h:4,l:2,c:3}];
++ const withoutContext=make('mes1-2026-11-10-81','2026-11-10',81);
++ const matches=[withContext,withoutContext].map(({reference})=>({...reference,startBar:3,endBar:5,startTime:reference.date+' 08:40',endTime:reference.date+' 08:50',components:{}}));
++ const h=harness({comparisonSessions:[withoutContext,withContext,base],matches});const tree=await h.tick();
++ walk(tree,n=>n.type==='button'&&text(n)==='Find 10 matches')[0].props.onClick();
++ const charts=walk(await h.tick(),n=>n.type===Chart&&n.props.fullSession);
++ assert.equal(charts.length,2);
++ for(const [i,chart] of charts.entries()){
++  assert.equal(chart.props.startBar,1);
++  assert.match(chart.props.label,/81 observed bars/);
++  const html=renderToStaticMarkup(React.createElement(Chart,chart.props));
++  assert.match(html,/viewBox="0 0 1000 380"/);
++  assert.equal((html.match(/data-pattern-bar=/g)||[]).length,81);
++  assert.equal((html.match(/data-prior-bar=/g)||[]).length,i===0?2:0);
++  assert.equal(html.includes('data-session-divider'),i===0);
++  const [,,x,width]=html.match(/(data-pattern-highlight="true") x="([^"]+)" y="[^"]+" width="([^"]+)"/);
++  const prior=i===0?2:0,step=904/(81+prior);
++  assert.ok(Math.abs(Number(x)-(24+(prior+2)*step))<1e-8);
++  assert.ok(Math.abs(Number(width)-3*step)<1e-8);
++ }
++});
++
++test('pattern length presets are absent while manual selection and match search remain',async()=>{const tree=await harness().tick();const buttons=walk(tree,n=>n.type==='button').map(text);for(const length of [2,10,15,20,25])assert(!buttons.includes(length+' bars'));assert(buttons.some(s=>s.includes('Find 10 matches')));assert.equal(walk(tree,n=>n.type==='input'&&n.props.type==='number').length,2);assert.equal(walk(tree,n=>n.type==='input'&&n.props.type==='range').length,1);});
+diff --git a/app/globals.css b/app/globals.css
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -269,3 +269,10 @@
+ /* The private Daily Balance deployment keeps its dashboard identity in the trading area. */
+ .app-brand-text [data-daily-subtitle], html[data-daily-nav] .app-brand-text [data-page-subtitle]{display:none}
+ html[data-daily-nav] .app-brand-text [data-daily-subtitle]{display:block}
++
++/* Trade replay only: compact controls aligned above the right-hand price axis, outside the plot. */
++.simulator-price-scale-controls{display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:5px;padding:2px 8px;background:var(--appearance-surface-0c1623,#0c1623)}
++.simulator-price-scale-controls button{min-height:28px;padding:3px 7px;border:1px solid var(--appearance-line-3a5871,#3a5871);border-radius:5px;background:var(--appearance-surface-152436,#152436);color:var(--appearance-ink-a5c9e5,#a5c9e5);font-size:11px;line-height:1.2;white-space:nowrap}
++.simulator-price-scale-feedback{flex:1 1 90px;font-size:10px;line-height:1.2;color:var(--appearance-ink-93adc3,#93adc3)}
++.simulator-price-scale-feedback [role=alert]{color:var(--appearance-ink-ffd092,#ffd092)}
++@media(pointer:coarse){.simulator-price-scale-controls button{min-height:44px}}
+diff --git a/components/trade-simulator.tsx b/components/trade-simulator.tsx
+--- a/components/trade-simulator.tsx
++++ b/components/trade-simulator.tsx
+@@ -11,7 +11,7 @@
+ import LimitTradeReview from './limit-trade-review';
+ import { useEffect, useLayoutEffect, useMemo, useRef, useState, type PointerEvent, type KeyboardEvent, type MouseEvent } from 'react';
+ import { initialState, placeBracket, editBracket, cancelPending, closeOpenPosition, advanceCandle, finishSession, statistics, bracketStats, snapPrice, type Bracket, type SimState } from '../lib/trade-simulator.mjs';
+-import { replayViewport, replayPoint, placementPoint, tradeReviewMarks, priceFromClient, orderHandle, orderTag, entryCloseHandle, entryMinimizeHandle, priceAxisHandle, advanceView, focusLatest, hiddenRevealed, focusHidden, initialView, dragView, zoomTime, panTime, resetViewAxis, favoritePriceView, type ViewNavigation, EXIT_LABELS } from '../lib/trade-simulator-view.mjs';
++import { replayViewport, replayPoint, placementPoint, tradeReviewMarks, priceFromClient, orderHandle, orderTag, entryCloseHandle, entryMinimizeHandle, priceAxisHandle, advanceView, focusLatest, hiddenRevealed, focusHidden, initialView, dragView, zoomTime, panTime, resetViewAxis, favoritePriceView, restorePriceSpan, type ViewNavigation, EXIT_LABELS } from '../lib/trade-simulator-view.mjs';
+ import {newAttempt as localNewAttempt, load as localLoadHistory, checkpoint as localCheckpoint, restore as localRestore, summarize, type Attempt} from '../lib/trade-simulator-history.mjs';
+ import Model from '../lib/portal/lesson-model.cjs';
+ import AppHeader from './app-navigation';
+@@ -21,7 +21,7 @@
+ import {buildCalendar} from '../lib/session-calendar.mjs';
+ import type {SimulatorProfileAccess} from './simulator-profile-gate';
+ import { loadSimulatorCatalog, loadSimulatorChart } from './trade-simulator-data.mjs';
+-import {readTradePreferences as localReadPreferences,saveEqualTpSl as localSavePreference,PREFERENCE_PREFIX} from '../lib/trade-simulator-preferences.mjs';
++import {readTradePreferences as localReadPreferences,saveEqualTpSl as localSavePreference,PREFERENCE_PREFIX,readTradePriceSpan,saveTradePriceSpan,tradePriceSpanKey} from '../lib/trade-simulator-preferences.mjs';
+ 
+ import {validatePracticeBracket,defaultPracticeBracket as defaultBracket,practiceExitPrice,linkedPracticeExitEdit as linkedExitEdit,equalPracticeTargetFromStop as equalTargetFromStop} from '../lib/trade-simulator-practice-limits.mjs';
+ 
+@@ -66,8 +66,9 @@
+   const [tradeReview,setTradeReview]=useState<SimState|null>(null),reviewPending=useRef<SimState|null>(null),reviewFocusNeeded=useRef(false),reviewOwner=useRef(profileAccess?.profile.learnerId||'standalone');
+   const [state,setState]=useState<SimState>(()=>initialState()),[draft,setDraft]=useState<Draft>({side:'buy',entry:'',stop:'',target:''}),[edited,setEdited]=useState(false);
+   const [equalTpSl,setEqualTpSl]=useState(false),equalMode=useRef(false),preferenceBusy=useRef(false),preferenceRequest=useRef(0),pendingPreference=useRef<boolean|null>(null);
+-  const scaleAction=useRef(false),favoriteTradeScale=useRef<number|null>(null);
+-  const [scaleSupported,setScaleSupported]=useState(false),[scaleSaving,setScaleSaving]=useState(false),[scaleStatus,setScaleStatus]=useState(''),[scaleError,setScaleError]=useState('');
++  const [legacyPriceZoom,setLegacyPriceZoom]=useState<number|null>(null),[savedPriceSpan,setSavedPriceSpan]=useState<number|null>(null);
++  const [scaleStatus,setScaleStatus]=useState(''),[scaleError,setScaleError]=useState('');
++  const scaleSupported=profileAccess?.mode==='account'&&unifiedNavigation&&mockBrowser();
+   const [preferenceSaving,setPreferenceSaving]=useState(false),[preferenceError,setPreferenceError]=useState('');
+   const [playing,setPlaying]=useState(false),[speed,setSpeed]=useState(1000),[notice,setNoticeText]=useState(''),[width,setWidth]=useState(900);
+   const [noticeWarning,setNoticeWarning]=useState(false),[sessionWarning,setSessionWarning]=useState(false),[historyReplayWarning,setHistoryReplayWarning]=useState(false);
+@@ -183,23 +184,29 @@
+     combinedUnregister.current=bridge.register('limit',combinedController.current);
+   });
+   function refreshTradePreferences() {
+-    if(!profileAccess||!profileReady()||preferenceBusy.current||pendingPreference.current!==null||scaleAction.current)return;
++    if(!profileAccess||!profileReady()||preferenceBusy.current||pendingPreference.current!==null)return;
+     const result=readTradePreferences(profileAccess.profile,{guard:profileAccess.guard});
+-    if(result.ok&&online&&!guest&&unifiedNavigation&&'favoriteTradeScale' in result){
+-      const scale=result.favoriteTradeScale;
+-      favoriteTradeScale.current=typeof scale==='number'?scale:null;setScaleSupported(true);
++    if(scaleSupported){
++      const scale=result.ok&&'favoriteTradeScale' in result?result.favoriteTradeScale:null;
++      setLegacyPriceZoom(typeof scale==='number'?scale:null);
++      setSavedPriceSpan(readTradePriceSpan(profileAccess.profile.learnerId,{guard:profileAccess.guard}));
+     }
+     equalMode.current=result.ok&&result.equalTpSl;setEqualTpSl(equalMode.current);setPreferenceError(result.ok?'':result.error||'Trade preferences are unavailable.');
+   }
+   useEffect(()=>{
+     refreshTradePreferences();
+     if(typeof window==='undefined')return;
+-    const refresh=()=>refreshTradePreferences(),changed=(event:StorageEvent)=>{if(profileAccess&&(event.key===null||event.key===PREFERENCE_PREFIX+profileAccess.profile.learnerId)){suspendForProfile();refreshTradePreferences();}};
++    const refresh=()=>refreshTradePreferences(),changed=(event:StorageEvent)=>{
++      if(profileAccess&&(event.key===null||event.key===PREFERENCE_PREFIX+profileAccess.profile.learnerId)){suspendForProfile();refreshTradePreferences();}
++      else if(scaleSupported&&profileAccess&&event.key===tradePriceSpanKey(profileAccess.profile.learnerId)&&profileReady()){
++        setSavedPriceSpan(readTradePriceSpan(profileAccess.profile.learnerId,{guard:profileAccess.guard}));
++      }
++    };
+     window.addEventListener('focus',refresh);window.addEventListener('storage',changed);
+     return()=>{window.removeEventListener('focus',refresh);window.removeEventListener('storage',changed);};
+   },[profileAccess]);
+   async function changeEqualTpSl(value:boolean,generation:number) {
+-    if(!profileAccess||scaleAction.current||generation!==runGeneration.current||!mutationReady()||loading||!!error||dialogOpen.current||drag.current||gesture.current||closePress.current)return;
++    if(!profileAccess||generation!==runGeneration.current||!mutationReady()||loading||!!error||dialogOpen.current||drag.current||gesture.current||closePress.current)return;
+     pause();clearQuickOrder();const before=current.current,beforeMode=placement.current,existing=before.position||before.pending;
+     const candidate=existing||beforeMode!=='idle'?existing||bracketOf(draft):null,basis=before.position?.entryPrice??candidate?.entry;
+     const linked=value&&candidate?equalTargetFromStop(candidate,basis,before.tick):null;
+@@ -354,7 +361,7 @@
+     if(profileAccess&&!fresh){try {fresh=newAttempt(profileAccess.profile,source,next,{sessionHash:exactCatalog.find(row=>row.id===source.id)?.sha256,previewTrading:(profileAccess.mode!=='account'&&isMockChartId(source.id))||readPreviewPreference(profileAccess.profile.learnerId)});}catch{storageFailure('A private local attempt ID could not be created. Enable secure browser storage and retry.');return;}}
+     pause();clearQuickOrder();dialogOpen.current=false;runGeneration.current+=1;recoveryPress.current=null;
+     if(fresh)attempt.current=fresh;
+-    commit(next);clearDraft();setNavigation(favoritePriceView(initialView(),favoriteTradeScale.current));setNotice('Choose Buy or Sell, then tap the chart to set your entry.');drag.current=null;gesture.current=null;closePress.current=null;setDragging(false);setPriceDragging(false);
++    commit(next);clearDraft();setNavigation(initialView());setNotice('Choose Buy or Sell, then tap the chart to set your entry.');drag.current=null;gesture.current=null;closePress.current=null;setDragging(false);setPriceDragging(false);
+   }
+   useEffect(()=>{
+     const controller=new AbortController();setLoading(true);setError('');setMockWarning('');
+@@ -377,7 +384,7 @@
+     const reference=exactCatalog.find(s=>s.id===sessionId);if(!reference)return;
+     if(installedHistoryChart.current?.id===reference.id&&loadedChart.current===installedHistoryChart.current){installedHistoryChart.current=null;return;}
+     const controller=new AbortController();pause();setLoading(true);setError('');
+-    loadSimulatorChart(reference,{signal:controller.signal}).then(source=>{if(controller.signal.aborted)return;if(!profileReady()){deferredLoad.current=true;return;}const saved=restoreAttempt.current;loadedChart.current=source;setChart(source);if(saved){try{const restored=restore(saved,source,{sessionHash:reference.sha256});attempt.current=saved;unsavedCheckpoint.current=false;restoreAttempt.current=null;current.current=restored;setState(restored);clearDraft();const bracket=restored.position||restored.pending;if(bracket)setDraft(draftOf(bracket));setNavigation(favoritePriceView(initialView(),favoriteTradeScale.current));setNotice(restored.ended?'Saved session restored. Slide the chart to review your points.':'Your saved attempt is paused. Press Play or Next candle to continue.');}catch{storageFailure('The saved attempt could not be restored safely. Its stored data has not been changed.','read');}}else resetRun(source);setLoading(false);}).catch(e=>{if(!controller.signal.aborted){setError(e.message);setLoading(false);}});
++    loadSimulatorChart(reference,{signal:controller.signal}).then(source=>{if(controller.signal.aborted)return;if(!profileReady()){deferredLoad.current=true;return;}const saved=restoreAttempt.current;loadedChart.current=source;setChart(source);if(saved){try{const restored=restore(saved,source,{sessionHash:reference.sha256});attempt.current=saved;unsavedCheckpoint.current=false;restoreAttempt.current=null;current.current=restored;setState(restored);clearDraft();const bracket=restored.position||restored.pending;if(bracket)setDraft(draftOf(bracket));setNavigation(initialView());setNotice(restored.ended?'Saved session restored. Slide the chart to review your points.':'Your saved attempt is paused. Press Play or Next candle to continue.');}catch{storageFailure('The saved attempt could not be restored safely. Its stored data has not been changed.','read');}}else resetRun(source);setLoading(false);}).catch(e=>{if(!controller.signal.aborted){setError(e.message);setLoading(false);}});
+     return()=>controller.abort();
+   },[sessionId,exactCatalog]);
+   useEffect(()=>{
+@@ -582,20 +589,30 @@
+     const target=hiddenRevealed(chart,displayIndex,viewport);if(!target)return;
+     pause();clearQuickOrder();setPreview(null);setNavigation(nav=>focusHidden(nav,viewport,target,chart,displayIndex));svg.current?.focus?.({preventScroll:true});
+   }
+-  function resetPriceAxis() {if(!profileReady()||loading||error||confirm||dialogOpen.current||!viewport||drag.current||gesture.current||closePress.current)return;pause();clearQuickOrder();setPreview(null);setNavigation(nav=>favoritePriceView(nav,favoriteTradeScale.current));}
+-  async function savePriceScale(){
+-    const store=profileAccess?.store;
+-    if(!scaleSupported||!store||!profileAccess||scaleAction.current||preferenceBusy.current||!profileReady()||loading||error||confirm||calendar||dialogOpen.current||!viewport||drag.current||gesture.current||closePress.current)return;
+-    scaleAction.current=true;setScaleSaving(true);setScaleStatus('');setScaleError('');pause();clearQuickOrder();setPreview(null);
+-    const value=Math.round(navigation.yZoom*10000)/10000;
+-    const guard=()=>alive.current&&profileAccess.guard();
+-    try {
+-      const result=await store.saveFavoriteTradeScale(profileAccess.profile,value,{guard});
+-      if(!guard())return;
+-      if(!result.ok||result.favoriteTradeScale!==value){setScaleError(result.error||'Scale save could not be confirmed. Try again.');return;}
+-      favoriteTradeScale.current=result.favoriteTradeScale;setScaleStatus('Favorite scale saved.');
+-    }catch{if(guard())setScaleError('Scale save could not be confirmed. Try again.');}
+-    finally{scaleAction.current=false;if(alive.current)setScaleSaving(false);}
++  function priceScaleReady() {return profileReady()&&!loading&&!error&&!confirm&&!calendarRequest.current&&!dialogOpen.current&&!!viewport&&!drag.current&&!gesture.current&&!closePress.current;}
++  function resetPriceAxis() {if(!priceScaleReady())return;pause();clearQuickOrder();setPreview(null);setNavigation(nav=>resetViewAxis(nav,'price'));}
++  function savePriceScale(){
++    if(!scaleSupported||!profileAccess||!viewport||!priceScaleReady())return;
++    const span=viewport.hi-viewport.lo;
++    setScaleStatus('');setScaleError('');
++    if(!saveTradePriceSpan(profileAccess.profile.learnerId,span,{guard:profileAccess.guard})){
++      setScaleError('Could not save the price scale in this browser.');return;
++    }
++    setSavedPriceSpan(span);setScaleStatus('Price scale saved in this browser.');
++  }
++  function restoreSavedPriceScale(){
++    if(!scaleSupported||!profileAccess||!viewport||!priceScaleReady())return;
++    const span=readTradePriceSpan(profileAccess.profile.learnerId,{guard:profileAccess.guard});
++    setSavedPriceSpan(span);setScaleStatus('');setScaleError('');
++    if(span===null&&legacyPriceZoom===null){setScaleError('Save a price scale first.');return;}
++    pause();clearQuickOrder();setPreview(null);
++    if(span!==null){
++      const next=restorePriceSpan(navigation,viewport,span);
++      if(next===navigation)return;
++      setNavigation(next);setScaleStatus(next.priceSpan!==null&&next.priceSpan>span?'Scale widened to fit the visible candle.':'Saved price scale restored.');
++    }else{
++      setNavigation(nav=>favoritePriceView(nav,legacyPriceZoom));setScaleStatus('Previous zoom restored.');
++    }
+   }
+   function axisDown(event:PointerEvent<SVGGElement>) {event.stopPropagation();chartDown(event);if(gesture.current?.pointerId===event.pointerId&&gesture.current.mode==='price')event.currentTarget.focus?.({preventScroll:true});}
+   function axisKeys(event:KeyboardEvent<SVGGElement>) {
+@@ -625,6 +642,11 @@
+         <div className="simulator-chart-heading"><div><span className={`sim-status ${state.position?'is-open':''}`}>{loading?<LoadingIndicator label="Loading chart…" size="small" />:state.ended?'SESSION COMPLETE':state.position?`${state.position.side==='buy'?'LONG':'SHORT'} OPEN`:state.pending?'BRACKET WAITING':'NO ACTIVE ORDER'}</span><p>{chart?.title||'Historical chart sessions'}</p>{mockWarning&&<p role="status">{mockWarning}</p>}{chartSourceNotice(chart)&&<p data-session-source>{chartSourceNotice(chart)}</p>}</div><div className="simulator-candle-count">Candle <strong>{chart?state.index+1:'—'}</strong> / {chart?.current.length||'—'}<small>{previewTrading?'Preview · results not scored':'Only revealed candles are scored'}</small></div></div>
+         <div className="simulator-trade-bar"><button className="sim-buy" aria-pressed={mode!=='idle'&&draft.side==='buy'} disabled={blocked||!!active} onClick={()=>changeSide('buy')}>Buy limit</button><button className="sim-sell" aria-pressed={mode!=='idle'&&draft.side==='sell'} disabled={blocked||!!active} onClick={()=>changeSide('sell')}>Sell limit</button><span role="status">{state.ended?'Session complete · Review your trades, then choose your next practice':mode==='armed'?'Tap the chart to set your entry':active?minimized?'Tap any order line to edit':'Slide to update · ✓ minimizes · × closes':'Choose Buy or Sell, then tap the chart'}</span>{mode==='armed'&&<button className="quiet-button" onClick={cancelPlacement}>Cancel placement</button>}</div>
+         {active&&displayMetrics&&<p className="simulator-profitable simulator-bracket-threshold" role="status">Your risk/reward requires {displayMetrics.requiredWinRate.toFixed(1)}% win rate</p>}
++        {scaleSupported&&chart&&displayedView&&<div className="simulator-price-scale-controls" role="group" aria-label="Price scale presets">
++          <div className="simulator-price-scale-feedback"><span role="status">{scaleStatus}</span>{scaleError&&<span role="alert">{scaleError}</span>}</div>
++          <button type="button" disabled={loading||!!error||!!confirm||!!calendar||dragging||priceDragging} onClick={savePriceScale} title="Save the visible vertical price span in this browser">Save Scale</button>
++          <button type="button" disabled={loading||!!error||!!confirm||!!calendar||dragging||priceDragging||(savedPriceSpan===null&&legacyPriceZoom===null)} onClick={restoreSavedPriceScale} title="Restore your saved price scale around this chart’s visible prices">Restore Scale</button>
++        </div>}
+         <div className={`simulator-chart ${mode==='armed'?'is-placing':''} ${preview?'has-placement-preview':''} ${priceDragging?'is-price-dragging':''}`} ref={host}>
+           {chart&&!loading&&!error&&<MobileSessionOverview key={chart.id} candles={chart.current} revealed={state.index+1} preview={previewTrading} ema20={overviewIndicators.ema} ema10={overviewIndicators.ema10}/>} 
+           {!chart&&!loading&&!error&&<div className="simulator-empty-session"><p>Pick a session to begin.</p><button type="button" className="quiet-button" disabled={!!confirm||!!calendar||saving||!!saveError||!catalog.length} onClick={event=>openSessionPicker(renderGeneration,event.currentTarget)}>Pick a session</button></div>}
+@@ -660,10 +682,9 @@
+           {chart&&displayedView&&hiddenCandles&&<button type="button" role="button" className="sim-hidden-candles" data-hidden-candle="true" data-hidden-direction={hiddenCandles.direction} data-hidden-target={hiddenCandles.targetSlot} data-hidden-target-index={hiddenCandles.targetIndex} data-hidden-prior={hiddenCandles.prior} data-hidden-latest={hiddenCandles.latest} aria-label={hiddenCandles.label} title={hiddenCandles.label} disabled={loading||!!error||!!confirm} style={{right:`${(displayedView.right+4)/displayedView.width*100}%`}} onPointerDown={event=>{event.stopPropagation();recoveryPress.current=null;if(!profileReady()||event.button!==0||event.isPrimary===false||drag.current||gesture.current||closePress.current)return;pause();setPreview(null);const box=event.currentTarget.getBoundingClientRect();if(![box.left,box.right,box.top,box.bottom,event.clientX,event.clientY].every(Number.isFinite)||box.right<=box.left||box.bottom<=box.top)return;recoveryPress.current={pointerId:event.pointerId,generation:renderGeneration,index:state.index,x:event.clientX,y:event.clientY,left:box.left,right:box.right,top:box.top,bottom:box.bottom,moved:false};}} onPointerMove={event=>{event.stopPropagation();const press=recoveryPress.current;if(press?.pointerId===event.pointerId&&Math.hypot(event.clientX-press.x,event.clientY-press.y)>=8)press.moved=true;}} onPointerUp={event=>{event.stopPropagation();const press=recoveryPress.current;if(press?.pointerId!==event.pointerId)recoveryPress.current=null;else if(![event.clientX,event.clientY].every(Number.isFinite)||event.clientX<press.left||event.clientX>press.right||event.clientY<press.top||event.clientY>press.bottom||Math.hypot(event.clientX-press.x,event.clientY-press.y)>=8)press.moved=true;}} onPointerCancel={event=>{event.stopPropagation();recoveryPress.current=null;}} onPointerLeave={()=>{recoveryPress.current=null;}} onClick={event=>{event.stopPropagation();const press=recoveryPress.current;recoveryPress.current=null;if(event.detail!==0&&(!press||press.moved||press.generation!==renderGeneration||press.index!==state.index))return;recoverHidden(renderGeneration,state.index);}} onDoubleClick={event=>event.stopPropagation()}><span aria-hidden="true">{({left:'←',right:'→',up:'↑',down:'↓','up-left':'↖','up-right':'↗','down-left':'↙','down-right':'↘'} as Record<string,string>)[hiddenCandles.direction]||'→'}</span></button>}
+ 
+         </div>
+-        <label className="simulator-ema"><input type="checkbox" checked={showEma} onChange={e=>{if(profileReady())setShowEma(e.target.checked);}} /> EMA20</label><label className="simulator-ema" style={{minHeight:44}} title="Private to this profile. Turning on keeps the current stop and immediately matches the target distance from entry, or actual fill after entry. New brackets start equal."><input type="checkbox" data-equal-tp-sl="true" checked={equalTpSl} disabled={!profileAccess||scaleSaving||preferenceSaving||!!preferenceError||loading||!!confirm||!!calendar||saving||!!saveError||dragging} onChange={event=>void changeEqualTpSl(event.target.checked,renderGeneration)}/> Equal TP/SL (1:1)</label>{preferenceSaving&&<p role="status"><LoadingIndicator label="Saving profile preference…" size="small" /></p>}{preferenceError&&<p className="notice warning" style={WARNING_STYLE} role="alert" data-preference-error="true">{preferenceError} <button type="button" className="quiet-button" disabled={preferenceSaving} onClick={()=>pendingPreference.current===null?refreshTradePreferences():void changeEqualTpSl(pendingPreference.current,runGeneration.current)}>Retry preference</button></p>}<p className="simulator-chart-hint">Drag the chart to pan. Drag the ↕ price axis up/down to resize candles; double-click resets its scale. Drag the bottom axis to zoom time. Release a valid line move to update it. ✓ minimizes; tap a line to edit. Right/D: next candle; focused lines ↑/W or ↓/S.</p>
++        <label className="simulator-ema"><input type="checkbox" checked={showEma} onChange={e=>{if(profileReady())setShowEma(e.target.checked);}} /> EMA20</label><label className="simulator-ema" style={{minHeight:44}} title="Private to this profile. Turning on keeps the current stop and immediately matches the target distance from entry, or actual fill after entry. New brackets start equal."><input type="checkbox" data-equal-tp-sl="true" checked={equalTpSl} disabled={!profileAccess||preferenceSaving||!!preferenceError||loading||!!confirm||!!calendar||saving||!!saveError||dragging} onChange={event=>void changeEqualTpSl(event.target.checked,renderGeneration)}/> Equal TP/SL (1:1)</label>{preferenceSaving&&<p role="status"><LoadingIndicator label="Saving profile preference…" size="small" /></p>}{preferenceError&&<p className="notice warning" style={WARNING_STYLE} role="alert" data-preference-error="true">{preferenceError} <button type="button" className="quiet-button" disabled={preferenceSaving} onClick={()=>pendingPreference.current===null?refreshTradePreferences():void changeEqualTpSl(pendingPreference.current,runGeneration.current)}>Retry preference</button></p>}<p className="simulator-chart-hint">Drag the chart to pan. Drag the ↕ price axis up/down to resize candles; double-click resets its scale. Drag the bottom axis to zoom time. Release a valid line move to update it. ✓ minimizes; tap a line to edit. Right/D: next candle; focused lines ↑/W or ↓/S.</p>
+         {state.ended?<section className="simulator-finished" aria-label="Session finished"><div><h2>Session complete</h2><p>{previewTrading?'Preview complete · entries and exits are for practice only.':'Slide the chart to review your filled trades and points.'} Focus the chart and use ←/A or →/D to pan.</p>{!previewTrading&&<p>Net points <strong>{signed(totals.netPoints)}</strong> · {totals.trades} closed {totals.trades===1?'position':'positions'}</p>}</div><div>{(saving||saveError||sessionLoading)&&<div className="simulator-finished-save" data-finished-save-status="true" role="status">{saving?<><LoadingIndicator label={online?'Saving this result to your account…':'Saving this result locally…'} />{' Replay and session choices unlock when the save finishes.'}</>:saveError?'This result is not safely saved yet. Retry the save to enable Replay and session choices.':<LoadingIndicator label="Loading your next session…" />}{saveError&&<button className="quiet-button" disabled={saving} onClick={retrySave}>Retry save</button>}</div>}<button className="primary-button" disabled={loading||!!confirm||saving||!!saveError} onClick={()=>completedAction('replay',renderGeneration)}>Replay</button><button className="quiet-button" disabled={loading||!!confirm||saving||!!saveError} onClick={()=>completedAction('random',renderGeneration)}>Next Random</button><button className="quiet-button" disabled={loading||!!confirm||saving||!!saveError} onClick={event=>completedAction('choose',renderGeneration,event?.currentTarget)}>Choose a Session</button></div></section>:<div className="simulator-replay"><button className="primary-button" disabled={!playing&&(blocked||edited||dragging||mode!=='idle')} onClick={togglePlay}>{playing?'Pause':'▶ Play'}</button><button className="quiet-button" disabled={blocked||edited||playing||dragging||mode!=='idle'} onClick={()=>nextCandle()} aria-keyshortcuts="ArrowRight d" title="Next candle (Right Arrow or D)">Next candle →</button><label>Speed<select value={speed} disabled={!!confirm} onChange={e=>{if(profileReady())setSpeed(Number(e.target.value));}}><option value={1800}>Slow</option><option value={1000}>Normal</option><option value={450}>Fast</option></select></label><button className="quiet-button" disabled={loading||!chart||!!confirm||saving||!!saveError} onClick={()=>requestAction('reset')}>Replay</button>{state.position&&<button type="button" className="quiet-button" data-close-position="true" style={{minHeight:44}} disabled={blocked||dragging||priceDragging} title="Close this simulated position at the latest revealed close and remove both exits" onClick={()=>closeEntry(state.position!.id,renderGeneration,true)}>Close Position</button>}<button className="quiet-button" disabled={blocked} onClick={()=>finishNow(renderGeneration)}>{previewTrading?'Finish preview':'Finish & score now'}</button></div>}
+-        <div className="simulator-view-controls" aria-label="Chart view controls"><button type="button" disabled={loading||!chart||!!error||!!confirm||!!calendar||state.index<1} onClick={openPatternFinder}>Open in Pattern Finder ↗</button><button onClick={()=>navigate('fit')}>Fit</button><button onClick={()=>navigate('follow')}>Latest</button>{scaleSupported&&<><button type="button" disabled={scaleSaving||preferenceSaving||loading||!chart||!!error||!!confirm||!!calendar||dragging||priceDragging} onClick={()=>void savePriceScale()} title="Save the current vertical zoom as your favorite">{scaleSaving?'Saving scale…':'Save Scale'}</button><button type="button" disabled={scaleSaving||preferenceSaving||loading||!chart||!!error||!!confirm||!!calendar||dragging||priceDragging} onClick={resetPriceAxis} title="Return to your favorite vertical zoom, or the default if none is saved">Reset Scale</button></>}<button ref={matcherButton} className="simulator-chart-matcher" type="button" aria-expanded="false" title="Open this visible chart in Chart Matcher" disabled={matcherBusy||loading||!chart||!!error||!!confirm||!!calendar||dragging} onClick={openMatcher}><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v14h7M6 12l3-4 3 2 3-5"/><circle cx="16" cy="16" r="4"/><path d="m19 19 3 3"/></svg><span>Open Chart Matcher</span></button>{!previewTrading&&<output className="simulator-closed-points" data-sign={totals.netPoints>0?'positive':totals.netPoints<0?'negative':'zero'} hidden={!chart||loading||!!error} role="status" aria-live="polite" aria-atomic="true" aria-label={`Closed trades: ${totals.netPoints===0?'0':signed(totals.netPoints)} Points`}>{totals.netPoints===0?'0':signed(totals.netPoints)} Points</output>}</div>
+-        {scaleStatus&&<p role="status">{scaleStatus}</p>}{scaleError&&<p role="alert">{scaleError}</p>}
++        <div className="simulator-view-controls" aria-label="Chart view controls"><button type="button" disabled={loading||!chart||!!error||!!confirm||!!calendar||state.index<1} onClick={openPatternFinder}>Open in Pattern Finder ↗</button><button onClick={()=>navigate('fit')}>Fit</button><button onClick={()=>navigate('follow')}>Latest</button><button ref={matcherButton} className="simulator-chart-matcher" type="button" aria-expanded="false" title="Open this visible chart in Chart Matcher" disabled={matcherBusy||loading||!chart||!!error||!!confirm||!!calendar||dragging} onClick={openMatcher}><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v14h7M6 12l3-4 3 2 3-5"/><circle cx="16" cy="16" r="4"/><path d="m19 19 3 3"/></svg><span>Open Chart Matcher</span></button>{!previewTrading&&<output className="simulator-closed-points" data-sign={totals.netPoints>0?'positive':totals.netPoints<0?'negative':'zero'} hidden={!chart||loading||!!error} role="status" aria-live="polite" aria-atomic="true" aria-label={`Closed trades: ${totals.netPoints===0?'0':signed(totals.netPoints)} Points`}>{totals.netPoints===0?'0':signed(totals.netPoints)} Points</output>}</div>
+         {matcherStatus&&<p role="status" aria-live="polite">{matcherStatus}</p>}{matcherError&&<p role="alert">{matcherError}</p>}
+         <p className="simulator-replay-note">Auto-play pauses on an entry or exit. Replay starts a new attempt; completed history stays saved.</p>
+       </section>
+diff --git a/lib/trade-simulator-preferences.mjs b/lib/trade-simulator-preferences.mjs
+--- a/lib/trade-simulator-preferences.mjs
++++ b/lib/trade-simulator-preferences.mjs
+@@ -39,3 +39,16 @@
+  if(!result.valid||!result.bracket||result.bracket.target!==target||Math.abs(Math.abs(target-basis)-distance)>1e-8)return null;
+  return {bracket:result.bracket,distance,basis};
+ }
++
++/** Exact price span is a browser-local, account-scoped display preference; no chart coordinates are saved. */
++export function tradePriceSpanKey(learnerId){
++ need(Profiles.validLearnerId(learnerId),'Choose a verified learner account.');
++ return 'price-action-trade-price-span-v1:'+learnerId;
++}
++export const validTradePriceSpan=value=>typeof value==='number'&&Number.isFinite(value)&&value>=.000001&&value<=1e10;
++export function readTradePriceSpan(learnerId,options={}){
++ try{need(options.guard?.()===true,'The account changed.');const raw=storageFor(options).getItem(tradePriceSpanKey(learnerId));need(options.guard?.()===true,'The account changed.');if(raw===null)return null;const value=raw.length<=32?JSON.parse(raw):null;return validTradePriceSpan(value)?value:null;}catch{return null;}
++}
++export function saveTradePriceSpan(learnerId,value,options={}){
++ try{need(options.guard?.()===true&&validTradePriceSpan(value),'The account or scale is invalid.');const storage=storageFor(options),key=tradePriceSpanKey(learnerId),raw=JSON.stringify(value);storage.setItem(key,raw);return storage.getItem(key)===raw&&options.guard?.()===true;}catch{return false;}
++}
+diff --git a/lib/trade-simulator-view.mjs b/lib/trade-simulator-view.mjs
+--- a/lib/trade-simulator-view.mjs
++++ b/lib/trade-simulator-view.mjs
+@@ -148,6 +148,17 @@
+   const reset=resetViewAxis(nav,'price');
+   return typeof favorite==='number'&&Number.isFinite(favorite)&&favorite>=.25&&favorite<=8?{...reset,yZoom:favorite}:reset;
+ }
++/** Restore an exact price range on the rightmost visible current candle (or visible prior candle when panned back).
++ * Keep the time window and normal replay following. Expand only if the anchor wick itself cannot fit.
++ * @param {ViewNavigation} nav @param {ReplayGeometry} view @param {number} savedSpan @returns {ViewNavigation}
++ */
++export function restorePriceSpan(nav,view,savedSpan) {
++  const anchor=view.visible.findLast(c=>!c.prior)??view.visible.at(-1);
++  if(!anchor||![anchor.l,anchor.h,savedSpan].every(Number.isFinite)||savedSpan<=0||anchor.h<anchor.l)return nav;
++  const range=anchor.h-anchor.l,span=range>savedSpan?range*1.1:savedSpan;
++  const reset=resetViewAxis(nav,'price');
++  return {...reset,yZoom:clamp(nav.yZoom*(view.hi-view.lo)/span,.25,8),priceCenter:anchor.l+range/2,priceSpan:span};
++}
+ export function priceFromClient(clientY, bounds, view) {
+   if (!(bounds.height > 0)) return null;
+   const y = (clientY-bounds.top)*view.height/bounds.height;
+diff --git a/tests/trade-favorite-view.test.mjs b/tests/trade-favorite-view.test.mjs
+--- a/tests/trade-favorite-view.test.mjs
++++ b/tests/trade-favorite-view.test.mjs
+@@ -1,7 +1,7 @@
+ import test from 'node:test';
+ import assert from 'node:assert/strict';
+ import fs from 'node:fs';
+-import {favoritePriceView,initialView,resetViewAxis,replayViewport} from '../lib/trade-simulator-view.mjs';
++import {favoritePriceView,initialView,resetViewAxis,replayViewport,restorePriceSpan,advanceView,dragView} from '../lib/trade-simulator-view.mjs';
+ test('favorite scale applies only to vertical navigation, falls back exactly to default with no favorite',()=>{
+  const manual={...initialView(),xZoom:2,offset:20,follow:false,priceCenter:200,priceSpan:10,yZoom:3,manualPrice:true,rightPadding:1};
+  const baseline=resetViewAxis(manual,'price');
+@@ -13,10 +13,45 @@
+  assert.equal(favorite.visible.length,1);assert.equal(favorite.visible[0].l,100);
+  assert.equal(favorite.hi-favorite.lo,2*(original.hi-original.lo));
+ });
+-test('save and reset controls use owner adapter and do not run or save a trade',()=>{
+- const s=fs.readFileSync(new URL('../components/trade-simulator.tsx',import.meta.url),'utf8'),save=s.slice(s.indexOf('async function savePriceScale'),s.indexOf('function axisDown'));
+- assert.match(s,/scaleSupported&&<>.*Save Scale.*Reset Scale/s);
+- assert.match(save,/store\.saveFavoriteTradeScale\(profileAccess\.profile,value,\{guard\}\)/);
+- assert.doesNotMatch(save,/checkpoint\(|commit\(|placeBracket\(/);
+- assert.match(s,/setNavigation\(nav=>favoritePriceView\(nav,favoriteTradeScale.current\)\)/);
++test('restoring on another chart keeps the exact points span and re-centers without changing time navigation',()=>{
++ const candle=(l,h)=>({l,h,o:l,c:h}),previous={prior:[],current:[candle(90,102)]};
++ const previousView=replayViewport(previous,0,[],900,430);
++ const saved=previousView.hi-previousView.lo;
++ const chart={prior:[candle(4900,4990)],current:[candle(5002,5008),candle(5010,5014),candle(-9000,9000)]};
++ const nav={...initialView(),xZoom:1.8,offset:1,follow:false,rightPadding:1,priceCenter:200,priceSpan:76,yZoom:2,manualPrice:true};
++ const target=replayViewport(chart,0,[],900,430,nav);
++ const restored=restorePriceSpan(nav,target,saved),view=replayViewport(chart,0,[],900,430,restored);
++ assert.equal(view.hi-view.lo,saved);
++ assert.equal((view.hi+view.lo)/2,5005);
++ assert.notEqual(replayViewport(chart,0,[],900,430,resetViewAxis(nav,'price')).hi-replayViewport(chart,0,[],900,430,resetViewAxis(nav,'price')).lo,saved);
++ assert.deepEqual([restored.xZoom,restored.offset,restored.follow,restored.rightPadding],[nav.xZoom,nav.offset,nav.follow,nav.rightPadding]);
++ assert.deepEqual([view.start,view.count],[target.start,target.count]);
++ assert.equal(restored.manualPrice,undefined);
++ const advanced=advanceView(restored,view,chart,1),next=replayViewport(chart,1,[],900,430,advanced);
++ assert.equal(next.hi-next.lo,saved);assert.ok(next.lo<=5010&&next.hi>=5014);
++ const dragged=dragView(restored,'price',0,35,view);assert.ok(dragged.priceSpan>saved);
++ assert.equal(previousView.hi-previousView.lo,saved);
+ });
++test('a wick wider than the saved span fits instead of disappearing off-screen; zoom remains valid for the next gesture',()=>{
++ const nav=initialView(),chart={current:[{l:100,h:200,c:175}]},target=replayViewport(chart,0);
++ const restored=restorePriceSpan(nav,target,3),view=replayViewport(chart,0,[],900,430,restored);
++ assert.ok(view.hi-view.lo>100);assert.ok(view.lo<100&&view.hi>200);
++ assert.equal(restored.priceCenter,150);assert.ok(restored.yZoom>=.25&&restored.yZoom<=8);
++ assert.equal(restorePriceSpan(nav,target,0),nav);
++ assert.equal(restorePriceSpan(nav,{...target,visible:[]},20),nav);
++});
++test('small Trade-only controls live above the chart; new sessions do not load the saved view and priority is exact browser span',()=>{
++ const s=fs.readFileSync(new URL('../components/trade-simulator.tsx',import.meta.url),'utf8');
++ const save=s.slice(s.indexOf('  function savePriceScale'),s.indexOf('  function axisDown'));
++ assert.match(s,/scaleSupported=profileAccess\?\.mode==='account'&&unifiedNavigation&&mockBrowser\(\)/);
++ assert.match(s,/className="simulator-price-scale-controls"[\s\S]*onClick=\{savePriceScale\}>?[^<]*>Save Scale<\/button>[\s\S]*onClick=\{restoreSavedPriceScale\}>?[^<]*>Restore Scale<\/button>[\s\S]*?className=\{.simulator-chart/);
++ assert.match(save,/saveTradePriceSpan\(profileAccess\.profile\.learnerId,span,\{guard:profileAccess\.guard\}\)/);
++ assert.match(save,/const span=viewport\.hi-viewport\.lo/);
++ assert.match(save,/restorePriceSpan\(navigation,viewport,span\)/);
++ assert.match(save,/else\{\s*setNavigation\(nav=>favoritePriceView\(nav,legacyPriceZoom\)\)/s);
++ assert.doesNotMatch(save,/checkpoint\(|commit\(|placeBracket\(|saveFavoriteTradeScale\(/);
++ assert.match(s,/function resetPriceAxis\(\).*resetViewAxis\(nav,'price'\)/);
++ assert.match(s,/function resetRun[\s\S]*?setNavigation\(initialView\(\)\)/);
++ assert.match(s,/saved attempt is paused/);
++ assert.doesNotMatch(s,/favoritePriceView\(initialView\(/);
++});
+diff --git a/tests/trade-price-span-preference.test.mjs b/tests/trade-price-span-preference.test.mjs
+new file mode 100644
+--- /dev/null
++++ b/tests/trade-price-span-preference.test.mjs
+@@ -0,0 +1,34 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readTradePriceSpan,saveTradePriceSpan,tradePriceSpanKey} from '../lib/trade-simulator-preferences.mjs';
++const owner='11111111-1111-4111-8111-111111111111',other='22222222-2222-4222-8222-222222222222';
++const harness=()=>{const map=new Map(),storage={getItem:key=>map.get(key)??null,setItem:(key,value)=>map.set(key,value)};return{map,storage,guard:()=>true};};
++
++test('stores one exact number across reloads, isolated by verified learner and browser',()=>{
++ const options=harness(),span=57.831243161;
++ assert.equal(readTradePriceSpan(owner,options),null);
++ assert.equal(saveTradePriceSpan(owner,span,options),true);
++ assert.deepEqual([...options.map],[[tradePriceSpanKey(owner),JSON.stringify(span)]]);
++ assert.equal(readTradePriceSpan(other,options),null);
++ assert.equal(readTradePriceSpan(owner,{...options}),span);
++ assert.equal(readTradePriceSpan(owner,harness()),null);
++ assert.equal(saveTradePriceSpan(other,24,options),true);
++ assert.equal(readTradePriceSpan(owner,options),span);
++ assert.equal(readTradePriceSpan(other,options),24);
++});
++test('rejects signed-out, stale, invalid or unavailable preferences without a trade or network write',()=>{
++ const options=harness();
++ assert.equal(saveTradePriceSpan(owner,48,options),true);
++ for(const bad of [0,-1,Infinity,NaN,'12',1e99])assert.equal(saveTradePriceSpan(owner,bad,options),false);
++ assert.equal(saveTradePriceSpan('other',25,options),false);
++ assert.equal(saveTradePriceSpan(owner,25,{...options,guard:()=>false}),false);
++ assert.equal(readTradePriceSpan(owner,{...options,guard:()=>false}),null);
++ assert.equal(readTradePriceSpan(owner,options),48);
++ let checks=0;
++ assert.equal(readTradePriceSpan(owner,{...options,guard:()=>++checks===1}),null);
++ const storage={getItem(){throw Error('blocked');},setItem(){throw Error('blocked');}};
++ assert.equal(readTradePriceSpan(owner,{storage,guard:()=>true}),null);
++ assert.equal(saveTradePriceSpan(owner,12,{storage,guard:()=>true}),false);
++ options.map.set(tradePriceSpanKey(other),JSON.stringify({span:12,center:100}));
++ assert.equal(readTradePriceSpan(other,options),null);
++});
+diff --git a/components/daily-dashboard.module.css b/components/daily-dashboard.module.css
+--- a/components/daily-dashboard.module.css
++++ b/components/daily-dashboard.module.css
+@@ -49,3 +49,8 @@
+ .overview[hidden]{display:none}.withWeight{grid-template-columns:150px minmax(0,1fr) minmax(240px,1fr);gap:22px;padding:24px 30px}.withWeight .progressRing{width:145px;height:145px}.withWeight .progressRing strong{font-size:36px}.withWeight .chart{grid-template-columns:repeat(7,minmax(20px,1fr));min-width:0;gap:5px}.withWeight .barSlot{height:90px}.withWeight .chartHeading{gap:5px;margin-bottom:10px}.withWeight .chartHeading h2{font-size:14px}.withWeight .chartHeading>span{display:none}.withWeight .chartNote{font-size:10px;line-height:1.3}
+ @media(max-width:850px){.withWeight{grid-template-columns:110px minmax(0,1fr) minmax(0,1fr);gap:14px;padding:22px 16px}.withWeight .progressRing{width:110px;height:110px}.withWeight .progressRing strong{font-size:28px}.withWeight .progressRing span{font-size:9px}}
+ @media(max-width:600px){.withWeight{grid-template-columns:90px minmax(0,1fr);gap:12px}.withWeight>section{grid-column:1/-1}.withWeight .score{justify-content:center}.withWeight .progressRing{width:90px;height:90px}.withWeight .progressRing strong{font-size:25px}.withWeight .progressRing span{font-size:8px}.withWeight .chartHeading h2{font-size:12px}.withWeight .chartHeading p{font-size:9px}.withWeight .barSlot{height:76px}.withWeight .barValue{font-size:8px}.withWeight .chart{gap:2px}.withWeight .chart button{padding:0 0 4px}.withWeight .chartScroll{padding:4px 0}.withWeight .weekday{display:none}}
++
++/* Optional passive metric, right-aligned alongside the tile's existing footer. */
++.tradingTileFooter{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:2px 6px;width:100%;margin-top:auto}
++.tradingTileProfitFactor{margin-left:auto;white-space:nowrap;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
++.completedCategories .completeCard .tradingTileFooter{margin-top:0}
+diff --git a/components/daily-dashboard.tsx b/components/daily-dashboard.tsx
+--- a/components/daily-dashboard.tsx
++++ b/components/daily-dashboard.tsx
+@@ -13,7 +13,7 @@
+ type Task={id:string;category:string;title:string;position:number;active:boolean;revision:number};
+ type Item={id:string;category:string;title:string;position:number;completed:boolean;revision:number};
+ type Category={id:string;name:string;icon:string;active:boolean;revision:number};
+-type Snapshot={hourly:{completedHours:number[];serverNow:number};today:string;date:string;timeZone:string;percentage:number;categories:Category[];tasks:Task[];items:Item[];context:{accountId:string;generation:number;sessionTag:string};trading:{completed:number;goal:number;patternsCompleted?:number;patternsStudied?:number;patternGoal?:number};history:{date:string;total:number;completed:number;percentage:number;trading:number}[]};
++type Snapshot={hourly:{completedHours:number[];serverNow:number};today:string;date:string;timeZone:string;percentage:number;categories:Category[];tasks:Task[];items:Item[];context:{accountId:string;generation:number;sessionTag:string};trading:{completed:number;goal:number;profitFactor?:number|'no-losses'|'flat-only';patternsCompleted?:number;patternsStudied?:number;patternGoal?:number};history:{date:string;total:number;completed:number;percentage:number;trading:number}[]};
+ const shift=(day:string,by:number)=>new Date(Date.parse(day+'T12:00:00Z')+by*86400000).toISOString().slice(0,10);
+ const label=(day:string)=>new Date(day+'T12:00:00Z').toLocaleDateString('en-US',{month:'short',day:'numeric',timeZone:'UTC'});
+ async function request(url:string,init?:RequestInit){const r=await fetch(url,{...init,cache:'no-store',credentials:'same-origin'});let v;try{v=await r.json();}catch{throw Error('The dashboard is unavailable. Nothing was saved.');}if(!r.ok)throw Object.assign(Error(v.error||'Could not save. Please try again.'),{status:r.status});return v;}
+@@ -58,7 +58,9 @@
+  const percentage=data?.percentage||0,selected=data?.categories.find(c=>c.id===category&&(c.active||data.date!==data.today));
+  const days=data?Array.from({length:weightEnabled?7:14},(_,i)=>{const date=shift(data.date,i-(weightEnabled?6:13)),row=data.history.find(r=>r.date===date);return{date,row,tracked:!!row&&row.total>0,percent:row?row.percentage:0};}):[];
+  const hourlyComplete=data?.hourly.completedHours.length===HOURLY_HOURS.length;
+- const cards=data?data.categories.filter(c=>c.active||data.date!==data.today&&data.items.some(i=>i.category===c.id)).map(c=>{const items=data.items.filter(i=>i.category===c.id),done=c.id==='trading'?data.trading.completed:items.filter(i=>i.completed).length,count=c.id==='trading'?5:items.length,patternGoal=c.id==='trading'?(data.trading.patternGoal??0):0,patternsDone=(data.trading.patternsCompleted??0)+(data.trading.patternsStudied??0);const complete=count>0&&done>=count&&patternsDone>=patternGoal;const pct=patternGoal?Math.round(100*(Math.min(done,count)+Math.min(patternsDone,patternGoal))/(count+patternGoal)):c.id==='trading'?Math.min(100,Math.round(done/5*100)):count?Math.round(done/count*100):0;const patternProgress=patternGoal>0&&<p className={styles.cardCount}><strong>{Math.min(patternsDone,patternGoal)} <span>/ {patternGoal}</span></strong><span>Pattern Encyclopedia slide saved or studied</span></p>;const content=complete?<><span className={styles.icon} aria-hidden="true">{c.icon}</span><h2>{c.name}{!c.active&&<small className={styles.archivedLabel}> · archived</small>}</h2>{patternGoal>0&&<span className={styles.compactTradingProgress}>{count}/{count} sessions · {patternGoal}/{patternGoal} slide</span>}<span className={styles.tilePercent}>✓ Complete</span></>:<><span aria-hidden="true" className={styles.tileFill} style={{height:pct+'%'}}/><div className={styles.cardTop}><span className={styles.icon}>{c.icon}</span><span>{c.id==='trading'?'Open trading ↗':category===c.id?'View checklist ↓':'Open checklist ↗'}</span></div><h2>{c.name}{!c.active&&<small className={styles.archivedLabel}> · archived</small>}</h2><p className={styles.cardCount}><strong>{patternGoal?Math.min(done,count):done} <span>/ {count}</span></strong><span>{c.id==='trading'?'completed sessions':'tasks completed'}</span></p>{patternProgress}<span className={styles.tilePercent}>{pct>=100?'✓ Complete':pct+'% complete'}</span></>;return {complete,element:c.id==='trading'?<a key={c.id} data-category={c.id} className={`${styles.card} ${complete?styles.completeCard:''}`} href="/training">{content}</a>:<button key={c.id} data-category={c.id} className={`${styles.card} ${category===c.id?styles.selected:''} ${complete?styles.completeCard:''}`} aria-expanded={category===c.id} onClick={()=>{if(category===c.id){checklist.current?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});return;}setCategory(c.id);setEditing(null);setTitle('');setRenaming(false);}}>{content}</button>};}): [];
++ const profitFactor=data&&data.date===data.today&&(!clock||clock.day===data.today)?data.trading.profitFactor:undefined;
++ const pfLabel=typeof profitFactor==='number'&&Number.isFinite(profitFactor)&&profitFactor>=0?profitFactor.toLocaleString('en-US',{maximumFractionDigits:2}):profitFactor==='no-losses'?'No losses':profitFactor==='flat-only'?'Flat only':null;
++ const cards=data?data.categories.filter(c=>c.active||data.date!==data.today&&data.items.some(i=>i.category===c.id)).map(c=>{const items=data.items.filter(i=>i.category===c.id),done=c.id==='trading'?data.trading.completed:items.filter(i=>i.completed).length,count=c.id==='trading'?5:items.length,patternGoal=c.id==='trading'?(data.trading.patternGoal??0):0,patternsDone=(data.trading.patternsCompleted??0)+(data.trading.patternsStudied??0);const complete=count>0&&done>=count&&patternsDone>=patternGoal;const pct=patternGoal?Math.round(100*(Math.min(done,count)+Math.min(patternsDone,patternGoal))/(count+patternGoal)):c.id==='trading'?Math.min(100,Math.round(done/5*100)):count?Math.round(done/count*100):0;const patternProgress=patternGoal>0&&<p className={styles.cardCount}><strong>{Math.min(patternsDone,patternGoal)} <span>/ {patternGoal}</span></strong><span>Pattern Encyclopedia slide saved or studied</span></p>;const footer=(status:string)=>c.id==='trading'&&pfLabel!==null?<span className={styles.tradingTileFooter}><span className={styles.tilePercent}>{status}</span><span className={styles.tradingTileProfitFactor} aria-label={`Today's profit factor: ${pfLabel}`}>PF {pfLabel}</span></span>:<span className={styles.tilePercent}>{status}</span>;const content=complete?<><span className={styles.icon} aria-hidden="true">{c.icon}</span><h2>{c.name}{!c.active&&<small className={styles.archivedLabel}> · archived</small>}</h2>{patternGoal>0&&<span className={styles.compactTradingProgress}>{count}/{count} sessions · {patternGoal}/{patternGoal} slide</span>}{footer('✓ Complete')}</>:<><span aria-hidden="true" className={styles.tileFill} style={{height:pct+'%'}}/><div className={styles.cardTop}><span className={styles.icon}>{c.icon}</span><span>{c.id==='trading'?'Open trading ↗':category===c.id?'View checklist ↓':'Open checklist ↗'}</span></div><h2>{c.name}{!c.active&&<small className={styles.archivedLabel}> · archived</small>}</h2><p className={styles.cardCount}><strong>{patternGoal?Math.min(done,count):done} <span>/ {count}</span></strong><span>{c.id==='trading'?'completed sessions':'tasks completed'}</span></p>{patternProgress}{footer(pct>=100?'✓ Complete':pct+'% complete')}</>;return {complete,element:c.id==='trading'?<a key={c.id} data-category={c.id} className={`${styles.card} ${complete?styles.completeCard:''}`} href="/training">{content}</a>:<button key={c.id} data-category={c.id} className={`${styles.card} ${category===c.id?styles.selected:''} ${complete?styles.completeCard:''}`} aria-expanded={category===c.id} onClick={()=>{if(category===c.id){checklist.current?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});return;}setCategory(c.id);setEditing(null);setTitle('');setRenaming(false);}}>{content}</button>};}): [];
+  if(data)cards.push({complete:hourlyComplete,element:<button key="hourly" type="button" data-category="hourly" className={`${styles.card} ${category==='hourly'?styles.selected:''} ${hourlyComplete?styles.completeCard:''}`} aria-expanded={category==='hourly'} onClick={()=>{if(category==='hourly'){hourlyChecklist.current?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});return;}setCategory('hourly');setEditing(null);setTitle('');setRenaming(false);}}>
+   {hourlyComplete?<><span className={styles.icon} aria-hidden="true">◷</span><h2>Hourly Checkin</h2><span className={styles.tilePercent}>✓ Complete</span></>:<>
+   <span aria-hidden="true" className={styles.tileFill} style={{height:Math.round(data.hourly.completedHours.length/13*100)+'%'}}/>
+diff --git a/lib/learner/daily.mjs b/lib/learner/daily.mjs
+--- a/lib/learner/daily.mjs
++++ b/lib/learner/daily.mjs
+@@ -25,8 +25,44 @@
+ const ctx=(a,s)=>({accountId:a.id,generation:a.generation,sessionTag:s.session_tag});
+ const task=r=>({id:r.task_id,category:r.category,title:r.title,position:r.position,active:r.active,revision:r.revision});
+ const item=r=>({id:r.task_id,category:r.category,title:r.title,position:r.position,completed:r.completed,revision:r.revision});
++const attemptDatesSQL="SELECT attempt_id,payload->>'completedAt' AS completed_at FROM learner_app.attempts WHERE account_id=$1 AND generation=$2";
++// Preserve the existing attempt scan and return only small, today-only outcome summaries.
++// UTC ISO strings have the same ordering as these DST-aware Chicago day boundaries.
++const attemptDatesWithTodayOutcomesSQL=`SELECT attempt_id,payload->>'completedAt' AS completed_at,
++ CASE WHEN payload->>'completedAt' >= bounds.start_utc AND payload->>'completedAt' < bounds.end_utc AND payload->>'completedAt' <= $4 THEN
++  CASE WHEN payload->'isMobile'='true'::jsonb THEN '{"excluded":true}'::jsonb ELSE CASE module
++   WHEN 'trade-simulator' THEN jsonb_build_object('trade',jsonb_build_array(summary->'grossProfit',summary->'grossLoss',summary->'trades',summary->'wins',summary->'losses',summary->'flats'))
++   WHEN 'market-direction' THEN
++    CASE WHEN summary->>'legDefinition' IN ('contiguous-frozen-close-legs-v1','symmetric-exit-bracket-legs-v1') AND jsonb_typeof(summary->'legs')='array' THEN
++     CASE WHEN jsonb_array_length(summary->'legs')<=81 THEN
++      jsonb_build_object('direction',(SELECT COALESCE(jsonb_agg(leg->'points'),'[]'::jsonb) FROM jsonb_array_elements(summary->'legs') AS leg))
++     END
++    END
++  END END
++ END AS today_outcomes
++ FROM learner_app.attempts
++ CROSS JOIN (SELECT
++  to_char(($3::date::timestamp AT TIME ZONE 'America/Chicago') AT TIME ZONE 'UTC','YYYY-MM-DD"T"HH24:MI:SS.MS"Z"') AS start_utc,
++  to_char((($3::date+1)::timestamp AT TIME ZONE 'America/Chicago') AT TIME ZONE 'UTC','YYYY-MM-DD"T"HH24:MI:SS.MS"Z"') AS end_utc) AS bounds
++ WHERE account_id=$1 AND generation=$2`;
++const validGross=value=>typeof value==='number'&&Number.isFinite(value)&&value>=0&&value<=1e12;
++function addTodayOutcomes(total,summary){
++ if(Array.isArray(summary?.trade)){
++  const [won,lost,samples,wins,losses,flats]=summary.trade;
++  if(!validGross(won)||!validGross(lost)||![samples,wins,losses,flats].every(n=>Number.isSafeInteger(n)&&n>=0&&n<=512)||samples!==wins+losses+flats||(won>0)!==(wins>0)||(lost>0)!==(losses>0))return false;
++  total.won+=won;total.lost+=lost;total.samples+=samples;return true;
++ }
++ if(!Array.isArray(summary?.direction)||!summary.direction.every(n=>typeof n==='number'&&Number.isFinite(n)&&Math.abs(n)<=1e12))return false;
++ for(const points of summary.direction){if(points>0)total.won+=points;else total.lost-=points;total.samples++;}
++ return true;
++}
++function todayProfitFactor({won,lost,samples,complete}){
++ if(!complete||!samples)return null;
++ if(!lost)return won>0?'no-losses':'flat-only';
++ const ratio=won/lost;return Number.isFinite(ratio)?ratio:null;
++}
+ export class DailyRepository{
+- constructor(repository,{patternGoal=false}={}){this.repository=repository;this.patternGoal=patternGoal;}
++ constructor(repository,{patternGoal=false,tradingCardProfitFactor=false}={}){this.repository=repository;this.patternGoal=patternGoal;this.tradingCardProfitFactor=tradingCardProfitFactor;}
+  async seed(db,a,time){
+   for(let i=0;i<DAILY_CATEGORIES.length;i++){const c=DAILY_CATEGORIES[i];const inserted=(await db.query('INSERT INTO learner_app.daily_categories(account_id,category,name) VALUES($1,$2,$3) ON CONFLICT DO NOTHING RETURNING category',[a.id,c.id,c.name])).rows;
+    if(inserted.length&&c.id!=='trading'){const found=(await db.query('SELECT task_id FROM learner_app.daily_tasks WHERE account_id=$1 AND category=$2 LIMIT 1',[a.id,c.id])).rows;if(!found.length)await db.query('INSERT INTO learner_app.daily_tasks(account_id,task_id,category,title,created_at,position) VALUES($1,$2,$3,$4,$5,1)',[a.id,randomUUID(),c.id,defaults[i],time+i]);}
+@@ -39,8 +75,13 @@
+  const items=(await db.query('SELECT * FROM learner_app.daily_items WHERE account_id=$1 AND day_key=$2 AND active=true ORDER BY category,position,task_id',[a.id,date])).rows;
+  const since=new Date(Date.parse(date+'T12:00:00Z')-13*86400000).toISOString().slice(0,10);
+  const history=(await db.query('SELECT day_key AS date,count(*)::integer AS total,count(*) FILTER (WHERE completed)::integer AS completed FROM learner_app.daily_items WHERE account_id=$1 AND active=true AND day_key >= $2 AND day_key <= $3 GROUP BY day_key ORDER BY day_key',[a.id,since,date])).rows;
+- const attempts=(await db.query("SELECT attempt_id,payload->>'completedAt' AS completed_at FROM learner_app.attempts WHERE account_id=$1 AND generation=$2",[a.id,a.generation])).rows;
+- const trading={};const seen=new Set();for(const attempt of attempts){if(seen.has(attempt.attempt_id))continue;seen.add(attempt.attempt_id);const completedAt=Date.parse(attempt.completed_at);if(!Number.isFinite(completedAt))continue;const day=todayKey(completedAt);if(day>=since&&day<=date)trading[day]=(trading[day]||0)+1;}
++ const includeOutcomes=this.tradingCardProfitFactor&&date===today;
++ const attempts=(await db.query(includeOutcomes?attemptDatesWithTodayOutcomesSQL:attemptDatesSQL,includeOutcomes?[a.id,a.generation,today,new Date(time).toISOString()]:[a.id,a.generation])).rows;
++ const trading={},outcomes={won:0,lost:0,samples:0,complete:true},seen=new Set();
++ for(const attempt of attempts){if(seen.has(attempt.attempt_id))continue;seen.add(attempt.attempt_id);const completedAt=Date.parse(attempt.completed_at);if(!Number.isFinite(completedAt))continue;const day=todayKey(completedAt);if(day>=since&&day<=date)trading[day]=(trading[day]||0)+1;
++  if(includeOutcomes&&day===today&&completedAt<=time&&attempt.today_outcomes?.excluded!==true&&outcomes.complete)outcomes.complete=addTodayOutcomes(outcomes,attempt.today_outcomes);
++ }
++ const profitFactor=todayProfitFactor(outcomes);
+  const combined=new Map(history.map(h=>[h.date,{...h,percentage:percent(h.completed,h.total),trading:trading[h.date]||0}]));for(const [day,count] of Object.entries(trading))if(!combined.has(day))combined.set(day,{date:day,total:0,completed:0,percentage:0,trading:count});
+  // Check immutable creation rather than update time, without changing existing daily history totals.
+  // Trash does not undo a historical creation. Chicago boundaries also cover 23/25-hour DST days.
+@@ -49,7 +90,7 @@
+   :null;
+  const reviewed=patterns===null?null:(await db.query("SELECT count(*)::integer AS n FROM learner_app.pattern_study_days WHERE account_id=$1 AND day_key=$2",[a.id,date])).rows[0].n;
+  const hourly=(await db.query('SELECT hour FROM learner_app.daily_hourly_checkins WHERE account_id=$1 AND day_key=$2 AND completed ORDER BY hour',[a.id,date])).rows;
+- return{context:ctx(a,s),today,date,timeZone:DAILY_TIME_ZONE,hourly:{completedHours:hourly.map(r=>r.hour),serverNow:time},percentage:percent(items.filter(i=>i.completed).length,items.length),categories:DAILY_CATEGORIES.map(c=>{const r=categories.find(r=>r.category===c.id);return{...c,name:r.name,active:r.active,revision:r.revision};}),tasks:tasks.map(task),items:items.map(item),trading:{completed:trading[date]||0,goal:5,...(patterns===null?{}:{patternsCompleted:patterns,patternsStudied:reviewed,patternGoal:1})},history:[...combined.values()].sort((a,b)=>a.date.localeCompare(b.date))};
++ return{context:ctx(a,s),today,date,timeZone:DAILY_TIME_ZONE,hourly:{completedHours:hourly.map(r=>r.hour),serverNow:time},percentage:percent(items.filter(i=>i.completed).length,items.length),categories:DAILY_CATEGORIES.map(c=>{const r=categories.find(r=>r.category===c.id);return{...c,name:r.name,active:r.active,revision:r.revision};}),tasks:tasks.map(task),items:items.map(item),trading:{completed:trading[date]||0,goal:5,...(profitFactor===null?{}:{profitFactor}),...(patterns===null?{}:{patternsCompleted:patterns,patternsStudied:reviewed,patternGoal:1})},history:[...combined.values()].sort((a,b)=>a.date.localeCompare(b.date))};
+  }
+  read(p,now,date){return this.repository.owned(p,now,false,(db,a,s,time)=>this.snapshot(db,a,s,time,date));}
+  write(p,context,value,now){return this.repository.owned(p,now,false,async(db,a,s,time)=>{this.repository.check(a,s,context);const today=todayKey(time);
+diff --git a/lib/learner/server.mjs b/lib/learner/server.mjs
+--- a/lib/learner/server.mjs
++++ b/lib/learner/server.mjs
+@@ -49,7 +49,7 @@
+  const patterns=new PatternRepository(repository,{studyEnabled:origin===DAILY_BALANCE_ORIGIN});
+  const weight=new WeightRepository(repository);
+  const positivity=new PositivityRepository(repository);
+- const daily=new DailyRepository(repository,{patternGoal:origin===DAILY_BALANCE_ORIGIN});
++ const daily=new DailyRepository(repository,{patternGoal:origin===DAILY_BALANCE_ORIGIN,tradingCardProfitFactor:origin===DAILY_BALANCE_ORIGIN});
+  const improvements=new ImprovementsRepository(repository);
+  const lifeLessons=new LifeLessonsRepository(repository);
+  const mockCharts=origin===DAILY_BALANCE_ORIGIN?new MockChartsRepository(repository):null;
+diff --git a/tests/daily-trading-profit-factor.test.mjs b/tests/daily-trading-profit-factor.test.mjs
+new file mode 100644
+--- /dev/null
++++ b/tests/daily-trading-profit-factor.test.mjs
+@@ -0,0 +1,73 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import {randomUUID} from 'node:crypto';
++import {PGlite} from '@electric-sql/pglite';
++import {LearnerRepository} from '../lib/learner/repository.mjs';
++import {createLearnerService} from '../lib/learner/server.mjs';
++import {DAILY_BALANCE_ORIGIN,LEARNER_ORIGIN} from '../lib/learner/google-config.mjs';
++
++const read=(path)=>fs.readFileSync(new URL('../'+path,import.meta.url),'utf8');
++const trade=(won,lost,flats=0)=>({grossProfit:won,grossLoss:lost,trades:(won>0)+(lost>0)+flats,wins:Number(won>0),losses:Number(lost>0),flats});
++const direction=(points,definition='contiguous-frozen-close-legs-v1')=>({legDefinition:definition,legs:points.map(points=>({points})),favorablePoints:850,adversePoints:725});
++
++test('today PF uses a single existing owner attempt query, pooled closed outcomes and exact Chicago boundaries',async()=>{
++ const db=new PGlite(),issuer='https://fixture.test';
++ let now=Date.parse('2026-11-02T05:59:00.000Z'),name='Test Owner',queries=[];
++ try{
++  await db.exec('CREATE ROLE learner_runtime');
++  for(const file of ['006_learner_accounts','028_daily_dashboard','030_daily_dashboard_points','032_daily_categories_order','033_daily_hourly_checkins'])await db.exec(read('migrations/'+file+'.sql'));
++  const repository=new LearnerRepository({transaction:fn=>db.transaction(tx=>fn({query(sql,args){queries.push(sql);return tx.query(sql,args);}}))});
++  const api=(origin)=>createLearnerService({origin,repository,identityProvider:{issuer,resolve:async()=>name?({issuer,subject:name,name,sessionId:'fixture-verified-'+name,expiresAt:now+86400000,emailVerified:true}):null},csrfSecret:'fixture-only-secret-000000000000000000000000000',charts:async()=>{throw Error('Daily PF must never load charts');},now:()=>now});
++  const daily=api(DAILY_BALANCE_ORIGIN),standalone=api(LEARNER_ORIGIN);
++  const request=async(path,service=daily,origin=DAILY_BALANCE_ORIGIN)=>{const r=await service(new Request(origin+'/api/learner/'+path,{headers:{host:new URL(origin).host,origin,'sec-fetch-site':'same-origin'}}));return{status:r.status,cache:r.headers.get('cache-control'),body:await r.json()};};
++  const session=(await request('session')).body.context;name='Other Owner';const other=(await request('session')).body.context;name='Test Owner';
++  const insert=async(completedAt,module,summary,{owner=session,device=undefined,generation=owner.generation}={})=>{
++   const id=randomUUID();
++   await db.query("INSERT INTO learner_app.attempts(account_id,generation,attempt_id,module,payload,summary,fingerprint,payload_bytes,saved_at) VALUES($1,$2,$3,$4,$5,$6,'synthetic',100,1)",[owner.accountId,generation,id,module,JSON.stringify({completedAt,isMobile:device}),JSON.stringify(summary)]);
++   return id;
++  };
++  const get=async(path='daily',service=daily,origin=DAILY_BALANCE_ORIGIN)=>{queries=[];const result=await request(path,service,origin);assert.equal(result.status,200);assert.match(result.cache,/no-store/);assert.equal(queries.filter(q=>/\bFROM learner_app\.attempts\b/.test(q)).length,1);return result.body;};
++  assert.equal((await get()).trading.profitFactor,undefined);
++  const start='2026-11-01T05:00:00.000Z';
++  await insert(start,'trade-simulator',trade(12,2));
++  assert.equal((await get()).trading.profitFactor,6);
++  await insert('2026-11-01T23:30:00.000Z','market-direction',direction([18,-8,0]));
++  await insert('2026-11-02T05:58:59.999Z','market-direction',direction([10,-2],'symmetric-exit-bracket-legs-v1'));
++  await insert('2026-11-01T04:59:59.999Z','trade-simulator',trade(0,500));
++  await insert('2026-11-01T23:00:00.000Z','trade-simulator',trade(0,500),{owner:other});
++  await insert('2026-11-01T23:00:00.000Z','trade-simulator',trade(0,500),{generation:session.generation+1});
++  await insert('2026-11-01T23:00:00.000Z','trade-simulator',{}, {device:true});
++  await insert('2026-11-02T05:59:01.000Z','trade-simulator',trade(0,500));
++  await insert('2026-11-02T06:00:00.000Z','trade-simulator',trade(0,5));
++  const before=(await db.query('SELECT attempt_id,summary FROM learner_app.attempts ORDER BY attempt_id')).rows;
++  const loaded=await get();
++  assert.equal(loaded.today,'2026-11-01');
++  assert.deepEqual(loaded.trading,{completed:5,goal:5,profitFactor:40/12});
++  assert.deepEqual((await db.query('SELECT attempt_id,summary FROM learner_app.attempts ORDER BY attempt_id')).rows,before);
++  assert.equal((await get('daily?date=2026-10-31')).trading.profitFactor,undefined);assert.doesNotMatch(queries.find(q=>q.includes('FROM learner_app.attempts')),/summary->|jsonb/);
++  assert.equal((await get('daily',standalone,LEARNER_ORIGIN)).trading.profitFactor,undefined);
++  const incomplete=await insert(start,'market-direction',{legDefinition:'contiguous-frozen-close-legs-v1',legs:[{}, {points:30}]});
++  assert.equal((await get()).trading.profitFactor,undefined,'omit partial ratios');
++  await db.query('DELETE FROM learner_app.attempts WHERE attempt_id=$1',[incomplete]);
++
++  now=Date.parse('2026-11-02T06:00:00.000Z');
++  assert.equal((await get()).trading.profitFactor,0,'only losses');
++  await db.query("DELETE FROM learner_app.attempts WHERE payload->>'completedAt'=$1",[new Date(now).toISOString()]);
++  assert.equal((await get()).trading.profitFactor,undefined);
++  const flat=await insert(new Date(now).toISOString(),'trade-simulator',trade(0,0,1));
++  assert.equal((await get()).trading.profitFactor,'flat-only');
++  await db.query('DELETE FROM learner_app.attempts WHERE attempt_id=$1',[flat]);
++  await insert(new Date(now).toISOString(),'trade-simulator',trade(6,0));
++  assert.equal((await get()).trading.profitFactor,'no-losses');
++  name=null;assert.equal((await request('daily')).status,401);
++ }finally{await db.close();}
++});
++
++test('Trading card reads only the existing today payload, labels PF and has no extra request or pending UI',()=>{
++ const ui=read('components/daily-dashboard.tsx'),css=read('components/daily-dashboard.module.css');
++ assert.match(ui,/data\.date===data\.today&&\(!clock\|\|clock\.day===data\.today\)\?data\.trading\.profitFactor:undefined/);
++ assert.match(ui,/c.id==='trading'&&pfLabel!==null.*tradingTileProfitFactor.*Today's profit factor.*PF \{pfLabel\}/);
++ assert.doesNotMatch(ui,/\/api\/learner\/(stats|progress|attempts)/);
++ assert.match(css,/\.tradingTileProfitFactor\{margin-left:auto/);
++});

@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 # Add pattern expectations and compact verified chart archives without changing existing records.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
 echo '69917e260166a62a494a02c651144c26d4851bbb02dbd9668ce7d64842d38335  training-center-overlay.tar.gz' | sha256sum --check --status
-echo 'b3e9a1b0323b2d3da27d6fe37621f13d379274cc081747156d9baea5b5a4b863  runtime-contents.json' | sha256sum --check --status
+echo '32b44ad8f56fb6499c1a5619f621184bd874162e0b36010a6d01c17aa744e546  runtime-contents.json' | sha256sum --check --status
 echo 'a3b614ab06c3740c380b0f035a56d44ce2725343335409fc0c5456d350ef6b0c  training-center-calendar.tar.gz' | sha256sum --check --status
 echo 'f024dca3519a6e3e75f8fd693aa4569a3815b223ee05d1499216323d8c819941  training-center-full-previews.tar.gz' | sha256sum --check --status
 echo '463ef694cd9e33f56a2eecebcc0b469d4e2b1f9bf5ebb524156f905beadeed0c  training-center-encyclopedia.tar.gz' | sha256sum --check --status
@@ -118,6 +118,8 @@ echo 'eb1f519fb091db4262a16a04f278b17afb2fdb72ea6fea10b3da0400c632093f  daily-me
 git apply --directory=training-center-app --whitespace=nowarn daily-mes-counted-code.patch
 echo '64d24a593a07c2cc10d4fc643dbcf321529dffb249c8b61c1148031a9c88d121  daily-pattern-source-dates.patch' | sha256sum --check --status
 git apply --directory=training-center-app --whitespace=nowarn daily-pattern-source-dates.patch
+echo '0c1453b95fbe25f0f67df5447a4ac08069dc60284c42b34d1858c226a7ae3313  daily-pattern-scale-and-trading-pf.patch' | sha256sum --check --status
+git apply --directory=training-center-app --whitespace=nowarn daily-pattern-scale-and-trading-pf.patch
 node --input-type=module <<'VERIFY'
 import fs from 'node:fs';import crypto from 'node:crypto';
 const expected=JSON.parse(fs.readFileSync('runtime-contents.json','utf8'));

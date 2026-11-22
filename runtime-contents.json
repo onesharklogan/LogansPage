@@ -86,8 +86,8 @@
   },
   {
     "path": "app/globals.css",
-    "bytes": 86040,
-    "sha256": "0a32686595d8996cbfd707d1e9ea1fe78ed25674fe508162d152eba0dffce688"
+    "bytes": 86903,
+    "sha256": "c58e421e55b840836ab062cc092aefadba4d919d98317100cc3d0af50390c422"
   },
   {
     "path": "app/layout.tsx",
@@ -311,13 +311,13 @@
   },
   {
     "path": "components/daily-dashboard.module.css",
-    "bytes": 14795,
-    "sha256": "50654f3ae4246c976c914a8252e6569f1c417dc24a0df803749e89d4fd15033b"
+    "bytes": 15215,
+    "sha256": "de1a65e871abc9765db6daa110622e61bcc9d625a0088a8aefbbe2bf3052c67b"
   },
   {
     "path": "components/daily-dashboard.tsx",
-    "bytes": 21135,
-    "sha256": "d76e2415214245e4a897d662aee5c28569125755701c06332091c8cf651509f4"
+    "bytes": 21809,
+    "sha256": "8bc9cc7518c68ebb29ca7c563e97a7b9760146d2e06c1f8bd380b7057397a93b"
   },
   {
     "path": "components/daily-positivity.module.css",
@@ -541,18 +541,18 @@
   },
   {
     "path": "components/pattern-match.module.css",
-    "bytes": 9862,
-    "sha256": "b31964f3e60c3fc3ee82c62be2045887122bbdbcb295cba79f7df07630a8000d"
+    "bytes": 9520,
+    "sha256": "8ce870779309f35886d59b051d0b12fe99f84f05c91adfee2a64e4f5eeee2648"
   },
   {
     "path": "components/pattern-match.tsx",
-    "bytes": 32050,
-    "sha256": "879df732cf12ec137aabe0ea5b6c0bd1d356ab1471e1aae30e5b95be2aa99f5d"
+    "bytes": 32026,
+    "sha256": "11d89f82c79dac5097901c08e0fd610c8fc8037a4b827d5791f0a1e93aec6979"
   },
   {
     "path": "components/pattern-outcomes.tsx",
-    "bytes": 5879,
-    "sha256": "0262297684e683699f1f38502f857edd3bb64f84b22623894e1c8aa61c8c0d47"
+    "bytes": 4412,
+    "sha256": "57cdd6a1e6f8d3bde512732e8659df9cba7172dff1ecdefe65ecd78c97b86696"
   },
   {
     "path": "components/pattern-source-data.mjs",
@@ -716,8 +716,8 @@
   },
   {
     "path": "components/trade-simulator.tsx",
-    "bytes": 120938,
-    "sha256": "2ddcd1fb2485a843f2ea77cddf047c310b8ef9455a626a48a74f0d585148731b"
+    "bytes": 121633,
+    "sha256": "91946c67cf48f0888a5ac3477194eb52a777ff8ccf2f0ba6a06add8bdf0f1f6c"
   },
   {
     "path": "components/trading-style-select.tsx",
@@ -1051,8 +1051,8 @@
   },
   {
     "path": "lib/learner/daily.mjs",
-    "bytes": 13474,
-    "sha256": "ee5738f00851b24a68b2f3234f4a0dc547a0f83d395586c3721598746ca5f88e"
+    "bytes": 16596,
+    "sha256": "386d68c039e0a465eec6482407f1035c8376169bc372bec241873b01d83df628"
   },
   {
     "path": "lib/learner/direction-points.mjs",
@@ -1161,8 +1161,8 @@
   },
   {
     "path": "lib/learner/server.mjs",
-    "bytes": 21951,
-    "sha256": "b555c9f543982ac5d583607b7b62a2255f15dc297acac5d5259918073a21afbe"
+    "bytes": 22005,
+    "sha256": "928f5b540528830e1642b808ee996b99d26ad606b98d31f3b6e5a8d4cc3a3ad9"
   },
   {
     "path": "lib/learner/stats.mjs",
@@ -1471,13 +1471,13 @@
   },
   {
     "path": "lib/trade-simulator-preferences.mjs",
-    "bytes": 5991,
-    "sha256": "97fd54ae3af5f6a7cdec132f8a5e194a56a9df661c877bffa54c32fae3d2dc43"
+    "bytes": 7150,
+    "sha256": "6302212763b45a466a770da0dd0855460af1e2af74e46ee35aa3e19259892c19"
   },
   {
     "path": "lib/trade-simulator-view.mjs",
-    "bytes": 20789,
-    "sha256": "fce6e18fa1353f5bd910ff51cca639f7768d44515b221c3901db535ab4b660e4"
+    "bytes": 21600,
+    "sha256": "fb34a33a497dac98cd3c6c784bb5731ec637d04ffdc0d2657b2148b2543da71a"
   },
   {
     "path": "lib/trade-simulator.mjs",
@@ -6116,8 +6116,8 @@
   },
   {
     "path": "tests/pattern-outcomes.test.mjs",
-    "bytes": 5374,
-    "sha256": "66dc6b50feb4dd2326e6478c2b776b14526bb0ff790e0443adee0493f2774f93"
+    "bytes": 5298,
+    "sha256": "1b963ca9481e0963ab2e515cf69ec833d00e8cd9210d916371ba3c2b67ead7d8"
   },
   {
     "path": "tests/pattern-prior-context.test.mjs",
@@ -6126,8 +6126,8 @@
   },
   {
     "path": "tests/pattern-source-ui.test.mjs",
-    "bytes": 6061,
-    "sha256": "419d81cd1f4c60a9639614ce2b475d4959cd13b58bd3fee5a37b822319aaa0f1"
+    "bytes": 8887,
+    "sha256": "cbf7e90ed26debd9cd8433e7db2a3247857cafe66161ffccf6f86664d059ab35"
   },
   {
     "path": "tests/pattern-storage-compaction.test.mjs",
@@ -6191,8 +6191,8 @@
   },
   {
     "path": "tests/trade-favorite-view.test.mjs",
-    "bytes": 1802,
-    "sha256": "2ad78d4f632a1d1c49c25dda27b91a71497173862b9a5c73f55f47fd292a7b71"
+    "bytes": 4723,
+    "sha256": "e3de5eeb90fc6811b1e827170c769711fc2a1eef55541cbcc09b1494c3d5da18"
   },
   {
     "path": "tests/trade-simulator-engine-audit.test.mjs",
@@ -6218,5 +6218,15 @@
     "path": "tsconfig.json",
     "bytes": 890,
     "sha256": "da07b76f90474a317d3dd7d4cfb40372f4d0c295e61218198f42b15a25efb5da"
+  },
+  {
+    "path": "tests/trade-price-span-preference.test.mjs",
+    "bytes": 2165,
+    "sha256": "0581583bd6588caec357487340f6dce872992e8c361eeadc6df75b4aff2a8837"
+  },
+  {
+    "path": "tests/daily-trading-profit-factor.test.mjs",
+    "bytes": 6339,
+    "sha256": "3bc22994efea7b1ae6fa9fca9805d4e168e9a044bd83c4e00c163cd0bdf2b0a7"
   }
 ]
