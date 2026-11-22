@@ -546,13 +546,18 @@
   },
   {
     "path": "components/pattern-match.tsx",
-    "bytes": 29645,
-    "sha256": "ac3d10073f254e4844dc773087a87979ad291d363dd9de90eaed2870686046bd"
+    "bytes": 32050,
+    "sha256": "879df732cf12ec137aabe0ea5b6c0bd1d356ab1471e1aae30e5b95be2aa99f5d"
   },
   {
     "path": "components/pattern-outcomes.tsx",
     "bytes": 5879,
     "sha256": "0262297684e683699f1f38502f857edd3bb64f84b22623894e1c8aa61c8c0d47"
+  },
+  {
+    "path": "components/pattern-source-data.mjs",
+    "bytes": 1094,
+    "sha256": "bdeef944cd652121413e155f81d174c75b1647a72de6b9dc28f3cd72e5dc7480"
   },
   {
     "path": "components/portal.tsx",
@@ -711,8 +716,8 @@
   },
   {
     "path": "components/trade-simulator.tsx",
-    "bytes": 120985,
-    "sha256": "04b547fa37066a3ad5b98564f10a4f64bc507bca9541cc6fff36cdf649589392"
+    "bytes": 120938,
+    "sha256": "2ddcd1fb2485a843f2ea77cddf047c310b8ef9455a626a48a74f0d585148731b"
   },
   {
     "path": "components/trading-style-select.tsx",
@@ -722,7 +727,7 @@
   {
     "path": "data/bias-provenance.json",
     "bytes": 29693,
-    "sha256": "dfd85ba15449fee1f626e80f55e02c1b26580ed8f4073036c88cfe4ac47ba93f"
+    "sha256": "0966e9b679afec28cc66d0a64be1692f33bc5dcb628c705c06e028f999c24e12"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -976,8 +981,8 @@
   },
   {
     "path": "lib/chart-match.mjs",
-    "bytes": 46665,
-    "sha256": "b30c866204116b64216ac8505920932e2b84ef56ed2fdfd7fa3efca454159fc0"
+    "bytes": 46813,
+    "sha256": "dabed87f27dc975f8cfda180754486dfa89802496556e3ef29d93aa51c866b0f"
   },
   {
     "path": "lib/combined-simulator-history.mjs",
@@ -1121,13 +1126,13 @@
   },
   {
     "path": "lib/learner/pattern-encyclopedia.mjs",
-    "bytes": 7415,
-    "sha256": "25ad2c44ad447e292d56ccf047177f9693bf159c4a23712f0ea1e858c8a36522"
+    "bytes": 7638,
+    "sha256": "c2141900c33476b78e609e901bffe0c82c8caf9ee293438ecbb875d42374e0fa"
   },
   {
     "path": "lib/learner/pattern-repository.mjs",
-    "bytes": 13343,
-    "sha256": "3b6bfca8093416bb66b5600b5bf64a2bb3dab163d3a75124135f646ab347c1a3"
+    "bytes": 13389,
+    "sha256": "3e7bfaf4c4509a5f519e5ab753b4cc33dc7d4d0449037bf5e73f8c793fcff6b6"
   },
   {
     "path": "lib/learner/practice-markups.mjs",
@@ -1156,8 +1161,8 @@
   },
   {
     "path": "lib/learner/server.mjs",
-    "bytes": 21917,
-    "sha256": "5ed956f71ce6633c202c07cda4d2f18fbca5c5f90aa0ed19a1b11e7b131c38d4"
+    "bytes": 21951,
+    "sha256": "b555c9f543982ac5d583607b7b62a2255f15dc297acac5d5259918073a21afbe"
   },
   {
     "path": "lib/learner/stats.mjs",
@@ -1186,13 +1191,13 @@
   },
   {
     "path": "lib/pattern-encyclopedia-client.mjs",
-    "bytes": 9930,
-    "sha256": "3c52dbe718fa8029b52cbf8fcb9e0271267d5cf0a15425e065d4a4793f20b505"
+    "bytes": 10079,
+    "sha256": "0dfb02b653e382a25552aa1f711366d35a97159f716ab923e90391fba9f9ebd4"
   },
   {
     "path": "lib/pattern-match.mjs",
-    "bytes": 10424,
-    "sha256": "796d07f2fc47988b58b085dd156ae40dbe53547be39c68cf6b86f44f651468f0"
+    "bytes": 10499,
+    "sha256": "2512a2530e5b592becb4baf5b9b64ec8a9359e0df92cc4d426d3c9b8cb9a62ba"
   },
   {
     "path": "lib/pattern-open-type.mjs",
@@ -1211,8 +1216,8 @@
   },
   {
     "path": "lib/pattern-study-snapshot.mjs",
-    "bytes": 2276,
-    "sha256": "b20ed81998069cfa580faa7939c5cd3cb9c186df142453d8825cbf2c8a213b4e"
+    "bytes": 2377,
+    "sha256": "8683751a2f1ecb1a2dac4480d11e9ccfe6bad6c3d82ac6d5182246fb915c9d44"
   },
   {
     "path": "lib/portal/admin-guest-visits.mjs",
@@ -5676,8 +5681,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 304504,
-    "sha256": "e7e3b6c4df9832cc289012679fbc5373695e14ffec4612ea28c0a9cb6499183e"
+    "bytes": 304488,
+    "sha256": "5376f792ac90cd47f1258933642999617ea4f847e9461a87ee5a4bb140f5ec81"
   },
   {
     "path": "public/modules/market-preview-isolation.js",
@@ -5686,8 +5691,8 @@
   },
   {
     "path": "public/modules/pattern-finder-link.js",
-    "bytes": 2024,
-    "sha256": "6054e4de3793973799c14c6072eb92f50abde03602b6ceff571b4d4af7cd4b25"
+    "bytes": 2065,
+    "sha256": "dad0cda736967606bcfc787c13886dc65d18017532cc76d0867f506e4dbf6474"
   },
   {
     "path": "public/modules/practice-device.js",
@@ -6086,8 +6091,8 @@
   },
   {
     "path": "tests/mock-charts-db.test.mjs",
-    "bytes": 12926,
-    "sha256": "f8100a6057a57c9f626fcbbcec76bc97b782cc85f497cf07a8c0560372604bf7"
+    "bytes": 16169,
+    "sha256": "1a501a77429d5853449aaf03037debb4536d2c54eff0fd147f36c5783ccef34b"
   },
   {
     "path": "tests/overview-ema.test.mjs",
@@ -6118,6 +6123,11 @@
     "path": "tests/pattern-prior-context.test.mjs",
     "bytes": 2935,
     "sha256": "1a8bda395dce6f75f355475d9608aca7f8eea4d12737b3430fd083ea6d43510a"
+  },
+  {
+    "path": "tests/pattern-source-ui.test.mjs",
+    "bytes": 6061,
+    "sha256": "419d81cd1f4c60a9639614ce2b475d4959cd13b58bd3fee5a37b822319aaa0f1"
   },
   {
     "path": "tests/pattern-storage-compaction.test.mjs",
