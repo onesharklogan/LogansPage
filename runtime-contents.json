@@ -491,13 +491,13 @@
   },
   {
     "path": "components/life-lessons.module.css",
-    "bytes": 1351,
-    "sha256": "75f72b44bab0b71465a780de74a491b193fc378f9b91c68ec70db4e655146159"
+    "bytes": 2077,
+    "sha256": "e0faeadacea1e2701f744c7508279230b6fb1f685550556defaf9596012f90d5"
   },
   {
     "path": "components/life-lessons.tsx",
-    "bytes": 9181,
-    "sha256": "c3f64c401a5d008b773029d06ae6cfdf066b65b7e5298ad06f4e7a23eb4a461d"
+    "bytes": 9304,
+    "sha256": "0964f74a13544c2813bdedd1f71093746dccb7cdf1171f911e320067762e80d6"
   },
   {
     "path": "components/limit-trade-review.tsx",
@@ -727,7 +727,7 @@
   {
     "path": "data/bias-provenance.json",
     "bytes": 29693,
-    "sha256": "39eba0b282ffe862c473ed876c08725b8bc6000cf7dbaeaa7ce70f4e5898d85b"
+    "sha256": "ea8747166bfba0d4e9cb130798a930f0c65aebbe864e5bf0e1a00e0dbd3986d3"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -5681,8 +5681,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 308077,
-    "sha256": "e129bc60f7e0f3e27e6914759a1c46c3dead9ebbefbde132c7e7d29ec0e94fa2"
+    "bytes": 308059,
+    "sha256": "70c2fb6a523b7962dd4a2c753e081061a4afbb87148ef9ac114710901db91f4c"
   },
   {
     "path": "public/modules/market-preview-isolation.js",
@@ -6086,8 +6086,8 @@
   },
   {
     "path": "tests/life-lessons.test.mjs",
-    "bytes": 10494,
-    "sha256": "925318a3bd205326286e2e929bd5adcb9c7964c714d79c5b3b8c19a9570d3a13"
+    "bytes": 11241,
+    "sha256": "a31f41ad7434204ee737e6df57efe44f5dd182446b113e80bf268f18a6f02245"
   },
   {
     "path": "tests/mock-charts-db.test.mjs",
@@ -6236,7 +6236,7 @@
   },
   {
     "path": "tests/daily-market-only-simulator.test.mjs",
-    "bytes": 6275,
-    "sha256": "c4459af526a6f0b870993a25bbbc0b412ac17553f0e8900687f3c43a1f761bd5"
+    "bytes": 9013,
+    "sha256": "fd4c994e9474d82f25d48e1f85e37d842540432378a34e5ed963387f46b16d27"
   }
 ]
