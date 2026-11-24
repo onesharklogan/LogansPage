@@ -121,8 +121,8 @@
   },
   {
     "path": "app/page.tsx",
-    "bytes": 526,
-    "sha256": "bf9d56eb526b24c33cfc0bae4934ab5b4c7eaf6f3a4871fefc604bcf9c09ed20"
+    "bytes": 621,
+    "sha256": "26f6327db724560a731b8b46b2b35df9ce8693c5123c43bf3d0f2485c31eefaf"
   },
   {
     "path": "app/pattern-encyclopedia/[id]/page.tsx",
@@ -221,8 +221,8 @@
   },
   {
     "path": "components/app-navigation.tsx",
-    "bytes": 3324,
-    "sha256": "4e597fbab6fdb5d7b00bb2acebac824b5ce06adf012c48b6c98c4c7da75cf4bd"
+    "bytes": 3539,
+    "sha256": "ce18ef91624bde1600a26646bc891671fa6db9e7a3ec36f829527f9dcbdaac29"
   },
   {
     "path": "components/appearance-option.tsx",
@@ -311,13 +311,13 @@
   },
   {
     "path": "components/daily-dashboard.module.css",
-    "bytes": 15215,
-    "sha256": "de1a65e871abc9765db6daa110622e61bcc9d625a0088a8aefbbe2bf3052c67b"
+    "bytes": 16854,
+    "sha256": "ec0718cb27c9d1b2f28fdf1b0a807d82243f80c499ea85675300108f850ca312"
   },
   {
     "path": "components/daily-dashboard.tsx",
-    "bytes": 21809,
-    "sha256": "8bc9cc7518c68ebb29ca7c563e97a7b9760146d2e06c1f8bd380b7057397a93b"
+    "bytes": 22823,
+    "sha256": "8d655e2caca453de500f04a4ee3e243cf948a00ba56d639ead347345ba735109"
   },
   {
     "path": "components/daily-positivity.module.css",
@@ -6258,5 +6258,20 @@
     "path": "tests/daily-session-picker-loading.test.mjs",
     "bytes": 7125,
     "sha256": "bf71b1dedf2f4b145f9dcb94101bf692e00b61c083d2a516d337e645314d2e7a"
+  },
+  {
+    "path": "components/daily-chakra-mark.tsx",
+    "bytes": 780,
+    "sha256": "4ec5ad9ba3a706a25e415798aa9009c02647394400323e739428289d0b3a8923"
+  },
+  {
+    "path": "lib/chakra-focus.mjs",
+    "bytes": 1149,
+    "sha256": "0c5336ccb01d3d63fabb7193ef286c5ddf5feb43285f86a9c2f01c50eb723a4d"
+  },
+  {
+    "path": "tests/daily-chakra-focus.test.mjs",
+    "bytes": 5046,
+    "sha256": "a03dfcf1cbfe9cdec97c4a0c0a78e3091cf64020e640ef1232b8da3ebc61e710"
   }
 ]

@@ -1,0 +1,241 @@
+diff --git a/app/page.tsx b/app/page.tsx
+--- a/app/page.tsx
++++ b/app/page.tsx
+@@ -2,4 +2,4 @@
+ import DailyDashboard from '../components/daily-dashboard';
+ export const dynamic='force-dynamic';
+ export const metadata={title:'Daily Balance',description:'Balanced Day Goals'};
+-export default function Home(){return <DailyDashboard lifeLessonsEnabled={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN} positivityEnabled={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN} weightEnabled={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN}/>;}
++export default function Home(){return <DailyDashboard lifeLessonsEnabled={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN} positivityEnabled={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN} weightEnabled={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN} initialChakraTime={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN?Date.now():undefined}/>;}
+diff --git a/components/app-navigation.tsx b/components/app-navigation.tsx
+--- a/components/app-navigation.tsx
++++ b/components/app-navigation.tsx
+@@ -14,8 +14,8 @@
+ }
+ 
+ /** Navigation only: no account lookup, storage writes, or inferred student profile. */
+-export default function AppHeader({ section, current, onNavigate, children, className = '', teacher = false, keepSection = false }: {
+-  section: string; current?: string; onNavigate?: NavigateHandler; children?: ReactNode; className?: string; teacher?: boolean; keepSection?: boolean;
++export default function AppHeader({ section, current, onNavigate, children, className = '', teacher = false, keepSection = false, brandMark, brandLabel, brandSubtitle, headerTheme }: {
++  section: string; current?: string; onNavigate?: NavigateHandler; children?: ReactNode; className?: string; teacher?: boolean; keepSection?: boolean; brandMark?: ReactNode; brandLabel?: string; brandSubtitle?: string; headerTheme?: string;
+ }) {
+   const menu = useRef<HTMLDetailsElement>(null);
+   useEffect(() => {
+@@ -28,9 +28,9 @@
+     onNavigate?.(event);
+     if (event.type !== 'contextmenu' && !event.defaultPrevented && menu.current) menu.current.open = false;
+   }
+-  return <header className={`app-header ${className}`}>
++  return <header className={`app-header ${className}`} data-header-theme={headerTheme}>
+     <div className="app-nav-left">
+-      <a className="app-brand" href="/" aria-label="Home" title="Home" onClick={navigate} onAuxClick={onNavigate && navigate} onContextMenu={onNavigate && navigate}><CandleMark /><span className="app-brand-text"><strong>Daily Balance</strong><small data-page-subtitle={sharedSubtitle ? true : undefined}>{section}</small>{sharedSubtitle&&<small data-daily-subtitle>DAILY DASHBOARD</small>}</span></a>
++      <a className="app-brand" href="/" aria-label={brandLabel??"Home"} title="Home" onClick={navigate} onAuxClick={onNavigate && navigate} onContextMenu={onNavigate && navigate}>{brandMark??<CandleMark />}<span className="app-brand-text"><strong>Daily Balance</strong><small data-page-subtitle={sharedSubtitle ? true : undefined}>{brandSubtitle??section}</small>{sharedSubtitle&&<small data-daily-subtitle>DAILY DASHBOARD</small>}</span></a>
+       <details className="app-nav-menu" ref={menu} onKeyDown={event => { if (event.key === 'Escape' && menu.current?.open) { event.preventDefault(); event.stopPropagation(); menu.current.open = false; menu.current.querySelector<HTMLElement>('summary')?.focus(); } }}>
+         <summary aria-label="Navigation menu" title="Navigation menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg></summary>
+         <nav aria-label="Site navigation">{destinations.map(([href, label]) => <a key={href} href={href} aria-current={current === href ? 'page' : undefined} onClick={navigate} onAuxClick={onNavigate && navigate} onContextMenu={onNavigate && navigate}>{label}</a>)}</nav>
+diff --git a/components/daily-dashboard.module.css b/components/daily-dashboard.module.css
+--- a/components/daily-dashboard.module.css
++++ b/components/daily-dashboard.module.css
+@@ -54,3 +54,16 @@
+ .tradingTileFooter{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:2px 6px;width:100%;margin-top:auto}
+ .tradingTileProfitFactor{margin-left:auto;white-space:nowrap;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+ .completedCategories .completeCard .tradingTileFooter{margin-top:0}
++
++/* Dashboard-only daily focus. Keep navigation and account surfaces unchanged. */
++.chakraHeader[data-header-theme]{background:linear-gradient(115deg,var(--chakra-a),var(--chakra-b));border-bottom-color:var(--chakra-line)}
++.chakraHeader[data-header-theme="ajna"]{--chakra-a:#1d2450;--chakra-b:#35234f;--chakra-line:#655785;--chakra-ink:#f5eaff;--chakra-icon:#cfbaff}
++.chakraHeader[data-header-theme="anahata"]{--chakra-a:#133e31;--chakra-b:#4b2940;--chakra-line:#77636e;--chakra-ink:#fff0f4;--chakra-icon:#ffb4ce}
++.chakraHeader[data-header-theme="svadhisthana"]{--chakra-a:#3a261c;--chakra-b:#683b22;--chakra-line:#a16547;--chakra-ink:#fff1e4;--chakra-icon:#ffc18a}
++:global(html[data-appearance="light"]) .chakraHeader[data-header-theme="ajna"]{--chakra-a:#e5ebfc;--chakra-b:#efe0f8;--chakra-line:#aaa0c7;--chakra-ink:#34274f;--chakra-icon:#624196}
++:global(html[data-appearance="light"]) .chakraHeader[data-header-theme="anahata"]{--chakra-a:#d9f1e1;--chakra-b:#f6dce6;--chakra-line:#b5abb1;--chakra-ink:#32352f;--chakra-icon:#8b3c65}
++:global(html[data-appearance="light"]) .chakraHeader[data-header-theme="svadhisthana"]{--chakra-a:#fff1dd;--chakra-b:#f8d5b8;--chakra-line:#cda58e;--chakra-ink:#502b19;--chakra-icon:#9a471e}
++.chakraHeader :global(.app-brand){color:var(--chakra-ink)}
++.chakraHeader :global(.app-candle-mark){color:var(--chakra-icon);padding:4px}
++.chakraHeader :global(.app-brand-text small){color:var(--chakra-ink);font-size:11px;letter-spacing:.085em;margin-top:3px;font-weight:650}
++@media(max-width:600px){.chakraHeader :global(.app-candle-mark){padding:2px}.chakraHeader :global(.app-brand-text small){font-size:10px}}
+diff --git a/components/daily-dashboard.tsx b/components/daily-dashboard.tsx
+--- a/components/daily-dashboard.tsx
++++ b/components/daily-dashboard.tsx
+@@ -1,6 +1,8 @@
+ 'use client';
+ import {HOURLY_HOURS,hourlyClock} from '@/lib/learner/daily-hourly.mjs';
+ import {useCallback,useEffect,useRef,useState,type FormEvent} from 'react';
++import {dashboardChakra} from '../lib/chakra-focus.mjs';
++import DailyChakraMark from './daily-chakra-mark';
+ import AppHeader from './app-navigation';
+ import LifeLessons from './life-lessons';
+ import DailyWeight from './daily-weight';
+@@ -33,27 +35,31 @@
+  </button>;
+ }
+ 
+-export default function DailyDashboard({lifeLessonsEnabled=false,weightEnabled=false,positivityEnabled=false}:{lifeLessonsEnabled?:boolean;weightEnabled?:boolean;positivityEnabled?:boolean}={}){
++export default function DailyDashboard({lifeLessonsEnabled=false,weightEnabled=false,positivityEnabled=false,initialChakraTime}:{lifeLessonsEnabled?:boolean;weightEnabled?:boolean;positivityEnabled?:boolean;initialChakraTime?:number}={}){
+  const [data,setData]=useState<Snapshot|null>(null),[error,setError]=useState(''),[busy,setBusy]=useState(false),[category,setCategory]=useState<string|null>(null),[title,setTitle]=useState(''),[editing,setEditing]=useState<Task|null>(null);
++ const [chakraViewedDate,setChakraViewedDate]=useState<string|null>(null);
+  const checklist=useRef<HTMLElement|null>(null),hourlyChecklist=useRef<HTMLElement|null>(null);
+  const showLatestHistory=useCallback((element:HTMLDivElement|null)=>{if(element)element.scrollLeft=element.scrollWidth;},[]);
+  const [renaming,setRenaming]=useState(false),[categoryName,setCategoryName]=useState('');
+  useEffect(()=>{if(category)(category==='hourly'?hourlyChecklist:checklist).current?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});},[category]);
+  const creation=useRef<{key:string;id:string}|null>(null);
+  const token=useRef(''),sequence=useRef(0),locked=useRef(false),alive=useRef(true),lastDate=useRef<string|undefined>(undefined);
+- const load=useCallback(async(date?:string)=>{if(locked.current)return;const seq=++sequence.current;locked.current=true;setBusy(true);setError('');setData(null);try{const session=await request('/api/learner/session');if(!session.profile)throw Error('Sign in with your private Google account to open the dashboard.');token.current=session.csrfToken;const next=await request('/api/learner/daily'+(date?'?date='+encodeURIComponent(date):''));if(alive.current&&seq===sequence.current){setData(next);lastDate.current=next.date===next.today?undefined:next.date;}}catch(e){if(alive.current&&seq===sequence.current)setError(e instanceof Error?e.message:'Could not load daily progress.');}finally{if(alive.current&&seq===sequence.current){setBusy(false);locked.current=false;}}},[]);
++ const load=useCallback(async(date?:string)=>{if(locked.current)return;const seq=++sequence.current;locked.current=true;setBusy(true);setError('');setData(null);try{const session=await request('/api/learner/session');if(!session.profile)throw Error('Sign in with your private Google account to open the dashboard.');token.current=session.csrfToken;const next=await request('/api/learner/daily'+(date?'?date='+encodeURIComponent(date):''));if(alive.current&&seq===sequence.current){setData(next);lastDate.current=next.date===next.today?undefined:next.date;setChakraViewedDate(lastDate.current??null);}}catch(e){if(alive.current&&seq===sequence.current)setError(e instanceof Error?e.message:'Could not load daily progress.');}finally{if(alive.current&&seq===sequence.current){setBusy(false);locked.current=false;}}},[]);
+  useEffect(()=>{alive.current=true;void load();const refresh=()=>{void load(lastDate.current);};window.addEventListener('focus',refresh);return()=>{alive.current=false;sequence.current++;locked.current=false;window.removeEventListener('focus',refresh);};},[load]);
+- async function save(command:Record<string,unknown>){if(!data||locked.current)return false;locked.current=true;setBusy(true);setError('');const seq=++sequence.current;try{const next=await request('/api/learner/daily',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':token.current},body:JSON.stringify({context:data.context,...command})});if(alive.current&&seq===sequence.current){setData(next);lastDate.current=next.date===next.today?undefined:next.date;}return true;}catch(e){if(alive.current){setError(e instanceof Error?e.message:'Not saved. Please retry.');if((e as {status?:number}).status===401||(e as {status?:number}).status===403)setData(null);}return false;}finally{if(alive.current&&seq===sequence.current){setBusy(false);locked.current=false;}}}
++ async function save(command:Record<string,unknown>){if(!data||locked.current)return false;locked.current=true;setBusy(true);setError('');const seq=++sequence.current;try{const next=await request('/api/learner/daily',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':token.current},body:JSON.stringify({context:data.context,...command})});if(alive.current&&seq===sequence.current){setData(next);lastDate.current=next.date===next.today?undefined:next.date;setChakraViewedDate(lastDate.current??null);}return true;}catch(e){if(alive.current){setError(e instanceof Error?e.message:'Not saved. Please retry.');if((e as {status?:number}).status===401||(e as {status?:number}).status===403)setData(null);}return false;}finally{if(alive.current&&seq===sequence.current){setBusy(false);locked.current=false;}}}
+  async function submit(event:FormEvent){event.preventDefault();if(!category||!title.trim())return;const key=category+'|'+title.trim();if(!creation.current||creation.current.key!==key)creation.current={key,id:crypto.randomUUID()};const ok=await save(editing?{action:'edit',id:editing.id,revision:editing.revision,category,title:title.trim(),active:editing.active}:{action:'create',id:creation.current.id,category,title:title.trim()});if(ok){creation.current=null;setTitle('');setEditing(null);}}
+  const serverNow=data?.hourly.serverNow;
+  const [clock,setClock]=useState<ReturnType<typeof hourlyClock>|null>(null);
++ const clockAnchor=useRef<{now:number;at:number}|null>(null);
+  useEffect(()=>{
+-  if(serverNow===undefined)return;
+-  const start=performance.now();
+-  const tick=()=>{const next=hourlyClock(serverNow+performance.now()-start);setClock(previous=>previous?.day===next.day&&previous.hour===next.hour?previous:next);};
++  if(serverNow===undefined&&initialChakraTime===undefined)return;
++  const at=performance.now(),anchor=serverNow===undefined?(clockAnchor.current??{now:initialChakraTime!,at}):{now:serverNow,at};
++  clockAnchor.current=anchor;
++  const tick=()=>{const next=hourlyClock(anchor.now+performance.now()-anchor.at);setClock(previous=>previous?.day===next.day&&previous.hour===next.hour?previous:next);};
+   tick();const timer=window.setInterval(tick,1000);
+   return()=>window.clearInterval(timer);
+- },[serverNow]);
++ },[serverNow,initialChakraTime]);
++ const chakra=dashboardChakra({enabled:initialChakraTime!==undefined,viewedDay:chakraViewedDate,serverDay:data?.today,clockDay:clock?.day,initialDay:initialChakraTime===undefined?null:hourlyClock(initialChakraTime).day});
+  const renderTaskForm=()=><form onSubmit={submit} className={styles.add}><label>{editing?'Edit recurring task':'Add a daily task'}<input maxLength={160} value={title} onChange={e=>setTitle(e.target.value)} disabled={busy} placeholder="One small thing you want to do" required/></label><button disabled={busy||!title.trim()}>{editing?'Save task':'Add task'}</button>{editing&&<button type="button" disabled={busy} onClick={()=>{setEditing(null);setTitle('');}}>Cancel</button>}</form>;
+  const percentage=data?.percentage||0,selected=data?.categories.find(c=>c.id===category&&(c.active||data.date!==data.today));
+  const days=data?Array.from({length:weightEnabled?7:14},(_,i)=>{const date=shift(data.date,i-(weightEnabled?6:13)),row=data.history.find(r=>r.date===date);return{date,row,tracked:!!row&&row.total>0,percent:row?row.percentage:0};}):[];
+@@ -69,7 +75,7 @@
+  </>}
+  </button>});
+  const incompleteCards=cards.filter(card=>!card.complete),completedCards=cards.filter(card=>card.complete);
+- return <div className={styles.page}><AppHeader section="DAILY DASHBOARD" current="/"><LearnerAccountControl/></AppHeader><main className={styles.main}>
++ return <div className={styles.page}><AppHeader section="DAILY DASHBOARD" current="/" className={chakra?styles.chakraHeader:undefined} headerTheme={chakra?.id} brandMark={chakra?<DailyChakraMark focus={chakra}/>:undefined} brandLabel={chakra?`Home · Chakra focus: ${chakra.name}`:undefined} brandSubtitle={chakra?.name}><LearnerAccountControl/></AppHeader><main className={styles.main}>
+  {data&&<>
+  <div className={styles.hero}><div><h1>Balanced Day Goals</h1><p>Make a great day by completing the elements of a great day.</p></div><a className={styles.training} href="/training">PATC <span aria-hidden="true">↗</span></a></div>
+  <div className={styles.toolbar}><div className={styles.dateControls}><button type="button" aria-label="Previous day" disabled={!data||busy||data.date<='2020-01-01'} onClick={()=>data&&void load(shift(data.date,-1))}>←</button><label>Date<input type="date" value={data?.date||''} min="2020-01-01" max={data?.today} disabled={!data||busy} onChange={e=>e.target.value&&void load(e.target.value)}/></label><button type="button" aria-label="Next day" disabled={!data||busy||data.date>=data.today} onClick={()=>data&&void load(shift(data.date,1))}>→</button><button disabled={!data||busy} onClick={()=>void load()}>Today</button></div><span className={styles.saveState} role="status">{busy?'Syncing…':''}</span></div>
+diff --git a/components/daily-chakra-mark.tsx b/components/daily-chakra-mark.tsx
+new file mode 100644
+--- /dev/null
++++ b/components/daily-chakra-mark.tsx
+@@ -0,0 +1,9 @@
++import type {chakraForDay} from '../lib/chakra-focus.mjs';
++
++export default function DailyChakraMark({focus}:{focus:NonNullable<ReturnType<typeof chakraForDay>>}){
++ return <svg className="app-candle-mark" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
++   {focus.id==='ajna'?<><path d="M2.8 12c2.4-3.4 5.5-5.2 9.2-5.2s6.8 1.8 9.2 5.2c-2.4 3.4-5.5 5.2-9.2 5.2S5.2 15.4 2.8 12Z"/><circle cx="12" cy="12" r="2.5"/></>
++   :focus.id==='anahata'?<path d="M12 19.8 4.8 13a4.3 4.3 0 0 1 0-6.2c1.7-1.7 4.5-1.7 6.2 0l1 .9 1-.9a4.4 4.4 0 0 1 6.2 6.2L12 19.8Z"/>
++   :<><path d="M19.8 12.3a8 8 0 1 1-8.1-8.1 6.8 6.8 0 0 0 8.1 8.1Z"/><path d="M17.3 4.8v3.8m-1.9-1.9h3.8"/></>}
++ </svg>;
++}
+diff --git a/lib/chakra-focus.mjs b/lib/chakra-focus.mjs
+new file mode 100644
+--- /dev/null
++++ b/lib/chakra-focus.mjs
+@@ -0,0 +1,23 @@
++const FOCUS = Object.freeze([
++  Object.freeze({ id: 'ajna', name: 'Ajna' }),
++  Object.freeze({ id: 'anahata', name: 'Anahata' }),
++  Object.freeze({ id: 'svadhisthana', name: 'Svadhisthana' }),
++]);
++// November 24, 2026 (Chicago calendar date) is Ajna. UTC here is only a
++// day-number calculation after the app has selected its Chicago date.
++const ANCHOR = Date.UTC(2026, 10, 24);
++const MS_PER_DAY = 86_400_000;
++export function chakraForDay(day) {
++  if (typeof day !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(day)) return null;
++  const time = Date.parse(day + 'T00:00:00Z');
++  if (!Number.isFinite(time) || new Date(time).toISOString().slice(0, 10) !== day) return null;
++  const days = (time - ANCHOR) / MS_PER_DAY;
++  return FOCUS[((days % FOCUS.length) + FOCUS.length) % FOCUS.length];
++}
++
++/** A verified historical selection stays pinned; a live view follows the Chicago clock. */
++export function dashboardChakra({ enabled, viewedDay, serverDay, clockDay, initialDay }) {
++  if (!enabled) return null;
++  const today = serverDay && (!clockDay || serverDay > clockDay) ? serverDay : clockDay ?? initialDay;
++  return chakraForDay(viewedDay ?? today);
++}
+diff --git a/tests/daily-chakra-focus.test.mjs b/tests/daily-chakra-focus.test.mjs
+new file mode 100644
+--- /dev/null
++++ b/tests/daily-chakra-focus.test.mjs
+@@ -0,0 +1,79 @@
++import assert from 'node:assert/strict';
++import test from 'node:test';
++import fs from 'node:fs';
++import vm from 'node:vm';
++import ts from 'typescript';
++import React from 'react';
++import * as jsx from 'react/jsx-runtime';
++import {renderToStaticMarkup} from 'react-dom/server';
++import {chakraForDay,dashboardChakra} from '../lib/chakra-focus.mjs';
++import {hourlyClock} from '../lib/learner/daily-hourly.mjs';
++
++const read=path=>fs.readFileSync(new URL('../'+path,import.meta.url),'utf8');
++const palettes=['ajna','anahata','svadhisthana'];
++const days=['2026-11-24','2026-11-25','2026-11-26'];
++test('stable three-day anchored sequence wraps across months/years including pre-anchor and leap dates',()=>{
++ assert.deepEqual(days.map(d=>chakraForDay(d).id),palettes);
++ assert.equal(chakraForDay('2026-11-27').id,'ajna');
++ assert.equal(chakraForDay('2026-11-23').id,'svadhisthana');
++ assert.equal(chakraForDay('2027-01-01').id,'svadhisthana');
++ assert.equal(new Set(['2024-02-28','2024-02-29','2024-03-01'].map(d=>chakraForDay(d).id)).size,3);
++ for(const value of [null,'2026-02-29','2026-02-31','2026-1-24','2026-11-24T00:00:00Z',''])assert.equal(chakraForDay(value),null);
++ assert.equal(chakraForDay(days[1]),chakraForDay(days[1]));
++});
++test('Chicago midnight advances once; historical selections stay pinned across reload and DST is a date, not elapsed hours',()=>{
++ const before=hourlyClock(Date.parse('2026-11-25T05:59:59Z')).day,after=hourlyClock(Date.parse('2026-11-25T06:00:00Z')).day;
++ assert.deepEqual([before,after],days.slice(0,2));
++ assert.equal(dashboardChakra({enabled:true,initialDay:before}).id,'ajna');
++ assert.equal(dashboardChakra({enabled:true,serverDay:before,clockDay:after}).id,'anahata');
++ assert.equal(dashboardChakra({enabled:true,serverDay:after,clockDay:before}).id,'anahata');
++ assert.equal(dashboardChakra({enabled:true,viewedDay:days[0],serverDay:after,clockDay:after}).id,'ajna');
++ assert.equal(dashboardChakra({enabled:true,viewedDay:days[0],clockDay:after}).id,'ajna');
++ assert.equal(dashboardChakra({enabled:false,serverDay:after}),null);
++ for(const [start,end] of [['2026-03-08T06:00:00Z','2026-03-09T05:00:00Z'],['2026-11-01T05:00:00Z','2026-11-02T06:00:00Z']]){
++  const a=hourlyClock(Date.parse(start)),b=hourlyClock(Date.parse(end));
++  assert.deepEqual([a.hour,b.hour],[0,0]);assert.notEqual(chakraForDay(a.day).id,chakraForDay(b.day).id);
++ }
++});
++function compiled(path){
++ const source=ts.transpileModule(read(path),{compilerOptions:{jsx:ts.JsxEmit.ReactJSX,module:ts.ModuleKind.CommonJS}}).outputText;
++ const exports={};vm.runInNewContext(source,{exports,require:name=>name==='react'?React:jsx});
++ return exports.default;
++}
++test('chakra artwork replaces the sun in exactly one branding slot; other headers keep the sun',()=>{
++ const Header=compiled('components/app-navigation.tsx'),Mark=compiled('components/daily-chakra-mark.tsx');
++ const normal=renderToStaticMarkup(jsx.jsx(Header,{section:'PATTERN FINDER',current:'/pattern-match'}));
++ assert.match(normal,/<a class="app-brand" href="\/" aria-label="Home"[^>]*><svg[^>]*>\s*<circle cx="24"/);
++ const icons=[];
++ for(const day of days){
++  const focus=chakraForDay(day),markup=renderToStaticMarkup(jsx.jsx(Header,{section:'DAILY DASHBOARD',current:'/',brandMark:jsx.jsx(Mark,{focus}),headerTheme:focus.id,brandLabel:'Home · Chakra focus: '+focus.name,brandSubtitle:focus.name}));
++  assert.match(markup,new RegExp('data-header-theme="'+focus.id+'"'));
++  assert.match(markup,new RegExp('aria-label="Home · Chakra focus: '+focus.name+'"'));
++  assert.match(markup,new RegExp('<small>'+focus.name+'</small>'));
++  assert.equal(markup.match(/class="app-candle-mark"/g)?.length,1);
++  assert.doesNotMatch(markup,/<circle cx="24"/);
++  icons.push(markup.match(/<svg class="app-candle-mark".*?<\/svg>/)?.[0]);
++ }
++ assert.equal(new Set(icons).size,3);
++ assert.match(read('app/page.tsx'),/initialChakraTime=\{process\.env\.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN\?Date\.now\(\):undefined\}/);
++ assert.match(read('components/daily-dashboard.tsx'),/lastDate.current=next.date===next.today\?undefined:next.date;setChakraViewedDate\(lastDate.current\?\?null\)/);
++});
++const linear=n=>n<=.04045?n/12.92:((n+.055)/1.055)**2.4;
++function contrast(a,b){
++ const lum=h=>h.match(/[\da-f]{2}/g).map(n=>linear(parseInt(n,16)/255)).reduce((sum,n,i)=>sum+n*[.2126,.7152,.0722][i],0);
++ const values=[lum(a),lum(b)].sort((a,b)=>b-a);return (values[0]+.05)/(values[1]+.05);
++}
++test('all six header palettes have legible label and icon contrast on both gradient endpoints',()=>{
++ const css=read('components/daily-dashboard.module.css');
++ for(const id of palettes){
++  const rules=[...css.matchAll(new RegExp('data-header-theme="'+id+'"\\]\\{([^}]+)\\}','g'))];
++  assert.equal(rules.length,2);
++  for(const [,rule] of rules){
++   const pick=key=>rule.match(new RegExp('--chakra-'+key+':#([a-f0-9]{6})'))?.[1];
++   for(const stop of ['a','b']){
++    assert.ok(contrast(pick('ink'),pick(stop))>=4.5,id+' text '+stop);
++    assert.ok(contrast(pick('icon'),pick(stop))>=3,id+' icon '+stop);
++   }
++  }
++ }
++});
