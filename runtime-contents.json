@@ -296,8 +296,8 @@
   },
   {
     "path": "components/combined-simulator-history.tsx",
-    "bytes": 7572,
-    "sha256": "2c4a1bfa3a8c9b246e147955dd8e93711c842c4e03ad90a10875f20ccb888985"
+    "bytes": 8291,
+    "sha256": "6a489c999dbbed178ccdbf8bc2f1a7ccb403e4dfda4f696688ec54fd41b4485e"
   },
   {
     "path": "components/combined-simulator.css",
@@ -411,13 +411,13 @@
   },
   {
     "path": "components/learner-trader-stats.module.css",
-    "bytes": 5877,
-    "sha256": "05fda6da9b49b749c1b437a922ec3b603148c66c5eb4278e8bb2f42cac52eef0"
+    "bytes": 6295,
+    "sha256": "fc52a635f8e702122cb85f91344d4c32f7429898e50d7efc4125289100546973"
   },
   {
     "path": "components/learner-trader-stats.tsx",
-    "bytes": 15263,
-    "sha256": "3d27e41f52b7bc0e7d8ce19d31ecbb2628ce31835d24ce9cf2bbf0cf1e29b10c"
+    "bytes": 15607,
+    "sha256": "566abfe5246916c71212636b0927aacfbb425d856c7e5c4d4c9f9a3bec4a2a00"
   },
   {
     "path": "components/lesson-access-boundary.tsx",
@@ -727,7 +727,7 @@
   {
     "path": "data/bias-provenance.json",
     "bytes": 29693,
-    "sha256": "baaab03eda4b579261f423754ae7be45380be88bf05c34741f2cf619372a20fc"
+    "sha256": "e765b55d4d9566fb23dee3392c3cd574e4424bca8a91b81e1de1b0231dd8126a"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -1146,8 +1146,8 @@
   },
   {
     "path": "lib/learner/repository.mjs",
-    "bytes": 22421,
-    "sha256": "4841a5bf04d537a0c8ff9d7301f0bdd4f1e7ee00b2f5e16869d84f180f2c1974"
+    "bytes": 22516,
+    "sha256": "05e533bdc1c16badbae775a0a19ef1b031e67a84a809a00f1cec2d1c7a9adacf"
   },
   {
     "path": "lib/learner/request-origin.mjs",
@@ -1161,13 +1161,13 @@
   },
   {
     "path": "lib/learner/server.mjs",
-    "bytes": 23100,
-    "sha256": "a6550a54814f52127ee3efee1646ba95d854001f8077805d898c337bb237308c"
+    "bytes": 23492,
+    "sha256": "eedce4f61f6ffef062e816f8b428a7c5a87b33ffcf04dba13f36b3be6b6e0cc1"
   },
   {
     "path": "lib/learner/stats.mjs",
-    "bytes": 5514,
-    "sha256": "a7919f4f49f3252b7128916a7d2bb7bc07545d88e2ef3926c4fc31cbca61bfec"
+    "bytes": 6717,
+    "sha256": "1b56d291fee5a385df8592a0ea2ce4529724c280dc55981e2ba99eaedc71cca9"
   },
   {
     "path": "lib/learner/trade-adapter.mjs",
@@ -5666,8 +5666,8 @@
   },
   {
     "path": "public/modules/learner-client.js",
-    "bytes": 40808,
-    "sha256": "8b37d349a2e28afeb583c1a9f7da891654c3e94317dc56e2171e5f6e48a34b2d"
+    "bytes": 41311,
+    "sha256": "e35c07c2843597a951fba65627d0df7220ab55d6e396c86c7dac515c861bfa9d"
   },
   {
     "path": "public/modules/learner-profiles.js",
@@ -6066,8 +6066,8 @@
   },
   {
     "path": "tests/learner-account-server.test.mjs",
-    "bytes": 21875,
-    "sha256": "4cd3a306cb93ac333a6e8bb37c1c2ffb36a8d0e3dbab7905c40d7c1bcebcbb01"
+    "bytes": 23317,
+    "sha256": "ea4f68d29b20994525aae96cab25c4b0e5f6889df706c38f626bc51095ba99bf"
   },
   {
     "path": "tests/learner-account-ui-client.test.mjs",
@@ -6278,5 +6278,15 @@
     "path": "components/daily-chakra-clock.tsx",
     "bytes": 1052,
     "sha256": "e95aeffc00dcd3827d74aa97e09c7e582a5773b6a9b88da6d321fe5e22f9e2ef"
+  },
+  {
+    "path": "components/saved-desktop-sessions.tsx",
+    "bytes": 3732,
+    "sha256": "f6621ce117ad9a7b1292d988393b090405bdbb47cb4e3e270cf39f8f9b0d4832"
+  },
+  {
+    "path": "tests/daily-history-projection-cache.test.mjs",
+    "bytes": 3103,
+    "sha256": "e5068543b27c70df69a2010e008dc88cdb5397cc6cb8fa8a25c038e3e67d5719"
   }
 ]
