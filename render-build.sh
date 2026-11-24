@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 # Add pattern expectations and compact verified chart archives without changing existing records.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
 echo '69917e260166a62a494a02c651144c26d4851bbb02dbd9668ce7d64842d38335  training-center-overlay.tar.gz' | sha256sum --check --status
-echo 'e02dc7cd0cf383a70a498f7050ffd21e26ed8a820217b9223391e0bfc1a6a9ad  runtime-contents.json' | sha256sum --check --status
+echo '16e5015b05b45d08876eda3f7821edf11f0b8e564e6dbd7058bddd08b5d6b778  runtime-contents.json' | sha256sum --check --status
 echo 'a3b614ab06c3740c380b0f035a56d44ce2725343335409fc0c5456d350ef6b0c  training-center-calendar.tar.gz' | sha256sum --check --status
 echo 'f024dca3519a6e3e75f8fd693aa4569a3815b223ee05d1499216323d8c819941  training-center-full-previews.tar.gz' | sha256sum --check --status
 echo '463ef694cd9e33f56a2eecebcc0b469d4e2b1f9bf5ebb524156f905beadeed0c  training-center-encyclopedia.tar.gz' | sha256sum --check --status
@@ -128,6 +128,8 @@ echo '19935d70896fc5b1b7abdf8ad50261b25c75c56206f9d1c88b68cb8cf33f6aba  daily-r4
 git apply --directory=training-center-app --whitespace=nowarn daily-r43-trade-profile-history.patch
 echo '122d47f63fcc4dfe7ba1dc318d72710c330cb5eb819437338d5d2746f03ce656  daily-chakra-focus.patch' | sha256sum --check --status
 git apply --directory=training-center-app --whitespace=nowarn daily-chakra-focus.patch
+echo '56ad8cea03fa137a323ec5b9002ca10aa387be86fa20b02da114b5dae20b675b  daily-trading-chakra-header.patch' | sha256sum --check --status
+git apply --directory=training-center-app --whitespace=nowarn daily-trading-chakra-header.patch
 node --input-type=module <<'VERIFY'
 import fs from 'node:fs';import crypto from 'node:crypto';
 const expected=JSON.parse(fs.readFileSync('runtime-contents.json','utf8'));

@@ -1,0 +1,168 @@
+diff --git a/app/layout.tsx b/app/layout.tsx
+--- a/app/layout.tsx
++++ b/app/layout.tsx
+@@ -2,6 +2,8 @@
+ import {headers} from 'next/headers';
+ import {DAILY_BALANCE_ORIGIN} from '../lib/learner/google-config.mjs';
+ import {requestAppearance} from '../lib/appearance-server.mjs';
++import DailyChakraClock from "../components/daily-chakra-clock";
++import {hourlyClock} from "../lib/learner/daily-hourly.mjs";
+ import AppearanceProvider from "../components/appearance-provider";
+ import "./globals.css";
+ import "../public/profile-companion.css";
+@@ -14,5 +16,5 @@
+ };
+ export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+   const appearance=await requestAppearance(await headers());
+-  return <html lang="en" data-appearance={appearance} data-daily-nav={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN?'true':undefined} suppressHydrationWarning><head><script dangerouslySetInnerHTML={{__html:"try{if(parent!==window&&parent.location.origin===location.origin){var t=parent.document.documentElement.dataset.appearance;if(t==='light'||t==='dark')document.documentElement.dataset.appearance=t;}}catch(e){}"}}/></head><body><AppearanceProvider/>{children}</body></html>;
++  return <html lang="en" data-appearance={appearance} data-daily-nav={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN?'true':undefined} suppressHydrationWarning><head><script dangerouslySetInnerHTML={{__html:"try{if(parent!==window&&parent.location.origin===location.origin){var t=parent.document.documentElement.dataset.appearance;if(t==='light'||t==='dark')document.documentElement.dataset.appearance=t;}}catch(e){}"}}/></head><body><AppearanceProvider/><DailyChakraClock initialDay={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN?hourlyClock().day:null}>{children}</DailyChakraClock></body></html>;
+ }
+diff --git a/components/app-navigation.tsx b/components/app-navigation.tsx
+--- a/components/app-navigation.tsx
++++ b/components/app-navigation.tsx
+@@ -1,6 +1,10 @@
+ 'use client';
+ 
+ import { useEffect, useRef, type MouseEvent, type ReactNode } from 'react';
++
++import {useTradingChakra} from './daily-chakra-clock';
++import DailyChakraMark from './daily-chakra-mark';
++import chakraStyles from './daily-dashboard.module.css';
+ 
+ export type NavigateHandler = (event: MouseEvent<HTMLAnchorElement>) => void;
+ const destinations = [
+@@ -17,6 +21,7 @@
+ export default function AppHeader({ section, current, onNavigate, children, className = '', teacher = false, keepSection = false, brandMark, brandLabel, brandSubtitle, headerTheme }: {
+   section: string; current?: string; onNavigate?: NavigateHandler; children?: ReactNode; className?: string; teacher?: boolean; keepSection?: boolean; brandMark?: ReactNode; brandLabel?: string; brandSubtitle?: string; headerTheme?: string;
+ }) {
++  const tradingChakra = useTradingChakra(current, section);
+   const menu = useRef<HTMLDetailsElement>(null);
+   useEffect(() => {
+     const outside = (event: globalThis.PointerEvent) => { if (menu.current?.open && !menu.current.contains(event.target as Node)) menu.current.open = false; };
+@@ -28,9 +33,9 @@
+     onNavigate?.(event);
+     if (event.type !== 'contextmenu' && !event.defaultPrevented && menu.current) menu.current.open = false;
+   }
+-  return <header className={`app-header ${className}`} data-header-theme={headerTheme}>
++  return <header className={`app-header ${className}${tradingChakra?` ${chakraStyles.chakraHeader} ${chakraStyles.tradingChakraHeader}`: ''}`} data-header-theme={headerTheme??tradingChakra?.id}>
+     <div className="app-nav-left">
+-      <a className="app-brand" href="/" aria-label={brandLabel??"Home"} title="Home" onClick={navigate} onAuxClick={onNavigate && navigate} onContextMenu={onNavigate && navigate}>{brandMark??<CandleMark />}<span className="app-brand-text"><strong>Daily Balance</strong><small data-page-subtitle={sharedSubtitle ? true : undefined}>{brandSubtitle??section}</small>{sharedSubtitle&&<small data-daily-subtitle>DAILY DASHBOARD</small>}</span></a>
++      <a className="app-brand" href="/" aria-label={brandLabel??(tradingChakra?`Home · Chakra focus: ${tradingChakra.name}`:"Home")} title="Home" onClick={navigate} onAuxClick={onNavigate && navigate} onContextMenu={onNavigate && navigate}>{brandMark??(tradingChakra?<DailyChakraMark focus={tradingChakra}/>:<CandleMark />)}<span className="app-brand-text"><strong>Daily Balance</strong><small data-page-subtitle={sharedSubtitle ? true : undefined}>{brandSubtitle??section}</small>{sharedSubtitle&&<small data-daily-subtitle>DAILY DASHBOARD</small>}{tradingChakra&&<small className={chakraStyles.tradingChakraName}>{tradingChakra.name}</small>}</span></a>
+       <details className="app-nav-menu" ref={menu} onKeyDown={event => { if (event.key === 'Escape' && menu.current?.open) { event.preventDefault(); event.stopPropagation(); menu.current.open = false; menu.current.querySelector<HTMLElement>('summary')?.focus(); } }}>
+         <summary aria-label="Navigation menu" title="Navigation menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg></summary>
+         <nav aria-label="Site navigation">{destinations.map(([href, label]) => <a key={href} href={href} aria-current={current === href ? 'page' : undefined} onClick={navigate} onAuxClick={onNavigate && navigate} onContextMenu={onNavigate && navigate}>{label}</a>)}</nav>
+diff --git a/components/daily-dashboard.module.css b/components/daily-dashboard.module.css
+--- a/components/daily-dashboard.module.css
++++ b/components/daily-dashboard.module.css
+@@ -67,3 +67,7 @@
+ .chakraHeader :global(.app-candle-mark){color:var(--chakra-icon);padding:4px}
+ .chakraHeader :global(.app-brand-text small){color:var(--chakra-ink);font-size:11px;letter-spacing:.085em;margin-top:3px;font-weight:650}
+ @media(max-width:600px){.chakraHeader :global(.app-candle-mark){padding:2px}.chakraHeader :global(.app-brand-text small){font-size:10px}}
++
++.tradingChakraHeader :global(.app-brand-text) small{font-size:9px;line-height:1.2;margin-top:1px}
++.tradingChakraHeader .tradingChakraName{letter-spacing:.05em}
++@media(max-width:380px){.tradingChakraHeader :global(.app-brand-text) small{font-size:8px}}
+diff --git a/lib/chakra-focus.mjs b/lib/chakra-focus.mjs
+--- a/lib/chakra-focus.mjs
++++ b/lib/chakra-focus.mjs
+@@ -21,3 +21,10 @@
+   const today = serverDay && (!clockDay || serverDay > clockDay) ? serverDay : clockDay ?? initialDay;
+   return chakraForDay(viewedDay ?? today);
+ }
++
++const TRADING_HEADERS = new Set(['/training','/market-direction','/trade-simulator','/chart-marker','/chart-match','/pattern-match','/pattern-encyclopedia']);
++/** Use the real practice day, not a chart's historical market date. */
++export function tradingHeaderChakra(day, current, section) {
++ if (!TRADING_HEADERS.has(current) && section!=='TRADE HISTORY') return null;
++ return chakraForDay(day);
++}
+diff --git a/tests/daily-chakra-focus.test.mjs b/tests/daily-chakra-focus.test.mjs
+--- a/tests/daily-chakra-focus.test.mjs
++++ b/tests/daily-chakra-focus.test.mjs
+@@ -6,7 +6,7 @@
+ import React from 'react';
+ import * as jsx from 'react/jsx-runtime';
+ import {renderToStaticMarkup} from 'react-dom/server';
+-import {chakraForDay,dashboardChakra} from '../lib/chakra-focus.mjs';
++import {chakraForDay,dashboardChakra,tradingHeaderChakra} from '../lib/chakra-focus.mjs';
+ import {hourlyClock} from '../lib/learner/daily-hourly.mjs';
+ 
+ const read=path=>fs.readFileSync(new URL('../'+path,import.meta.url),'utf8');
+@@ -35,13 +35,13 @@
+   assert.deepEqual([a.hour,b.hour],[0,0]);assert.notEqual(chakraForDay(a.day).id,chakraForDay(b.day).id);
+  }
+ });
+-function compiled(path){
++function compiled(path,mocks={}){
+  const source=ts.transpileModule(read(path),{compilerOptions:{jsx:ts.JsxEmit.ReactJSX,module:ts.ModuleKind.CommonJS}}).outputText;
+- const exports={};vm.runInNewContext(source,{exports,require:name=>name==='react'?React:jsx});
++ const exports={};vm.runInNewContext(source,{exports,require:name=>mocks[name]??(name==='react'?React:jsx)});
+  return exports.default;
+ }
+ test('chakra artwork replaces the sun in exactly one branding slot; other headers keep the sun',()=>{
+- const Header=compiled('components/app-navigation.tsx'),Mark=compiled('components/daily-chakra-mark.tsx');
++ const Header=compiled('components/app-navigation.tsx',{'./daily-chakra-clock':{useTradingChakra:()=>null}}),Mark=compiled('components/daily-chakra-mark.tsx');
+  const normal=renderToStaticMarkup(jsx.jsx(Header,{section:'PATTERN FINDER',current:'/pattern-match'}));
+  assert.match(normal,/<a class="app-brand" href="\/" aria-label="Home"[^>]*><svg[^>]*>\s*<circle cx="24"/);
+  const icons=[];
+@@ -77,3 +77,30 @@
+   }
+  }
+ });
++
++test('all trading pages share the real Chicago date; normal and non-Daily-Balance headers stay unchanged',()=>{
++ const routes=['/training','/market-direction','/trade-simulator','/chart-marker','/chart-match','/pattern-match','/pattern-encyclopedia'];
++ const Mark=compiled('components/daily-chakra-mark.tsx');
++ for(const day of days){
++  const focus=chakraForDay(day);
++  const Header=compiled('components/app-navigation.tsx',{
++   './daily-chakra-clock':{useTradingChakra:(current,section)=>tradingHeaderChakra(day,current,section)},
++   './daily-chakra-mark':{default:Mark},
++   './daily-dashboard.module.css':{default:{chakraHeader:'chakra-header',tradingChakraHeader:'trading-chakra-header',tradingChakraName:'chakra-name'}},
++  });
++  for(const current of [...routes,undefined]){
++   const markup=renderToStaticMarkup(jsx.jsx(Header,{section:current?'PRACTICE':'TRADE HISTORY',current,children:'Profile'}));
++   assert.match(markup,new RegExp('data-header-theme="'+focus.id+'"'));
++   assert.match(markup,new RegExp('class="chakra-name">'+focus.name+'</small>'));
++   assert.equal(markup.match(/class="app-candle-mark"/g)?.length,1);
++   assert.doesNotMatch(markup,/<circle cx="24"/);
++   assert.match(markup,/Navigation menu/);
++   assert.match(markup,/Profile/);
++  }
++  for(const current of ['/','/admin','/sign-in','/learner/local-history']){
++   assert.equal(tradingHeaderChakra(day,current,'OTHER'),null);
++  }
++  assert.equal(tradingHeaderChakra(null,'/market-direction','TRADE SIMULATOR'),null);
++ }
++ assert.match(read('app/layout.tsx'),/DailyChakraClock initialDay=\{process\.env\.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN\?hourlyClock\(\)\.day:null\}/);
++});
+diff --git a/components/daily-chakra-clock.tsx b/components/daily-chakra-clock.tsx
+new file mode 100644
+--- /dev/null
++++ b/components/daily-chakra-clock.tsx
+@@ -0,0 +1,25 @@
++'use client';
++
++import {createContext,useContext,useEffect,useState,type ReactNode} from 'react';
++import {hourlyClock} from '../lib/learner/daily-hourly.mjs';
++import {tradingHeaderChakra} from '../lib/chakra-focus.mjs';
++
++const DayContext = createContext<string|null>(null);
++
++export default function DailyChakraClock({initialDay,children}:{initialDay:string|null;children:ReactNode}){
++ const [day,setDay]=useState(initialDay);
++ useEffect(()=>{
++   if(initialDay===null)return;
++   const sync=()=>setDay(hourlyClock().day);
++   sync();
++   const id=window.setInterval(sync,15_000);
++   window.addEventListener('focus',sync);
++   document.addEventListener('visibilitychange',sync);
++   return ()=>{window.clearInterval(id);window.removeEventListener('focus',sync);document.removeEventListener('visibilitychange',sync);};
++ },[initialDay]);
++ return <DayContext.Provider value={day}>{children}</DayContext.Provider>;
++}
++
++export function useTradingChakra(current:string|undefined,section:string){
++ return tradingHeaderChakra(useContext(DayContext),current,section);
++}
