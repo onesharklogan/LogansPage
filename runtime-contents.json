@@ -296,8 +296,8 @@
   },
   {
     "path": "components/combined-simulator-history.tsx",
-    "bytes": 8291,
-    "sha256": "6a489c999dbbed178ccdbf8bc2f1a7ccb403e4dfda4f696688ec54fd41b4485e"
+    "bytes": 7795,
+    "sha256": "8c0e7b94d15e275cb868205379d92ef51721e44965405c74c9b32c2df9ba8866"
   },
   {
     "path": "components/combined-simulator.css",
@@ -411,13 +411,13 @@
   },
   {
     "path": "components/learner-trader-stats.module.css",
-    "bytes": 6295,
-    "sha256": "fc52a635f8e702122cb85f91344d4c32f7429898e50d7efc4125289100546973"
+    "bytes": 6048,
+    "sha256": "310f9f1c98fbd1b1bd87bae432920b5189b16cde1f78923caaac4c95e6a9312c"
   },
   {
     "path": "components/learner-trader-stats.tsx",
-    "bytes": 15607,
-    "sha256": "566abfe5246916c71212636b0927aacfbb425d856c7e5c4d4c9f9a3bec4a2a00"
+    "bytes": 14706,
+    "sha256": "a863c4344dbe534c2d86cf850ee62faf94bb4ceab7c2c3640b3cb2abb9586ada"
   },
   {
     "path": "components/lesson-access-boundary.tsx",
@@ -996,8 +996,8 @@
   },
   {
     "path": "lib/cumulative-device-chart.mjs",
-    "bytes": 1650,
-    "sha256": "fb34649433b2c69356729d65f04937fc1770b66ce6243630a0b8404a0250b085"
+    "bytes": 2668,
+    "sha256": "f959550affcec1d6d3d09b3e29e64cb46c2a3100ff0cbf8dc1324992e7baa967"
   },
   {
     "path": "lib/failed-chart-trades.mjs",
@@ -5936,8 +5936,8 @@
   },
   {
     "path": "tests/cumulative-device-chart.test.mjs",
-    "bytes": 5758,
-    "sha256": "e8f6742bd833dc2927f8cde2f80f209cd379a53f1dc61a6e37c2aba2c2e379ca"
+    "bytes": 7487,
+    "sha256": "d58d6b03f0e8df6c2769d97e99dc281e44cdaf075fec142cd2ae4bd5b9436a05"
   },
   {
     "path": "tests/daily-brand.test.mjs",
@@ -6278,11 +6278,6 @@
     "path": "components/daily-chakra-clock.tsx",
     "bytes": 1052,
     "sha256": "e95aeffc00dcd3827d74aa97e09c7e582a5773b6a9b88da6d321fe5e22f9e2ef"
-  },
-  {
-    "path": "components/saved-desktop-sessions.tsx",
-    "bytes": 3732,
-    "sha256": "f6621ce117ad9a7b1292d988393b090405bdbb47cb4e3e270cf39f8f9b0d4832"
   },
   {
     "path": "tests/daily-history-projection-cache.test.mjs",

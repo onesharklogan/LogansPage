@@ -1,0 +1,246 @@
+diff --git a/components/combined-simulator-history.tsx b/components/combined-simulator-history.tsx
+--- a/components/combined-simulator-history.tsx
++++ b/components/combined-simulator-history.tsx
+@@ -6,17 +6,16 @@
+ import LearnerTraderStats from './learner-trader-stats';
+ import LegacyTradeReview from './legacy-trade-review';
+ import LoadingIndicator from './loading-indicator';
+-import SavedDesktopSessions from './saved-desktop-sessions';
+ 
+ export type CombinedHistoryReplay={mode:'market'|'limit';attemptId?:string;sessionKey?:string};
+ type Props={accountsEnabled:boolean;marketOnly?:boolean;legacyReview?:string;onCloseReview?:()=>void;onClose:()=>void;onReplay:(target:CombinedHistoryReplay)=>void;refreshKey?:number;canAct?:()=>boolean};
+ const points=(value:number)=>`${value>0?'+':''}${value.toLocaleString('en-US',{maximumFractionDigits:2})}`;
+ 
+ function AccountHistory({onClose,onReplay,refreshKey=0,canAct=()=>true,marketOnly,legacyReview,onCloseReview}:Props){
+- const [snapshot,setSnapshot]=useState(learnerClient.getSnapshot),[readyList,setReadyList]=useState<string|null>(null);
++ const [snapshot,setSnapshot]=useState(learnerClient.getSnapshot);
+  useEffect(()=>{const unsubscribe=learnerClient.subscribe(setSnapshot);
+-  // List/detail/stats requests independently verify sign-in on the server. Avoid
+-  // blanking an already verified Daily Balance profile with a redundant session read.
++  // The stats request verifies the live session server-side. Do not blank an
++  // already verified Daily Balance profile with a redundant refresh.
+   if(!marketOnly||!learnerClient.guard(learnerClient.captureContext()))void learnerClient.refresh();
+   return()=>{unsubscribe();};},[]);
+  const capture=learnerClient.captureContext();
+@@ -34,8 +33,7 @@
+   return <div>{marketOnly?(checking?<p role="status"><LoadingIndicator label="Verifying your sign-in…"/></p>:<p role="alert">Your sign-in could not be verified. Retry the account check to open Trade History. Your saved trades have not changed.</p>):<p role="status">{snapshot.error||'Verifying the current profile before showing history…'}</p>}{(!marketOnly||!checking)&&<button type="button" onClick={()=>void learnerClient.revalidate()}>Retry account check</button>}<button type="button" onClick={onClose}>{marketOnly?'Back to Trade Simulator':'Back to simulator'}</button></div>;
+  }
+  if(capture.mode==='guest')return <>{marketOnly?<><p role="alert">Sign in to see your Trade History. Your saved trades have not changed.</p><a href="/sign-in">Sign in</a></>:<p>Guest practice is not saved. Sign in to keep combined order history.</p>}<button type="button" className="quiet-button" onClick={onClose}>{marketOnly?'Back to Trade Simulator':'Back to simulator'}</button></>;
+- const listKey=`${capture.epoch}:${capture.context?.accountId}:${capture.context?.generation}:${capture.context?.sessionTag}:${refreshKey}`;
+- return <><div hidden={!!legacyReview} inert={!!legacyReview}>{marketOnly&&<SavedDesktopSessions key={listKey} capture={capture} onReady={()=>setReadyList(listKey)} onBack={onClose} onReplay={replay} canAct={canAct}/>}{(!marketOnly||readyList===listKey)&&<LearnerTraderStats client={learnerClient} page={2} onPage={()=>{}} onBack={onClose} onReplay={replay} canAct={()=>!!capture&&learnerClient.guard(capture)&&canAct()} refreshKey={refreshKey} backLabel={marketOnly?'Back to Trade Simulator':'Back to simulator'} legacyTradeReview={marketOnly} separateList={marketOnly}/>}</div>{marketOnly&&legacyReview&&<LegacyTradeReview key={capture.epoch+':'+legacyReview} capture={capture} attemptId={legacyReview} onClose={()=>onCloseReview?.()}/>}</>;
++ return <><div hidden={!!legacyReview} inert={!!legacyReview}><LearnerTraderStats client={learnerClient} page={2} onPage={()=>{}} onBack={onClose} onReplay={replay} canAct={()=>!!capture&&learnerClient.guard(capture)&&canAct()} refreshKey={refreshKey} backLabel={marketOnly?'Back to Trade Simulator':'Back to simulator'} legacyTradeReview={marketOnly}/></div>{marketOnly&&legacyReview&&<LegacyTradeReview key={capture.epoch+':'+legacyReview} capture={capture} attemptId={legacyReview} onClose={()=>onCloseReview?.()}/>}</>;
+ }
+ 
+ function LocalHistory({onClose,onReplay,refreshKey=0,canAct=()=>true,marketOnly}:Props){
+diff --git a/components/learner-trader-stats.module.css b/components/learner-trader-stats.module.css
+--- a/components/learner-trader-stats.module.css
++++ b/components/learner-trader-stats.module.css
+@@ -8,7 +8,4 @@
+ 
+ .lineLegend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:8px 0 12px;font-size:13px}.lineLegend span{display:inline-flex;align-items:center;gap:6px}.lineLegend i{display:inline-block;width:20px;height:3px;border-radius:2px}
+ 
+-.savedSessions{list-style:none;padding:0;margin:.45rem 0 1rem}
+-.savedSessions li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:.65rem;align-items:center;padding:.55rem .25rem;border-bottom:1px solid color-mix(in srgb,currentColor 18%,transparent)}
+-.savedSessions small{display:block;font-size:.78rem}
+-.savedSessions a{min-height:44px;display:inline-flex;align-items:center;text-decoration:underline}
++.rangeHeading{display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-bottom:.6rem}.rangeHeading h4{margin:0}.rangeHeading button{min-width:3rem}
+diff --git a/components/learner-trader-stats.tsx b/components/learner-trader-stats.tsx
+--- a/components/learner-trader-stats.tsx
++++ b/components/learner-trader-stats.tsx
+@@ -16,9 +16,9 @@
+ const number=(v:number|null)=>v===null?'N/A':v.toLocaleString('en-US',{maximumFractionDigits:2});
+ function Arrow({next=false}:{next?:boolean}){return <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={next?'M9 5l7 7-7 7':'M15 5l-7 7 7 7'} stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>;}
+ /** One guarded snapshot, local presentation pages. Never mounts or changes a simulator. */
+-export default function LearnerTraderStats({client,page:requestedPage,onPage,onBack,onReplay,canAct,refreshKey=0,legacyTradeReview=false,separateList=false,backLabel="Back to account"}:{client:ReturnType<typeof createLearnerClient>;page:number|null;onPage:(page:number)=>void;onBack:()=>void;onReplay:(event:MouseEvent<HTMLAnchorElement>)=>void;canAct:()=>boolean;refreshKey?:number;legacyTradeReview?:boolean;separateList?:boolean;backLabel?:string}){
++export default function LearnerTraderStats({client,page:requestedPage,onPage,onBack,onReplay,canAct,refreshKey=0,legacyTradeReview=false,backLabel="Back to account"}:{client:ReturnType<typeof createLearnerClient>;page:number|null;onPage:(page:number)=>void;onBack:()=>void;onReplay:(event:MouseEvent<HTMLAnchorElement>)=>void;canAct:()=>boolean;refreshKey?:number;legacyTradeReview?:boolean;backLabel?:string}){
+  const page:number|null=requestedPage===null?null:Number(2);
+- const [loaded,setLoaded]=useState<{data:any;practice:any;capture:any;revision:number;refreshKey:number}|null>(null),[failure,setFailure]=useState(''),[revision,setRevision]=useState(0),[selected,setSelected]=useState<string|null>(null),[section,setSection]=useState(0);
++ const [loaded,setLoaded]=useState<{data:any;practice:any;capture:any;revision:number;refreshKey:number}|null>(null),[failure,setFailure]=useState(''),[revision,setRevision]=useState(0),[selected,setSelected]=useState<string|null>(null),[section,setSection]=useState('all');
+  const device='all';
+  const [plotElement,setPlotElement]=useState<HTMLDivElement|null>(null),[plotWidth,setPlotWidth]=useState(300);
+  useEffect(()=>observeHistoryWidth(plotElement,setPlotWidth),[plotElement]);
+@@ -41,23 +41,25 @@
+   }
+   return()=>{alive.current=false;epoch.current++;clearTimeout(timeout);controller.abort();};
+  },[client,ownerKey,revision,refreshKey]);
+- useEffect(()=>{setSelected(null);setSection(0);if(page!==null)heading.current?.focus();},[page]);
++ useEffect(()=>{setSelected(null);setSection('all');if(page!==null)heading.current?.focus();},[page,ownerKey]);
+  const valid=loaded&&loaded.revision===revision&&loaded.refreshKey===refreshKey&&client.guard(loaded.capture)?loaded:null;
+  const filtered=useMemo(()=>valid?valid.data:null,[valid,device]);
+  const pages=useMemo(()=>filtered?[0,1,2].map(p=>deriveStatsPage(filtered,p)):null,[filtered]);
+  const allowed=()=>alive.current&&display.current===displayed&&canAct()&&!!valid&&latest.current.loaded===loaded&&latest.current.page===page&&client.guard(valid.capture);
+  function choose(next:number){if(!allowed())return;invalidateDisplay();onPage(next);}
+- if(!pages)return <div className={styles.status}>{page!==null&&!separateList&&<button type="button" onClick={()=>{if(alive.current&&canAct()){invalidateDisplay();onBack();}}}>{backLabel}</button>}{failure?<><p role="alert">{separateList?'Graphs and totals couldn’t load. You can still use the saved sessions above.':legacyTradeReview?failure:'Trade History could not be loaded.'} Your saved trades have not changed.</p><button type="button" onClick={()=>{if(alive.current&&canAct())setRevision(n=>n+1);}}>{separateList?'Retry stats':'Retry history'}</button></>:<p role="status"><LoadingIndicator label={separateList?"Calculating graphs and totals…":"Loading Trade History…"} /></p>}</div>;
++ if(!pages)return <div className={styles.status}>{page!==null&&<button type="button" onClick={()=>{if(alive.current&&canAct()){invalidateDisplay();onBack();}}}>{backLabel}</button>}{failure?<><p role="alert">{legacyTradeReview?failure:'Trade History could not be loaded.'} Your saved trades have not changed.</p><button type="button" onClick={()=>{if(alive.current&&canAct())setRevision(n=>n+1);}}>Retry history</button></>:<p role="status"><LoadingIndicator label="Loading Trade History…" /></p>}</div>;
+  if(page===null)return <div className={styles.overview}><TodayAccountSummary stats={valid!.data}/><div className={styles.entries}><button type="button" onClick={()=>choose(2)}>Trade History<Arrow next/></button></div></div>;
+- if(separateList&&pages[page].count===0)return null;
+  if(legacyTradeReview&&pages[page].count===0)return <div className={styles.status}><button type="button" onClick={()=>{if(allowed()){invalidateDisplay();onBack();}}}>{backLabel}</button><p>No saved desktop sessions yet. Finish a session on desktop to start building your trade history.</p><button type="button" onClick={()=>{if(allowed()){invalidateDisplay();setRevision(n=>n+1);}}}>Refresh stats</button></div>;
+- const stats=pages[page],chart=cumulativeDeviceChart(valid!.data,plotWidth),windowed=chart.windowed,axis=historyPointAxis(windowed),chosen=chart.stats.series.points.find((p:any)=>p.id===selected),max=Math.max(1,...stats.barGroups.map((b:any)=>typeof b.profitFactor==='number'?b.profitFactor:0));
++ const stats=pages[page],chart=cumulativeDeviceChart(valid!.data,plotWidth,section),windowed=chart.windowed,axis=historyPointAxis(windowed),chosen=chart.stats.series.points.find((p:any)=>p.id===selected),max=Math.max(1,...stats.barGroups.map((b:any)=>typeof b.profitFactor==='number'?b.profitFactor:0));
++ const activeGroup=stats.barGroups.find((g:any)=>g.id===section);
++ const rangeLabel=activeGroup?.label??'All';
++ function selectRange(id:string){if(allowed()&&section!==id){invalidateDisplay();setSelected(null);setSection(id);}}
+  function selectPoint(id:string){if(allowed()){invalidateDisplay();setSelected(id);}}
+  const chosenLegacy=legacyTradeReview&&chosen?.module==='trade-simulator';
+  const replay=(event:MouseEvent<HTMLAnchorElement>)=>{if(!allowed()){event.preventDefault();return;}if(chosenLegacy&&(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey))return;onReplay(event);};
+  return <div className={styles.dashboard}>
+-  <div className={styles.pager}><h3 ref={heading} tabIndex={-1}>{separateList?'Stats and graphs':'Trade History'}</h3></div>
+-  <div className={styles.toolbar}>{!separateList&&<button type="button" onClick={()=>{if(allowed()){invalidateDisplay();onBack();}}}>{backLabel}</button>}<button type="button" onClick={()=>{if(allowed()){invalidateDisplay();setRevision(n=>n+1);}}}>Refresh stats</button></div>
++  <div className={styles.pager}><h3 ref={heading} tabIndex={-1}>Trade History</h3></div>
++  <div className={styles.toolbar}><button type="button" onClick={()=>{if(allowed()){invalidateDisplay();onBack();}}}>{backLabel}</button><button type="button" onClick={()=>{if(allowed()){invalidateDisplay();setRevision(n=>n+1);}}}>Refresh stats</button></div>
+   <p className={styles.caption}>PC history · Older sessions without device information are included. Mobile sessions aren’t shown here.</p>
+   <FailedChartsBook rows={accountBookRows(filtered)} canAct={allowed} loadTrades={async(row,source)=>{if(!allowed())throw Error('Account changed');const attempt=await client.getAttempt(row.attemptId,valid!.capture);if(!allowed())throw Error('Account changed');return chartTrades(attempt,source);}}/>
+   <TodayHistorySummary stats={filtered} page={page}/>
+@@ -68,14 +70,20 @@
+   {!stats.complete&&<p className={styles.coverage} role="status">Verified outcomes: {stats.covered} / {stats.count} attempts. KPIs unavailable; graphs show verified attempts only.</p>}
+   {stats.carry&&<p className={styles.caption}>Order points include saved Finish carry through Final Bar.</p>}
+   {page!==1&&<p className={styles.caption}>{page===2?'Order Neutral':'Practiced Neutral'}: {stats.neutralCovered===stats.neutralTotal&&stats.practiced?`${number(100*stats.neutral/stats.practiced)}%`:'N/A'}{stats.neutralCovered!==stats.neutralTotal?` · Evidence ${stats.neutralCovered} / ${stats.neutralTotal}`:''}</p>}
+-  <PracticeInsights stats={filtered} accountStats={valid!.data} practice={valid!.practice} page={page} device={device} totalAttempts={valid!.data.attempts.length}/><section className={styles.graph}><h4>Cumulative points</h4>{chart.stats.series.points.length?<>
++  <PracticeInsights stats={filtered} accountStats={valid!.data} practice={valid!.practice} page={page} device={device} totalAttempts={valid!.data.attempts.length}/><section className={styles.graph}>
++   <div className={styles.rangeHeading}><h4>Profit factor by bar group</h4><button type="button" aria-pressed={section==='all'} aria-controls="history-cumulative-points" onClick={()=>selectRange('all')}>All</button></div>
++   <div className={styles.buckets} role="group" aria-label="Filter cumulative points by exit bar">{stats.barGroups.map((b:any)=><button type="button" key={b.id} aria-label={`${b.label}: ${formatProfitFactor(b)} profit factor`} aria-pressed={section===b.id} aria-controls="history-cumulative-points" onClick={()=>selectRange(b.id)}><span className={styles.pfBarTrack} aria-hidden="true">{typeof b.profitFactor==='number'?<span style={{height:`${b.profitFactor/max*100}%`}}/>:<i>{b.profitFactor==='no-losses'?'◇':b.profitFactor==='flat-only'?'○':'–'}</i>}</span><strong>{formatProfitFactor(b)}</strong><small>{b.label}</small></button>)}</div>
++   <p className={styles.caption}>Select a range to see cumulative points from trades that closed in those bars.</p>
++  </section>
++  <section id="history-cumulative-points" className={styles.graph}><h4 aria-live="polite">Cumulative points · {rangeLabel}</h4>{chart.stats.series.points.length?<>
+    <div className={styles.lineLegend} aria-label="Cumulative points legend">{chart.lines.filter(line=>line.key==='combined').map(line=><span key={line.key}><i style={{background:line.color}} aria-hidden="true"/>PC + legacy: {formatHistoryPoints(Number(line.total))}{!line.count?' (no recorded attempts)':''}</span>)}</div>
+    <div className={styles.plotRow}><svg width={axis.width} height="244" aria-hidden="true" className={styles.axis}>{axis.ticks.map((t:any)=><text key={t.value} x={axis.width-8} y={t.y+4} textAnchor="end">{t.label}</text>)}</svg><div ref={setPlotElement} className={styles.plotScroll}><svg width="100%" height="244" viewBox={`0 0 ${windowed.width} 244`} role="group" aria-label="Accumulated points by attempt completion"><path d={`M0 ${windowed.zeroY}H${windowed.width}`} stroke="currentColor" opacity=".3"/>{chart.lines.filter(line=>line.key==='combined').map(line=><path key={line.key} data-device-line={line.key} d={line.path} fill="none" stroke={String(line.color)} strokeWidth={line.key==='combined'?3:2} strokeDasharray={line.key==='mobile'?'7 4':line.key==='pc'?'3 3':undefined} pointerEvents="none"/>)}{windowed.points.map((p:any,i:number)=><g key={p.id} role="button" tabIndex={chosen?chosen.id===p.id?0:-1:i===0?0:-1} aria-label={`Attempt ${p.index+1}, ${p.module==='market-direction'?'Order':'Order'}, ${formatHistoryPoints(p.netPoints)} points; accumulated ${formatHistoryPoints(p.cumulative)}`} aria-pressed={chosen?.id===p.id} onClick={()=>selectPoint(p.id)} onKeyDown={e=>{if(!allowed())return;if(e.key==='Enter'||e.key===' '){e.preventDefault();selectPoint(p.id);}else if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const all=Array.from(e.currentTarget.parentElement?.querySelectorAll<SVGGElement>('[role="button"]')||[]),index=e.key==='Home'?0:e.key==='End'?all.length-1:Math.max(0,Math.min(all.length-1,i+(e.key==='ArrowRight'?1:-1)));all[index]?.focus();}}}><rect x={p.x-windowed.hitWidth/2} y="10" width={windowed.hitWidth} height="210" rx="8" fill={chosen?.id===p.id?'var(--appearance-ink-ffffff12, #ffffff12)':'transparent'}/><circle cx={p.x} cy={p.y} r={chosen?.id===p.id?windowed.selectedRadius:windowed.radius} fill="var(--appearance-ink-69c7ff, #69c7ff)"/>{p.showLabel&&<text x={p.x} y="238" textAnchor={i===windowed.points.length-1?"end":i===0?"start":"middle"}>{p.index+1}</text>}</g>)}</svg></div></div>
+-   <p className={styles.caption}>All {chart.stats.covered} verified attempts shown · PC and legacy sessions share completion order. Select a dot for details.</p>
++   <p className={styles.caption}>{section==='all'? `All ${chart.stats.covered} verified sessions shown` : `${chart.stats.series.points.length} sessions with verified exits in this range`} · Select a dot to review that session.</p>
+    <p className={styles.caption}>{chart.unknown>0?`${chart.unknown} older attempts have no device information and are retained.`:''}</p>
+-   {!chart.stats.complete&&<p className={styles.coverage}>Graph includes {chart.stats.covered} of {chart.stats.count} attempts with verified outcomes.</p>}
+    {chosen&&<div className={styles.selection}><strong>{chosen.sessionDate} · {chosen.module==='market-direction'?'Order':'Order'}</strong><span>{formatHistoryPoints(chosen.netPoints)} points · {new Date(chosen.completedAt).toLocaleString()}</span><a href={chosenLegacy?`/market-direction?history=1&review=${encodeURIComponent(chosen.attemptId)}`:`/${chosen.module}?replay=${encodeURIComponent(chosen.attemptId)}`} onClick={replay} onAuxClick={chosenLegacy?undefined:replay} onContextMenu={chosenLegacy?undefined:replay}>{chosenLegacy?'Review chart':'Replay'}</a></div>}
+-  </>:<p>No verified closed outcomes yet.</p>}</section>
+-  <section className={styles.graph}><h4>Profit factor by bar group</h4>{stats.samples?<><p className={styles.caption}>Whole closed {page===0?'legs':page===1?'trades':'legs / trades'} grouped by exit bar · All finished attempts, including replays</p><p className={styles.caption}>Numeric scale: 0 to {number(max)} PF. No losses, Flat only and N/A are labels, not bar heights.</p><div className={styles.buckets}>{stats.barGroups.map((b:any,i:number)=><button type="button" key={b.id} aria-label={`${b.label}: ${formatProfitFactor(b)} profit factor, ${b.samples} closed outcomes`} aria-pressed={section===i} onClick={()=>{if(allowed()){invalidateDisplay();setSection(i);}}}><span className={styles.pfBarTrack} aria-hidden="true">{typeof b.profitFactor==='number'?<span style={{height:`${b.profitFactor/max*100}%`}}/>:<i>{b.profitFactor==='no-losses'?'◇':b.profitFactor==='flat-only'?'○':'–'}</i>}</span><strong>{formatProfitFactor(b)}</strong><small>{b.label}</small></button>)}</div><p className={styles.selectedSection} role="status">{stats.barGroups[section].label}: {formatProfitFactor(stats.barGroups[section])} PF · {stats.barGroups[section].samples} verified closed outcomes · Gross winning points {number(stats.barGroups[section].grossProfit)} / gross losing points {number(stats.barGroups[section].grossLoss)} · Allocation verified for {stats.barGroups[section].covered} / {stats.barGroups[section].count} attempts.</p>{!stats.barGroups[section].complete&&<p className={styles.coverage}>Bar-group PF is unavailable because some saved outcomes cannot be allocated reliably. Known outcomes are not used to imply a complete result.</p>}<p className={styles.caption}>PF = gross winning points ÷ gross losing points, never net points or an average of ratios. Each whole closed outcome belongs to the group containing its exit bar; crossing outcomes are not split. No outcomes in a group means N/A. Order Finish carry stays included where saved evidence verifies it.</p></>:<p>No verified closed outcomes yet. Bar-group profit factor is unavailable.</p>}</section>
++  </>:<p>{section==='all'?'No verified closed outcomes yet.':'No verified exits in this range.'}</p>}
++   {!chart.stats.complete&&<p className={styles.coverage}>{section==='all'?'Verified outcomes':'Verified exit-bar data'} for {chart.stats.covered} of {chart.stats.count} sessions.</p>}
++  </section>
++
+  </div>;
+ }
+diff --git a/lib/cumulative-device-chart.mjs b/lib/cumulative-device-chart.mjs
+--- a/lib/cumulative-device-chart.mjs
++++ b/lib/cumulative-device-chart.mjs
+@@ -1,12 +1,30 @@
+ import {deriveStatsPage,decodeStats,cleanStatsPoints} from '../public/modules/learner-stats.js';
++import {TIME_BUCKETS} from '../public/modules/history-time-buckets.js';
+ import {fitHistoryChart} from './trade-history-chart.mjs';
+ 
+ /** All lines share completion order and one scale. Device lines hold their value
+  * between their own attempts. Missing device metadata belongs only to Combined.
+  * Derived display only: never writes history or guesses a device. */
+-export function cumulativeDeviceChart(snapshot,width=300){
++export function cumulativeDeviceChart(snapshot,width=300,range='all'){
+  decodeStats(snapshot);
+- const stats=deriveStatsPage(snapshot,2),series=stats.series;
++ const all=deriveStatsPage(snapshot,2);
++ const groupIndex=TIME_BUCKETS.findIndex(group=>group.id===range);
++ if(range!=='all'&&groupIndex<0)throw Error('Unknown history bar range.');
++ let stats=all;
++ if(groupIndex>=0){
++  const group=all.barGroups[groupIndex];
++  const rows=new Map(snapshot.attempts.map(row=>[row.module+':'+row.id,row]));
++  const points=[];let total=0,minimum=0,maximum=0;
++  for(const point of all.series.points){
++   const outcome=rows.get(point.id)?.bucketOutcomes?.[groupIndex];
++   if(!outcome||!(outcome.wins+outcome.losses+outcome.flats))continue;
++   const netPoints=cleanStatsPoints(outcome.grossProfit-outcome.grossLoss);
++   total=cleanStatsPoints(total+netPoints);minimum=Math.min(minimum,total);maximum=Math.max(maximum,total);
++   points.push({...point,index:points.length,netPoints,cumulative:total});
++  }
++  stats={...all,count:group.count,covered:group.covered,complete:group.complete,series:{...all.series,points,total,minimum,maximum}};
++ }
++ const series=stats.series;
+  const devices=new Map(snapshot.attempts.map(row=>[row.module+':'+row.id,row.isMobile]));
+  let mobile=0,pc=0,unknown=0,mobileCount=0,pcCount=0;
+  const aligned=series.points.map(point=>{
+diff --git a/tests/cumulative-device-chart.test.mjs b/tests/cumulative-device-chart.test.mjs
+--- a/tests/cumulative-device-chart.test.mjs
++++ b/tests/cumulative-device-chart.test.mjs
+@@ -32,9 +32,9 @@
+  const c=cumulativeDeviceChart(snapshot([row(1,-3,true),row(2,-2,true),row(3,0,true)]));assert.equal(c.stats.covered,3);assert.deepEqual(c.lines.map(l=>l.total),[-5,-5,0]);assert.equal(c.lines[0].path,c.lines[1].path);
+ });
+ test('unverified snapshot fails closed',()=>{assert.throws(()=>cumulativeDeviceChart(snapshot([row(1,2,'mobile')])));});
+-test('account graph shows all three labeled lines, retains guarded dot actions, removes attempt buttons',()=>{
++test('account graph wires exit-bar filter, retains guarded dot actions, removes attempt buttons',()=>{
+  const ui=readFileSync(new URL('../components/learner-trader-stats.tsx',import.meta.url),'utf8');
+- assert.ok(ui.includes('cumulativeDeviceChart(valid!.data,plotWidth)'));assert.ok(ui.includes('data-device-line={line.key}'));assert.ok(ui.includes('lineLegend'));assert.ok(ui.includes("['All-time net points',stats.complete?formatHistoryPoints(stats.series.total):'N/A']"));assert.ok(ui.includes('if(allowed())'));assert.ok(ui.includes('onClick={()=>selectPoint(p.id)}'));
++ assert.ok(ui.includes('cumulativeDeviceChart(valid!.data,plotWidth,section)'));assert.ok(ui.includes('data-device-line={line.key}'));assert.ok(ui.includes('lineLegend'));assert.match(ui,/\[section,setSection\]=useState\('all'\)/);assert.match(ui,/onClick=\{\(\)=>selectRange\(b.id\)\}/);assert.match(ui,/onClick=\{\(\)=>selectRange\('all'\)\}/);assert.ok(ui.includes("['All-time net points',stats.complete?formatHistoryPoints(stats.series.total):'N/A']"));assert.ok(ui.includes('if(allowed())'));assert.ok(ui.includes('onClick={()=>selectPoint(p.id)}'));
+  for(const name of ['learner-trader-stats.tsx','trade-history-chart.tsx'])assert.doesNotMatch(readFileSync(new URL('../components/'+name,import.meta.url),'utf8'),/Previous attempt|Next attempt|attempt controls/);
+ });
+ 
+@@ -52,3 +52,24 @@
+  const missing={...row(4,0,false),outcomes:null,buckets:null,practiced:null,neutral:null,carry:null};assert.equal(deriveStatsPage(filterStatsByDevice(snapshot([pc,missing]),'pc'),2).complete,false);assert.equal(JSON.stringify(s),before);
+  const ui=readFileSync(new URL('../components/learner-trader-stats.tsx',import.meta.url),'utf8');assert.ok(ui.includes("['Completed Sessions',String(stats.count)]"));assert.ok(ui.includes("['Total trades',stats.complete?String(stats.samples):'N/A']"));
+ });
++
++test('exit-bar ranges rebuild cumulative points in completion order without changing All',()=>{
++ const groups=(n,device,outcomes,transitionBuckets)=>{const bucketOutcomes=outcomes.map(outcomeTotals);const all=outcomes.flat();return {...row(n,0,device),outcomes:outcomeTotals(all),buckets:transitionBuckets??bucketOutcomes.map(o=>o.grossProfit-o.grossLoss),bucketOutcomes};};
++ const first=groups(1,false,[[8],[],[-6],[2]],[4,0,0,0]);
++ const second=groups(2,true,[[2],[5],[3,1],[-2]]);
++ const third=groups(3,undefined,[[],[],[],[0]]);
++ const legacy=row(4,12,false);
++ const s=snapshot([legacy,third,second,first]),before=JSON.stringify(s);
++ const all=cumulativeDeviceChart(s,300,'all');
++ assert.equal(all.stats.series.total,25);
++ const mid=cumulativeDeviceChart(s,300,'41-60');
++ assert.deepEqual(mid.stats.series.points.map(p=>[p.netPoints,p.cumulative,p.attemptId]),[[-6,-6,first.id],[4,-2,second.id]]);
++ assert.deepEqual(mid.lines.map(l=>l.total),[-2,4,-6]);
++ assert.equal(mid.stats.covered,3);assert.equal(mid.stats.count,4);assert.equal(mid.stats.complete,false);
++ assert.deepEqual(cumulativeDeviceChart(s,300,'61-end').stats.series.points.map(p=>p.netPoints),[2,-2,0]);
++ assert.equal(cumulativeDeviceChart(s,300,'1-20').stats.series.total,10);
++ assert.equal(cumulativeDeviceChart(s,300,'21-40').stats.series.total,5);
++ assert.equal(cumulativeDeviceChart(snapshot([legacy]),300,'61-end').stats.series.points.length,0);
++ assert.throws(()=>cumulativeDeviceChart(s,300,'unknown'),/Unknown history bar range/);
++ assert.equal(JSON.stringify(s),before);
++});
+diff --git a/components/saved-desktop-sessions.tsx b/components/saved-desktop-sessions.tsx
+deleted file mode 100644
+--- a/components/saved-desktop-sessions.tsx
++++ /dev/null
+@@ -1,46 +0,0 @@
+-'use client';
+-import {useEffect,useRef,useState,type MouseEvent} from 'react';
+-import {learnerClient} from '../lib/learner/client.mjs';
+-import {tradeHistoryFailureMessage} from '../lib/history-load.mjs';
+-import {formatHistoryPoints} from '../lib/trade-history-chart.mjs';
+-import LoadingIndicator from './loading-indicator';
+-import styles from './learner-trader-stats.module.css';
+-
+-type Attempt={id:string;module:'trade-simulator'|'market-direction';chartId:string;completedAt:string;summary:{netPoints?:number;netAlignedPoints?:number}};
+-type Capture=NonNullable<ReturnType<typeof learnerClient.captureContext>>;
+-export default function SavedDesktopSessions({capture,onReady,onBack,onReplay,canAct}:{capture:Capture;onReady:()=>void;onBack:()=>void;onReplay:(e:MouseEvent<HTMLAnchorElement>)=>void;canAct:()=>boolean}){
+- const [rows,setRows]=useState<Attempt[]|null>(null),[next,setNext]=useState<string|null>(null),[failure,setFailure]=useState(''),[loading,setLoading]=useState(true);
+- const pending=useRef<AbortController|null>(null);
+- const live=()=>learnerClient.guard(capture);
+- function load(cursor?:string){
+-  if(pending.current||!live())return;
+-  const controller=new AbortController();
+-  pending.current=controller;setLoading(true);setFailure('');
+-  const current=()=>pending.current===controller&&live();
+-  const timer=setTimeout(()=>{if(current()){setFailure('Saved sessions took too long to load.');setLoading(false);pending.current=null;}controller.abort();},12000);
+-  void learnerClient.listAttempts({device:'desktop',limit:25,cursor},capture,{signal:controller.signal}).then(result=>{
+-   if(!current())return;
+-   setRows(previous=>cursor?[...new Map((previous||[]).concat(result.attempts).map(row=>[row.id,row])).values()]:result.attempts);
+-   setNext(result.nextCursor);if(!cursor)onReady();
+-  }).catch(error=>{if(current())setFailure(tradeHistoryFailureMessage(error));}).finally(()=>{
+-   clearTimeout(timer);if(current()){pending.current=null;setLoading(false);}
+-  });
+- }
+- useEffect(()=>{load();return()=>{pending.current?.abort();pending.current=null;};},[]);
+- if(!live())return null;
+- return <section aria-label="Saved desktop sessions">
+-  <div className={styles.pager}><h3>Trade History</h3></div>
+-  <div className={styles.toolbar}><button type="button" onClick={()=>{if(live()&&canAct())onBack();}}>Back to Trade Simulator</button></div>
+-  <h4 className={styles.historyHeading}>Saved desktop sessions</h4>
+-  {rows?.length===0&&<p>No saved desktop sessions yet.</p>}
+-  {!!rows?.length&&<ul className={styles.savedSessions}>{rows.map(row=>{
+-   const value=row.module==='market-direction'?row.summary.netAlignedPoints:row.summary.netPoints;
+-   const date=row.chartId.match(/\d{4}-\d{2}-\d{2}/)?.[0]??row.chartId;
+-   const url=row.module==='trade-simulator'?'/market-direction?history=1&review=':'/market-direction?replay=';
+-   return <li key={row.id}><span><strong>{date}</strong><small>{new Date(row.completedAt).toLocaleString()}</small></span><span>{typeof value==='number'&&Number.isFinite(value)?`${formatHistoryPoints(value)} pts`:'Points unavailable'}</span><a href={url+encodeURIComponent(row.id)} onClick={e=>{if(!live()||!canAct()){e.preventDefault();return;}if(row.module==='trade-simulator'&&(e.ctrlKey||e.metaKey||e.shiftKey||e.altKey))return;onReplay(e);}}>{row.module==='trade-simulator'?'Review chart':'Replay'}</a></li>;
+-  })}</ul>}
+-  {loading&&<p role="status"><LoadingIndicator label="Loading saved sessions…" /></p>}
+-  {failure&&<p role="alert">{failure} Your saved sessions haven’t changed.</p>}
+-  {!loading&&(next||failure)&&<button type="button" onClick={()=>{if(live()&&canAct())load(next??undefined);}}>{failure?'Retry saved sessions':'Load older sessions'}</button>}
+- </section>;
+-}
