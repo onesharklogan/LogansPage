@@ -71,13 +71,13 @@
   },
   {
     "path": "app/chart-match/full/page.tsx",
-    "bytes": 892,
-    "sha256": "db864504420486751e7b029bece9eedb18680b6757fe27148dcc1b36145d0a4f"
+    "bytes": 187,
+    "sha256": "c325edb2b0716d79e24b3cdf8c5f0b10bf9883f9ac95d18210f963659d784f03"
   },
   {
     "path": "app/chart-match/page.tsx",
-    "bytes": 809,
-    "sha256": "bd216970e65d9f9cf89aa4df60bf89e8804146a787311ce281877776b4397a94"
+    "bytes": 187,
+    "sha256": "c325edb2b0716d79e24b3cdf8c5f0b10bf9883f9ac95d18210f963659d784f03"
   },
   {
     "path": "app/day-type-search/page.tsx",
@@ -86,8 +86,8 @@
   },
   {
     "path": "app/globals.css",
-    "bytes": 87122,
-    "sha256": "010afaa0afd23ed152de0e3733ed1151bc4cc0dea1ffb9af4eaa2b51649bc867"
+    "bytes": 86766,
+    "sha256": "afb4e97f63b6142ed10f1314609a8e8410f241238e34ec6bec3a6c62d8503782"
   },
   {
     "path": "app/layout.tsx",
@@ -166,13 +166,13 @@
   },
   {
     "path": "app/trade-simulator/simulator.css",
-    "bytes": 18479,
-    "sha256": "d112f962e57882ecec6665371fb206ec96856fd2004e402956298f4d4cccef23"
+    "bytes": 17026,
+    "sha256": "68b9ddbba544ab3f7d53e3bbebe485a74fc7405054c4cc71a720c8a0aa3e5697"
   },
   {
     "path": "app/training/page.tsx",
-    "bytes": 6541,
-    "sha256": "c881d85a74deda20abccc7f345c113a163cf8a386a43be5d8882381310b10371"
+    "bytes": 5139,
+    "sha256": "dfc0bc4a9663af005cba63e1e30a8e4e3d2a3c2163dd455969f777b484e69be7"
   },
   {
     "path": "components/account-market-direction.tsx",
@@ -221,8 +221,8 @@
   },
   {
     "path": "components/app-navigation.tsx",
-    "bytes": 4084,
-    "sha256": "bdf5b247451ac17d8e83db73aebb07e7027e192a1020f047aa211ff6d68c992e"
+    "bytes": 4051,
+    "sha256": "b38931585a8639e2d23a66ac06fd35228f91ed930b5dce74322f5ae806afa2c3"
   },
   {
     "path": "components/appearance-option.tsx",
@@ -296,8 +296,8 @@
   },
   {
     "path": "components/combined-simulator-history.tsx",
-    "bytes": 7795,
-    "sha256": "8c0e7b94d15e275cb868205379d92ef51721e44965405c74c9b32c2df9ba8866"
+    "bytes": 7844,
+    "sha256": "56d8c952692d0a9cc26306d37112c89b6c906d9aa9eb76cb16daf872d0f2ddb9"
   },
   {
     "path": "components/combined-simulator.css",
@@ -351,8 +351,8 @@
   },
   {
     "path": "components/guest-visit-tracker.tsx",
-    "bytes": 1648,
-    "sha256": "3e8993fdc042cf2c028efa157b36ad281048b2161c68f89e587bdfd2b1564b9e"
+    "bytes": 1613,
+    "sha256": "28e8aed24da6ad25438eef1899ac66e5e479a64c83801494115c9e7eb2bc4c04"
   },
   {
     "path": "components/home-gallery.module.css",
@@ -546,8 +546,8 @@
   },
   {
     "path": "components/pattern-match.tsx",
-    "bytes": 32903,
-    "sha256": "091e89dea06f4f0d3a16476b319bdf4d79e0eea5fcf5b74bd154149733b7fcf3"
+    "bytes": 32853,
+    "sha256": "243697bb8f84d844dd2481928e93e4eb62fb023c61f2adef07f378d0c20cd739"
   },
   {
     "path": "components/pattern-outcomes.tsx",
@@ -716,8 +716,8 @@
   },
   {
     "path": "components/trade-simulator.tsx",
-    "bytes": 121633,
-    "sha256": "91946c67cf48f0888a5ac3477194eb52a777ff8ccf2f0ba6a06add8bdf0f1f6c"
+    "bytes": 119323,
+    "sha256": "72d458e1a501aaecdf7f82c16a7a5ae9a6a8994192fa9fbbedcbac24b2be5f42"
   },
   {
     "path": "components/trading-style-select.tsx",
@@ -727,7 +727,7 @@
   {
     "path": "data/bias-provenance.json",
     "bytes": 29693,
-    "sha256": "e765b55d4d9566fb23dee3392c3cd574e4424bca8a91b81e1de1b0231dd8126a"
+    "sha256": "905fdea278dfef3abbb622e41f07d76fe1f6431aacb45d5094677aaa30d5489e"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -737,7 +737,7 @@
   {
     "path": "data/chart-marker-provenance.json",
     "bytes": 13662,
-    "sha256": "84d7ceb6b9c199d7f2d0cc842583dc7c8a06793e77bfb237a7bc711fee98b56d"
+    "sha256": "a990a8de42458904f66265bdfae29da7de17900778d3e9bd334d80ea02dc30b3"
   },
   {
     "path": "data/chart-references.json",
@@ -5536,8 +5536,8 @@
   },
   {
     "path": "public/editor/index.html",
-    "bytes": 276988,
-    "sha256": "dea7442a9cdabe1be0dfa071b037d305ab1cfd013347b397b1d6261391448f44"
+    "bytes": 276950,
+    "sha256": "25b0e65fed161920501b16df26049d4fd06458dd02bdbb49d27fea9333df6e64"
   },
   {
     "path": "public/favicon.svg",
@@ -5571,8 +5571,8 @@
   },
   {
     "path": "public/modules/chart-marker.html",
-    "bytes": 152255,
-    "sha256": "2df3ad2943422640c0bad774dca228019890e1019ecfe1084c953381940eee50"
+    "bytes": 152217,
+    "sha256": "efd3f30dffcf2f14cc5692d33df082bfe6ad3e5d8deac9aad7a9838c11b54aec"
   },
   {
     "path": "public/modules/chart-match-handoff.js",
@@ -5681,8 +5681,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 309269,
-    "sha256": "3917a5e4b39805c2d00f75f3f198fe157774a7a573f1491617ba8e277659ecaf"
+    "bytes": 303149,
+    "sha256": "d3d43634975c4968bf71af781049b3e13c1c351044c5aec1546a7b867fca409c"
   },
   {
     "path": "public/modules/market-preview-isolation.js",
@@ -5767,7 +5767,7 @@
   {
     "path": "scripts/check-release.mjs",
     "bytes": 15854,
-    "sha256": "c9026f5d93d7d594ea784d5600d78c75ab41d2766f6824934411d1978d2bc57d"
+    "sha256": "d966197f45c02affd4df300a4ad1f6f074c6ba5315b771107adf77389006e4c9"
   },
   {
     "path": "scripts/create-candle-loading.py",
