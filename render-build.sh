@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 # Add pattern expectations and compact verified chart archives without changing existing records.
 echo '8ef5a9dd8ca4fd914ada28e1252842a7ddba617053c4b18694097f41ee003ccf  training-center-source.tar.gz' | sha256sum --check --status
 echo '69917e260166a62a494a02c651144c26d4851bbb02dbd9668ce7d64842d38335  training-center-overlay.tar.gz' | sha256sum --check --status
-echo 'aee6a09c1da7e8ed6d40c1c74211eeb6bce2cb5e9ec87a33509ff6fc80c82932  runtime-contents.json' | sha256sum --check --status
+echo '1293aee375e34a0cba5a73aab5aabb4f7afac50e1379d1fdbf5d12ac6c467c63  runtime-contents.json' | sha256sum --check --status
 echo 'a3b614ab06c3740c380b0f035a56d44ce2725343335409fc0c5456d350ef6b0c  training-center-calendar.tar.gz' | sha256sum --check --status
 echo 'f024dca3519a6e3e75f8fd693aa4569a3815b223ee05d1499216323d8c819941  training-center-full-previews.tar.gz' | sha256sum --check --status
 echo '463ef694cd9e33f56a2eecebcc0b469d4e2b1f9bf5ebb524156f905beadeed0c  training-center-encyclopedia.tar.gz' | sha256sum --check --status
@@ -138,6 +138,8 @@ echo '754b15ac94876c4284a652a032540e8a4813aa8e55cf9d8e397df74134ac3077  daily-re
 gzip -dc daily-retire-chart-match.patch.gz | git apply --directory=training-center-app --whitespace=nowarn
 echo 'aabe08ee31947e5197fba61306a0f1780fbd41a11b5c242fbf10d99388f05150  daily-private-spy-gap-reader.patch' | sha256sum --check --status
 git apply --directory=training-center-app --whitespace=nowarn daily-private-spy-gap-reader.patch
+echo 'c14541a6b35f799d19e8573b7945d5b05272156d280d57954c8638af899091ba  daily-spy-calendar-nightly.patch' | sha256sum --check --status
+git apply --directory=training-center-app --whitespace=nowarn daily-spy-calendar-nightly.patch
 node --input-type=module <<'VERIFY'
 import fs from 'node:fs';import crypto from 'node:crypto';
 const expected=JSON.parse(fs.readFileSync('runtime-contents.json','utf8'));

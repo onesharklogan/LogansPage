@@ -556,8 +556,8 @@
   },
   {
     "path": "components/pattern-source-data.mjs",
-    "bytes": 1094,
-    "sha256": "bdeef944cd652121413e155f81d174c75b1647a72de6b9dc28f3cd72e5dc7480"
+    "bytes": 1299,
+    "sha256": "090a63470b2ef889f2268ddb69f285b36c02974a98e6a4374ad8a1f9d87ee058"
   },
   {
     "path": "components/portal.tsx",
@@ -711,8 +711,8 @@
   },
   {
     "path": "components/trade-simulator-data.mjs",
-    "bytes": 2651,
-    "sha256": "0fb6afeed95e0040b5c9c8e34362b2181857c365c670b73b90a01edde229abc7"
+    "bytes": 3037,
+    "sha256": "0ab35423ea9d43b9841e150ecd77c7fb5e5514b130549708b90b624a4ccd944a"
   },
   {
     "path": "components/trade-simulator.tsx",
@@ -727,7 +727,7 @@
   {
     "path": "data/bias-provenance.json",
     "bytes": 29693,
-    "sha256": "905fdea278dfef3abbb622e41f07d76fe1f6431aacb45d5094677aaa30d5489e"
+    "sha256": "b4e05787025cbcc78fe41d4730350ea64fa0221973c759d95d157e714a69db34"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -936,8 +936,8 @@
   },
   {
     "path": "lib/chart-catalog.mjs",
-    "bytes": 1344,
-    "sha256": "069f15135d19c64f64f80ee7632659d5775f2faaa5e71e79ef94c5e310d5ed70"
+    "bytes": 1624,
+    "sha256": "a3cf732d0c847f18337a4e818d2eba4d608d5d862fab6f0cc798a85fdd2e30f1"
   },
   {
     "path": "lib/chart-match-auto.mjs",
@@ -981,8 +981,8 @@
   },
   {
     "path": "lib/chart-match.mjs",
-    "bytes": 46813,
-    "sha256": "dabed87f27dc975f8cfda180754486dfa89802496556e3ef29d93aa51c866b0f"
+    "bytes": 46816,
+    "sha256": "acdad71b0c971a9b4c1db69e235ebfe4c362cd31d93c5339e9cca17e90b78f1d"
   },
   {
     "path": "lib/combined-simulator-history.mjs",
@@ -1121,8 +1121,8 @@
   },
   {
     "path": "lib/learner/mock-charts.mjs",
-    "bytes": 5281,
-    "sha256": "a113275227698c22f4312eefc7d0077822a385032fb70bda1101c9c93dcaaf66"
+    "bytes": 5859,
+    "sha256": "a63709bb1f81f9685f41bc65e6527fa78e4b2b62c5a6a64273659f57cc58ac8d"
   },
   {
     "path": "lib/learner/pattern-encyclopedia.mjs",
@@ -5661,8 +5661,8 @@
   },
   {
     "path": "public/modules/learner-account-bridge.js",
-    "bytes": 22612,
-    "sha256": "de2a7d4bcaeac27f11d003775450b5d5dbd0376c24b086201f535dea28d74047"
+    "bytes": 22618,
+    "sha256": "1dbf2108963393800fecd0f0d340825c868d5f4235d2b9dac15884cf19206726"
   },
   {
     "path": "public/modules/learner-client.js",
@@ -5676,13 +5676,13 @@
   },
   {
     "path": "public/modules/learner-stats.js",
-    "bytes": 9751,
-    "sha256": "d2f8cfbdbf56c44f473d08eff7b8b706971291728a3a8a2c8af09b85477553f8"
+    "bytes": 9754,
+    "sha256": "9018599f1f885d5378d05e4e74895831d89c8b542d2b6b47f6ff3e0a66708eea"
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 303149,
-    "sha256": "d3d43634975c4968bf71af781049b3e13c1c351044c5aec1546a7b867fca409c"
+    "bytes": 303796,
+    "sha256": "67a5b0056bcd7438d73dd0ac1e35839b4267068bb34d30ba2dbbbf39384fa408"
   },
   {
     "path": "public/modules/market-preview-isolation.js",
@@ -5691,8 +5691,8 @@
   },
   {
     "path": "public/modules/pattern-finder-link.js",
-    "bytes": 2065,
-    "sha256": "dad0cda736967606bcfc787c13886dc65d18017532cc76d0867f506e4dbf6474"
+    "bytes": 2068,
+    "sha256": "51c27a896b9b43bb0022284b19bcb55e0c3f838735a9820b6bd9ef6518b47fb0"
   },
   {
     "path": "public/modules/practice-device.js",
@@ -5721,8 +5721,8 @@
   },
   {
     "path": "public/modules/private-mes-history.js",
-    "bytes": 1872,
-    "sha256": "e603021aeb2f7721993a5d97d444e9f56dc8d57343c20c66a5b511b411a4a53d"
+    "bytes": 1880,
+    "sha256": "1a49e10a222b8d42184cff42843083e4d13e3f3b6d2d36e912884d2db8330d4d"
   },
   {
     "path": "public/modules/session-overview.css",
@@ -6283,5 +6283,15 @@
     "path": "tests/daily-history-projection-cache.test.mjs",
     "bytes": 3103,
     "sha256": "e5068543b27c70df69a2010e008dc88cdb5397cc6cb8fa8a25c038e3e67d5719"
+  },
+  {
+    "path": "migrations/042_owner_mock_charts_early_close.sql",
+    "bytes": 316,
+    "sha256": "ce449b85a92f3f860c053ba5abab11311c1b7b16d34cf0502c5641bbff6ffd17"
+  },
+  {
+    "path": "tests/daily-spy-calendar.test.mjs",
+    "bytes": 4836,
+    "sha256": "9f995ad7e1ebc196b589599e8829cb4bdd6ee195508d5009cdb5ca83d4ced886"
   }
 ]
