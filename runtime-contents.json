@@ -1121,8 +1121,8 @@
   },
   {
     "path": "lib/learner/mock-charts.mjs",
-    "bytes": 5215,
-    "sha256": "5145e6aa92df208ceb74cf746a35326104dc28c47622b72e79cc06706e487252"
+    "bytes": 5281,
+    "sha256": "a113275227698c22f4312eefc7d0077822a385032fb70bda1101c9c93dcaaf66"
   },
   {
     "path": "lib/learner/pattern-encyclopedia.mjs",

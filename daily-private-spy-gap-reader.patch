@@ -1,0 +1,26 @@
+--- a/lib/learner/mock-charts.mjs
++++ b/lib/learner/mock-charts.mjs
+@@ -2,7 +2,7 @@
+ import {join} from 'node:path';
+ import {digest,fail} from './validation.mjs';
+ import {chartAssetPath,isMockChartId,displayChartTitle} from '../chart-catalog.mjs';
+-const allowed=new Set(['2024-07-18','2025-07-03','2025-11-28','2025-12-24','2026-11-17','2026-11-18','2026-11-19','2026-11-20']);
++const allowed=new Set(['2024-07-18','2025-07-03','2025-11-28','2025-12-24','2026-11-17','2026-11-18','2026-11-19','2026-11-20','2026-11-23','2026-11-24','2026-11-25']);
+ const unavailable=()=>fail(404,'mock_chart_unavailable','No supplemental practice charts are available.');
+ const bad=()=>fail(503,'mock_chart_integrity','The supplemental practice chart failed validation.');
+ const number=n=>typeof n==='number'&&Number.isFinite(n)&&n>0&&n<1e6&&Number.isInteger(n*4);
+@@ -20,11 +20,11 @@
+ export class MockChartsRepository{
+  constructor(repository,{catalog=()=>readFile(join(process.cwd(),'public','charts','catalog.json'),'utf8').then(JSON.parse)}={}){this.repository=repository;this.catalog=catalog;}
+  async rows(db,account,id=null){
+-  const params=id===null?[account.id]:[account.id,id];
++  const params=id===null?[account.id,allowed.size+1]:[account.id,id];
+   let rows;
+-  try{rows=(await db.query(id===null?'SELECT session_date::text,chart_id,chart_sha256,payload,bar_count FROM learner_app.owner_mock_charts WHERE account_id=$1 ORDER BY session_date LIMIT 9':'SELECT session_date::text,chart_id,chart_sha256,payload,bar_count FROM learner_app.owner_mock_charts WHERE account_id=$1 AND chart_id=$2',params)).rows;}
++  try{rows=(await db.query(id===null?'SELECT session_date::text,chart_id,chart_sha256,payload,bar_count FROM learner_app.owner_mock_charts WHERE account_id=$1 ORDER BY session_date LIMIT $2':'SELECT session_date::text,chart_id,chart_sha256,payload,bar_count FROM learner_app.owner_mock_charts WHERE account_id=$1 AND chart_id=$2',params)).rows;}
+   catch(error){if(error?.code==='42P01')return [];throw error;}
+-  if(rows.length>8)bad();return rows.map(validate);
++  if(rows.length>allowed.size)bad();return rows.map(validate);
+  }
+  /** Use the transaction already holding the account lock. No nested owner lookup. */
+  bind(db,account,legacy){
