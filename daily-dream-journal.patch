@@ -1,0 +1,351 @@
+diff --git a/app/page.tsx b/app/page.tsx
+--- a/app/page.tsx
++++ b/app/page.tsx
+@@ -2,4 +2,4 @@
+ import DailyDashboard from '../components/daily-dashboard';
+ export const dynamic='force-dynamic';
+ export const metadata={title:'Daily Balance',description:'Balanced Day Goals'};
+-export default function Home(){return <DailyDashboard lifeLessonsEnabled={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN} positivityEnabled={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN} weightEnabled={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN} initialChakraTime={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN?Date.now():undefined}/>;}
++export default function Home(){return <DailyDashboard dreamJournalEnabled={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN} lifeLessonsEnabled={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN} positivityEnabled={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN} weightEnabled={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN} initialChakraTime={process.env.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN?Date.now():undefined}/>;}
+diff --git a/components/daily-dashboard.tsx b/components/daily-dashboard.tsx
+--- a/components/daily-dashboard.tsx
++++ b/components/daily-dashboard.tsx
+@@ -7,6 +7,7 @@
+ import LifeLessons from './life-lessons';
+ import DailyWeight from './daily-weight';
+ import DailyPositivity from './daily-positivity';
++import DreamJournal from './dream-journal';
+ import ImprovementsNotes from './improvements-notes';
+ import HourlyReminders from './hourly-reminders';
+ import LoadingIndicator from './loading-indicator';
+@@ -35,7 +36,7 @@
+  </button>;
+ }
+ 
+-export default function DailyDashboard({lifeLessonsEnabled=false,weightEnabled=false,positivityEnabled=false,initialChakraTime}:{lifeLessonsEnabled?:boolean;weightEnabled?:boolean;positivityEnabled?:boolean;initialChakraTime?:number}={}){
++export default function DailyDashboard({lifeLessonsEnabled=false,weightEnabled=false,positivityEnabled=false,dreamJournalEnabled=false,initialChakraTime}:{lifeLessonsEnabled?:boolean;weightEnabled?:boolean;positivityEnabled?:boolean;dreamJournalEnabled?:boolean;initialChakraTime?:number}={}){
+  const [data,setData]=useState<Snapshot|null>(null),[error,setError]=useState(''),[busy,setBusy]=useState(false),[category,setCategory]=useState<string|null>(null),[title,setTitle]=useState(''),[editing,setEditing]=useState<Task|null>(null);
+  const [chakraViewedDate,setChakraViewedDate]=useState<string|null>(null);
+  const checklist=useRef<HTMLElement|null>(null),hourlyChecklist=useRef<HTMLElement|null>(null);
+@@ -102,6 +103,7 @@
+   })}</div>}
+  </section>
+  {positivityEnabled&&<div hidden={!data}><DailyPositivity owner={data?.context} date={data?.date} csrf={token.current} dayChanged={!!clock&&data?.date===data?.today&&clock.day!==data?.today}/></div>}
++ {dreamJournalEnabled&&<div hidden={!data}><DreamJournal owner={data?.context} today={clock?.day??data?.today} csrf={token.current}/></div>}
+  <div hidden={!data}>{lifeLessonsEnabled&&<LifeLessons owner={data?.context}/>}<ImprovementsNotes/></div>
+  </main></div>;
+ }
+diff --git a/components/dream-journal.module.css b/components/dream-journal.module.css
+new file mode 100644
+--- /dev/null
++++ b/components/dream-journal.module.css
+@@ -0,0 +1,18 @@
++.panel{display:grid;gap:.8rem;margin-block:1rem;padding:1rem;border:1px solid color-mix(in srgb,currentColor 18%,transparent);border-radius:1rem;background:var(--panel,transparent);min-width:0}
++.panel h2,.panel p{margin:0}
++.panel h2{font-size:1.1rem}
++.panel form{display:grid;gap:.8rem;min-width:0}
++.field{display:grid;gap:.3rem;font-weight:600;min-width:0}
++.field input,.field textarea{font:inherit;color:inherit;border:1px solid color-mix(in srgb,currentColor 35%,transparent);background:transparent;border-radius:.5rem;padding:.55rem .65rem;max-width:100%;font-weight:400}
++.field input{width:min(100%,13rem);min-height:2.5rem}
++.field textarea{width:100%;resize:vertical}
++.lucid{display:flex;align-items:flex-start;gap:.55rem;cursor:pointer;min-height:2.75rem}
++.lucid input{margin-top:.25rem;accent-color:var(--accent,#2e8c7e);width:1.1rem;height:1.1rem;flex:none}
++.lucid small{display:block;font-size:.85rem}
++.panel button{justify-self:start;font:inherit;font-weight:600;min-height:2.75rem;border-radius:.5rem;border:1px solid currentColor;background:transparent;color:inherit;padding:.45rem .8rem}
++.panel button:disabled{opacity:.55}
++.archive summary{cursor:pointer;font-weight:600;padding-block:.55rem}
++.archive ul{list-style:none;margin:0 0 .65rem;padding:0}
++.archive li{padding:.65rem 0;border-top:1px solid color-mix(in srgb,currentColor 15%,transparent)}
++.entryHeading{display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap;font-size:.85rem;font-weight:600;margin-bottom:.3rem}
++.archive li p{white-space:pre-wrap;overflow-wrap:anywhere}
+diff --git a/components/dream-journal.tsx b/components/dream-journal.tsx
+new file mode 100644
+--- /dev/null
++++ b/components/dream-journal.tsx
+@@ -0,0 +1,99 @@
++'use client';
++import {useEffect,useRef,useState,type FormEvent} from 'react';
++import styles from './dream-journal.module.css';
++
++type Owner={accountId:string;generation:number;sessionTag:string};
++type Entry={id:string;date:string;text:string;lucid:boolean;savedAt:number};
++type Page={context:Owner;today:string;entries:Entry[];nextCursor:string|null};
++type Saved={context:Owner;entry:Entry};
++type Props={owner?:Owner;today?:string;csrf:string};
++const endpoint='/api/learner/dream-journal';
++const keyOf=(owner?:Owner)=>owner?JSON.stringify([owner.accountId,owner.generation,owner.sessionTag]):'';
++const formatDay=new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',year:'numeric',timeZone:'UTC'});
++
++async function request<T extends Page|Saved>(path:string,key:string,init?:RequestInit):Promise<T>{
++ const response=await fetch(path,{...init,credentials:'same-origin',cache:'no-store'});
++ const value=await response.json();
++ if(!response.ok)throw Object.assign(Error(value.error||'The journal is unavailable.'),{status:response.status});
++ if(keyOf(value.context)!==key)throw Error('The journal response could not be verified.');
++ return value;
++}
++const authError=(error:unknown)=>[401,403].includes((error as {status?:number})?.status??0);
++
++export default function DreamJournal(props:Props){
++ // The dashboard temporarily clears its snapshot while refreshing. Keep in-memory drafts
++ // for the same account/session, but render nothing until its verified context returns.
++ const lastKey=useRef('');
++ if(props.owner)lastKey.current=keyOf(props.owner);
++ return <Journal key={lastKey.current} {...props} ownerKey={lastKey.current}/>;
++}
++
++function Journal({owner,today,csrf,ownerKey}:Props&{ownerKey:string}){
++ const [entries,setEntries]=useState<Entry[]>([]),[cursor,setCursor]=useState<string|null>(null);
++ const [ready,setReady]=useState(false),[loading,setLoading]=useState(false),[saving,setSaving]=useState(false),[retry,setRetry]=useState(0);
++ const [text,setText]=useState(''),[lucid,setLucid]=useState(false),[chosenDate,setChosenDate]=useState('');
++ const [error,setError]=useState(''),[status,setStatus]=useState('');
++ const pending=useRef<{kind:'save'|'page';controller:AbortController}|null>(null);
++ const intention=useRef<{draft:string;id:string}|null>(null);
++ const shouldLoad=!!owner&&!ready;
++ useEffect(()=>{
++  if(!shouldLoad)return;
++  const controller=new AbortController();setLoading(true);setError('');
++  void request<Page>(endpoint,ownerKey,{signal:controller.signal}).then(result=>{
++   if(controller.signal.aborted)return;
++   setEntries(result.entries);setCursor(result.nextCursor);setLoading(false);setReady(true);
++  }).catch(e=>{if(!controller.signal.aborted){setEntries([]);setCursor(null);setError(e.message||'Could not load the journal.');}})
++   .finally(()=>{if(!controller.signal.aborted)setLoading(false);});
++  return()=>controller.abort();
++ },[shouldLoad,ownerKey,retry]);
++ useEffect(()=>()=>pending.current?.controller.abort(),[]);
++ const date=chosenDate||today||'';
++ function failed(e:unknown,message:string){
++  if(authError(e)){setEntries([]);setCursor(null);setReady(false);}
++  setError(e instanceof Error?e.message:message);
++ }
++ async function submit(event:FormEvent<HTMLFormElement>){
++  event.preventDefault();
++  if(!owner||!ready||pending.current||!text.trim()||!date)return;
++  const draft=JSON.stringify([date,text,lucid]);
++  if(intention.current?.draft!==draft)intention.current={draft,id:crypto.randomUUID()};
++  const {id}=intention.current,controller=new AbortController();
++  pending.current={kind:'save',controller};setChosenDate(date);setSaving(true);setError('');setStatus('');
++  try{
++   const result=await request<Saved>(endpoint,ownerKey,{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:JSON.stringify({context:owner,id,date,text,lucid}),signal:controller.signal});
++   if(controller.signal.aborted)return;
++   if(result.entry?.id!==id||result.entry.date!==date||result.entry.lucid!==lucid||result.entry.text!==text.trim().replace(/\r\n?/g,'\n'))throw Error('The save could not be verified. Retry without changing your draft.');
++   setEntries(prev=>[result.entry,...prev.filter(item=>item.id!==id)].sort((a,b)=>b.savedAt-a.savedAt||(b.id>a.id?1:b.id<a.id?-1:0)));
++   intention.current=null;setText('');setLucid(false);setChosenDate('');setStatus('Dream saved.');
++  }catch(e){if(!controller.signal.aborted)failed(e,'Save not confirmed. Your draft is still here.');}
++  finally{if(!controller.signal.aborted){pending.current=null;setSaving(false);}}
++ }
++ async function older(){
++  if(!owner||!ready||!cursor||pending.current)return;
++  const controller=new AbortController();pending.current={kind:'page',controller};setLoading(true);setError('');
++  try{
++   const result=await request<Page>(endpoint+'?cursor='+encodeURIComponent(cursor),ownerKey,{signal:controller.signal});
++   if(controller.signal.aborted)return;
++   setEntries(prev=>[...prev,...result.entries.filter(item=>!prev.some(existing=>existing.id===item.id))]);
++   setCursor(result.nextCursor);
++  }catch(e){if(!controller.signal.aborted)failed(e,'Could not load older dreams.');}
++  finally{if(!controller.signal.aborted){pending.current=null;setLoading(false);}}
++ }
++ if(!owner||!today)return null;
++ return <section className={styles.panel} aria-labelledby="dream-journal-heading">
++  <h2 id="dream-journal-heading">Dream Journal</h2>
++  <form onSubmit={submit}>
++   <label className={styles.field}>Dream date<input type="date" required min="2020-01-01" max={today} value={date} disabled={saving} onChange={e=>{setChosenDate(e.target.value);setStatus('');}}/></label>
++   <label className={styles.field}>What do you remember?<textarea rows={4} maxLength={8000} placeholder="Write down what happened in your dream…" required value={text} disabled={saving} onChange={e=>{setText(e.target.value);setStatus('');}}/></label>
++   <label className={styles.lucid}><input type="checkbox" checked={lucid} disabled={saving} onChange={e=>{setLucid(e.target.checked);setStatus('');}}/><span><strong>Lucid dream</strong><small>I realized I was dreaming and tried to interact with the dream.</small></span></label>
++   <button type="submit" disabled={!ready||saving||loading||!text.trim()}>{saving?'Saving…':'Save dream'}</button>
++  </form>
++  {status&&<p role="status">{status}</p>}
++  {error&&<p role="alert">{error}{!ready&&!loading&&<> <button type="button" onClick={()=>setRetry(n=>n+1)}>Try again</button></>}</p>}
++  {loading&&!ready&&<p role="status">Loading your dream journal…</p>}
++  {ready&&entries.length>0&&<details className={styles.archive}><summary>Saved dreams</summary>
++   <ul>{entries.map(item=><li key={item.id}><div className={styles.entryHeading}><time dateTime={item.date}>{formatDay.format(new Date(item.date+'T12:00:00Z'))}</time><span>{item.lucid?'Lucid':'Not lucid'}</span></div><p>{item.text}</p></li>)}</ul>
++   {cursor&&<button type="button" disabled={loading||saving} onClick={()=>void older()}>{loading?'Loading…':'Show older dreams'}</button>}
++  </details>}
++ </section>;
++}
+diff --git a/lib/learner/dream-journal.mjs b/lib/learner/dream-journal.mjs
+new file mode 100644
+--- /dev/null
++++ b/lib/learner/dream-journal.mjs
+@@ -0,0 +1,37 @@
++import {fail,keys,uuid} from './validation.mjs';
++import {dateKey,todayKey} from './daily.mjs';
++
++const pageSize=20;
++const ownerContext=(a,s)=>({accountId:a.id,generation:a.generation,sessionTag:s.session_tag});
++const columns='entry_id,dream_date::text AS dream_date,dream_text,lucid,created_at';
++const entry=row=>({id:row.entry_id,date:row.dream_date,text:row.dream_text,lucid:row.lucid,savedAt:Number(row.created_at)});
++
++export function dreamJournalCommand(value){
++ keys(value,['context','id','date','text','lucid']);
++ if(!uuid(value.id)||typeof value.text!=='string'||!value.text.trim()||value.text.length>8000||/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\p{Cs}]/u.test(value.text)||typeof value.lucid!=='boolean'){
++  fail(400,'invalid_dream','Write between 1 and 8,000 characters and choose whether the dream was lucid.');
++ }
++ return {...value,text:value.text.trim().replace(/\r\n?/g,'\n')};
++}
++
++export class DreamJournalRepository {
++ constructor(repository){this.repository=repository;}
++ list(p,now,before){return this.repository.owned(p,now,false,async(db,a,s,time)=>{
++  const args=[a.id,pageSize+1];
++  if(before)args.push(before.savedAt,before.id);
++  const {rows}=await db.query('SELECT '+columns+' FROM learner_app.dream_journal WHERE account_id=$1'+
++   (before?' AND (created_at,entry_id)<($3,$4)':'')+' ORDER BY created_at DESC,entry_id DESC LIMIT $2',args);
++  const entries=rows.slice(0,pageSize).map(entry),last=entries.at(-1);
++  const nextCursor=rows.length>pageSize&&last?Buffer.from(JSON.stringify({savedAt:last.savedAt,id:last.id})).toString('base64url'):null;
++  return {context:ownerContext(a,s),today:todayKey(time),entries,nextCursor};
++ });}
++ write(p,now,context,value){return this.repository.owned(p,now,false,async(db,a,s,time)=>{
++  this.repository.check(a,s,context);
++  const date=dateKey(value.date,todayKey(time));
++  const args=[a.id,value.id,date,value.text,value.lucid,time];
++  const {rows:[inserted]}=await db.query('INSERT INTO learner_app.dream_journal(account_id,entry_id,dream_date,dream_text,lucid,created_at) VALUES($1,$2,$3,$4,$5,$6) ON CONFLICT DO NOTHING RETURNING '+columns,args);
++  const saved=entry(inserted??(await db.query('SELECT '+columns+' FROM learner_app.dream_journal WHERE account_id=$1 AND entry_id=$2',args.slice(0,2))).rows[0]);
++  if(saved.date!==date||saved.text!==value.text||saved.lucid!==value.lucid)fail(409,'dream_conflict','That save ID is already in use. Nothing was overwritten.');
++  return {context:ownerContext(a,s),entry:saved};
++ });}
++}
+diff --git a/lib/learner/server.mjs b/lib/learner/server.mjs
+--- a/lib/learner/server.mjs
++++ b/lib/learner/server.mjs
+@@ -1,3 +1,4 @@
++import {DreamJournalRepository,dreamJournalCommand} from './dream-journal.mjs';
+ import {MockChartsRepository} from './mock-charts.mjs';
+ import {isMockChartId} from '../chart-catalog.mjs';
+ import {validFavoriteTradeScale} from '../../public/modules/trade-scale.js';
+@@ -55,6 +56,7 @@
+  const patterns=new PatternRepository(repository,{studyEnabled:origin===DAILY_BALANCE_ORIGIN});
+  const weight=new WeightRepository(repository);
+  const positivity=new PositivityRepository(repository);
++ const dreams=new DreamJournalRepository(repository);
+  const daily=new DailyRepository(repository,{patternGoal:origin===DAILY_BALANCE_ORIGIN,tradingCardProfitFactor:origin===DAILY_BALANCE_ORIGIN});
+  const improvements=new ImprovementsRepository(repository);
+  const lifeLessons=new LifeLessonsRepository(repository);
+@@ -74,9 +76,9 @@
+    const mockKey=path.startsWith('mock-charts/')?path.slice('mock-charts/'.length):null;
+    if(mockKey!==null&&(!mockCharts||mockKey==='catalog'&&!mockChartsEnabled||!['catalog','archive','proof'].includes(mockKey)&&!isMockChartId(mockKey)))fail(404,'not_found','This learner action was not found.');
+    if(mockKey!==null&&mutate)fail(405,'method_not_allowed','Supplemental practice charts are read-only.');
+-   if(mockKey===null&&!['session','profile','attempts','progress','stats','export','reset-intent','reset','logout','preferences','lesson-completions','guest-visit','practice','practice-markups','patterns','daily','improvements','hourly-reminders','life-lessons','daily-weight','daily-positivity'].includes(path)&&! /^(attempts|patterns)\/[a-f0-9-]{36}$/.test(path))fail(404,'not_found','This learner action was not found.');
+-   if(['life-lessons','daily-weight','daily-positivity'].includes(path)&&origin!==DAILY_BALANCE_ORIGIN)fail(404,'not_found','This learner action was not found.');
+-   if([...url.searchParams.keys()].some(key=>['daily-weight','daily-positivity'].includes(path)?key!=='date'||mutate:path==='life-lessons'?!['cursor','state'].includes(key)||mutate:path==='daily'?key!=='date':path==='patterns'?!['limit','cursor','state','q','sort'].includes(key):path!=='attempts'||!['limit','cursor','module',...(origin===DAILY_BALANCE_ORIGIN?['device']:[])].includes(key)))fail(400,'invalid_query','Unexpected query parameters.');
++   if(mockKey===null&&!['session','profile','attempts','progress','stats','export','reset-intent','reset','logout','preferences','lesson-completions','guest-visit','practice','practice-markups','patterns','daily','improvements','hourly-reminders','life-lessons','daily-weight','daily-positivity','dream-journal'].includes(path)&&! /^(attempts|patterns)\/[a-f0-9-]{36}$/.test(path))fail(404,'not_found','This learner action was not found.');
++   if(['life-lessons','daily-weight','daily-positivity','dream-journal'].includes(path)&&origin!==DAILY_BALANCE_ORIGIN)fail(404,'not_found','This learner action was not found.');
++   if([...url.searchParams.keys()].some(key=>path==='dream-journal'?key!=='cursor'||mutate:['daily-weight','daily-positivity'].includes(path)?key!=='date'||mutate:path==='life-lessons'?!['cursor','state'].includes(key)||mutate:path==='daily'?key!=='date':path==='patterns'?!['limit','cursor','state','q','sort'].includes(key):path!=='attempts'||!['limit','cursor','module',...(origin===DAILY_BALANCE_ORIGIN?['device']:[])].includes(key)))fail(400,'invalid_query','Unexpected query parameters.');
+    if(path==='guest-visit'&&request.method!=='POST')fail(405,'method_not_allowed','Guest session counts require a POST request.');
+    if(path==='guest-visit'&&(!guestVisits||typeof guestAudience!=='function'))fail(503,'visits_unavailable','Guest visit counting is not enabled.');
+    statsRead=origin===DAILY_BALANCE_ORIGIN&&path==='stats'&&request.method==='GET';
+@@ -89,6 +91,7 @@
+     return !single?json(result):new Response(result,{headers:{...HEADERS,'Content-Type':'application/json; charset=utf-8'}});
+    }
+    if(!mutate){
++    if(path==='dream-journal'){if(url.searchParams.getAll('cursor').length>1)fail(400,'invalid_query','Use one journal cursor.');return json(await dreams.list(p,now,cursor(url.searchParams.get('cursor'))));}
+     if(path==='daily-positivity'){if(url.searchParams.getAll('date').length>1)fail(400,'invalid_query','Choose one date.');return json(await positivity.read(p,now,url.searchParams.get('date')));}
+     if(path==='daily-weight'){if(url.searchParams.getAll('date').length>1)fail(400,'invalid_query','Choose one date.');return json(await weight.read(p,now,url.searchParams.get('date')));}
+     if(path==='life-lessons'){const state=url.searchParams.get('state');if(url.searchParams.getAll('cursor').length>1||url.searchParams.getAll('state').length>1||(state!==null&&state!=='removed'))fail(400,'invalid_query','Choose one valid life lessons state and cursor.');return json(await lifeLessons.list(p,now,lifeLessonCursor(url.searchParams.get('cursor')),state==='removed'));}
+@@ -107,6 +110,7 @@
+    }
+    stage='csrf';if(!equal(request.headers.get('x-csrf-token'),csrf(p)))fail(403,'csrf_failed','Reload your learner account before trying again.');
+    stage='body';const value=await body(request);
++   if(path==='dream-journal')return json(await dreams.write(p,now,context(value.context),dreamJournalCommand(value)),201);
+    if(path==='daily-positivity')return json(await positivity.write(p,context(value.context),positivityCommand(value),now));
+    if(path==='daily-weight')return json(await weight.write(p,context(value.context),weightCommand(value),now));
+    if(path==='life-lessons')return json(await lifeLessons.mutate(p,context(value.context),lifeLessonCommand(value),now));
+diff --git a/migrations/043_dream_journal.sql b/migrations/043_dream_journal.sql
+new file mode 100644
+--- /dev/null
++++ b/migrations/043_dream_journal.sql
+@@ -0,0 +1,15 @@
++-- Additive, append-only journal for Daily Balance accounts.
++BEGIN;
++CREATE TABLE IF NOT EXISTS learner_app.dream_journal (
++ account_id uuid NOT NULL REFERENCES learner_app.accounts(id),
++ entry_id uuid NOT NULL,
++ dream_date date NOT NULL CHECK(dream_date >= DATE '2020-01-01'),
++ dream_text text NOT NULL CHECK(char_length(dream_text) BETWEEN 1 AND 8000 AND length(btrim(dream_text))>0),
++ lucid boolean NOT NULL,
++ created_at bigint NOT NULL CHECK(created_at>0),
++ PRIMARY KEY(account_id,entry_id)
++);
++CREATE INDEX IF NOT EXISTS dream_journal_owner_order ON learner_app.dream_journal(account_id,created_at DESC,entry_id DESC);
++REVOKE ALL ON learner_app.dream_journal FROM PUBLIC;
++GRANT SELECT, INSERT ON learner_app.dream_journal TO learner_runtime;
++COMMIT;
+diff --git a/tests/dream-journal.test.mjs b/tests/dream-journal.test.mjs
+new file mode 100644
+--- /dev/null
++++ b/tests/dream-journal.test.mjs
+@@ -0,0 +1,75 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFileSync} from 'node:fs';
++import {randomUUID} from 'node:crypto';
++import {PGlite} from '@electric-sql/pglite';
++import {LearnerRepository} from '../lib/learner/repository.mjs';
++import {createLearnerService} from '../lib/learner/server.mjs';
++import {DAILY_BALANCE_ORIGIN,LEARNER_ORIGIN} from '../lib/learner/google-config.mjs';
++import {restrictToPrivateOwner,PRIVATE_OWNER_EMAIL} from '../lib/learner/private-owner.mjs';
++
++const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
++const ddl=read('migrations/043_dream_journal.sql');
++test('private journal persists multiple dated entries, retries safely and pages without leaking between accounts',async()=>{
++ const db=new PGlite();
++ let who='test-one',mail=PRIVATE_OWNER_EMAIL,now=Date.parse('2026-11-28T05:59:59Z');
++ const issuer='https://dream-journal.test';
++ try{
++  await db.exec('CREATE ROLE learner_runtime');
++  await db.exec(read('migrations/006_learner_accounts.sql'));
++  await db.exec(ddl);
++  await db.exec(ddl);
++  const make=origin=>createLearnerService({origin,repository:new LearnerRepository({transaction:fn=>db.transaction(tx=>fn(tx))}),identityProvider:restrictToPrivateOwner({issuer,resolve:async()=>who?{issuer,subject:who,name:'Synthetic',email:mail,emailVerified:true,sessionId:'synthetic-dream-journal-'+who,expiresAt:now+3600000}:null}),csrfSecret:'synthetic-dream-journal-secret-not-production',charts:async()=>null,now:()=>now});
++  const services={[DAILY_BALANCE_ORIGIN]:make(DAILY_BALANCE_ORIGIN),[LEARNER_ORIGIN]:make(LEARNER_ORIGIN)};
++  async function req(path='dream-journal',{payload,csrf,origin=DAILY_BALANCE_ORIGIN}={}){
++   const headers={host:new URL(origin).host,origin,'sec-fetch-site':'same-origin',...(payload?{'content-type':'application/json','x-csrf-token':csrf??''}:{})};
++   const r=await services[origin](new Request(origin+'/api/learner/'+path,{method:payload?'POST':'GET',headers,...(payload?{body:JSON.stringify(payload)}:{})}));
++   return {status:r.status,cache:r.headers.get('cache-control'),body:await r.json()};
++  }
++  const session=(await req('session')).body;
++  const command={context:session.context,id:randomUUID(),date:'2026-11-27',text:' Flying 🪁\r\nOver a quiet lake. ',lucid:true};
++  const post=(payload=command,csrf=session.csrfToken)=>req(undefined,{payload,csrf});
++  assert.equal((await req()).body.today,'2026-11-27');
++  assert.equal((await post(command,'bad')).status,403);
++  for(const field of [{date:'2026-11-28'},{date:'2026-02-30'},{lucid:'true'},{text:'   '},{text:'a'.repeat(8001)},{text:'x\0y'},{text:'\ud800'},{accountId:randomUUID()}]){
++   assert.equal((await post({...command,...field})).status,400);
++  }
++  for(const path of ['dream-journal?cursor=bad','dream-journal?cursor=&cursor=bad','dream-journal?accountId=spoof'])assert.equal((await req(path)).status,400);
++  const first=await post();assert.equal(first.status,201);assert.equal(first.cache,'private, no-store');
++  assert.equal(first.body.entry.text,'Flying 🪁\nOver a quiet lake.');assert.equal(first.body.entry.lucid,true);
++  const seen=new Map([[command.id,first.body.entry]]);
++  const retro={...command,id:randomUUID(),date:'2026-11-25',text:'A stairway',lucid:false};
++  const second=await post(retro);assert.equal(second.status,201);assert.equal(second.body.entry.lucid,false);seen.set(retro.id,second.body.entry);
++  for(let i=0;i<20;i++){
++   const id=randomUUID(),response=await post({...command,id,text:'Dream '+i});
++   assert.equal(response.status,201);seen.set(id,response.body.entry);
++  }
++  now+=1000;
++  assert.deepEqual(await post(),first);assert.equal((await post({...command,lucid:false})).status,409);
++  const recent=await req();assert.equal(recent.body.today,'2026-11-28');assert.equal(recent.body.entries.length,20);
++  const older=await req('dream-journal?cursor='+recent.body.nextCursor);
++  assert.equal(older.body.entries.length,2);assert.equal(older.body.nextCursor,null);
++  assert.deepEqual(new Map([...recent.body.entries,...older.body.entries].map(item=>[item.id,item])),seen);
++  assert.equal((await req(undefined,{origin:LEARNER_ORIGIN})).status,404);
++  assert.equal((await req(undefined,{origin:LEARNER_ORIGIN,payload:command,csrf:session.csrfToken})).status,404);
++  mail='outsider@example.test';assert.equal((await req()).status,403);
++  who=null;assert.equal((await req()).status,401);
++  who='test-two';mail=PRIVATE_OWNER_EMAIL;
++  const other=(await req('session')).body;
++  assert.deepEqual((await req()).body.entries,[]);
++  assert.deepEqual((await req('dream-journal?cursor='+recent.body.nextCursor)).body.entries,[]);
++  assert.equal((await post(command,other.csrfToken)).status,409);
++  const grants=(await db.query("SELECT has_table_privilege('learner_runtime','learner_app.dream_journal','SELECT') AS read,has_table_privilege('learner_runtime','learner_app.dream_journal','INSERT') AS write,has_table_privilege('learner_runtime','learner_app.dream_journal','UPDATE') AS edit,has_table_privilege('learner_runtime','learner_app.dream_journal','DELETE') AS del")).rows[0];
++  assert.deepEqual(grants,{read:true,write:true,edit:false,del:false});
++ }finally{await db.close();}
++});
++
++test('the Daily Balance home contains a dated Dream Journal with an accessible lucid toggle and verified cloud save',()=>{
++ assert.match(read('app/page.tsx'),/dreamJournalEnabled=\{process\.env\.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN\}/);
++ assert.match(read('components/daily-dashboard.tsx'),/dreamJournalEnabled&&.*<DreamJournal owner=\{data\?\.context\}/);
++ const source=read('components/dream-journal.tsx');
++ for(const label of ['Dream Journal','Dream date','Lucid dream','I realized I was dreaming and tried to interact with the dream.','Save dream','Saved dreams'])assert.ok(source.includes(label),label);
++ assert.match(source,/<textarea/);assert.match(source,/<input type="checkbox" checked=\{lucid\}/);
++ assert.match(source,/X-CSRF-Token/);assert.match(source,/keyOf\(value\.context\)!==key/);
++ assert.doesNotMatch(source,/localStorage|sessionStorage|dangerouslySetInnerHTML/);
++});
