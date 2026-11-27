@@ -726,8 +726,8 @@
   },
   {
     "path": "data/bias-provenance.json",
-    "bytes": 29693,
-    "sha256": "b4e05787025cbcc78fe41d4730350ea64fa0221973c759d95d157e714a69db34"
+    "bytes": 30044,
+    "sha256": "b5e0a19b26796630856570697f8fd9895258521142f9ba0c23c637c99facba8b"
   },
   {
     "path": "data/candlestick-loading-provenance.json",
@@ -5681,8 +5681,8 @@
   },
   {
     "path": "public/modules/market-direction.html",
-    "bytes": 303796,
-    "sha256": "67a5b0056bcd7438d73dd0ac1e35839b4267068bb34d30ba2dbbbf39384fa408"
+    "bytes": 304037,
+    "sha256": "157f744ca0e1f06b8f314d87b4a1d3e640503044cb9e6bf93132dc63a43904d5"
   },
   {
     "path": "public/modules/market-preview-isolation.js",
@@ -6293,5 +6293,15 @@
     "path": "tests/daily-spy-calendar.test.mjs",
     "bytes": 4836,
     "sha256": "9f995ad7e1ebc196b589599e8829cb4bdd6ee195508d5009cdb5ca83d4ced886"
+  },
+  {
+    "path": "public/modules/order-price-ruler.js",
+    "bytes": 1641,
+    "sha256": "0c51d8f00b2b41be9cdae2bed683c59163818c338e1ed9fe5b4d3cbfb6c77d9b"
+  },
+  {
+    "path": "tests/order-price-ruler.test.mjs",
+    "bytes": 3245,
+    "sha256": "18505124fdf2bbfc2ff141c6474dc34ca10ab8f99e5c75dd5fb21ea91a5eb052"
   }
 ]
