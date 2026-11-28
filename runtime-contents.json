@@ -556,13 +556,13 @@
   },
   {
     "path": "components/pattern-encyclopedia.module.css",
-    "bytes": 8419,
-    "sha256": "fe2a08dbfea381a92e4b49e46b30b20e2dd59786e99e036fb930af2958a42fe6"
+    "bytes": 8706,
+    "sha256": "9ac2b8b32847d0cae58f0c968d34c4e35474c2d532788f65c6f3091fb66f1490"
   },
   {
     "path": "components/pattern-encyclopedia.tsx",
-    "bytes": 33520,
-    "sha256": "10917c9e50e08d2d43b878a0038db3356620d8f69d6d2a4445f987077a586275"
+    "bytes": 33753,
+    "sha256": "dec05e5b068078b5d49a506f30fa170323cd7c287cc6c1a2db1c8eab9bb7ee0b"
   },
   {
     "path": "components/pattern-match.module.css",
@@ -1171,8 +1171,8 @@
   },
   {
     "path": "lib/learner/pattern-repository.mjs",
-    "bytes": 13389,
-    "sha256": "3e7bfaf4c4509a5f519e5ab753b4cc33dc7d4d0449037bf5e73f8c793fcff6b6"
+    "bytes": 14111,
+    "sha256": "82d2d555ace5a6ac572edec62d47c400dbe56c9f0c036406ef8b7f54245f70b8"
   },
   {
     "path": "lib/learner/practice-markups.mjs",
@@ -6091,8 +6091,8 @@
   },
   {
     "path": "tests/daily-trading-slide.test.mjs",
-    "bytes": 7822,
-    "sha256": "4b5878828aeadba22cfd1509895161df8189b847da52ec02834e8cb40a3ac149"
+    "bytes": 9006,
+    "sha256": "a5cfe942772bfff8c94a211681baeaeaaa1e9abb06b338c172137aa63eb40078"
   },
   {
     "path": "tests/daily-unified-navigation.test.mjs",

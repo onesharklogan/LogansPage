@@ -1,0 +1,120 @@
+diff --git a/components/pattern-encyclopedia.module.css b/components/pattern-encyclopedia.module.css
+index 52702c7..bdb38e3 100644
+--- a/components/pattern-encyclopedia.module.css
++++ b/components/pattern-encyclopedia.module.css
+@@ -29,6 +29,9 @@
+ .list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:18px;margin:22px 0;padding:0;list-style:none}
+ .list li{display:flex;flex-direction:column;min-width:0;border:1px solid var(--appearance-line-354d61, #354d61);border-radius:14px;overflow:hidden;background:var(--appearance-surface-0e1d2c, #0e1d2c)}
+ .cardLink{display:flex;flex:1;flex-direction:column;min-width:0;padding:18px 18px 12px;color:inherit;text-decoration:none}
++.cardHeading{display:flex;align-items:baseline;justify-content:space-between;gap:0 .65rem;flex-wrap:wrap;margin-bottom:8px}
++.cardSourceDate{flex:none;font-size:.8rem;font-variant-numeric:tabular-nums;white-space:nowrap}
++.panel .cardHeading .cardTitle{flex:1 1 8rem;min-width:0;margin:0}
+ .panel .cardTitle{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere;min-height:2.7em;margin:0 0 8px;font-size:1.15rem;line-height:1.35}
+ .panel .cardDescription{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere;white-space:pre-wrap;min-height:4.5em;margin:14px 0 0;font-size:.9rem;line-height:1.5}
+ .coverChart{display:flex;align-items:center;justify-content:center;min-width:0;width:100%;aspect-ratio:1000/380;border-radius:8px;background:var(--appearance-surface-08131f, #08131f)}
+diff --git a/components/pattern-encyclopedia.tsx b/components/pattern-encyclopedia.tsx
+index 52af473..64dcd6b 100644
+--- a/components/pattern-encyclopedia.tsx
++++ b/components/pattern-encyclopedia.tsx
+@@ -19,7 +19,7 @@ export type PatternSnapshot={version:1;algorithmVersion:string;matchedAt:string;
+ type Draft={title:string;description:string;expectation:string;tradingStyle:string;notes:string;tags:string[];exampleNotes:Record<string,string>};
+ type Study={count:number;lastStudied:string|null;today:string};
+ const studyLabel=(study:Study)=>study.lastStudied?`Last studied ${study.lastStudied} · ${study.count} ${study.count===1?"review":"reviews"}`:"Never studied";
+-type Entry=Draft&{study?:Study;id:string;revision:number;deletedAt:string|null;snapshot:PatternSnapshot;updatedAt:string;cover?:{startBar:number;endBar:number;chartStartBar:1;candles:any[]}};
++type Entry=Draft&{study?:Study;id:string;revision:number;deletedAt:string|null;sourceDate?:string|null;snapshot:PatternSnapshot;updatedAt:string;cover?:{startBar:number;endBar:number;chartStartBar:1;candles:any[]}};
+ const api=createPatternClient();
+ const noteKey=(e:Example)=>`${e.chartId}:${e.startBar}:${e.endBar}`;
+ const msg=(e:unknown)=>e instanceof Error?e.message:'Request outcome is unknown. Check the catalog before trying again.';
+@@ -83,14 +83,14 @@ export function PatternCatalog({owner,onDirtyChange,onPendingChange}:{owner?:Ret
+   {initialPending&&<p className={styles.dailyCatalogLoading} role="status"><LoadingIndicator label="Loading your patterns…" /></p>}
+   <div className={styles.catalogReady}>
+   <div className={styles.row}><button disabled={loading} aria-pressed={!trash} onClick={()=>{if(trash){setItems([]);setEntry(null);setTrash(false);}}}>Catalog</button><button disabled={loading} aria-pressed={trash} onClick={()=>{if(!trash){setItems([]);setEntry(null);setTrash(true);}}}>Trash</button><button disabled={loading} onClick={()=>setRetry(n=>n+1)}>Refresh list</button></div>
+-  <label className={styles.search}>Search all patterns<span className={styles.searchField}><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input type="search" maxLength={200} placeholder="Search title, description, expectation or trading style…" value={search} onChange={e=>setSearch(e.target.value)}/></span><span className={styles.muted}>Search your entire catalog by title, description, expectation or trading style. Sorted A–Z.</span></label>
++  <label className={styles.search}>Search all patterns<span className={styles.searchField}><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input type="search" maxLength={200} placeholder="Search patterns or a chart date (YYYY-MM-DD)…" value={search} onChange={e=>setSearch(e.target.value)}/></span><span className={styles.muted}>Search by source chart date, title, description, expectation or trading style.</span></label>
+   {studyAvailable&&<label>Sort patterns <select aria-label="Sort patterns" value={sort} onChange={e=>setSort(e.target.value==="least-studied"?"least-studied":"alphabetical")}><option value="alphabetical">Title A–Z</option><option value="least-studied">Least recently studied</option></select></label>}
+   {loading&&<p role="status">Loading your patterns…</p>}{error&&<p className={styles.error} role="alert">{error}</p>}
+   {!loading&&!items.length&&!error&&<p>{search?'No patterns match your search.':trash?'Trash is empty.':'Your catalog is empty. You may need to refresh. Find similar patterns, then save a study with notes.'}</p>}
+   {!loading&&items.length>0&&!shownItems.length&&<p role="status">No patterns match your search.</p>}
+   <ul className={styles.list} aria-label={trash?'Patterns in Trash':'Saved pattern gallery'}>{shownItems.map(item=><li key={item.id}>
+-   <a className={styles.cardLink} href={`/pattern-encyclopedia/${item.id}`} aria-label={`Open pattern: ${item.title}`}>
+-    <h3 className={styles.cardTitle}>{item.title}</h3>{item.study&&<p className={styles.studyMeta}>{studyLabel(item.study)}</p>}
++   <a className={styles.cardLink} href={`/pattern-encyclopedia/${item.id}`} aria-label={`Open pattern: ${item.title}${item.sourceDate?`, source chart ${item.sourceDate}`:""}`}>
++    <div className={styles.cardHeading}><h3 className={styles.cardTitle}>{item.title}</h3>{item.sourceDate&&<time className={styles.cardSourceDate} dateTime={item.sourceDate} title="Source chart date">{item.sourceDate}</time>}</div>{item.study&&<p className={styles.studyMeta}>{studyLabel(item.study)}</p>}
+     <div className={styles.coverChart}>{item.cover?<PatternCandles candles={item.cover.candles} startBar={item.cover.chartStartBar} selection={{start:item.cover.startBar,end:item.cover.endBar}} label={`${item.title} source cover, full finished session, matched bars ${item.cover.startBar} to ${item.cover.endBar}`} fullSession/>:<p className={styles.coverUnavailable}>Source cover unavailable</p>}</div>
+     <p className={styles.cardDescription}>{item.description||'No description yet.'}</p>
+     {item.tradingStyle&&<p className={styles.cardTradingStyle}><strong>Trading Style</strong><br/>{item.tradingStyle}</p>}
+diff --git a/lib/learner/pattern-repository.mjs b/lib/learner/pattern-repository.mjs
+index 358971a..e7846f8 100644
+--- a/lib/learner/pattern-repository.mjs
++++ b/lib/learner/pattern-repository.mjs
+@@ -1,12 +1,18 @@
+ import {todayKey} from './daily.mjs';
+-import {historicalPrefix} from '../chart-match.mjs';
++import {historicalPrefix,matchSessionDate} from '../chart-match.mjs';
+ import {fail,equal,digest,canonical} from './validation.mjs';
+ import {PATTERN_LIMITS,freezePattern,validateExampleNotes,exampleKey} from './pattern-encyclopedia.mjs';
+ const alphabetical=new Intl.Collator('en',{usage:'sort',sensitivity:'base'});
+ const row=async(db,q,args)=> (await db.query(q,args)).rows[0];
+ const ctx=(a,s)=>({accountId:a.id,generation:a.generation,sessionTag:s.session_tag});
+ const expose=r=>({id:r.pattern_id,...r.metadata,description:r.metadata.description??r.metadata.notes??'',expectation:r.metadata.expectation??'',tradingStyle:r.metadata.tradingStyle??'',snapshot:r.snapshot,revision:r.revision,createdAt:new Date(Number(r.created_at)).toISOString(),updatedAt:new Date(Number(r.updated_at)).toISOString(),deletedAt:r.deleted_at===null?null:new Date(Number(r.deleted_at)).toISOString()});
+-const summarize=r=>{const p=expose(r);delete p.snapshot;delete p.exampleNotes;delete p.notes;const source=r.source,chart=r.cover_chart;const candles=historicalPrefix(chart,chart.current.length,{useEma:true}).map((c,i)=>({...c,t:chart.current[i].t}));return {...p,source,cover:{...source,chartStartBar:1,candles},matchCount:r.match_count};};
++function sourceDate(chartId){try{return matchSessionDate(chartId);}catch{return null;}}
++function exactDateSearch(query){
++ const iso=/^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(query),slash=/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(query);
++ const parts=iso?iso.slice(1):slash?[slash[3],slash[1],slash[2]]:null;
++ return parts?parts.map((part,i)=>i?part.padStart(2,'0'):part).join('-'):null;
++}
++const summarize=r=>{const p=expose(r);delete p.snapshot;delete p.exampleNotes;delete p.notes;const source=r.source,chart=r.cover_chart;const candles=historicalPrefix(chart,chart.current.length,{useEma:true}).map((c,i)=>({...c,t:chart.current[i].t}));return {...p,source,sourceDate:sourceDate(source?.chartId),cover:{...source,chartStartBar:1,candles},matchCount:r.match_count};};
+ export class PatternRepository{
+  constructor(repository,{studyEnabled=false}={}){this.repository=repository;this.studyEnabled=studyEnabled;}
+  async studies(db,a,time,ids=null){
+@@ -33,10 +39,15 @@ export class PatternRepository{
+  list(p,now,{state,limit,cursor,sort='recent',query=''}){return this.owned(p,now,async(db,a,s,time)=>{
+   // The account cap bounds metadata work; full archived charts are read only for this page.
+   if(sort==='alphabetical'||sort==='least-studied'||query){
+-   const all=(await db.query(`SELECT pattern_id,jsonb_build_object('title',metadata->'title','description',coalesce(metadata->'description',metadata->'notes','""'::jsonb),'expectation',coalesce(metadata->'expectation','""'::jsonb),'tradingStyle',coalesce(metadata->'tradingStyle','""'::jsonb)) AS metadata,revision,created_at FROM learner_app.pattern_entries WHERE account_id=$1 AND deleted_at IS ${state==='trash'?'NOT ':''}NULL LIMIT $2`,[a.id,PATTERN_LIMITS.entries+1])).rows;
++   const all=(await db.query(`SELECT pattern_id,jsonb_build_object('title',metadata->'title','description',coalesce(metadata->'description',metadata->'notes','""'::jsonb),'expectation',coalesce(metadata->'expectation','""'::jsonb),'tradingStyle',coalesce(metadata->'tradingStyle','""'::jsonb)) AS metadata,snapshot->'source'->>'chartId' AS source_chart_id,revision,created_at FROM learner_app.pattern_entries WHERE account_id=$1 AND deleted_at IS ${state==='trash'?'NOT ':''}NULL LIMIT $2`,[a.id,PATTERN_LIMITS.entries+1])).rows;
+    if(all.length>PATTERN_LIMITS.entries)fail(409,'pattern_limit','The catalog exceeds its supported size.');
+    const compare=(a,b)=>a<b?-1:a>b?1:0;
+-   const found=all.filter(r=>[r.metadata.title,r.metadata.description??r.metadata.notes??'',r.metadata.expectation??'',r.metadata.tradingStyle??''].some(t=>t.toLowerCase().includes(query)));
++   const exactDate=exactDateSearch(query),datePrefix=/^\d{4}(?:-\d{1,2})?$/.test(query);
++   const found=all.filter(r=>{
++    const date=sourceDate(r.source_chart_id);
++    if(exactDate)return date===exactDate;
++    return (datePrefix&&date?.startsWith(query))||[r.metadata.title,r.metadata.description??r.metadata.notes??'',r.metadata.expectation??'',r.metadata.tradingStyle??''].some(t=>t.toLowerCase().includes(query));
++   });
+    const studySort=sort==='least-studied';
+    const forSort=studySort?await this.studies(db,a,time,found.map(r=>r.pattern_id)):new Map();
+    const lastStudied=id=>forSort.get(id)?.lastStudied??'';
+diff --git a/tests/daily-trading-slide.test.mjs b/tests/daily-trading-slide.test.mjs
+index 6d92090..2ec27de 100644
+--- a/tests/daily-trading-slide.test.mjs
++++ b/tests/daily-trading-slide.test.mjs
+@@ -55,6 +55,17 @@ test('Trading slide counts immutable owner creation on the Chicago day without c
+   const baselineSort=(await fetch('patterns?sort=alphabetical')).patterns;
+   assert.deepEqual(baselineSort.map(p=>p.title),['A studied','Z new']);
+   assert.deepEqual(baselineSort.map(p=>p.study.count),[1,0]);
++  assert.deepEqual(baselineSort.map(p=>p.sourceDate),['2026-11-05','2026-11-05']);
++  for(const q of ['2026-11-05','2026-11-5','11/5/2026','11/05/2026','2026-11']){
++   const first=await fetch('patterns?sort=alphabetical&limit=1&q='+encodeURIComponent(q));
++   assert.equal(first.patterns[0].id,id);assert.ok(first.nextCursor);
++   const second=await fetch('patterns?sort=alphabetical&limit=1&q='+encodeURIComponent(q)+'&cursor='+encodeURIComponent(first.nextCursor));
++   assert.equal(second.patterns[0].title,'Z new');assert.equal(second.nextCursor,null);
++  }
++  assert.deepEqual((await fetch('patterns?q=2026-11-16')).patterns,[]);
++  assert.deepEqual((await fetch('patterns?q=not-matched')).patterns,[]);
++  assert.deepEqual((await fetch('patterns?q=studied')).patterns.map(p=>p.id),[id]);
++  assert.equal((await fetch('patterns?state=trash&q=2026-11-05')).patterns.length,1);
+   const least=(await fetch('patterns?sort=least-studied&limit=1'));
+   assert.equal(least.patterns[0].title,'Z new');assert.ok(least.nextCursor);
+   assert.equal((await fetch('patterns?sort=least-studied&limit=1&cursor='+encodeURIComponent(least.nextCursor))).patterns[0].title,'A studied');
+@@ -80,3 +91,9 @@ test('Trading tile requires both counters, caps progress by each target, and lab
+  assert.match(t,/Pattern Encyclopedia slide/);
+  assert.match(t,/\{count\}\/\{count\} sessions · \{patternGoal\}\/\{patternGoal\} slide/);
+ });
++
++test('Saved pattern cards label source date beside the title and search accepts a chart date',()=>{
++ const ui=read('components/pattern-encyclopedia.tsx');
++ assert.match(ui, /cardHeading.*cardTitle.*<time[^>]*dateTime=\{item.sourceDate\}/);
++ assert.match(ui, /placeholder="Search patterns or a chart date/);
++});
