@@ -351,13 +351,13 @@
   },
   {
     "path": "components/dream-journal.module.css",
-    "bytes": 1559,
-    "sha256": "aa6973054b128d8008a2beb1bed4b63147ef6823db22ffdb2a102739695876e5"
+    "bytes": 1699,
+    "sha256": "a82a9dcf4215c4b0fe3d9045f701818c6a458b0593f07168371c9c5f7c3ab3ec"
   },
   {
     "path": "components/dream-journal.tsx",
-    "bytes": 7021,
-    "sha256": "203893ce8047531ab40af9c613009a98eb33fc6114865ef73a92d14dae5e4818"
+    "bytes": 10428,
+    "sha256": "8ec7bf415149517f2b75dbd29af5529933e5e312fefc4b9c5e30fdd03cd5755b"
   },
   {
     "path": "components/failed-charts-book.module.css",
@@ -1091,8 +1091,8 @@
   },
   {
     "path": "lib/learner/dream-journal.mjs",
-    "bytes": 2500,
-    "sha256": "b1157acc285095ee20d3956c94d8fc0b63777d38f663b0adeb00836cc9ad1fab"
+    "bytes": 3980,
+    "sha256": "0da569150ab11bb104e62d71ae0ec4464a760035374251ea5588b769a340f4d1"
   },
   {
     "path": "lib/learner/google-auth-route.mjs",
@@ -1201,8 +1201,8 @@
   },
   {
     "path": "lib/learner/server.mjs",
-    "bytes": 24035,
-    "sha256": "d3a1a7332c2e5564e56a55029205ae5cba0ca669af96370629e98bc9c91ced8d"
+    "bytes": 24094,
+    "sha256": "77fdba16680d8c10e9ad6dc9d4dd9c0f1a7875c35e2fec2fca4c2eeed71f5f06"
   },
   {
     "path": "lib/learner/stats.mjs",
@@ -1738,6 +1738,11 @@
     "path": "migrations/043_dream_journal.sql",
     "bytes": 753,
     "sha256": "4dab37b28a04e60309b96bc114a07cb4d2fd681e23274e455d05dfb24d153d6c"
+  },
+  {
+    "path": "migrations/044_dream_journal_edits.sql",
+    "bytes": 322,
+    "sha256": "3d9ba7cc32e448c6b1a686d408ca7cb242a22f7be42a763f045309318c439324"
   },
   {
     "path": "next-env.d.ts",
@@ -6106,8 +6111,8 @@
   },
   {
     "path": "tests/dream-journal.test.mjs",
-    "bytes": 6073,
-    "sha256": "e74f3f525bdd7bfabdb4b519d2209502f89f904980dafb5277b698b6ae8d1f4a"
+    "bytes": 7788,
+    "sha256": "d1244f26a616d874503def0972e1852fe185ac93cf6d1eb78fbf0188e1af3da3"
   },
   {
     "path": "tests/encyclopedia-navigation.test.mjs",

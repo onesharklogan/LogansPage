@@ -1,0 +1,246 @@
+diff --git a/components/dream-journal.module.css b/components/dream-journal.module.css
+--- a/components/dream-journal.module.css
++++ b/components/dream-journal.module.css
+@@ -16,3 +16,5 @@
+ .archive li{padding:.65rem 0;border-top:1px solid color-mix(in srgb,currentColor 15%,transparent)}
+ .entryHeading{display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap;font-size:.85rem;font-weight:600;margin-bottom:.3rem}
+ .archive li p{white-space:pre-wrap;overflow-wrap:anywhere}
++.actions{display:flex;gap:.5rem;flex-wrap:wrap}
++.archive .edit{margin-block:.5rem .15rem;display:inline-flex;align-items:center;gap:.35rem}
+diff --git a/components/dream-journal.tsx b/components/dream-journal.tsx
+--- a/components/dream-journal.tsx
++++ b/components/dream-journal.tsx
+@@ -3,7 +3,7 @@
+ import styles from './dream-journal.module.css';
+ 
+ type Owner={accountId:string;generation:number;sessionTag:string};
+-type Entry={id:string;date:string;text:string;lucid:boolean;savedAt:number};
++type Entry={id:string;date:string;text:string;lucid:boolean;savedAt:number;revision:number};
+ type Page={context:Owner;today:string;entries:Entry[];nextCursor:string|null};
+ type Saved={context:Owner;entry:Entry};
+ type Props={owner?:Owner;today?:string;csrf:string};
+@@ -18,6 +18,7 @@
+  if(keyOf(value.context)!==key)throw Error('The journal response could not be verified.');
+  return value;
+ }
++const normalized=(value:string)=>value.trim().replace(/\r\n?/g,'\n');
+ const authError=(error:unknown)=>[401,403].includes((error as {status?:number})?.status??0);
+ 
+ export default function DreamJournal(props:Props){
+@@ -32,8 +33,9 @@
+  const [entries,setEntries]=useState<Entry[]>([]),[cursor,setCursor]=useState<string|null>(null);
+  const [ready,setReady]=useState(false),[loading,setLoading]=useState(false),[saving,setSaving]=useState(false),[retry,setRetry]=useState(0);
+  const [text,setText]=useState(''),[lucid,setLucid]=useState(false),[chosenDate,setChosenDate]=useState('');
++ const [editing,setEditing]=useState<Entry|null>(null),[editError,setEditError]=useState(''),[editStatus,setEditStatus]=useState<{id:string;text:string}|null>(null);
+  const [error,setError]=useState(''),[status,setStatus]=useState('');
+- const pending=useRef<{kind:'save'|'page';controller:AbortController}|null>(null);
++ const pending=useRef<{kind:'save'|'page'|'edit';controller:AbortController}|null>(null);
+  const intention=useRef<{draft:string;id:string}|null>(null);
+  const shouldLoad=!!owner&&!ready;
+  useEffect(()=>{
+@@ -54,7 +56,7 @@
+  }
+  async function submit(event:FormEvent<HTMLFormElement>){
+   event.preventDefault();
+-  if(!owner||!ready||pending.current||!text.trim()||!date)return;
++  if(!owner||!ready||editing||pending.current||!text.trim()||!date)return;
+   const draft=JSON.stringify([date,text,lucid]);
+   if(intention.current?.draft!==draft)intention.current={draft,id:crypto.randomUUID()};
+   const {id}=intention.current,controller=new AbortController();
+@@ -62,11 +64,30 @@
+   try{
+    const result=await request<Saved>(endpoint,ownerKey,{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:JSON.stringify({context:owner,id,date,text,lucid}),signal:controller.signal});
+    if(controller.signal.aborted)return;
+-   if(result.entry?.id!==id||result.entry.date!==date||result.entry.lucid!==lucid||result.entry.text!==text.trim().replace(/\r\n?/g,'\n'))throw Error('The save could not be verified. Retry without changing your draft.');
++   if(result.entry?.id!==id||result.entry.date!==date||result.entry.lucid!==lucid||result.entry.text!==normalized(text))throw Error('The save could not be verified. Retry without changing your draft.');
+    setEntries(prev=>[result.entry,...prev.filter(item=>item.id!==id)].sort((a,b)=>b.savedAt-a.savedAt||(b.id>a.id?1:b.id<a.id?-1:0)));
+    intention.current=null;setText('');setLucid(false);setChosenDate('');setStatus('Dream saved.');
+   }catch(e){if(!controller.signal.aborted)failed(e,'Save not confirmed. Your draft is still here.');}
+   finally{if(!controller.signal.aborted){pending.current=null;setSaving(false);}}
++ }
++ async function update(event:FormEvent<HTMLFormElement>){
++  event.preventDefault();
++  if(!owner||!ready||!editing||!editing.text.trim()||pending.current)return;
++  const draft=editing,controller=new AbortController();
++  pending.current={kind:'edit',controller};setSaving(true);setEditError('');setEditStatus(null);
++  try{
++   const {entry}=await request<Saved>(endpoint,ownerKey,{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:JSON.stringify({context:owner,id:draft.id,date:draft.date,text:draft.text,lucid:draft.lucid,revision:draft.revision}),signal:controller.signal});
++   if(controller.signal.aborted)return;
++   if(!entry||entry.id!==draft.id||entry.date!==draft.date||entry.lucid!==draft.lucid||entry.text!==normalized(draft.text)||entry.savedAt!==draft.savedAt||!Number.isSafeInteger(entry.revision)||entry.revision<draft.revision)throw Error('The edit could not be verified. Retry without changing your draft.');
++   setEntries(prev=>prev.map(item=>item.id===entry.id?entry:item));
++   setEditing(null);setEditStatus({id:entry.id,text:'Changes saved.'});
++  }catch(e){
++   if(!controller.signal.aborted){
++    const message=e instanceof Error?e.message:'Could not save changes. Your draft is still here.';
++    if(authError(e))failed(e,message);
++    setEditError(message);
++   }
++  }finally{if(!controller.signal.aborted){pending.current=null;setSaving(false);}}
+  }
+  async function older(){
+   if(!owner||!ready||!cursor||pending.current)return;
+@@ -86,14 +107,30 @@
+    <label className={styles.field}>Dream date<input type="date" required min="2020-01-01" max={today} value={date} disabled={saving} onChange={e=>{setChosenDate(e.target.value);setStatus('');}}/></label>
+    <label className={styles.field}>What do you remember?<textarea rows={4} maxLength={8000} placeholder="Write down what happened in your dream…" required value={text} disabled={saving} onChange={e=>{setText(e.target.value);setStatus('');}}/></label>
+    <label className={styles.lucid}><input type="checkbox" checked={lucid} disabled={saving} onChange={e=>{setLucid(e.target.checked);setStatus('');}}/><span><strong>Lucid dream</strong><small>I realized I was dreaming and tried to interact with the dream.</small></span></label>
+-   <button type="submit" disabled={!ready||saving||loading||!text.trim()}>{saving?'Saving…':'Save dream'}</button>
++   <button type="submit" disabled={!ready||saving||loading||!!editing||!text.trim()}>{saving?'Saving…':'Save dream'}</button>
+   </form>
+   {status&&<p role="status">{status}</p>}
+   {error&&<p role="alert">{error}{!ready&&!loading&&<> <button type="button" onClick={()=>setRetry(n=>n+1)}>Try again</button></>}</p>}
+   {loading&&!ready&&<p role="status">Loading your dream journal…</p>}
+   {ready&&entries.length>0&&<details className={styles.archive}><summary>Saved dreams</summary>
+-   <ul>{entries.map(item=><li key={item.id}><div className={styles.entryHeading}><time dateTime={item.date}>{formatDay.format(new Date(item.date+'T12:00:00Z'))}</time><span>{item.lucid?'Lucid':'Not lucid'}</span></div><p>{item.text}</p></li>)}</ul>
+-   {cursor&&<button type="button" disabled={loading||saving} onClick={()=>void older()}>{loading?'Loading…':'Show older dreams'}</button>}
++   <ul>{entries.map(item=>{
++    const dayLabel=formatDay.format(new Date(item.date+'T12:00:00Z'));
++    return <li key={item.id}>
++     <div className={styles.entryHeading}><time dateTime={item.date}>{dayLabel}</time><span>{item.lucid?'Lucid':'Not lucid'}</span></div>
++     {editing?.id===item.id?<form onSubmit={update} aria-label={`Edit dream from ${dayLabel}`}>
++      <label className={styles.field}>Dream date<input type="date" required min="2020-01-01" max={today} value={editing.date} disabled={saving} onChange={e=>setEditing({...editing,date:e.target.value})}/></label>
++      <label className={styles.field}>Dream details<textarea rows={5} maxLength={8000} required value={editing.text} disabled={saving} onChange={e=>setEditing({...editing,text:e.target.value})}/></label>
++      <label className={styles.lucid}><input type="checkbox" checked={editing.lucid} disabled={saving} onChange={e=>setEditing({...editing,lucid:e.target.checked})}/><span><strong>Lucid dream</strong><small>I realized I was dreaming and tried to interact with the dream.</small></span></label>
++      <div className={styles.actions}><button type="submit" disabled={saving||loading||!editing.text.trim()||!editing.date}>{saving?'Saving…':'Save changes'}</button><button type="button" disabled={saving} onClick={()=>{setEditing(null);setEditError('');}}>Cancel</button></div>
++      {editError&&<p role="alert">{editError}</p>}
++     </form>:<>
++      <p>{item.text}</p>
++      <button type="button" className={styles.edit} aria-label={`Edit dream from ${dayLabel}`} disabled={saving||loading||!!editing} onClick={()=>{setEditing(item);setEditError('');setEditStatus(null);}}><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m16 4 4 4-11 11-5 1 1-5zM14 6l4 4"/></svg> Edit</button>
++      {editStatus?.id===item.id&&<p role="status">{editStatus.text}</p>}
++     </>}
++    </li>;
++   })}</ul>
++   {cursor&&<button type="button" disabled={loading||saving||!!editing} onClick={()=>void older()}>{loading?'Loading…':'Show older dreams'}</button>}
+   </details>}
+  </section>;
+ }
+diff --git a/lib/learner/dream-journal.mjs b/lib/learner/dream-journal.mjs
+--- a/lib/learner/dream-journal.mjs
++++ b/lib/learner/dream-journal.mjs
+@@ -1,13 +1,14 @@
+-import {fail,keys,uuid} from './validation.mjs';
++import {fail,integer,keys,uuid} from './validation.mjs';
+ import {dateKey,todayKey} from './daily.mjs';
+ 
+ const pageSize=20;
+ const ownerContext=(a,s)=>({accountId:a.id,generation:a.generation,sessionTag:s.session_tag});
+-const columns='entry_id,dream_date::text AS dream_date,dream_text,lucid,created_at';
+-const entry=row=>({id:row.entry_id,date:row.dream_date,text:row.dream_text,lucid:row.lucid,savedAt:Number(row.created_at)});
++const columns='entry_id,dream_date::text AS dream_date,dream_text,lucid,created_at,revision';
++const entry=row=>({id:row.entry_id,date:row.dream_date,text:row.dream_text,lucid:row.lucid,savedAt:Number(row.created_at),revision:row.revision});
+ 
+ export function dreamJournalCommand(value){
+- keys(value,['context','id','date','text','lucid']);
++ keys(value,['context','id','date','text','lucid'],['revision']);
++ if(Object.hasOwn(value,'revision')&&!integer(value.revision,1,2147483647))fail(400,'invalid_dream_revision','Open a saved dream before editing it.');
+  if(!uuid(value.id)||typeof value.text!=='string'||!value.text.trim()||value.text.length>8000||/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\p{Cs}]/u.test(value.text)||typeof value.lucid!=='boolean'){
+   fail(400,'invalid_dream','Write between 1 and 8,000 characters and choose whether the dream was lucid.');
+  }
+@@ -28,6 +29,19 @@
+  write(p,now,context,value){return this.repository.owned(p,now,false,async(db,a,s,time)=>{
+   this.repository.check(a,s,context);
+   const date=dateKey(value.date,todayKey(time));
++  if(value.revision!==undefined){
++   const key=[a.id,value.id],args=[...key,date,value.text,value.lucid];
++   const {rows:[row]}=await db.query('SELECT '+columns+' FROM learner_app.dream_journal WHERE account_id=$1 AND entry_id=$2',key);
++   if(!row)fail(404,'dream_not_found','That saved dream was not found.');
++   const current=entry(row);
++   // Repeated submissions after a lost success response are safe. Conflicting
++   // edits from another tab never get silently overwritten.
++   if(current.date===date&&current.text===value.text&&current.lucid===value.lucid)return {context:ownerContext(a,s),entry:current};
++   if(current.revision!==value.revision||current.revision===2147483647)fail(409,'dream_edit_conflict','This dream changed on another screen. Copy any new details you typed, then refresh and reopen the entry.');
++   const {rows:[updated]}=await db.query('UPDATE learner_app.dream_journal SET dream_date=$3,dream_text=$4,lucid=$5,revision=revision+1 WHERE account_id=$1 AND entry_id=$2 AND revision=$6 RETURNING '+columns,[...args,value.revision]);
++   if(!updated)fail(409,'dream_edit_conflict','This dream changed on another screen. Copy any new details you typed, then refresh and reopen the entry.');
++   return {context:ownerContext(a,s),entry:entry(updated)};
++  }
+   const args=[a.id,value.id,date,value.text,value.lucid,time];
+   const {rows:[inserted]}=await db.query('INSERT INTO learner_app.dream_journal(account_id,entry_id,dream_date,dream_text,lucid,created_at) VALUES($1,$2,$3,$4,$5,$6) ON CONFLICT DO NOTHING RETURNING '+columns,args);
+   const saved=entry(inserted??(await db.query('SELECT '+columns+' FROM learner_app.dream_journal WHERE account_id=$1 AND entry_id=$2',args.slice(0,2))).rows[0]);
+diff --git a/lib/learner/server.mjs b/lib/learner/server.mjs
+--- a/lib/learner/server.mjs
++++ b/lib/learner/server.mjs
+@@ -110,7 +110,7 @@
+    }
+    stage='csrf';if(!equal(request.headers.get('x-csrf-token'),csrf(p)))fail(403,'csrf_failed','Reload your learner account before trying again.');
+    stage='body';const value=await body(request);
+-   if(path==='dream-journal')return json(await dreams.write(p,now,context(value.context),dreamJournalCommand(value)),201);
++   if(path==='dream-journal'){const command=dreamJournalCommand(value);return json(await dreams.write(p,now,context(command.context),command),command.revision===undefined?201:200);}
+    if(path==='daily-positivity')return json(await positivity.write(p,context(value.context),positivityCommand(value),now));
+    if(path==='daily-weight')return json(await weight.write(p,context(value.context),weightCommand(value),now));
+    if(path==='life-lessons')return json(await lifeLessons.mutate(p,context(value.context),lifeLessonCommand(value),now));
+diff --git a/migrations/044_dream_journal_edits.sql b/migrations/044_dream_journal_edits.sql
+new file mode 100644
+--- /dev/null
++++ b/migrations/044_dream_journal_edits.sql
+@@ -0,0 +1,5 @@
++-- Add a revision for conflict-safe edits; all existing entries start at revision 1.
++BEGIN;
++ALTER TABLE learner_app.dream_journal ADD COLUMN IF NOT EXISTS revision integer NOT NULL DEFAULT 1 CHECK (revision > 0);
++GRANT UPDATE (dream_date,dream_text,lucid,revision) ON learner_app.dream_journal TO learner_runtime;
++COMMIT;
+diff --git a/tests/dream-journal.test.mjs b/tests/dream-journal.test.mjs
+--- a/tests/dream-journal.test.mjs
++++ b/tests/dream-journal.test.mjs
+@@ -27,6 +27,11 @@
+    return {status:r.status,cache:r.headers.get('cache-control'),body:await r.json()};
+   }
+   const session=(await req('session')).body;
++  const legacyId=randomUUID();
++  await db.query("INSERT INTO learner_app.dream_journal(account_id,entry_id,dream_date,dream_text,lucid,created_at) VALUES($1,$2,'2026-11-24','Existing private dream',false,$3)",[session.context.accountId,legacyId,now-86400000]);
++  const edits=read('migrations/044_dream_journal_edits.sql');
++  await db.exec(edits);await db.exec(edits);
++  const legacy=(await req()).body.entries[0];assert.equal(legacy.id,legacyId);assert.equal(legacy.revision,1);
+   const command={context:session.context,id:randomUUID(),date:'2026-11-27',text:' Flying 🪁\r\nOver a quiet lake. ',lucid:true};
+   const post=(payload=command,csrf=session.csrfToken)=>req(undefined,{payload,csrf});
+   assert.equal((await req()).body.today,'2026-11-27');
+@@ -36,8 +41,9 @@
+   }
+   for(const path of ['dream-journal?cursor=bad','dream-journal?cursor=&cursor=bad','dream-journal?accountId=spoof'])assert.equal((await req(path)).status,400);
+   const first=await post();assert.equal(first.status,201);assert.equal(first.cache,'private, no-store');
++  assert.equal(first.body.entry.revision,1);
+   assert.equal(first.body.entry.text,'Flying 🪁\nOver a quiet lake.');assert.equal(first.body.entry.lucid,true);
+-  const seen=new Map([[command.id,first.body.entry]]);
++  const seen=new Map([[command.id,first.body.entry],[legacyId,legacy]]);
+   const retro={...command,id:randomUUID(),date:'2026-11-25',text:'A stairway',lucid:false};
+   const second=await post(retro);assert.equal(second.status,201);assert.equal(second.body.entry.lucid,false);seen.set(retro.id,second.body.entry);
+   for(let i=0;i<20;i++){
+@@ -46,9 +52,18 @@
+   }
+   now+=1000;
+   assert.deepEqual(await post(),first);assert.equal((await post({...command,lucid:false})).status,409);
++  const changed={...command,revision:1,text:'I remembered a blue door.',date:'2026-11-26',lucid:false};
++  for(const revision of [0,-1,'1',null,2147483648])assert.equal((await post({...changed,revision})).status,400);
++  assert.equal((await post(changed,'bad')).status,403);
++  const edited=await post(changed);assert.equal(edited.status,200);assert.equal(edited.cache,'private, no-store');
++  assert.deepEqual(edited.body.entry,{...first.body.entry,date:changed.date,text:changed.text,lucid:false,revision:2});
++  assert.deepEqual(await post(changed),edited);
++  assert.equal((await post({...changed,text:'Stale edit'})).body.code,'dream_edit_conflict');
++  assert.equal((await post({...changed,revision:2,date:'2027-01-01'})).status,400);
++  seen.set(command.id,edited.body.entry);
+   const recent=await req();assert.equal(recent.body.today,'2026-11-28');assert.equal(recent.body.entries.length,20);
+   const older=await req('dream-journal?cursor='+recent.body.nextCursor);
+-  assert.equal(older.body.entries.length,2);assert.equal(older.body.nextCursor,null);
++  assert.equal(older.body.entries.length,3);assert.equal(older.body.nextCursor,null);
+   assert.deepEqual(new Map([...recent.body.entries,...older.body.entries].map(item=>[item.id,item])),seen);
+   assert.equal((await req(undefined,{origin:LEARNER_ORIGIN})).status,404);
+   assert.equal((await req(undefined,{origin:LEARNER_ORIGIN,payload:command,csrf:session.csrfToken})).status,404);
+@@ -59,8 +74,9 @@
+   assert.deepEqual((await req()).body.entries,[]);
+   assert.deepEqual((await req('dream-journal?cursor='+recent.body.nextCursor)).body.entries,[]);
+   assert.equal((await post(command,other.csrfToken)).status,409);
+-  const grants=(await db.query("SELECT has_table_privilege('learner_runtime','learner_app.dream_journal','SELECT') AS read,has_table_privilege('learner_runtime','learner_app.dream_journal','INSERT') AS write,has_table_privilege('learner_runtime','learner_app.dream_journal','UPDATE') AS edit,has_table_privilege('learner_runtime','learner_app.dream_journal','DELETE') AS del")).rows[0];
+-  assert.deepEqual(grants,{read:true,write:true,edit:false,del:false});
++  assert.equal((await post({...changed,context:other.context},other.csrfToken)).status,404);
++  const grants=(await db.query("SELECT has_table_privilege('learner_runtime','learner_app.dream_journal','SELECT') AS read,has_table_privilege('learner_runtime','learner_app.dream_journal','INSERT') AS write,has_column_privilege('learner_runtime','learner_app.dream_journal','dream_text','UPDATE') AS edit,has_column_privilege('learner_runtime','learner_app.dream_journal','created_at','UPDATE') AS reorder,has_column_privilege('learner_runtime','learner_app.dream_journal','account_id','UPDATE') AS reassign,has_table_privilege('learner_runtime','learner_app.dream_journal','DELETE') AS del")).rows[0];
++  assert.deepEqual(grants,{read:true,write:true,edit:true,reorder:false,reassign:false,del:false});
+  }finally{await db.close();}
+ });
+ 
+@@ -68,7 +84,7 @@
+  assert.match(read('app/page.tsx'),/dreamJournalEnabled=\{process\.env\.LEARNER_APP_ORIGIN===DAILY_BALANCE_ORIGIN\}/);
+  assert.match(read('components/daily-dashboard.tsx'),/dreamJournalEnabled&&.*<DreamJournal owner=\{data\?\.context\}/);
+  const source=read('components/dream-journal.tsx');
+- for(const label of ['Dream Journal','Dream date','Lucid dream','I realized I was dreaming and tried to interact with the dream.','Save dream','Saved dreams'])assert.ok(source.includes(label),label);
++ for(const label of ['Dream Journal','Dream date','Lucid dream','I realized I was dreaming and tried to interact with the dream.','Save dream','Saved dreams','Save changes','Cancel','Dream details','<svg aria-hidden'])assert.ok(source.includes(label),label);
+  assert.match(source,/<textarea/);assert.match(source,/<input type="checkbox" checked=\{lucid\}/);
+  assert.match(source,/X-CSRF-Token/);assert.match(source,/keyOf\(value\.context\)!==key/);
+  assert.doesNotMatch(source,/localStorage|sessionStorage|dangerouslySetInnerHTML/);
